@@ -16,6 +16,7 @@ Verified in Brightspace using Playwright:
 - [Lecture slides: Introduction to OO](Slides/CS6451-A-Intro_OO.pptx)
 - [Reading: Fowler — Refactoring, Chapter 1 (readable PDF)](Readings/Fowler%20-%20Refactoring%20-%20Chapter%2001.pdf)
 - [Notes: MQ — Modularization Quality](Notes/MQ%20-%20Modularization%20Quality.md)
+- [Notes: Gang of Four (GoF) — Design Patterns](Notes/Gang%20of%20Four%20-%20Design%20Patterns.md)
 
 ## Homework — Week 1
 **Task:** Create three slides presenting three findings from Chapter 1 of Martin Fowler's *Refactoring*.
