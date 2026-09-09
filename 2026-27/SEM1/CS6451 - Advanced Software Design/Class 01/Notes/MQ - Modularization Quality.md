@@ -26,4 +26,4 @@ This is a conceptual connection—not a claim that Fowler calculates MQ or that 
 - MQ is a structural indicator, not a complete measure of design quality. Clear responsibilities, behavior preservation, testability, and change requirements still matter.
 
 ## Source
-Initial prompt: user-supplied Google AI Overview screenshot, saved as [MQ - Reference Screenshot.png](MQ%20-%20Reference%20Screenshot.png). The overview's cited sources have not been independently verified; these notes clarify its terminology and summarize the concept.
+Based on a user-supplied Google AI Overview. The overview's cited sources have not been independently verified; these notes clarify its terminology and summarize the concept. The reference screenshot is not retained in this repository.
