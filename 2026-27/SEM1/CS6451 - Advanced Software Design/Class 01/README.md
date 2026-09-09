@@ -1,6 +1,9 @@
 # Class 01
 CS6451 — Advanced Software Design | 2026/7 SEM1
 
+## Lecturer
+- **J.J. Collins** — Office: **CS1-014** (shared in class; not in the slides).
+
 ## Brightspace
 [Lecture A slides — CS6451-A-Intro_OO](https://learn.ul.ie/d2l/le/lessons/91675/topics/1401873)
 
