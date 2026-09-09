@@ -24,6 +24,8 @@ Verified in Brightspace using Playwright:
 
 ## Homework — Week 1
 
+[Full homework checklist](Homework/README.md) — synchronized with lecture slides **15 and 64**, including the UML paper presentation, Observer reading, and written questions. Differences between the two lists are noted there.
+
 ### Fowler — Three slides
 **Task:** Create three slides presenting three findings from Chapter 1 of Martin Fowler's *Refactoring*.
 
@@ -31,11 +33,11 @@ Verified in Brightspace using Playwright:
 - **Status:** Markdown outline drafted; PowerPoint deck not yet created. Submission status not recorded.
 - **Due date:** Not specified.
 
-### Design by Contract — One slide for next week
-**Task:** Read Bertrand Meyer's *Applying “Design by Contract”* and explain it in **one slide**, not one page.
+### Design by Contract — Two slides for Week 2
+**Task:** Read Bertrand Meyer's *Applying “Design by Contract”* and summarise the key findings in **2 slides**, as specified on lecture slides 15 and 64. The earlier one-slide instruction has been corrected.
 
-- [Draft: Design by Contract — one slide](Homework/Design%20by%20Contract%20-%20One%20Slide.md)
-- **Due:** Next week, as reported in class; exact date not specified.
-- [One-slide PowerPoint with speaker notes](Homework/Design%20by%20Contract%20-%20One%20Slide.pptx)
-- [PDF version](Homework/Design%20by%20Contract%20-%20One%20Slide.pdf)
-- **Status:** One-slide PowerPoint and PDF created. Submission status not recorded.
+- [Preparation outline](Homework/Design%20by%20Contract%20-%20Two%20Slides.md)
+- **Due:** Present in the Week 2 tutorial; exact calendar date not specified.
+- [Two-slide PowerPoint with speaker notes](Homework/Design%20by%20Contract%20-%20Two%20Slides.pptx)
+- [PDF version](Homework/Design%20by%20Contract%20-%20Two%20Slides.pdf)
+- **Status:** Two-slide PowerPoint and PDF created. Submission status not recorded.
