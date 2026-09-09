@@ -15,5 +15,11 @@ Verified in Brightspace using Playwright:
 ## Materials
 - [Lecture slides: Introduction to OO](Slides/CS6451-A-Intro_OO.pptx)
 - [Reading: Fowler — Refactoring, Chapter 1 (readable PDF)](Readings/Fowler%20-%20Refactoring%20-%20Chapter%2001.pdf)
-- [Three findings from Chapter 1 — slide outline](Slides/Chapter%2001%20-%20Three%20Findings.md)
 - [Notes: MQ — Modularization Quality](Notes/MQ%20-%20Modularization%20Quality.md)
+
+## Homework — Week 1
+**Task:** Create three slides presenting three findings from Chapter 1 of Martin Fowler's *Refactoring*.
+
+- [Draft: Three findings — slide outline](Homework/Chapter%2001%20-%20Three%20Findings.md)
+- **Status:** Markdown outline drafted; PowerPoint deck not yet created. Submission status not recorded.
+- **Due date:** Not specified.

@@ -18,6 +18,7 @@ Class notes, readings, and study material organized by academic year, semester, 
 └── SEM1/
     └── CS6451 - Advanced Software Design/
         ├── Class 01/
+        │   ├── Homework/
         │   ├── Notes/
         │   ├── Readings/
         │   └── Slides/
