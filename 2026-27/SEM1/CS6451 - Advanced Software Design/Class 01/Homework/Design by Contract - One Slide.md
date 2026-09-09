@@ -2,7 +2,7 @@
 CS6451 — Advanced Software Design | Assigned in Class 01 | Due next week (exact date not specified)
 
 **Task:** Explain Bertrand Meyer's paper in one slide.
-**Status:** Slide content drafted in Markdown; presentation deck not yet created. Submission status not recorded.
+**Status:** [One-slide PowerPoint with speaker notes](Design%20by%20Contract%20-%20One%20Slide.pptx) and [PDF version](Design%20by%20Contract%20-%20One%20Slide.pdf) created. Submission status not recorded. The outline below is the preparation draft; the final slide condenses it, with supporting detail in speaker notes.
 
 ## Slide content
 

@@ -36,4 +36,6 @@ Verified in Brightspace using Playwright:
 
 - [Draft: Design by Contract — one slide](Homework/Design%20by%20Contract%20-%20One%20Slide.md)
 - **Due:** Next week, as reported in class; exact date not specified.
-- **Status:** Markdown slide content drafted; presentation deck not yet created. Submission status not recorded.
+- [One-slide PowerPoint with speaker notes](Homework/Design%20by%20Contract%20-%20One%20Slide.pptx)
+- [PDF version](Homework/Design%20by%20Contract%20-%20One%20Slide.pdf)
+- **Status:** One-slide PowerPoint and PDF created. Submission status not recorded.
