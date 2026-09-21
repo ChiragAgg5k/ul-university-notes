@@ -13,7 +13,7 @@ Class notes, readings, and study material organized by academic year, semester, 
 
 ## 2026/27 · CSIS Project
 
-- [Supervisor selection](2026-27/CSIS%20Project/README.md) — choices submitted 21 Sep 2026, form responses, and the CSIS supervisor directory
+- [Supervisor selection](2026-27/CSIS%20Project/README.md) — draft supervisor choices and form responses (deadline Mon 28 Sep 2026), plus the CSIS supervisor directory
 
 ## Organization
 

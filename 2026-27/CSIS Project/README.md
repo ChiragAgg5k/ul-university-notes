@@ -1,6 +1,6 @@
 # CSIS Project — Supervisor Selection
 
-Record of the supervisor preference form submitted on 21 September 2026 (Microsoft Forms, CSIS).
+**Status: draft, not yet submitted.** Deadline is Monday 28 September 2026 (week 4). Giving the choices and outline more thought before submitting the Microsoft Forms preference form (CSIS Masters Project, Spring Start).
 
 ## Supervisor choices
 
