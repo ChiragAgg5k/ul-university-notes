@@ -11,10 +11,15 @@ Class notes, readings, and study material organized by academic year, semester, 
   - Fowler's *Refactoring*, Chapter 1: readable scans and a three-slide findings outline
   - Modularization Quality (MQ) notes
 
+## 2026/27 · Project
+
+- [Supervisor selection](2026-27/Project/README.md) — choices submitted 21 Sep 2026, form responses, and the CSIS supervisor directory
+
 ## Organization
 
 ```text
 2026-27/
+├── Project/
 └── SEM1/
     └── CS6451 - Advanced Software Design/
         ├── Class 01/
