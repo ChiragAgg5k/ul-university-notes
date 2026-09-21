@@ -1,4 +1,4 @@
-# MSc Software Engineering Project — Supervisor Selection
+# CSIS Project — Supervisor Selection
 
 Record of the supervisor preference form submitted on 21 September 2026 (Microsoft Forms, CSIS).
 
