@@ -10,6 +10,9 @@ Class notes, readings, and study material organized by academic year, semester, 
   - Lecture slides
   - Fowler's *Refactoring*, Chapter 1: readable scans and a three-slide findings outline
   - Modularization Quality (MQ) notes
+- [Class 02: Design principles, SOLID, DDD, UML](2026-27/SEM1/CS6451%20-%20Advanced%20Software%20Design/Class%2002/README.md)
+- [Class 03: Statecharts](2026-27/SEM1/CS6451%20-%20Advanced%20Software%20Design/Class%2003/README.md)
+- [Assignment Part 1: OOAD + OOP + Patterns + Refactoring](2026-27/SEM1/CS6451%20-%20Advanced%20Software%20Design/Assignments/Part%201%20-%20OOAD,%20OOP,%20Patterns,%20Refactoring/README.md) — team project, 25%, due **Sun 1 Nov 2026 23:59**; spec, marking scheme, and progress tracker
 
 ## 2026/27 · CSIS Project
 
@@ -27,7 +30,10 @@ Class notes, readings, and study material organized by academic year, semester, 
         │   ├── Notes/
         │   ├── Readings/
         │   └── Slides/
+        ├── Class 02/
+        ├── Class 03/
         ├── Assignments/
+        │   └── Part 1 - OOAD, OOP, Patterns, Refactoring/
         └── Resources/
 ```
 
