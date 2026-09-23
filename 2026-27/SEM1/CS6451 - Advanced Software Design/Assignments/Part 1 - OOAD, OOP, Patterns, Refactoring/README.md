@@ -4,6 +4,7 @@ CS6451 — Advanced Software Design | 2026/7 SEM1 | Lecturer: J.J. Collins
 
 - [Specification v1.0](CS6451-AssignPart1-Spec-S1AY2627-v1.pdf) (issued Wed 23 Sep 2026, Week 3)
 - [Marking scheme v1](CS6451-AssignPart1-MarkingScheme-S1AY2627-v1.pdf)
+- Team repo (private): [ChiragAgg5k/cs6451-gym-membership](https://github.com/ChiragAgg5k/cs6451-gym-membership). It holds the requirements draft, role proposal, diary, GenAI prompt log, sample-project lessons, and milestones for each iteration
 
 **Status: team formed (Brightspace Group 1), scenario chosen: gym and fitness club membership (23 Sep 2026).** Language not yet chosen.
 
@@ -55,7 +56,7 @@ The suggested plan comes from the spec (Table 3). Dates assume Week 1 started Mo
 
 | Week (w/c) | Workflow | Done |
 | --- | --- | --- |
-| 3 (21 Sep) | ~~Form the team~~ (done: Group 1), ~~agree the scenario~~ (done: gym membership). Assign roles, set up GitHub, look at existing projects, start requirements | [ ] |
+| 3 (21 Sep) | ~~Form the team~~ (done: Group 1), ~~agree the scenario~~ (done: gym membership). Assign roles (proposal in team repo), ~~set up GitHub~~ (done), ~~look at existing projects~~ (done), start requirements (draft in team repo) | [ ] |
 | 4 (28 Sep) | Architecture and analysis. Team deadline Wed 30 Sep. Sample projects released Mon 28 Sep | [ ] |
 | 5 (5 Oct) | Iteration 1: architecture, 2 key use cases, 2 test cases | [ ] |
 | 6 (12 Oct) | Iteration 2: 2 more use cases, design pattern(s) | [ ] |
