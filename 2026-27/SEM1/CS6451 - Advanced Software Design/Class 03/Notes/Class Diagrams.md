@@ -86,6 +86,8 @@ class Order {
 
 The multiplicity at the target becomes **0..1**: for a given Product, there is at most one line.
 
+**Why not `1..*`?** A qualifier changes what the multiplicity counts. Without a qualifier, `Order ◆── 1..* OrderLine` counts *all* of an Order's lines. With a qualifier, it counts lines **per (Order, key) pair**, like `map.get(key)`: none if that Product isn't ordered, one if it is. The Order still has many lines overall, one per distinct Product. Use `*` after a qualifier only when a key can give several targets (a multimap), e.g. `Library [:isbn] ── * Copy`.
+
 ## 7. The rest of the notation
 
 - **Roles:** name the part each class plays at each end (e.g. `employer` / `employee`).
