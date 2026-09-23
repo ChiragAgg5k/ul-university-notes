@@ -5,7 +5,7 @@ CS6451 — Advanced Software Design | 2026/7 SEM1 | Lecturer: J.J. Collins
 - [Specification v1.0](CS6451-AssignPart1-Spec-S1AY2627-v1.pdf) (issued Wed 23 Sep 2026, Week 3)
 - [Marking scheme v1](CS6451-AssignPart1-MarkingScheme-S1AY2627-v1.pdf)
 
-**Status: not started.** Team, scenario and language not yet chosen.
+**Status: team formed (Brightspace Group 1, 23 Sep 2026).** Scenario and language not yet chosen.
 
 ## Key facts
 
@@ -13,7 +13,7 @@ CS6451 — Advanced Software Design | 2026/7 SEM1 | Lecturer: J.J. Collins
 | --- | --- |
 | Weight | 25% of the module. An F or NG in the assignment means an F in the module |
 | Deadline | **23:59 Sun 1 Nov 2026** (the spec calls this Week 9) on Brightspace. Late work is not accepted |
-| Team | 3 or 4 people. If you have no team by **Wed 30 Sep (Week 4)**, email the lecturer with the subject `CS6451 - team` |
+| Team | 3 or 4 people. **Done: Group 1 on Brightspace, 4 members** (see [Team](#team)), so no `CS6451 - team` email is needed |
 | Walkthrough | May be required in weeks 10–15. Not attending means an F |
 | Language / IDE | Your choice |
 | Architecture | **Monolithic only**. Must include MVC plus one pattern you researched yourself. Not MVC, Broker or Scheduler, which were covered in lectures. Microservices belong to Part 2 |
@@ -55,7 +55,7 @@ The suggested plan comes from the spec (Table 3). Dates assume Week 1 started Mo
 
 | Week (w/c) | Workflow | Done |
 | --- | --- | --- |
-| 3 (21 Sep) | Form the team and assign roles, agree the scenario, set up GitHub, look at existing projects, start requirements | [ ] |
+| 3 (21 Sep) | ~~Form the team~~ (done: Group 1). Assign roles, agree the scenario, set up GitHub, look at existing projects, start requirements | [ ] |
 | 4 (28 Sep) | Architecture and analysis. Team deadline Wed 30 Sep. Sample projects released Mon 28 Sep | [ ] |
 | 5 (5 Oct) | Iteration 1: architecture, 2 key use cases, 2 test cases | [ ] |
 | 6 (12 Oct) | Iteration 2: 2 more use cases, design pattern(s) | [ ] |
@@ -66,11 +66,14 @@ Suggested roles (spec Table 2): Project Manager, Documentation Manager, Business
 
 ## Team
 
+Brightspace **Group 1**.
+
 | Member | ID | Roles | Industry experience |
 | --- | --- | --- | --- |
 | Chirag Aggarwal | 26253925 | | Platform Engineer at Appwrite (open-source backend platform): PHP 8 / Swoole, Kubernetes, KEDA, Grafana / OpenTelemetry. Complete this row |
-| | | | |
-| | | | |
+| Bharat Doodi | | | |
+| DineshReddy Mogili | | | |
+| Dhruv Punj | | | |
 
 ## Decisions
 
