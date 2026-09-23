@@ -2,6 +2,7 @@
 CS6451 — Advanced Software Design | 2026/7 SEM1
 
 ## Notes
+- [Notes: Class Diagrams](Notes/Class%20Diagrams.md)
 - [Notes: Statecharts](Notes/Statecharts.md)
 
 ## Assignment

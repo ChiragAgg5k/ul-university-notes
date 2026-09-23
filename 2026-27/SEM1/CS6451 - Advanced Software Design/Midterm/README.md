@@ -62,8 +62,8 @@ Pattern: every question is either **define + draw** or **write a short piece of 
 - [ ] Slide B-57 review questions
 
 ### Lecture C: More analysis diagrams
-- [ ] Association vs aggregation vs composition: notation, lifetime, multiplicity at the whole end
-- [ ] Roles, multiplicity, navigability, **qualified associations** (Order `lineNo` → OrderLine: e.g. `void addLineItem(int lineNo, Product p)`, `Product getLineItem(int lineNo)`), derived associations, constraints/OCL, association classes
+- [ ] [Class diagram notes](../Class%2003/Notes/Class%20Diagrams.md). Association vs aggregation vs composition: notation, lifetime, multiplicity at the whole end
+- [ ] Roles, multiplicity, navigability, **qualified associations** (slide C-11: Order qualified by Product → OrderLine: `OrderLine getLineItem(Product aProduct)`, `void addLineItem(Number amount, Product forProduct)`), derived associations, constraints/OCL, association classes
 - [ ] Abstract classes, templates, attribute and operation syntax (`visibility name: type [multiplicity] = default {property}`)
 - [ ] Sequence diagrams, UML 2 frames: **loop, alt, opt, par, region/critical, neg, ref, sd**
 - [ ] Communication diagrams: nested sequence numbers, message types
