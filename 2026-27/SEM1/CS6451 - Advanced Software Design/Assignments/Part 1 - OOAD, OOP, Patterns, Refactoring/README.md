@@ -5,7 +5,7 @@ CS6451 — Advanced Software Design | 2026/7 SEM1 | Lecturer: J.J. Collins
 - [Specification v1.0](CS6451-AssignPart1-Spec-S1AY2627-v1.pdf) (issued Wed 23 Sep 2026, Week 3)
 - [Marking scheme v1](CS6451-AssignPart1-MarkingScheme-S1AY2627-v1.pdf)
 
-**Status: team formed (Brightspace Group 1, 23 Sep 2026).** Scenario and language not yet chosen.
+**Status: team formed (Brightspace Group 1), scenario chosen: gym and fitness club membership (23 Sep 2026).** Language not yet chosen.
 
 ## Key facts
 
@@ -55,7 +55,7 @@ The suggested plan comes from the spec (Table 3). Dates assume Week 1 started Mo
 
 | Week (w/c) | Workflow | Done |
 | --- | --- | --- |
-| 3 (21 Sep) | ~~Form the team~~ (done: Group 1). Assign roles, agree the scenario, set up GitHub, look at existing projects, start requirements | [ ] |
+| 3 (21 Sep) | ~~Form the team~~ (done: Group 1), ~~agree the scenario~~ (done: gym membership). Assign roles, set up GitHub, look at existing projects, start requirements | [ ] |
 | 4 (28 Sep) | Architecture and analysis. Team deadline Wed 30 Sep. Sample projects released Mon 28 Sep | [ ] |
 | 5 (5 Oct) | Iteration 1: architecture, 2 key use cases, 2 test cases | [ ] |
 | 6 (12 Oct) | Iteration 2: 2 more use cases, design pattern(s) | [ ] |
@@ -77,13 +77,20 @@ Brightspace **Group 1**.
 
 ## Decisions
 
-- Scenario: _TBD_
+- Scenario: **Gym and fitness club membership** (chosen 23 Sep 2026)
 - Language / stack: _TBD_
 - Self-researched architectural pattern: _TBD_
 - 4 design patterns: _TBD_
 - Quality attributes: extensibility + _TBD_
 - Lifecycle: _TBD_
 - UML workbench: _TBD_
+
+### Scenario starting points (not decided yet)
+
+- **Business rules:** membership plans (monthly, annual, student, off-peak), class bookings with capacity limits and waitlists, no-show penalties, freezing a membership, referral credits, off-peak discounts.
+- **Candidate design patterns:** Strategy (billing plans and discounts), State (membership lifecycle), Observer (waitlist and payment notifications), Command (bookings with undo, i.e. cancel).
+- **State chart candidate:** `Membership`: Trial → Active → Frozen → Lapsed → Cancelled.
+- **Extensibility story:** add a new plan type or class type without changing existing code.
 
 ## Related notes
 
