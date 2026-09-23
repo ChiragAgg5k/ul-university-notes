@@ -2,7 +2,7 @@
 
 CS6451 — Advanced Software Design | 2026/7 SEM1 | Lecturer: J.J. Collins
 
-**Status: plan drafted 23 Sep 2026, studying not started.**
+**Status: study order drafted 23 Sep 2026, studying not started.**
 
 ## Format
 
@@ -77,27 +77,25 @@ Pattern: every question is either **define + draw** or **write a short piece of 
 - [ ] GoF Observer: intent, **2 applicability points**, structure (Subject, Observer, ConcreteSubject, ConcreteObserver; `attach`/`detach`/`notify`/`update`), consequences (loose coupling, broadcast, unexpected cascading updates)
 - [ ] MVC: roles, initialisation sequence (Model created → View registers as an observer of the Model → View creates its Controller), why Views own their Controllers (a controller is specific to a view's widgets and interaction style, and a view can swap controllers — Strategy)
 
-## Schedule
+## Study order
 
-Evenings about 1 hour, weekends about 2–3 hours. This fits around the assignment kickoff and the Wed 30 Sep team deadline.
+Each step builds on the one before it. You set the pace.
 
-| Day | Focus | Done |
-| --- | --- | --- |
-| Wed 23 Sep | Try both past midterms cold, without notes, just to see the gaps. Tick what you can already answer | [ ] |
-| Thu 24 Sep | Lecture A: good software, interfaces, polymorphism vs RTTI (write the code by hand), Three Amigos, notation benefits and liabilities | [ ] |
-| Fri 25 Sep | Meyer DbC + LSP / behavioural subtyping. Draw a subcontracting example | [ ] |
-| Sat 26 Sep | Fowler ch. 1: write the critique of `statement()` and draw the refactored class diagram from memory | [ ] |
-| Sun 27 Sep | Lecture B: lifecycles, use cases, include/extend, use case description, requirements → class diagram method with BCE and CRC | [ ] |
-| Mon 28 Sep | Lecture C: associations, aggregation/composition, qualified and association classes. Code the Order–OrderLine–Product and CD Player–Play Button associations | [ ] |
-| Tue 29 Sep | Lecture C: sequence diagram operators, communication diagrams | [ ] |
-| Wed 30 Sep | Week 4 lecture. State charts: triggers, guards, composite/concurrent. Implement Campaign `authorised()` | [ ] |
-| Thu 1 Oct | Interfaces and design principles, one example each. UML critique | [ ] |
-| Fri 2 Oct | Observer (reading + structure diagram) and MVC | [ ] |
-| Sat 3 Oct | **Timed mock:** 23/24 midterm, 60 minutes, closed book. Mark it, then fix the gaps | [ ] |
-| Sun 4 Oct | **Timed mock:** 24/25 midterm, then answer the slide B-57 questions | [ ] |
-| Mon 5 Oct | Diagram drill from memory: include/extend, qualified association, composition, Campaign state chart, Observer structure, MVC sequence, LSP | [ ] |
-| Tue 6 Oct | Light review of weak spots and Week 4 content only | [ ] |
-| **Wed 7 Oct** | **Midterm** (date to be confirmed) | [ ] |
+1. **Baseline.** Try both past midterms without notes and mark which questions you can't answer yet. This tells you where to spend the most effort.
+2. **Lecture A: good software and OO.** Everything later assumes it: interfaces, coupling and cohesion, polymorphism vs RTTI.
+3. **Meyer's Design by Contract → LSP / behavioural subtyping.** The most-examined topic. Pre/postconditions lead into "demand no more, promise no less".
+4. **Fowler, ch. 1.** Uses polymorphism from step 2. Practise the critique plus the refactored diagram together, since past papers pair them.
+5. **Lecture B: lifecycles and use cases.** Include/extend, descriptions, criticisms.
+6. **Lecture B: requirements → conceptual class diagram method.** Needs step 5. Covers noun identification, BCE, CRC and the use case class diagram.
+7. **Lecture C: associations.** Aggregation/composition, qualified associations, association classes. Code them too: Order–OrderLine–Product, CD Player–Play Button.
+8. **Lecture C: sequence and communication diagrams.** The interaction operators.
+9. **Lecture C: state charts.** Needs step 8's dynamic modelling. Implement Campaign `authorised()`.
+10. **Lecture C: interfaces, design principles, UML critique.** Pulls steps 2–4 together.
+11. **Observer, then MVC.** MVC is built on Observer.
+12. **Timed mocks.** Both past midterms at 60 minutes, closed book, then the slide B-57 questions. Revisit the steps behind any misses.
+13. **Diagram drill from memory.** Include/extend, qualified association, composition, Campaign state chart, Observer structure, MVC sequence, LSP example.
+
+**Priority if time is short:** steps 3, 7, 5–6, 4, 11. These cover about two thirds of past marks.
 
 ## Open questions
 
