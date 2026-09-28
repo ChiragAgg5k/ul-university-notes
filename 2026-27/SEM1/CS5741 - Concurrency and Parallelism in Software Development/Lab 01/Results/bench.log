@@ -1,0 +1,68 @@
+Available processors (cores): 12
+Max heap: 12288 MB
+
+=== array size 100000000 ===
+reference sum = 449976342
+  sequential               threads=1   threshold=0          done
+  concurrent-synchronized  threads=1   threshold=0          done
+  concurrent-localsums     threads=1   threshold=0          done
+  concurrent-synchronized  threads=2   threshold=0          done
+  concurrent-localsums     threads=2   threshold=0          done
+  concurrent-synchronized  threads=3   threshold=0          done
+  concurrent-localsums     threads=3   threshold=0          done
+  concurrent-synchronized  threads=4   threshold=0          done
+  concurrent-localsums     threads=4   threshold=0          done
+  concurrent-synchronized  threads=6   threshold=0          done
+  concurrent-localsums     threads=6   threshold=0          done
+  concurrent-synchronized  threads=8   threshold=0          done
+  concurrent-localsums     threads=8   threshold=0          done
+  concurrent-synchronized  threads=12  threshold=0          done
+  concurrent-localsums     threads=12  threshold=0          done
+  concurrent-synchronized  threads=16  threshold=0          done
+  concurrent-localsums     threads=16  threshold=0          done
+  concurrent-synchronized  threads=24  threshold=0          done
+  concurrent-localsums     threads=24  threshold=0          done
+  parallel-forkjoin        threads=11  threshold=1000       done
+  parallel-forkjoin        threads=11  threshold=10000      done
+  parallel-forkjoin        threads=11  threshold=100000     done
+  parallel-forkjoin        threads=11  threshold=1000000    done
+  parallel-forkjoin        threads=11  threshold=10000000   done
+  parallel-forkjoin        threads=11  threshold=100000000  done
+  parallel-forkjoin        threads=11  threshold=200000000  done
+
+=== array size 200000000 ===
+reference sum = 900035998
+  sequential               threads=1   threshold=0          done
+  concurrent-synchronized  threads=1   threshold=0          done
+  concurrent-localsums     threads=1   threshold=0          done
+  concurrent-synchronized  threads=2   threshold=0          done
+  concurrent-localsums     threads=2   threshold=0          done
+  concurrent-synchronized  threads=3   threshold=0          done
+  concurrent-localsums     threads=3   threshold=0          done
+  concurrent-synchronized  threads=4   threshold=0          done
+  concurrent-localsums     threads=4   threshold=0          done
+  concurrent-synchronized  threads=6   threshold=0          done
+  concurrent-localsums     threads=6   threshold=0          done
+  concurrent-synchronized  threads=8   threshold=0          done
+  concurrent-localsums     threads=8   threshold=0          done
+  concurrent-synchronized  threads=12  threshold=0          done
+  concurrent-localsums     threads=12  threshold=0          done
+  concurrent-synchronized  threads=16  threshold=0          done
+  concurrent-localsums     threads=16  threshold=0          done
+  concurrent-synchronized  threads=24  threshold=0          done
+  concurrent-localsums     threads=24  threshold=0          done
+  parallel-forkjoin        threads=11  threshold=1000       done
+  parallel-forkjoin        threads=11  threshold=10000      done
+  parallel-forkjoin        threads=11  threshold=100000     done
+  parallel-forkjoin        threads=11  threshold=1000000    done
+  parallel-forkjoin        threads=11  threshold=10000000   done
+  parallel-forkjoin        threads=11  threshold=100000000  done
+  parallel-forkjoin        threads=11  threshold=200000000  done
+
+=== data race demo (10M elements, 8 threads) ===
+expected sum = 45005980
+attempt 1: 13372476 (70.29% of updates lost)
+attempt 2: 14488363 (67.81% of updates lost)
+attempt 3: 8920700 (80.18% of updates lost)
+attempt 4: 8510188 (81.09% of updates lost)
+attempt 5: 8069736 (82.07% of updates lost)

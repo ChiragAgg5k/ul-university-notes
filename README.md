@@ -15,6 +15,13 @@ Class notes, readings, and study material organized by academic year, semester, 
 - [Midterm study plan](2026-27/SEM1/CS6451%20-%20Advanced%20Software%20Design/Midterm/README.md) — Week 5 (20%), topic checklist mapped to past papers, study order
 - [Assignment Part 1: OOAD + OOP + Patterns + Refactoring](2026-27/SEM1/CS6451%20-%20Advanced%20Software%20Design/Assignments/Part%201%20-%20OOAD,%20OOP,%20Patterns,%20Refactoring/README.md) — team project, 25%, due **Sun 1 Nov 2026 23:59**; spec, marking scheme, and progress tracker
 
+### CS5741 — Concurrency and Parallelism in Software Development
+
+- [Lab 01: Sequential vs Concurrent vs Parallel](2026-27/SEM1/CS5741%20-%20Concurrency%20and%20Parallelism%20in%20Software%20Development/Lab%2001/README.md)
+  - Lab handout and the three supplied Java files
+  - Benchmark harness sweeping array size, thread count, and fork/join threshold
+  - Worked analysis of the results
+
 ## 2026/27 · CSIS Project
 
 - [Supervisor selection](2026-27/CSIS%20Project/README.md) — draft supervisor choices and form responses (deadline Mon 28 Sep 2026), plus the CSIS supervisor directory
@@ -25,18 +32,24 @@ Class notes, readings, and study material organized by academic year, semester, 
 2026-27/
 ├── CSIS Project/
 └── SEM1/
-    └── CS6451 - Advanced Software Design/
-        ├── Class 01/
-        │   ├── Homework/
-        │   ├── Notes/
-        │   ├── Readings/
-        │   └── Slides/
-        ├── Class 02/
-        ├── Class 03/
-        ├── Midterm/
-        ├── Assignments/
-        │   └── Part 1 - OOAD, OOP, Patterns, Refactoring/
-        └── Resources/
+    ├── CS6451 - Advanced Software Design/
+    │   ├── Class 01/
+    │   │   ├── Homework/
+    │   │   ├── Notes/
+    │   │   ├── Readings/
+    │   │   └── Slides/
+    │   ├── Class 02/
+    │   ├── Class 03/
+    │   ├── Midterm/
+    │   ├── Assignments/
+    │   │   └── Part 1 - OOAD, OOP, Patterns, Refactoring/
+    │   └── Resources/
+    └── CS5741 - Concurrency and Parallelism in Software Development/
+        └── Lab 01/
+            ├── Code/
+            ├── Handout/
+            ├── Notes/
+            └── Results/
 ```
 
 ## About these materials
