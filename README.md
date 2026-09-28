@@ -22,6 +22,12 @@ Class notes, readings, and study material organized by academic year, semester, 
   - Benchmark harness sweeping array size, thread count, and fork/join threshold
   - Worked analysis of the results
 
+### CS6081 — Research Methods and Practice
+
+- [Module overview](2026-27/SEM1/CS6081%20-%20Research%20Methods%20and%20Practice/README.md) — assessment (poster 20%, stats worksheet 10%, essay 70%) and weekly schedule
+- [Lecture 04: Literature review, positioning, and plagiarism](2026-27/SEM1/CS6081%20-%20Research%20Methods%20and%20Practice/Lecture%2004/README.md)
+- [Week 8 poster: moving out from Chidamber & Kemerer](2026-27/SEM1/CS6081%20-%20Research%20Methods%20and%20Practice/Poster/README.md) — 20%, team of 4, Week 8; brief, marking, checklist, the seed paper's own future-work gaps, and candidate follow-up papers
+
 ## 2026/27 · CSIS Project
 
 - [Supervisor selection](2026-27/CSIS%20Project/README.md) — draft supervisor choices and form responses (deadline Mon 28 Sep 2026), plus the CSIS supervisor directory
@@ -44,12 +50,16 @@ Class notes, readings, and study material organized by academic year, semester, 
     │   ├── Assignments/
     │   │   └── Part 1 - OOAD, OOP, Patterns, Refactoring/
     │   └── Resources/
-    └── CS5741 - Concurrency and Parallelism in Software Development/
-        └── Lab 01/
-            ├── Code/
-            ├── Handout/
-            ├── Notes/
-            └── Results/
+    ├── CS5741 - Concurrency and Parallelism in Software Development/
+    │   └── Lab 01/
+    │       ├── Code/
+    │       ├── Handout/
+    │       ├── Notes/
+    │       └── Results/
+    └── CS6081 - Research Methods and Practice/
+        ├── Lecture 04/
+        │   └── Slides/
+        └── Poster/
 ```
 
 ## About these materials
