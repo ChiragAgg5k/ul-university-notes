@@ -38,7 +38,9 @@ p { max-width: 65ch; }
 .eyebrow { color: var(--muted); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
 .intro { display: grid; grid-template-columns: 1fr 220px; gap: 2rem; align-items: start; }
 .portrait { width: 100%; height: auto; border-radius: 50%; }
-.button { display: inline-block; background: var(--blue); color: white; padding: .7rem 1.1rem; border-radius: .3rem; text-decoration: none; }
+.button { font: inherit; border: 0; cursor: pointer; min-height: 44px; display: inline-block; background: var(--blue); color: white; padding: .7rem 1.1rem; border-radius: .3rem; text-decoration: none; }
+.button:disabled { cursor: wait; opacity: .65; }
+footer [data-chat-status]:empty { display: none; }
 .columns, .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 .columns article { border-top: 1px solid var(--divider); }
 dl { max-width: 65ch; }

@@ -21,7 +21,7 @@ export const projects = [
     problem: 'An assessed portfolio needs separate pages, traceable design decisions and a source listing small enough to explain.',
     contribution: 'This assignment version is an AI-assisted implementation using existing portfolio material. It is separate from the production website.',
     decision: 'Generate HTML at build time and enhance only the project filter with JavaScript. All project evidence remains readable when scripts are unavailable.',
-    evidence: 'The source, tests and design documentation are stored together. Video and instant messaging are still unfinished; the site is not yet submission-ready.',
+    evidence: 'The source, tests and design documentation are stored together. Tawk.to provides chat through a click-to-load integration. Video and the final report are still unfinished; the site is not yet submission-ready.',
     url: 'https://github.com/ChiragAgg5k/ul-university-notes', label: 'Inspect the coursework repository',
   },
 ];

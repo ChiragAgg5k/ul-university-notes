@@ -54,6 +54,10 @@ test('navigation preparation is limited to distinct same-origin HTML pages', () 
   ]);
 });
 test('unfinished requirements are disclosed rather than simulated', async () => {
-  assert.match(await readFile(resolve(dist, 'contact.html'), 'utf8'), /not connected yet/);
+  const contact = await readFile(resolve(dist, 'contact.html'), 'utf8');
+  assert.match(contact, /data-open-chat/);
+  assert.match(contact, /Tawk.to privacy policy/);
+  assert.match(contact, /An immediate reply is not guaranteed/);
+  assert.ok(!contact.includes('src="https://embed.tawk.to'), 'Provider is not eagerly embedded');
   assert.match(await readFile(resolve(dist, 'videos.html'), 'utf8'), /not finished/);
 });

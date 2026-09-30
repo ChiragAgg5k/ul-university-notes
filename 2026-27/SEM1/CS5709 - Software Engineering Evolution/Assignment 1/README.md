@@ -17,7 +17,7 @@ Audience: prospective collaborators and the assessor. Purpose: show Chirag's edu
 - Original generated URL (still available): https://6abcf8640007fde5290d.appwrite.network
 - Domain proxy rule: `45595318d1d7cc10d91686583a8ac5fc` (verified; linked to assignment site). Created with `appwrite proxy create-site-rule --domain chirag-cs5709.appwrite.network --site-id cs5709-portfolio-phase1`; HTTPS opening verified with Playwright.
 - [Deployment console](https://cloud.appwrite.io/console/project-sgp-chirag-project-prod/sites/site-cs5709-portfolio-phase1)
-- Status: working foundation, **not submission-ready** (video and messaging pending)
+- Status: working foundation, **not submission-ready** (video, final report and two-way chat verification pending)
 - Appwrite: Main Project (`chirag-project-prod`), Singapore (`sgp`)
 - Assignment site ID: `cs5709-portfolio-phase1` (separate from production)
 - Source repository: https://github.com/ChiragAgg5k/ul-university-notes (this directory; local changes need pushing)
@@ -57,16 +57,18 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 - [x] Record requirements, phase split and repository location.
 - [x] Select a simpler architecture and define sitemap.
 - [ ] Confirm permission to adapt pre-existing work and applicable AI policy.
-- [ ] Finalise video selection and messaging provider/approach.
+- [x] Choose Tawk.to and integrate the owner-provided public widget.
+- [ ] Finalise video selection.
 
 ### Design (3 marks)
 - [x] Draft block, component and control-flow diagrams in `DESIGN.md`.
-- [ ] Update diagrams to match the finished messaging integration.
+- [x] Update diagrams to document the Tawk.to messaging integration.
 
 ### Development, iteration 1 (3 marks)
 - [x] Build Home, About, Education, Professional knowledge, Pictures, Blog and article; scaffold Video and Contact with honest incomplete states.
 - [x] Verify shared navigation and direct page URLs.
-- [ ] Finish video gallery and real instant messaging.
+- [x] Integrate real hosted messaging with click-to-load privacy notice, error handling and email fallback.
+- [ ] Confirm owner receipt and a two-way reply, then finish video gallery.
 - [x] Record initial foundation commit including current styling; no separate unstyled milestone is claimed.
 
 ### Development, iteration 2 (3 marks)
@@ -120,13 +122,14 @@ Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc
 - Gallery images initially appeared unloaded in the automated scan because they are lazy-loaded. Scrolling each into view and awaiting `img.decode()` confirmed all three load successfully.
 - Actual application screenshots: [desktop home](evidence/home-desktop.png), [mobile gallery](evidence/gallery-mobile.png), [desktop skill filter](evidence/skill-filter-desktop.png), [mobile skill filter](evidence/skill-filter-mobile.png).
 - Keyboard smoke check: first Tab focuses “Skip to content”. Full accessibility audit and external-link testing not yet complete.
-- Video playback and messaging: **not implemented or tested**. Report: **Markdown draft written; PDF not yet exported**.
+- Chat integration: local mocked-provider browser checks passed for no request before clicking, load/reopen with one script, and blocked-provider failure handling. On the real live site, the widget loaded and a labelled integration-test message appeared in the visitor conversation. **Owner receipt and two-way reply are not yet confirmed.** See [desktop chat](evidence/chat-desktop.png) and [mobile chat](evidence/chat-mobile.png). Mobile viewport check at 390px showed no document overflow and an open widget.
+- Video playback: **not implemented or tested**. Report: **Markdown draft written; PDF not yet exported**.
 
 ## Navigation enhancement
 
 `site/navigation.mjs` supplies browser-native speculation rules: prefetch linked local HTML documents and request prerendering on navigation intent. Unsupported browsers and data-saving connections keep ordinary links. No custom router or animation delays are introduced. Actual preparation depends on browser policy; the local automated browser did not report prerender activation, so a guaranteed speedup is not claimed. External links, media, query strings and fragments are excluded from prefetch candidates.
 
-Messaging choice: Tawk.to hosted widget. Integration awaits the public property/widget IDs or embed snippet. No credentials are needed. When integrating, defer the widget until a prerendered page becomes active, so speculative visits do not create chat sessions.
+Messaging: Tawk.to widget `6abd0adffd2d7034457f30d7/1k3p74upi`, supplied by Chirag. `chat.mjs` injects the provider script only on a click, so speculative page visits do not create chat sessions. The footer explains third-party processing and links to the provider privacy policy. Without JavaScript or if the provider is blocked, email remains available. Visitors need to reopen chat after a full page navigation; the provider manages conversation continuity. No account passwords or secret API keys are in the repository.
 
 ## Development log
 

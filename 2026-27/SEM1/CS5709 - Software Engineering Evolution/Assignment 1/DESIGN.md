@@ -2,14 +2,14 @@
 
 ## Decisions
 
-Actual HTML documents avoid SPA fallback/routing configuration and work without client JavaScript. A single build-time layout avoids duplicated navigation. Content and presentation are separate. Use Node's built-in filesystem utilities; no framework dependencies. Trade-off: editing content requires rebuilding/deploying; no CMS or private messaging yet.
+Actual HTML documents avoid SPA fallback/routing configuration and work without client JavaScript. A single build-time layout avoids duplicated navigation. Content and presentation are separate. Use Node's built-in filesystem utilities; no framework dependencies. Trade-off: editing content requires rebuilding/deploying; no CMS. Messaging depends on Tawk.to rather than a custom backend.
 
 Tokens: paper `#ffffff`, background `#f3f6fa`, ink `#192b40`, blue `#174a79`, muted `#506278`, divider `#d7e0ea`. Georgia headings; system sans-serif text. Desktop navigation rail becomes a wrapping top navigation on narrow screens. Focus is visible; no animations or remote fonts.
 
 ## Sitemap
 
 Home → About · Education · Professional knowledge · Pictures · Video · Blog · Contact.
-Blog → local article excerpt → original full article; Blog → complete technical development note. Professional knowledge → filter by skill → linked project evidence. Contact is currently email only and **does not satisfy instant messaging**. Video is a clearly marked unfinished page until a real video is selected.
+Blog → local article excerpt → original full article; Blog → complete technical development note. Professional knowledge → filter by skill → linked project evidence. Contact offers email and hosted Tawk.to chat. A shared footer button loads the provider only after an explicit visitor click and privacy notice. Video is a clearly marked unfinished page until a real video is selected.
 
 ## Block diagram
 
@@ -23,6 +23,8 @@ flowchart LR
   Build --> HTML[Static HTML and assets: dist]
   HTML --> Host[Appwrite Sites: SGP]
   Host --> Browser[Visitor browser]
+  Browser -->|Visitor opens chat| Tawk[Tawk.to hosted messaging]
+  Tawk <--> Owner[Owner dashboard or mobile app]
 ```
 
 ## Component diagram
@@ -39,7 +41,9 @@ flowchart TD
   Matching --> Status[Visible cards and live result count]
   Main --> Media[Pictures / Video]
   Main --> Blog[Blog index and article]
-  Main --> Contact[Contact: messaging integration pending]
+  Main --> Contact[Contact: email and chat guidance]
+  Footer --> Loader[chat.mjs: click-to-load state machine]
+  Loader --> Provider[Tawk.to widget and owner inbox]
   Styles[Shared stylesheet] -.-> Layout
 ```
 
@@ -61,6 +65,12 @@ flowchart TD
   Action -->|Internal navigation| Start
   Action -->|Original article / GitHub| External[Open external resource]
   Action -->|Email| Mail[Open mail client: not instant messaging]
+  Render --> Open[Visitor chooses Chat with me after privacy notice]
+  Open --> Load[Load hosted widget]
+  Load --> Ready{Provider ready?}
+  Ready -->|Yes| Chat[Open conversation]
+  Ready -->|Error or 20-second timeout| Fallback[Show email fallback and reload advice]
+  Chat <--> Inbox[Owner inbox: availability determines replies]
 ```
 
-These diagrams document the current foundation, not unimplemented messaging. Update them after integration. Innovation implemented: skills-to-project evidence filtering, with keyboard-operable buttons and an all-content fallback when JavaScript is unavailable. This is an application-specific enhancement, not a novel filtering algorithm.
+The widget has been integrated and visitor-side loading/message entry tested. Owner receipt and a two-way reply remain to be confirmed. Public widget identifiers are not credentials. The provider does not load during ordinary browsing or prerendering because only a user click injects its script. Innovation implemented: skills-to-project evidence filtering, with keyboard-operable buttons and an all-content fallback when JavaScript is unavailable. This is an application-specific enhancement, not a novel filtering algorithm.
