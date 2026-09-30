@@ -1,4 +1,4 @@
-# Design — evidence and progressive enhancement iteration
+# Design: evidence and progressive enhancement iteration
 
 ## Decisions
 

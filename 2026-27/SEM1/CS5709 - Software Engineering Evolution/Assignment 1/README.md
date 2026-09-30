@@ -1,6 +1,6 @@
-# Assessment 1 — Digital portfolio (Phase 1)
+# Assessment 1: Digital portfolio (Phase 1)
 
-CS5709 — Software Engineering Evolution · 15% · deadline: **6 October** (confirmed by Chirag). The 2026/27 module's Brightspace page still displays 2025 and 23:59; confirm the corrected year/time with the lecturer.
+CS5709: Software Engineering Evolution · 15% · deadline: **6 October** (confirmed by Chirag). The 2026/27 module's Brightspace page still displays 2025 and 23:59; confirm the corrected year/time with the lecturer.
 
 [Assignment and rubric](https://learn.ul.ie/d2l/lms/dropbox/user/folder_submit_files.d2l?db=51831&grpid=0&isprv=0&bp=0&ou=91640) · [Original portfolio](https://github.com/chiragagg5k/profile-website)
 
@@ -52,31 +52,31 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 
 ## Single-session checklist
 
-### Discovery — 3 marks
+### Discovery (3 marks)
 - [x] Inspect authenticated assignment and expanded rubric.
 - [x] Record requirements, phase split and repository location.
 - [x] Select a simpler architecture and define sitemap.
 - [ ] Confirm permission to adapt pre-existing work and applicable AI policy.
 - [ ] Finalise video selection and messaging provider/approach.
 
-### Design — 3 marks
+### Design (3 marks)
 - [x] Draft block, component and control-flow diagrams in `DESIGN.md`.
 - [ ] Update diagrams to match the finished messaging integration.
 
-### Development, iteration 1 — 3 marks
+### Development, iteration 1 (3 marks)
 - [x] Build Home, About, Education, Professional knowledge, Pictures, Blog and article; scaffold Video and Contact with honest incomplete states.
 - [x] Verify shared navigation and direct page URLs.
 - [ ] Finish video gallery and real instant messaging.
 - [x] Record initial foundation commit including current styling; no separate unstyled milestone is claimed.
 
-### Development, iteration 2 — 3 marks
+### Development, iteration 2 (3 marks)
 - [x] Style every page and check desktop/mobile layouts for horizontal overflow.
 - [ ] Test keyboard navigation, focus, contrast and image descriptions.
 - [ ] Verify media, blog navigation and messaging end to end.
 - [x] Deploy isolated assignment site and record working live URL.
 - [x] Add progressively enhanced skill filtering, structured evidence and a complete technical article; verify interactions.
 
-### Evaluation — 3 marks
+### Evaluation (3 marks)
 - [x] Record actual test commands/results and meaningful app screenshots.
 - [x] Draft critique with specific limitations and improvements in `REPORT-DRAFT.md` (student review outstanding).
 - [ ] Write an honest personal reflection based on the development log.
@@ -113,7 +113,7 @@ Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc
 
 ## Verification so far
 
-- `cd site && npm run build && npm test`: **15 passing tests** (document structure, required files, internal links/assets, active navigation, image alt attributes, exact skill matching, progressive enhancement and incomplete-feature disclosures).
+- `cd site && npm run build && npm test`: **16 passing tests** (document structure, required files, internal links/assets, active navigation, image alt attributes, exact skill matching, progressive enhancement and incomplete-feature disclosures).
 - Initial live Playwright checks at 1440px and 390px: all nine original content URLs returned HTTP 200, one active navigation item each, no horizontal overflow.
 - Evidence iteration: local browser checks verified Go → 1 result, APIs → 2, All → 3; keyboard Space activation; mobile overflow; blog-to-article navigation; and three readable projects with JavaScript disabled. Rechecked live filtering, keyboard, reset, mobile layout and new article after deployment; no page errors observed.
 - `site/browser-check.mjs` exports reusable `checkPortfolio(page, baseURL)` for a caller-supplied Playwright Page. Browser tests are separate from `npm test`.
@@ -121,6 +121,12 @@ Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc
 - Actual application screenshots: [desktop home](evidence/home-desktop.png), [mobile gallery](evidence/gallery-mobile.png), [desktop skill filter](evidence/skill-filter-desktop.png), [mobile skill filter](evidence/skill-filter-mobile.png).
 - Keyboard smoke check: first Tab focuses “Skip to content”. Full accessibility audit and external-link testing not yet complete.
 - Video playback and messaging: **not implemented or tested**. Report: **Markdown draft written; PDF not yet exported**.
+
+## Navigation enhancement
+
+`site/navigation.mjs` supplies browser-native speculation rules: prefetch linked local HTML documents and request prerendering on navigation intent. Unsupported browsers and data-saving connections keep ordinary links. No custom router or animation delays are introduced. Actual preparation depends on browser policy; the local automated browser did not report prerender activation, so a guaranteed speedup is not claimed. External links, media, query strings and fragments are excluded from prefetch candidates.
+
+Messaging choice: Tawk.to hosted widget. Integration awaits the public property/widget IDs or embed snippet. No credentials are needed. When integrating, defer the widget until a prerendered page becomes active, so speculative visits do not create chat sessions.
 
 ## Development log
 

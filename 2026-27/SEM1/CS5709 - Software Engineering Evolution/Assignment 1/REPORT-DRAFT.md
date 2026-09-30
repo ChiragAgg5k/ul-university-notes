@@ -1,4 +1,4 @@
-# Digital portfolio — Phase 1
+# Digital portfolio: Phase 1
 
 **CS5709: Software Engineering Evolution · University of Limerick · 2026/27 Semester 1**
 
@@ -20,7 +20,7 @@ Source: https://github.com/ChiragAgg5k/ul-university-notes
 6. Critique, innovation and reflection
 7. References
 
-## 1. Declaration and transparency — proposed wording for review
+## 1. Declaration and transparency (proposed wording for review)
 
 This portfolio adapts biographical information, education, photographs and an article excerpt from my existing public portfolio. These materials predate this assessment and are not presented as newly created coursework. The original source and commit are recorded in the project README.
 
@@ -94,7 +94,7 @@ The current implementation lacks the required video and instant messaging. The b
 
 The current tests do not establish WCAG conformance, real-user usability or messaging reliability. A manual keyboard pass, contrast checks and representative browser flows should complement them. The filter relies on JavaScript, but its no-script fallback intentionally preserves all content. Deployments are manual; a narrowly scoped CI build/test/deploy pipeline could reduce release mistakes. Media permission and factual accuracy should be reviewed by the student before submission.
 
-### Personal reflection — student to complete
+### Personal reflection (student to complete)
 
 Use actual experience rather than invented feelings or learning claims:
 

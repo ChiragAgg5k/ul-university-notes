@@ -4,9 +4,9 @@ Class notes, readings, and study material organized by academic year, semester, 
 
 ## 2026/27 · Semester 1
 
-### CS5709 — Software Engineering Evolution
+### CS5709: Software Engineering Evolution
 
-- [Assessment 1: Digital portfolio](2026-27/SEM1/CS5709%20-%20Software%20Engineering%20Evolution/Assignment%201/README.md) — 15%, due 6 October; rubric checklist, implementation, diagrams and deployment details
+- [Assessment 1: Digital portfolio](2026-27/SEM1/CS5709%20-%20Software%20Engineering%20Evolution/Assignment%201/README.md): 15%, due 6 October; rubric checklist, implementation, diagrams and deployment details
 
 ### CS6451 — Advanced Software Design
 

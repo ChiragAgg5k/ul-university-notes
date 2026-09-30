@@ -4,6 +4,7 @@ import { readFile, readdir, access } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { matchesSkill, projects, skills } from './projects.mjs';
+import { internalPageURLs } from './navigation.mjs';
 
 const dist = fileURLToPath(new URL('./dist/', import.meta.url));
 const files = (await readdir(dist)).filter(file => file.endsWith('.html'));
@@ -15,6 +16,7 @@ for (const file of files) {
     const html = await readFile(resolve(dist, file), 'utf8');
     assert.equal((html.match(/<h1>/g) || []).length, 1);
     assert.ok(html.includes('lang="en"'));
+    assert.ok(!html.includes('\u2014'), 'No em dashes in generated pages');
     assert.ok(html.includes('href="#main"'));
     assert.ok(html.includes('id="main"'));
     assert.ok(html.includes('aria-label="Main navigation"'));
@@ -41,6 +43,15 @@ test('project evidence is server-rendered and controls are progressively enhance
   assert.match(html, /data-project-filter hidden/);
   assert.match(html, /role="status"/);
   assert.equal((html.match(/class="case-study"/g) || []).length, 3);
+});
+test('navigation preparation is limited to distinct same-origin HTML pages', () => {
+  assert.deepEqual(internalPageURLs([
+    'about.html', 'about.html', 'index.html', '#main', 'assets/me.webp',
+    'https://external.example/about.html', 'mailto:hello@example.com',
+    'contact.html?message=private', 'about.html#experience', 'blog.html',
+  ], 'https://portfolio.example/index.html'), [
+    'https://portfolio.example/about.html', 'https://portfolio.example/blog.html',
+  ]);
 });
 test('unfinished requirements are disclosed rather than simulated', async () => {
   assert.match(await readFile(resolve(dist, 'contact.html'), 'utf8'), /not connected yet/);

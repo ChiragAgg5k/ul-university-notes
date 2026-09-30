@@ -37,7 +37,7 @@ export const staticArticle = `
 <h2>Where JavaScript earns its place</h2>
 <p>The professional knowledge page has a skill filter. All projects are present in the initial HTML. Once JavaScript loads, filter buttons become available and hide projects that do not match the selected skill. The control uses ordinary buttons, exposes its pressed state and updates a live result count.</p>
 <p>If scripts fail or are disabled, the visitor still gets the complete evidence list. The filter is an enhancement rather than a prerequisite for reading the portfolio.</p>
-<h2>What the tests establish—and what they do not</h2>
+<h2>What the tests establish and what they do not</h2>
 <p>The automated checks verify required documents, local links and assets, heading structure and active navigation. Unit tests cover filter matching. Browser checks are still needed to establish that keyboard controls, responsive layouts and real interactions work after deployment.</p>
 <p>A passing test suite cannot supply missing content. Video playback and instant messaging remain outstanding requirements. Nor does testing a filter prove the site meets every accessibility criterion.</p>
 <h2>How the design could evolve</h2>
