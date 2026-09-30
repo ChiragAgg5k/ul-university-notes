@@ -13,7 +13,9 @@ Audience: prospective collaborators and the assessor. Purpose: show Chirag's edu
 ## Links and deployment
 
 - Original live portfolio: https://www.chiragaggarwal.tech
-- Assignment live URL: https://6abcf8640007fde5290d.appwrite.network
+- Assignment live URL: https://chirag-cs5709.appwrite.network
+- Original generated URL (still available): https://6abcf8640007fde5290d.appwrite.network
+- Domain proxy rule: `45595318d1d7cc10d91686583a8ac5fc` (verified; linked to assignment site). Created with `appwrite proxy create-site-rule --domain chirag-cs5709.appwrite.network --site-id cs5709-portfolio-phase1`; HTTPS opening verified with Playwright.
 - [Deployment console](https://cloud.appwrite.io/console/project-sgp-chirag-project-prod/sites/site-cs5709-portfolio-phase1)
 - Status: working foundation, **not submission-ready** (video and messaging pending)
 - Appwrite: Main Project (`chirag-project-prod`), Singapore (`sgp`)
