@@ -21,13 +21,13 @@ function fail() {
     button.disabled = true;
     button.textContent = 'Chat unavailable';
   }
-  status.textContent = 'Chat could not load. Email Chirag instead, or reload this page to try again. A content blocker or network restriction may be preventing the widget from loading.';
+  status.textContent = 'Chat couldn’t connect. Reload to try again, or email Chirag. The chat service may be unavailable.';
 }
 
 function loadChat() {
   if (state !== 'idle') return;
   state = 'loading';
-  status.textContent = 'Connecting to chat. You can keep browsing while it loads.';
+  status.textContent = 'Connecting to chat… You can keep browsing.';
   window.Tawk_API = window.Tawk_API || {};
   window.Tawk_LoadStart = new Date();
   window.Tawk_API.onLoad = () => {
@@ -37,7 +37,7 @@ function loadChat() {
       button.disabled = false;
       button.textContent = 'Chat with me';
     }
-    status.textContent = 'Chat is ready. Replies depend on availability; when offline, you can leave a message.';
+    status.textContent = 'Chat is ready. Leave a message if I’m away.';
     // Background loading must not interrupt reading by opening the conversation.
     if (openWhenReady) window.Tawk_API.maximize();
   };

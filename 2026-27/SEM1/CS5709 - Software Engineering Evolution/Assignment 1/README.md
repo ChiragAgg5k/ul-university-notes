@@ -68,7 +68,8 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 - [x] Build Home, About, Education, Professional knowledge, Pictures, Blog and article; scaffold Video and Contact with honest incomplete states.
 - [x] Verify shared navigation and direct page URLs.
 - [x] Integrate real hosted messaging with click-to-load privacy notice, error handling and email fallback.
-- [ ] Confirm owner receipt and a two-way reply, then finish video gallery.
+- [x] Confirm visitor messages reached the owner inbox and send a labelled owner-side reply.
+- [ ] Confirm the reply appears in the visitor widget, then finish video gallery.
 - [x] Record initial foundation commit including current styling; no separate unstyled milestone is claimed.
 
 ### Development, iteration 2 (3 marks)
@@ -122,7 +123,7 @@ Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc
 - Gallery images initially appeared unloaded in the automated scan because they are lazy-loaded. Scrolling each into view and awaiting `img.decode()` confirmed all three load successfully.
 - Actual application screenshots: [desktop home](evidence/home-desktop.png), [mobile gallery](evidence/gallery-mobile.png), [desktop skill filter](evidence/skill-filter-desktop.png), [mobile skill filter](evidence/skill-filter-mobile.png).
 - Keyboard smoke check: first Tab focuses “Skip to content”. Full accessibility audit and external-link testing not yet complete.
-- Chat integration: local mocked-provider browser checks passed for no request before clicking, load/reopen with one script, and blocked-provider failure handling. On the real live site, the widget loaded and a labelled integration-test message appeared in the visitor conversation. **Owner receipt and two-way reply are not yet confirmed.** See [desktop chat](evidence/chat-desktop.png) and [mobile chat](evidence/chat-mobile.png). Mobile viewport check at 390px showed no document overflow and an open widget.
+- Chat integration: local mocked-provider browser checks passed for no request before clicking, load/reopen with one script, and blocked-provider failure handling. On the real live site, the widget loaded and a labelled integration-test message appeared in the visitor conversation. **Owner inbox receipt is now confirmed.** A labelled reply was sent from the dashboard; visitor-side receipt remains unverified because a subsequent session failed to initialise. See [desktop chat](evidence/chat-desktop.png) and [mobile chat](evidence/chat-mobile.png). Mobile viewport check at 390px showed no document overflow and an open widget.
 - Video playback: **not implemented or tested**. Report: **Markdown draft written; PDF not yet exported**.
 
 ## Navigation enhancement
@@ -137,6 +138,10 @@ Messaging: Tawk.to widget `6abd0adffd2d7034457f30d7/1k3p74upi`, supplied by Chir
 - Seven additional unit tests cover first-visit opt-in, background loading after opt-in, click during loading, prerender deferral, blocked storage, timeout/late readiness and script errors.
 - Live verification encountered a Tawk.to `session/start` HTTP 500. The page showed its fallback rather than claiming success. A reload succeeded; once background loading completed, click-to-open measured approximately 154 ms.
 - Provider-side availability is outside this site's control. First-use startup still waits for the third party. The implementation does not promise instant initialization or guaranteed delivery.
+
+## Copy review
+
+[COPY-AUDIT.md](COPY-AUDIT.md) records the visitor-facing copy edits, preserved facts and disclosures, and validation. Removed repeated coursework commentary, shortened labels and chat guidance, and kept the original article quotation intact.
 
 ## Development log
 

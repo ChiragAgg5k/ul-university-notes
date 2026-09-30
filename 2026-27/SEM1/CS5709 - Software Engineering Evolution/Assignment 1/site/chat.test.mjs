@@ -78,7 +78,7 @@ test('timeout provides fallback and late load does not surprise-open chat', () =
   const app = setup();
   app.click();
   app.expire();
-  assert.match(app.status.textContent, /Email Chirag/);
+  assert.match(app.status.textContent, /email Chirag/);
   assert.equal(app.button.disabled, true);
   app.ready();
   assert.equal(app.opened, 0);
@@ -88,5 +88,5 @@ test('script error provides fallback', () => {
   const app = setup();
   app.click();
   app.scripts[0].error();
-  assert.match(app.status.textContent, /Chat could not load/);
+  assert.match(app.status.textContent, /Chat couldn’t connect/);
 });
