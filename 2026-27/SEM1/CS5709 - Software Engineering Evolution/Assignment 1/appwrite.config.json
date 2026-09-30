@@ -1,0 +1,24 @@
+{
+  "projectId": "chirag-project-prod",
+  "projectName": "Main Project",
+  "endpoint": "https://sgp.cloud.appwrite.io/v1",
+  "organizationId": "67610b8ee51f147ca943",
+  "sites": [
+    {
+      "$id": "cs5709-portfolio-phase1",
+      "name": "CS5709 Portfolio Phase 1",
+      "path": "site",
+      "framework": "other",
+      "logging": true,
+      "timeout": 30,
+      "buildRuntime": "node-22",
+      "adapter": "static",
+      "installCommand": "echo No dependencies",
+      "buildCommand": "npm run build",
+      "outputDirectory": "dist",
+      "fallbackFile": "404.html",
+      "buildSpecification": "s-2vcpu-2gb",
+      "runtimeSpecification": "s-2vcpu-2gb"
+    }
+  ]
+}
