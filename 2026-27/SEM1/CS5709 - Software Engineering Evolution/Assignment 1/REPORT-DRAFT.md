@@ -74,7 +74,7 @@ All evidence is rendered before scripts run. The filter controls are initially h
 
 ### Deployment and boundaries
 
-The assignment site has its own Appwrite site ID and domain. It does not replace the production portfolio. Static output contains no API keys. External links and mail links leave the application; email is explicitly not described as instant messaging. Tawk.to provides messaging and the owner inbox. Its script is not requested until the visitor opens chat, after a privacy notice. A 20-second timeout and script-error handler provide an email fallback. Public widget IDs are stored in source, not secret credentials. Conversation access, retention, moderation and owner availability depend on provider configuration and require owner review.
+The assignment site has its own Appwrite site ID and domain. It does not replace the production portfolio. Static output contains no API keys. External links and mail links leave the application; email is explicitly not described as instant messaging. Tawk.to provides messaging and the owner inbox. Its script is not requested until the visitor first opens chat, after a privacy notice. That choice is remembered in sessionStorage so subsequent active pages can load the widget in the background. Prerendered pages wait for activation, and blocked storage preserves the click-to-load fallback. A 20-second timeout and script-error handler provide an email fallback. Public widget IDs are stored in source, not secret credentials. Conversation access, retention, moderation and owner availability depend on provider configuration and require owner review.
 
 ## 5. Code listing
 
@@ -92,7 +92,7 @@ Separate HTML documents make routes transparent and keep core content independen
 
 The current implementation lacks the required video. Messaging is integrated, but a visitor-side test is not proof of owner receipt or a successful two-way conversation. The blog includes a reused excerpt and an AI-assisted draft, so student review and accurate attribution remain important. Some content is embedded as HTML strings in the build script; this keeps the toolchain small but becomes harder to edit as pages grow. A future content layer could improve maintainability, although adopting a CMS would add authentication and operational responsibilities.
 
-The current tests do not establish WCAG conformance, real-user usability or messaging reliability. A manual keyboard pass, contrast checks and representative browser flows should complement them. The filter relies on JavaScript, but its no-script fallback intentionally preserves all content. Deployments are manual; a narrowly scoped CI build/test/deploy pipeline could reduce release mistakes. Media permission and factual accuracy should be reviewed by the student before submission.
+The current tests do not establish WCAG conformance, real-user usability or messaging reliability. Browser testing observed a provider session request fail with HTTP 500 before a reload succeeded. Background loading reduces repeated click latency but cannot resolve provider outages. A manual keyboard pass, contrast checks and representative browser flows should complement them. The filter relies on JavaScript, but its no-script fallback intentionally preserves all content. Deployments are manual; a narrowly scoped CI build/test/deploy pipeline could reduce release mistakes. Media permission and factual accuracy should be reviewed by the student before submission.
 
 ### Personal reflection (student to complete)
 

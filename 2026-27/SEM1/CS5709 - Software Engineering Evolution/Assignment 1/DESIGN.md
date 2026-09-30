@@ -9,7 +9,7 @@ Tokens: paper `#ffffff`, background `#f3f6fa`, ink `#192b40`, blue `#174a79`, mu
 ## Sitemap
 
 Home → About · Education · Professional knowledge · Pictures · Video · Blog · Contact.
-Blog → local article excerpt → original full article; Blog → complete technical development note. Professional knowledge → filter by skill → linked project evidence. Contact offers email and hosted Tawk.to chat. A shared footer button loads the provider only after an explicit visitor click and privacy notice. Video is a clearly marked unfinished page until a real video is selected.
+Blog → local article excerpt → original full article; Blog → complete technical development note. Professional knowledge → filter by skill → linked project evidence. Contact offers email and hosted Tawk.to chat. A shared footer button loads the provider after an explicit visitor click and privacy notice. The choice is remembered for the tab; later active pages warm the widget in the background. Video is a clearly marked unfinished page until a real video is selected.
 
 ## Block diagram
 
@@ -65,7 +65,9 @@ flowchart TD
   Action -->|Internal navigation| Start
   Action -->|Original article / GitHub| External[Open external resource]
   Action -->|Email| Mail[Open mail client: not instant messaging]
-  Render --> Open[Visitor chooses Chat with me after privacy notice]
+  Render --> Remembered{Chat previously enabled in this tab?}
+  Remembered -->|Yes and page active| Load
+  Remembered -->|No| Open[Visitor chooses Chat with me after privacy notice]
   Open --> Load[Load hosted widget]
   Load --> Ready{Provider ready?}
   Ready -->|Yes| Chat[Open conversation]
@@ -73,4 +75,4 @@ flowchart TD
   Chat <--> Inbox[Owner inbox: availability determines replies]
 ```
 
-The widget has been integrated and visitor-side loading/message entry tested. Owner receipt and a two-way reply remain to be confirmed. Public widget identifiers are not credentials. The provider does not load during ordinary browsing or prerendering because only a user click injects its script. Innovation implemented: skills-to-project evidence filtering, with keyboard-operable buttons and an all-content fallback when JavaScript is unavailable. This is an application-specific enhancement, not a novel filtering algorithm.
+The widget has been integrated and visitor-side loading/message entry tested. Owner receipt and a two-way reply remain to be confirmed. Public widget identifiers are not credentials. The provider does not load before the first opt-in or while a document is prerendered. After opt-in, sessionStorage allows background loading on subsequent active pages. The application does not request that background readiness open the conversation. Provider outages can still delay or prevent readiness. Innovation implemented: skills-to-project evidence filtering, with keyboard-operable buttons and an all-content fallback when JavaScript is unavailable. This is an application-specific enhancement, not a novel filtering algorithm.

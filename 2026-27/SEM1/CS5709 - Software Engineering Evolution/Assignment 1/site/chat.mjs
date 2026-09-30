@@ -1,35 +1,45 @@
 // Public widget identifiers supplied by the site owner, not API credentials.
 const widgetURL = 'https://embed.tawk.to/6abd0adffd2d7034457f30d7/1k3p74upi';
+const consentKey = 'portfolio.chat.enabled';
 const buttons = [...document.querySelectorAll('[data-open-chat]')];
 const status = document.querySelector('[data-chat-status]');
 let state = 'idle';
 let timeout;
+let openWhenReady = false;
+
+function rememberedChoice() {
+  try { return sessionStorage.getItem(consentKey) === 'yes'; }
+  catch { return false; }
+}
 
 function fail() {
   if (state !== 'loading') return;
   state = 'failed';
+  openWhenReady = false;
   clearTimeout(timeout);
-  for (const button of buttons) button.disabled = true;
+  for (const button of buttons) {
+    button.disabled = true;
+    button.textContent = 'Chat unavailable';
+  }
   status.textContent = 'Chat could not load. Email Chirag instead, or reload this page to try again. A content blocker or network restriction may be preventing the widget from loading.';
 }
 
-function openChat() {
-  if (state === 'ready') {
-    window.Tawk_API.maximize();
-    return;
-  }
+function loadChat() {
   if (state !== 'idle') return;
   state = 'loading';
-  for (const button of buttons) button.disabled = true;
-  status.textContent = 'Loading chat…';
+  status.textContent = 'Connecting to chat. You can keep browsing while it loads.';
   window.Tawk_API = window.Tawk_API || {};
   window.Tawk_LoadStart = new Date();
   window.Tawk_API.onLoad = () => {
     clearTimeout(timeout);
     state = 'ready';
-    for (const button of buttons) button.disabled = false;
+    for (const button of buttons) {
+      button.disabled = false;
+      button.textContent = 'Chat with me';
+    }
     status.textContent = 'Chat is ready. Replies depend on availability; when offline, you can leave a message.';
-    window.Tawk_API.maximize();
+    // Background loading must not interrupt reading by opening the conversation.
+    if (openWhenReady) window.Tawk_API.maximize();
   };
   const script = document.createElement('script');
   script.async = true;
@@ -41,8 +51,30 @@ function openChat() {
   document.head.append(script);
 }
 
-// Merely viewing or prerendering a page must not contact the chat provider.
-for (const button of buttons) {
-  button.hidden = false;
-  button.addEventListener('click', openChat);
+function openChat() {
+  if (state === 'failed') return;
+  try { sessionStorage.setItem(consentKey, 'yes'); } catch { /* Storage is optional. */ }
+  if (state === 'ready') {
+    window.Tawk_API.maximize();
+    return;
+  }
+  openWhenReady = true;
+  for (const button of buttons) {
+    button.textContent = 'Opening chat…';
+    button.disabled = true;
+  }
+  loadChat();
 }
+
+function activate() {
+  for (const button of buttons) {
+    button.hidden = false;
+    button.addEventListener('click', openChat);
+  }
+  // Only returning, opted-in visitors contact the provider before clicking.
+  if (rememberedChoice()) loadChat();
+}
+
+// Do not create sessions in speculative, invisible documents, even after opt-in.
+if (document.prerendering) document.addEventListener('prerenderingchange', activate, { once: true });
+else activate();

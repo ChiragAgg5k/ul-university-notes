@@ -115,7 +115,7 @@ Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc
 
 ## Verification so far
 
-- `cd site && npm run build && npm test`: **16 passing tests** (document structure, required files, internal links/assets, active navigation, image alt attributes, exact skill matching, progressive enhancement and incomplete-feature disclosures).
+- `cd site && npm run build && npm test`: **23 passing tests** (document structure, required files, internal links/assets, active navigation, image alt attributes, exact skill matching, progressive enhancement and incomplete-feature disclosures).
 - Initial live Playwright checks at 1440px and 390px: all nine original content URLs returned HTTP 200, one active navigation item each, no horizontal overflow.
 - Evidence iteration: local browser checks verified Go → 1 result, APIs → 2, All → 3; keyboard Space activation; mobile overflow; blog-to-article navigation; and three readable projects with JavaScript disabled. Rechecked live filtering, keyboard, reset, mobile layout and new article after deployment; no page errors observed.
 - `site/browser-check.mjs` exports reusable `checkPortfolio(page, baseURL)` for a caller-supplied Playwright Page. Browser tests are separate from `npm test`.
@@ -129,7 +129,14 @@ Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc
 
 `site/navigation.mjs` supplies browser-native speculation rules: prefetch linked local HTML documents and request prerendering on navigation intent. Unsupported browsers and data-saving connections keep ordinary links. No custom router or animation delays are introduced. Actual preparation depends on browser policy; the local automated browser did not report prerender activation, so a guaranteed speedup is not claimed. External links, media, query strings and fragments are excluded from prefetch candidates.
 
-Messaging: Tawk.to widget `6abd0adffd2d7034457f30d7/1k3p74upi`, supplied by Chirag. `chat.mjs` injects the provider script only on a click, so speculative page visits do not create chat sessions. The footer explains third-party processing and links to the provider privacy policy. Without JavaScript or if the provider is blocked, email remains available. Visitors need to reopen chat after a full page navigation; the provider manages conversation continuity. No account passwords or secret API keys are in the repository.
+Messaging: Tawk.to widget `6abd0adffd2d7034457f30d7/1k3p74upi`, supplied by Chirag. `chat.mjs` waits for the first click, then remembers that choice in `sessionStorage` for the tab. Subsequent active pages load chat in the background without requesting that the window open. Prerendered documents defer loading until activation. Blocked storage falls back to click-to-load. The footer explains third-party processing and links to the provider privacy policy. Without JavaScript or if the provider is blocked, email remains available. The provider manages conversation continuity. After opting in, visitors can open an already-loaded widget instead of starting a new download at every click. Close the tab to end automatic loading. No account passwords or secret API keys are in the repository.
+
+## Chat loading verification
+
+- Observed original click-to-ready time: approximately 1.4 seconds in one browser session, including about 667 ms for the provider's session request. This is a single measurement, not a performance guarantee.
+- Seven additional unit tests cover first-visit opt-in, background loading after opt-in, click during loading, prerender deferral, blocked storage, timeout/late readiness and script errors.
+- Live verification encountered a Tawk.to `session/start` HTTP 500. The page showed its fallback rather than claiming success. A reload succeeded; once background loading completed, click-to-open measured approximately 154 ms.
+- Provider-side availability is outside this site's control. First-use startup still waits for the third party. The implementation does not promise instant initialization or guaranteed delivery.
 
 ## Development log
 
