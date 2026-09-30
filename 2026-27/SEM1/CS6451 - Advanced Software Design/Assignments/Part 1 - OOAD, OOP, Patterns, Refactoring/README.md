@@ -79,6 +79,7 @@ Brightspace **Group 1**.
 ## Decisions
 
 - Scenario: **Gym and fitness club membership** (chosen 23 Sep 2026)
+- Package structure: **monolithic, package by layer** (`controller`, `service`, `domain`, `repository`). The lecture slides label package by feature (`customer/`, `order/`, each with its own controller, service and repository) as the microservice layout, which is Part 2. Each member owns one feature's classes across all layers
 - Language / stack: _TBD_
 - Self-researched architectural pattern: _TBD_
 - 4 design patterns: _TBD_
