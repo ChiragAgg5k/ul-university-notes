@@ -41,7 +41,7 @@ Open http://localhost:5709. Requires Node 22+ and Python 3. No npm dependencies.
 | Home | Introduction and selected work | More detailed case studies |
 | About | Background and professional links | Downloadable tailored CV |
 | Education | UL, Bennett and school history | Module/project evidence |
-| Professional knowledge | Skills linked to real work | Searchable skills-to-project filter |
+| Professional knowledge | Three structured examples with working skill filter | Free-text search and more case studies |
 | Pictures | Captioned existing portfolio photos | Filtering and enlarged view |
 | Video | Playable relevant video with accessible description | Multiple videos and transcripts |
 | Blog | Locally readable article content | Tags, search and content management |
@@ -74,11 +74,11 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 - [ ] Test keyboard navigation, focus, contrast and image descriptions.
 - [ ] Verify media, blog navigation and messaging end to end.
 - [x] Deploy isolated assignment site and record working live URL.
-- [ ] Record tested styling/enhancement milestone.
+- [x] Add progressively enhanced skill filtering, structured evidence and a complete technical article; verify interactions.
 
 ### Evaluation — 3 marks
-- [ ] Record actual test commands/results and meaningful app screenshots.
-- [ ] Critique design/code with specific limitations and improvements.
+- [x] Record actual test commands/results and meaningful app screenshots.
+- [x] Draft critique with specific limitations and improvements in `REPORT-DRAFT.md` (student review outstanding).
 - [ ] Write an honest personal reflection based on the development log.
 
 ### Report and hand-in
@@ -95,6 +95,10 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 
 Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc968437afac98464c8`. Existing biography, education, work descriptions and photographs are adapted, not claimed as newly created coursework. Blog excerpts link to their originals. Website implementation in this directory is new AI-assisted work; Chirag must review it, understand it and disclose assistance according to module policy. Do not invent a student ID, tests, reflection or development history.
 
+## Report draft
+
+[REPORT-DRAFT.md](REPORT-DRAFT.md) contains the cover scaffold, proposed transparency wording, abstract, discovery/plan/tools, design explanation, innovation discussion, critique and references. It deliberately leaves student ID and personal reflection unresolved. This is not a submission-ready PDF; code listing, page layout and student review remain.
+
 ## Report contents
 
 1. Front cover
@@ -109,14 +113,17 @@ Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc
 
 ## Verification so far
 
-- `cd site && npm run build && npm test`: **12 passing tests** (document structure, required files, internal link/asset existence, active navigation, image alt attributes and incomplete-feature disclosures).
-- Live Playwright checks at 1440px and 390px: all nine content URLs returned HTTP 200, one active navigation item each, no horizontal overflow.
+- `cd site && npm run build && npm test`: **15 passing tests** (document structure, required files, internal links/assets, active navigation, image alt attributes, exact skill matching, progressive enhancement and incomplete-feature disclosures).
+- Initial live Playwright checks at 1440px and 390px: all nine original content URLs returned HTTP 200, one active navigation item each, no horizontal overflow.
+- Evidence iteration: local browser checks verified Go → 1 result, APIs → 2, All → 3; keyboard Space activation; mobile overflow; blog-to-article navigation; and three readable projects with JavaScript disabled. Rechecked live filtering, keyboard, reset, mobile layout and new article after deployment; no page errors observed.
+- `site/browser-check.mjs` exports reusable `checkPortfolio(page, baseURL)` for a caller-supplied Playwright Page. Browser tests are separate from `npm test`.
 - Gallery images initially appeared unloaded in the automated scan because they are lazy-loaded. Scrolling each into view and awaiting `img.decode()` confirmed all three load successfully.
-- Actual application screenshots: [desktop home](evidence/home-desktop.png), [mobile gallery](evidence/gallery-mobile.png).
+- Actual application screenshots: [desktop home](evidence/home-desktop.png), [mobile gallery](evidence/gallery-mobile.png), [desktop skill filter](evidence/skill-filter-desktop.png), [mobile skill filter](evidence/skill-filter-mobile.png).
 - Keyboard smoke check: first Tab focuses “Skip to content”. Full accessibility audit and external-link testing not yet complete.
-- Video playback and messaging: **not implemented or tested**. Report PDF: **not yet written/exported**.
+- Video playback and messaging: **not implemented or tested**. Report: **Markdown draft written; PDF not yet exported**.
 
 ## Development log
 
+- Evidence iteration: added three structured project examples, accessible skill filtering and a full technical article labelled AI-assisted. Updated diagrams and wrote a report draft without inventing personal reflection. Screenshot inspection exposed an offscreen skip-link capture artefact; changed its hiding method to clipping while preserving keyboard focus.
 - Kickoff: checked live rubric; inspected existing portfolio; chose independent static implementation to reduce code-listing and deployment complexity. Existing production website remains untouched.
 - Appwrite CLI project initialisation unexpectedly pulled unrelated functions/settings. Removed those local pulls from the assignment tree before staging; retained only project identity and isolated site configuration. No unrelated remote settings were pushed.
