@@ -15,7 +15,6 @@ test('all required page documents exist', () => {
     'education.html',
     'knowledge.html',
     'pictures.html',
-    'videos.html',
     'blog.html',
     'contact.html',
     'blog-mcp.html',
@@ -118,11 +117,10 @@ test('navigation preparation is limited to distinct same-origin HTML pages', () 
     ['https://portfolio.example/about.html', 'https://portfolio.example/blog.html'],
   );
 });
-test('unfinished requirements are disclosed rather than simulated', async () => {
+test('chat is loaded on request and discloses its provider', async () => {
   const contact = await readFile(resolve(dist, 'contact.html'), 'utf8');
   assert.match(contact, /data-open-chat/);
   assert.match(contact, /Tawk.to privacy policy/);
   assert.match(contact, /when available/);
   assert.ok(!contact.includes('src="https://embed.tawk.to'), 'Provider is not eagerly embedded');
-  assert.match(await readFile(resolve(dist, 'videos.html'), 'utf8'), /not finished/);
 });

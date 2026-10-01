@@ -18,7 +18,6 @@ const files = [
   'site/pages/education.mjs',
   'site/pages/knowledge.mjs',
   'site/pages/pictures.mjs',
-  'site/pages/videos.mjs',
   'site/pages/blog.mjs',
   'site/pages/blog-logging.mjs',
   'site/pages/blog-mcp.mjs',

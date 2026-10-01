@@ -11,7 +11,6 @@ import home from './pages/home.mjs';
 import knowledge from './pages/knowledge.mjs';
 import missing from './pages/missing.mjs';
 import pictures from './pages/pictures.mjs';
-import videos from './pages/videos.mjs';
 
 process.chdir(fileURLToPath(new URL('.', import.meta.url)));
 
@@ -22,7 +21,6 @@ const pages = [
   education,
   knowledge,
   pictures,
-  videos,
   blog,
   contact,
   blogLogging,

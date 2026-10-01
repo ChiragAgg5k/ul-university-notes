@@ -17,7 +17,7 @@ Audience: prospective collaborators and the assessor. Purpose: show Chirag's edu
 - Original generated URL (still available): https://6abcf8640007fde5290d.appwrite.network
 - Domain proxy rule: `45595318d1d7cc10d91686583a8ac5fc` (verified; linked to assignment site). Created with `appwrite proxy create-site-rule --domain chirag-cs5709.appwrite.network --site-id cs5709-portfolio-phase1`; HTTPS opening verified with Playwright.
 - [Deployment console](https://cloud.appwrite.io/console/project-sgp-chirag-project-prod/sites/site-cs5709-portfolio-phase1)
-- Status: site deployed and verified on 1 October; report PDF generated. **Not submission-ready**: video, reflection and policy review pending (see the yellow to-do boxes in the PDF).
+- Status: site deployed and verified on 1 October; report PDF generated. **Not submission-ready**: policy review of the declaration pending (see the yellow to-do boxes in the PDF).
 - Appwrite: Main Project (`chirag-project-prod`), Singapore (`sgp`)
 - Assignment site ID: `cs5709-portfolio-phase1` (separate from production)
 - Source repository: https://github.com/ChiragAgg5k/ul-university-notes (this directory; local changes need pushing)
@@ -43,7 +43,7 @@ Open http://localhost:5709. Requires Node 22+ and Python 3. No npm dependencies.
 | Education              | UL, Bennett and school history                      | Module/project evidence                |
 | Professional knowledge | Three structured examples with working skill filter | Free-text search and more case studies |
 | Pictures               | Captioned existing portfolio photos                 | Filtering and enlarged view            |
-| Video                  | Playable relevant video with accessible description | Multiple videos and transcripts        |
+| Video                  | Not required in Phase 1 (removed 1 October)         | Video gallery with transcripts         |
 | Blog                   | Locally readable article content                    | Tags, search and content management    |
 | Messaging              | Genuine visitor-to-owner instant messaging          | History, notifications and moderation  |
 | Navigation/CSS         | All pages linked, responsive, keyboard usable       | Further usability refinements          |
@@ -59,7 +59,7 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 - [x] Select a simpler architecture and define sitemap.
 - [ ] Confirm permission to adapt pre-existing work and applicable AI policy.
 - [x] Choose Tawk.to and integrate the owner-provided public widget.
-- [ ] Finalise video selection.
+- [x] Video: confirmed not required; video page removed on 1 October.
 
 ### Design (3 marks)
 
@@ -68,18 +68,18 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 
 ### Development, iteration 1 (3 marks)
 
-- [x] Build Home, About, Education, Professional knowledge, Pictures, Blog and article; scaffold Video and Contact with honest incomplete states.
+- [x] Build Home, About, Education, Professional knowledge, Pictures, Blog and article and Contact.
 - [x] Verify shared navigation and direct page URLs.
 - [x] Integrate real hosted messaging with click-to-load privacy notice, error handling and email fallback.
 - [x] Confirm visitor messages reached the owner inbox and send a labelled owner-side reply.
-- [x] Confirm the reply appears in the visitor widget (1 October: "reply received" sent from the dashboard appeared in the live visitor widget; see `evidence/chat-reply-*.png`). Video gallery still pending.
+- [x] Confirm the reply appears in the visitor widget (1 October: "reply received" sent from the dashboard appeared in the live visitor widget; see `evidence/chat-reply-*.png`).
 - [x] Record initial foundation commit including current styling; no separate unstyled milestone is claimed.
 
 ### Development, iteration 2 (3 marks)
 
 - [x] Style every page and check desktop/mobile layouts for horizontal overflow.
 - [x] Test keyboard navigation, focus and contrast and image descriptions (photo alt text rewritten from the photographs on 1 October).
-- [x] Verify media, blog navigation and messaging end to end (video excepted).
+- [x] Verify media, blog navigation and messaging end to end.
 - [x] Deploy isolated assignment site and record working live URL.
 - [x] Add progressively enhanced skill filtering, structured evidence and a complete technical article; verify interactions.
 
@@ -118,7 +118,7 @@ Contents: cover; contents; 1 declaration and transparency; 2 abstract; 3 discove
 
 ## Verification so far
 
-- `cd site && npm run build && npm test`: **25 passing tests** (document structure, required files, internal links/assets, active navigation, image alt attributes, exact skill matching, progressive enhancement, incomplete-feature disclosures, 404 links resolving from the site root, and WCAG AA contrast of every text colour pair in the stylesheet).
+- `cd site && npm run build && npm test`: **24 passing tests** (document structure, required files, internal links/assets, active navigation, image alt attributes, exact skill matching, progressive enhancement, click-to-load chat disclosure, 404 links resolving from the site root, and WCAG AA contrast of every text colour pair in the stylesheet).
 - Bug found 1 October: the host serves `404.html` at any missing path (with HTTP 200), so on `/blog/nested/missing` its relative stylesheet and navigation links resolved under `/blog/nested/` and every link led to another 404. Fixed with `<base href="/">` on the 404 document only; the regression test fails without it. Simulated nested-path check confirmed styles and links load from the root.
 - Keyboard pass 1 October: tab order is skip link, identity, eight navigation links, then page content; every focused element shows a solid outline. All ten pages at 390px: no horizontal overflow, one active navigation item, no script errors.
 - Initial live Playwright checks at 1440px and 390px: all nine original content URLs returned HTTP 200, one active navigation item each, no horizontal overflow.
@@ -128,7 +128,7 @@ Contents: cover; contents; 1 declaration and transparency; 2 abstract; 3 discove
 - Actual application screenshots: [desktop home](evidence/home-desktop.png), [mobile gallery](evidence/gallery-mobile.png), [desktop skill filter](evidence/skill-filter-desktop.png), [mobile skill filter](evidence/skill-filter-mobile.png).
 - Keyboard smoke check: first Tab focuses “Skip to content”. Full accessibility audit and external-link testing not yet complete.
 - Chat integration: local mocked-provider browser checks passed for no request before clicking, load/reopen with one script, and blocked-provider failure handling. On the real live site, the widget loaded and a labelled integration-test message appeared in the visitor conversation. **Owner inbox receipt is now confirmed.** On 1 October a dashboard reply ("reply received") appeared in the live visitor widget, so two-way messaging is verified ([visitor](evidence/chat-reply-visitor.png), [dashboard](evidence/chat-reply-dashboard.png)). See [desktop chat](evidence/chat-desktop.png) and [mobile chat](evidence/chat-mobile.png). Mobile viewport check at 390px showed no document overflow and an open widget.
-- Video playback: **not implemented or tested**. Report: **Markdown draft written; PDF not yet exported**.
+- Video: not required for Phase 1; the page was removed on 1 October. Report: PDF generated by `node report/pdf.mjs`.
 
 ## Navigation enhancement
 

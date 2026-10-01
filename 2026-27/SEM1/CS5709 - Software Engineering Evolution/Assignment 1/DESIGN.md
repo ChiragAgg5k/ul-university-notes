@@ -8,8 +8,8 @@ Tokens: paper `#ffffff`, background `#f3f6fa`, ink `#192b40`, blue `#174a79`, mu
 
 ## Sitemap
 
-Home → About · Education · Professional knowledge · Pictures · Video · Blog · Contact.
-Blog → two complete republished articles (“How we solved logging at Appwrite” and “How I built the Appwrite MCP server”), each linking to its original. Professional knowledge → filter by skill → linked project evidence. Contact offers email and hosted Tawk.to chat. A shared footer button loads the provider after an explicit visitor click and privacy notice. The choice is remembered for the tab; later active pages warm the widget in the background. Video is a clearly marked unfinished page until a real video is selected.
+Home → About · Education · Professional knowledge · Pictures · Blog · Contact.
+Blog → two complete republished articles (“How we solved logging at Appwrite” and “How I built the Appwrite MCP server”), each linking to its original. Professional knowledge → filter by skill → linked project evidence. Contact offers email and hosted Tawk.to chat. A shared footer button loads the provider after an explicit visitor click and privacy notice. The choice is remembered for the tab; later active pages warm the widget in the background. A video gallery is not required in Phase 1 and is proposed for Phase 2.
 
 ## Block diagram
 
@@ -39,7 +39,7 @@ flowchart TD
   Knowledge --> Controls[Skill buttons: aria-pressed]
   Controls --> Matching[Pure skill matching function]
   Matching --> Status[Visible cards and live result count]
-  Main --> Media[Pictures / Video]
+  Main --> Media[Pictures gallery]
   Main --> Blog[Blog index and two republished articles]
   Main --> Contact[Contact: email and chat guidance]
   Footer --> Loader[chat.mjs: click-to-load state machine]
