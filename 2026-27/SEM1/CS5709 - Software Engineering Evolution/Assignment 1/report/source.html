@@ -90,7 +90,7 @@
       <h3>Structure</h3>
       <p>Each page is a module in <code>pages/</code> exporting its file name, menu label, title and body. <code>layout.mjs</code> wraps every page in the same document, so navigation, the skip link and the footer exist once. <code>build.mjs</code> lists the pages in menu order and writes <code>dist/</code>.</p>
       <h3>Trade-offs</h3>
-      <p>Real HTML pages mean a full page load per navigation, which <code>navigation.mjs</code> reduces by asking supporting browsers to prefetch linked pages. Content edits need a rebuild and deploy; there is no CMS. Chat depends on Tawk.to's availability.</p>
+      <p>Real HTML pages mean a full page load per navigation. <code>navigation.mjs</code> asks supporting browsers to prefetch linked pages to offset this, but I have not measured a speed-up. Content edits need a rebuild and deploy; there is no CMS. Chat depends on Tawk.to's availability.</p>
       <h3>Visual design</h3>
       <p>A blue navigation rail and white reading column, Georgia headings and system body text, a 65-character line length and no decorative animation. The rail becomes a top bar below 720px. All text colours meet WCAG AA contrast (tested).</p>
     </div>
@@ -101,7 +101,7 @@
   </figure>
   <figure class="new-page-before">
     <img src="diagrams/control-flow.png" alt="Control-flow diagram">
-    <figcaption><strong>Figure 3. Control-flow diagram.</strong> From opening a URL: a missing path gets the 404 page, whose links resolve from the site root. On a page, three flows run independently: following links, filtering projects (with all projects visible if the script does not run), and chat, which loads after an explicit choice, or automatically on later pages in the same tab, and falls back to email on error or after 20 seconds.</figcaption>
+    <figcaption><strong>Figure 3. Control-flow diagram.</strong> From opening a URL: a missing path gets the 404 page, whose links resolve from the site root. On a page, three flows run independently: following links; filtering projects, where all projects stay visible if the script does not run; and chat. Chat loads after the visitor chooses to open it, or automatically on later pages in the same tab, and falls back to email on an error or after 20 seconds.</figcaption>
   </figure>
 </section>
 
