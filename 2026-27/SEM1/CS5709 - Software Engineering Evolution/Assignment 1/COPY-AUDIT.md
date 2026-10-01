@@ -4,14 +4,14 @@ Scope: visitor-facing copy added for this assignment. Preserve original article 
 
 ## Changes
 
-| Before | After | Reason |
-|---|---|---|
-| “Learning, in context” | “Education” | Name the page directly. |
-| “From a skill to the work behind it.” | “Projects, tools and technical decisions.” | Say what the visitor will find. |
-| “Technical decision and trade-off” | “Design choice” | Shorter label; trade-offs remain in the descriptions. |
-| “This summary does not claim sole authorship of the complete authorization system.” | Explicitly retain that a colleague built the authorization server; link to the article describing responsibilities. | Remove a repeated disclaimer without changing attribution. |
-| “The principle is to add complexity for an identified requirement…” | Removed closing moral. | The article already explains the concrete choices. |
-| “A content blocker or network restriction may be preventing…” | “The chat service may be unavailable.” | Provider HTTP 500 errors were observed; avoid implying the visitor's browser is the cause. |
+| Before                                                                              | After                                                                                                               | Reason                                                                                     |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| “Learning, in context”                                                              | “Education”                                                                                                         | Name the page directly.                                                                    |
+| “From a skill to the work behind it.”                                               | “Projects, tools and technical decisions.”                                                                          | Say what the visitor will find.                                                            |
+| “Technical decision and trade-off”                                                  | “Design choice”                                                                                                     | Shorter label; trade-offs remain in the descriptions.                                      |
+| “This summary does not claim sole authorship of the complete authorization system.” | Explicitly retain that a colleague built the authorization server; link to the article describing responsibilities. | Remove a repeated disclaimer without changing attribution.                                 |
+| “The principle is to add complexity for an identified requirement…”                 | Removed closing moral.                                                                                              | The article already explains the concrete choices.                                         |
+| “A content blocker or network restriction may be preventing…”                       | “The chat service may be unavailable.”                                                                              | Provider HTTP 500 errors were observed; avoid implying the visitor's browser is the cause. |
 
 Contact instructions, project descriptions and the shared footer are shorter. Privacy copy still identifies Tawk.to, message/connection-data processing, possible cookies, tab-scoped background loading and the instruction not to share sensitive information. The MCP article is now republished in full with its text unchanged; a text comparison against the original found only whitespace differences in highlighted code blocks.
 
