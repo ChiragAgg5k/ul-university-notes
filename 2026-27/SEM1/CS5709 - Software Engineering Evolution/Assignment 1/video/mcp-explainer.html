@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MCP explainer</title>
+    <!--
+  Source for site/assets/videos/mcp-explainer.mp4. Facts and figures come from
+  "How I built the Appwrite MCP server" (site/pages/blog-mcp.mjs). Recorded at
+  1280x720 with Playwright; scenes and their start times are listed in
+  site/pages/videos.mjs, which also produces the captions.
+-->
+    <style>
+      :root {
+        --blue: #174a79;
+        --ink: #192b40;
+        --muted: #506278;
+        --divider: #d7e0ea;
+        --tint: #f3f6fa;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        background: #fff;
+        color: var(--ink);
+        font:
+          26px/1.4 system-ui,
+          sans-serif;
+      }
+      h1,
+      h2 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        margin: 0;
+      }
+      h2 {
+        font-size: 54px;
+        color: var(--blue);
+        margin-bottom: 36px;
+      }
+      code,
+      pre {
+        font:
+          22px/1.5 Menlo,
+          monospace;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        padding: 70px 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.6s;
+      }
+      .scene.active {
+        opacity: 1;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 0.5s,
+          transform 0.5s;
+      }
+      .active .reveal {
+        opacity: 1;
+        transform: none;
+      }
+      .eyebrow {
+        color: var(--muted);
+        font-size: 18px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: var(--blue);
+        color: #fff;
+      }
+      .title h1 {
+        font-size: 72px;
+        line-height: 1.1;
+      }
+      .title p {
+        font-size: 30px;
+        opacity: 0.85;
+      }
+      .title .eyebrow {
+        color: #fff;
+        opacity: 0.7;
+      }
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+        margin-top: 40px;
+      }
+      .timeline div {
+        border-top: 6px solid var(--blue);
+        padding-top: 16px;
+        font-size: 26px;
+      }
+      .timeline strong {
+        display: block;
+        font-size: 30px;
+        color: var(--blue);
+      }
+      pre {
+        background: var(--tint);
+        padding: 22px 26px;
+        border-radius: 8px;
+        margin: 0 0 28px;
+      }
+      .point {
+        font-size: 30px;
+        margin: 10px 0;
+      }
+      .flow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 40px;
+      }
+      .flow div {
+        font-size: 23px;
+        padding: 10px 16px;
+        border-left: 4px solid var(--blue);
+        background: var(--tint);
+      }
+      .flow + .point {
+        margin-top: 30px;
+      }
+      .flow span {
+        color: var(--muted);
+      }
+      .bars div {
+        display: grid;
+        grid-template-columns: 150px 1fr 260px;
+        align-items: center;
+        gap: 16px;
+        margin: 10px 0;
+        font-size: 24px;
+      }
+      .bar {
+        height: 30px;
+        background: var(--blue);
+        border-radius: 4px;
+        width: 0;
+        transition: width 1s;
+      }
+      .active .bar {
+        width: var(--size);
+      }
+      .bars .appwrite .bar {
+        background: #2f7d4a;
+      }
+      .bars em {
+        color: var(--muted);
+        font-style: normal;
+        font-size: 20px;
+      }
+      .limits {
+        margin-top: 26px;
+        font-size: 26px;
+      }
+      .tools {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .tools div {
+        border: 2px solid var(--divider);
+        border-radius: 10px;
+        padding: 20px 24px;
+      }
+      .tools code {
+        color: var(--blue);
+        font-weight: 700;
+      }
+      .tools p {
+        margin: 8px 0 0;
+        font-size: 22px;
+        color: var(--muted);
+      }
+      .big {
+        font-family: Georgia, serif;
+        font-size: 40px;
+        color: var(--blue);
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="scene title" data-start="0">
+      <p class="eyebrow reveal">Chirag Aggarwal · August 2026</p>
+      <h1 class="reveal">How I built the<br />Appwrite MCP server</h1>
+      <p class="reveal">and decided to hide most of its capabilities</p>
+    </section>
+
+    <section class="scene" data-start="6">
+      <p class="eyebrow">Sixteen months</p>
+      <h2>From a protocol launch to a hosted server</h2>
+      <div class="timeline">
+        <div class="reveal" style="transition-delay: 0.3s">
+          <strong>Nov 2024</strong>MCP launches
+        </div>
+        <div class="reveal" style="transition-delay: 1.1s">
+          <strong>Feb 2025</strong>stdio server ships
+        </div>
+        <div class="reveal" style="transition-delay: 1.9s">
+          <strong>Mar 2025</strong>Streamable HTTP
+        </div>
+        <div class="reveal" style="transition-delay: 2.7s">
+          <strong>Apr 2026</strong>981 tools → 4
+        </div>
+        <div class="reveal" style="transition-delay: 3.5s">
+          <strong>Jun 2026</strong>hosted version merges
+        </div>
+        <div class="reveal" style="transition-delay: 4.3s"><strong>Jul 2026</strong>shipped</div>
+      </div>
+    </section>
+
+    <section class="scene" data-start="15">
+      <p class="eyebrow">The stdio years</p>
+      <h2>One API key, one project</h2>
+      <pre class="reveal">
+claude mcp add appwrite \
+  --env APPWRITE_PROJECT_ID=&lt;YOUR_PROJECT_ID&gt; \
+  --env APPWRITE_API_KEY=&lt;YOUR_API_KEY&gt; \
+  -- uvx mcp-server-appwrite</pre>
+      <p class="point reveal" style="transition-delay: 1.2s">
+        Switching projects meant editing your editor config.
+      </p>
+      <p class="point reveal" style="transition-delay: 2.2s">
+        Creating a project, or anything at organisation level, was impossible.
+      </p>
+    </section>
+
+    <section class="scene" data-start="25">
+      <p class="eyebrow">Authorization ate the schedule</p>
+      <h2>A user's token instead of a project key</h2>
+      <div class="flow">
+        <div class="reveal" style="transition-delay: 0.2s">
+          1. Request without a token <span>→ 401</span>
+        </div>
+        <div class="reveal" style="transition-delay: 0.9s">
+          2. Find the authorization server <span>RFC 9728</span>
+        </div>
+        <div class="reveal" style="transition-delay: 1.6s">
+          3. Client registers itself <span>RFC 7591</span>
+        </div>
+        <div class="reveal" style="transition-delay: 2.3s">
+          4. Authorize with PKCE and a resource indicator <span>RFC 8707</span>
+        </div>
+        <div class="reveal" style="transition-delay: 3s">5. Token issued for mcp.appwrite.io</div>
+        <div class="reveal" style="transition-delay: 3.7s">6. Every call verified, then served</div>
+      </div>
+      <p class="point reveal" style="transition-delay: 4.6s">
+        Every client read the specs differently, and we found out in production.
+      </p>
+    </section>
+
+    <section class="scene" data-start="37">
+      <p class="eyebrow">Tool choice</p>
+      <h2>Tools the model sees</h2>
+      <div class="bars">
+        <div><span>GitHub</span><span class="bar" style="--size: 90%"></span><em>90</em></div>
+        <div><span>Supabase</span><span class="bar" style="--size: 29%"></span><em>29</em></div>
+        <div><span>Convex</span><span class="bar" style="--size: 12%"></span><em>12</em></div>
+        <div>
+          <span>Stripe</span><span class="bar" style="--size: 12%"></span
+          ><em>12, whole API behind search</em>
+        </div>
+        <div>
+          <span>Sentry</span><span class="bar" style="--size: 9%"></span><em>9, 46 in catalog</em>
+        </div>
+        <div class="appwrite">
+          <strong>Appwrite</strong><span class="bar" style="--size: 4%"></span
+          ><em><strong>4</strong>, 981 in catalog</em>
+        </div>
+      </div>
+      <p class="limits reveal" style="transition-delay: 1.5s">
+        Cursor sent only the first 40 tools. Windsurf refused above 50.
+      </p>
+    </section>
+
+    <section class="scene" data-start="49">
+      <p class="eyebrow">Four tools over 981</p>
+      <h2>Search, then call</h2>
+      <div class="tools">
+        <div class="reveal" style="transition-delay: 0.2s">
+          <code>appwrite_get_context</code>
+          <p>Where you are and which projects you can see</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.9s">
+          <code>appwrite_search_tools</code>
+          <p>Searches the hidden catalog in natural language</p>
+        </div>
+        <div class="reveal" style="transition-delay: 1.6s">
+          <code>appwrite_call_tool</code>
+          <p>Calls one of them by name</p>
+        </div>
+        <div class="reveal" style="transition-delay: 2.3s">
+          <code>appwrite_search_docs</code>
+          <p>Searches the Appwrite docs</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" data-start="59">
+      <p class="eyebrow">Where it landed</p>
+      <h2>Paste one URL</h2>
+      <pre class="reveal">claude mcp add --transport http appwrite https://mcp.appwrite.io/</pre>
+      <p class="point reveal" style="transition-delay: 1s">
+        No API key, no project ID, no config editing to switch projects.
+      </p>
+      <p class="big reveal" style="transition-delay: 2.2s">The full story is on the Blog page.</p>
+    </section>
+
+    <script>
+      // Starts when the recorder calls play(), so the video begins on the first frame.
+      const scenes = [...document.querySelectorAll('.scene')];
+      window.play = () => {
+        const begin = performance.now();
+        const tick = () => {
+          const elapsed = (performance.now() - begin) / 1000;
+          let current = scenes[0];
+          for (const scene of scenes) if (elapsed >= Number(scene.dataset.start)) current = scene;
+          for (const scene of scenes) scene.classList.toggle('active', scene === current);
+          if (elapsed < 66) requestAnimationFrame(tick);
+        };
+        tick();
+      };
+    </script>
+  </body>
+</html>

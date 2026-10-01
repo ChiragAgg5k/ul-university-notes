@@ -377,3 +377,28 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+figure.video {
+  margin: 2rem 0 3rem;
+  max-width: 65ch;
+}
+.video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--ink);
+  border-radius: 0.3rem;
+}
+.video summary {
+  cursor: pointer;
+  margin-top: 0.75rem;
+  color: var(--blue);
+}
+.transcript {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.transcript span {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  margin-right: 0.5rem;
+}

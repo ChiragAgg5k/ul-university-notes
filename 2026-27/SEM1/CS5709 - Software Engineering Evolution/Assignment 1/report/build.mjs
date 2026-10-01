@@ -18,6 +18,7 @@ const files = [
   'site/pages/education.mjs',
   'site/pages/knowledge.mjs',
   'site/pages/pictures.mjs',
+  'site/pages/videos.mjs',
   'site/pages/blog.mjs',
   'site/pages/blog-logging.mjs',
   'site/pages/blog-mcp.mjs',
@@ -30,6 +31,7 @@ const files = [
   'site/test.mjs',
   'site/chat.test.mjs',
   'site/browser-check.mjs',
+  'video/mcp-explainer.html',
   'appwrite.config.json',
 ];
 

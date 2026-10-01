@@ -5,6 +5,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { matchesSkill, projects, skills } from './projects.mjs';
 import { internalPageURLs } from './navigation.mjs';
+import { videos } from './pages/videos.mjs';
 
 const dist = fileURLToPath(new URL('./dist/', import.meta.url));
 const files = (await readdir(dist)).filter(file => file.endsWith('.html'));
@@ -15,6 +16,7 @@ test('all required page documents exist', () => {
     'education.html',
     'knowledge.html',
     'pictures.html',
+    'videos.html',
     'blog.html',
     'contact.html',
     'blog-mcp.html',
@@ -78,6 +80,26 @@ test('text colour pairs meet WCAG AA contrast for normal text', async () => {
   for (const [foreground, background] of pairs) {
     const ratio = contrast(tokens[foreground], tokens[background]);
     assert.ok(ratio >= 4.5, `${foreground} on ${background}: ${ratio.toFixed(2)}`);
+  }
+});
+test('every video has a poster, captions and timed cues within its length', async () => {
+  const html = await readFile(resolve(dist, 'videos.html'), 'utf8');
+  const players = html.match(/<video\b[\s\S]*?<\/video>/g) || [];
+  assert.equal(players.length, videos.length);
+  for (const player of players) {
+    assert.match(player, /<track kind="captions" src="[^"]+\.vtt"/);
+    await access(resolve(dist, player.match(/poster="([^"]+)"/)[1]));
+  }
+  for (const video of videos) {
+    const cues = await readFile(resolve(dist, `assets/videos/${video.name}.vtt`), 'utf8');
+    assert.ok(cues.startsWith('WEBVTT'));
+    const starts = video.steps.map(([start]) => start);
+    assert.deepEqual(
+      starts,
+      [...starts].sort((a, b) => a - b),
+      video.name,
+    );
+    assert.ok(starts.at(-1) < video.duration, video.name);
   }
 });
 test('filter matches exact skills and All restores every project', () => {

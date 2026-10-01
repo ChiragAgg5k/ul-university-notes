@@ -11,6 +11,7 @@ import home from './pages/home.mjs';
 import knowledge from './pages/knowledge.mjs';
 import missing from './pages/missing.mjs';
 import pictures from './pages/pictures.mjs';
+import videos, { captions, videos as recordings } from './pages/videos.mjs';
 
 process.chdir(fileURLToPath(new URL('.', import.meta.url)));
 
@@ -21,6 +22,7 @@ const pages = [
   education,
   knowledge,
   pictures,
+  videos,
   blog,
   contact,
   blogLogging,
@@ -35,4 +37,7 @@ await mkdir('dist', { recursive: true });
 for (const page of pages) await writeFile(`dist/${page.file}`, layout(page, links));
 for (const file of ['style.css', ...scripts]) await cp(file, `dist/${file}`);
 await cp('assets', 'dist/assets', { recursive: true });
+for (const video of recordings) {
+  await writeFile(`dist/assets/videos/${video.name}.vtt`, captions(video));
+}
 console.log(`Built ${pages.length} pages.`);
