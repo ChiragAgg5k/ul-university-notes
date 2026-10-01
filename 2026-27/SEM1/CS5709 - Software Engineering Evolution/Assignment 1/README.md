@@ -17,7 +17,7 @@ Audience: prospective collaborators and the assessor. Purpose: show Chirag's edu
 - Original generated URL (still available): https://6abcf8640007fde5290d.appwrite.network
 - Domain proxy rule: `45595318d1d7cc10d91686583a8ac5fc` (verified; linked to assignment site). Created with `appwrite proxy create-site-rule --domain chirag-cs5709.appwrite.network --site-id cs5709-portfolio-phase1`; HTTPS opening verified with Playwright.
 - [Deployment console](https://cloud.appwrite.io/console/project-sgp-chirag-project-prod/sites/site-cs5709-portfolio-phase1)
-- Status: site deployed and verified on 1 October; report PDF generated. **Not submission-ready**: video, reflection, two-way chat check and policy review pending (see the yellow to-do boxes in the PDF).
+- Status: site deployed and verified on 1 October; report PDF generated. **Not submission-ready**: video, reflection and policy review pending (see the yellow to-do boxes in the PDF).
 - Appwrite: Main Project (`chirag-project-prod`), Singapore (`sgp`)
 - Assignment site ID: `cs5709-portfolio-phase1` (separate from production)
 - Source repository: https://github.com/ChiragAgg5k/ul-university-notes (this directory; local changes need pushing)
@@ -72,14 +72,14 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 - [x] Verify shared navigation and direct page URLs.
 - [x] Integrate real hosted messaging with click-to-load privacy notice, error handling and email fallback.
 - [x] Confirm visitor messages reached the owner inbox and send a labelled owner-side reply.
-- [ ] Confirm the reply appears in the visitor widget, then finish video gallery.
+- [x] Confirm the reply appears in the visitor widget (1 October: "reply received" sent from the dashboard appeared in the live visitor widget; see `evidence/chat-reply-*.png`). Video gallery still pending.
 - [x] Record initial foundation commit including current styling; no separate unstyled milestone is claimed.
 
 ### Development, iteration 2 (3 marks)
 
 - [x] Style every page and check desktop/mobile layouts for horizontal overflow.
 - [x] Test keyboard navigation, focus and contrast and image descriptions (photo alt text rewritten from the photographs on 1 October).
-- [ ] Verify media, blog navigation and messaging end to end.
+- [x] Verify media, blog navigation and messaging end to end (video excepted).
 - [x] Deploy isolated assignment site and record working live URL.
 - [x] Add progressively enhanced skill filtering, structured evidence and a complete technical article; verify interactions.
 
@@ -127,7 +127,7 @@ Contents: cover; contents; 1 declaration and transparency; 2 abstract; 3 discove
 - Gallery images initially appeared unloaded in the automated scan because they are lazy-loaded. Scrolling each into view and awaiting `img.decode()` confirmed all three load successfully.
 - Actual application screenshots: [desktop home](evidence/home-desktop.png), [mobile gallery](evidence/gallery-mobile.png), [desktop skill filter](evidence/skill-filter-desktop.png), [mobile skill filter](evidence/skill-filter-mobile.png).
 - Keyboard smoke check: first Tab focuses “Skip to content”. Full accessibility audit and external-link testing not yet complete.
-- Chat integration: local mocked-provider browser checks passed for no request before clicking, load/reopen with one script, and blocked-provider failure handling. On the real live site, the widget loaded and a labelled integration-test message appeared in the visitor conversation. **Owner inbox receipt is now confirmed.** A labelled reply was sent from the dashboard; visitor-side receipt remains unverified because a subsequent session failed to initialise. See [desktop chat](evidence/chat-desktop.png) and [mobile chat](evidence/chat-mobile.png). Mobile viewport check at 390px showed no document overflow and an open widget.
+- Chat integration: local mocked-provider browser checks passed for no request before clicking, load/reopen with one script, and blocked-provider failure handling. On the real live site, the widget loaded and a labelled integration-test message appeared in the visitor conversation. **Owner inbox receipt is now confirmed.** On 1 October a dashboard reply ("reply received") appeared in the live visitor widget, so two-way messaging is verified ([visitor](evidence/chat-reply-visitor.png), [dashboard](evidence/chat-reply-dashboard.png)). See [desktop chat](evidence/chat-desktop.png) and [mobile chat](evidence/chat-mobile.png). Mobile viewport check at 390px showed no document overflow and an open widget.
 - Video playback: **not implemented or tested**. Report: **Markdown draft written; PDF not yet exported**.
 
 ## Navigation enhancement

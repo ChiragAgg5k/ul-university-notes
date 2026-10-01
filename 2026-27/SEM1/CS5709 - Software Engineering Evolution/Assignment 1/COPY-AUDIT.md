@@ -26,4 +26,4 @@ Contact instructions, project descriptions and the shared footer are shorter. Pr
 
 ## Chat verification update
 
-In the authenticated Tawk.to dashboard, both the original integration message and the later labelled live-site test were present. Owner inbox receipt is now verified. Joined the labelled test conversation and sent a labelled dashboard reply. A subsequent visitor session failed to initialise with the same intermittent provider issue, so receipt of the reply in the visitor widget remains unverified. Do not mark full two-way verification complete.
+In the authenticated Tawk.to dashboard, both the original integration message and the later labelled live-site test were present. Owner inbox receipt is now verified. Joined the labelled test conversation and sent a labelled dashboard reply. A subsequent visitor session failed to initialise with the same intermittent provider issue, so receipt of the reply in the visitor widget remains unverified. Update 1 October: a new labelled test conversation was answered from the dashboard and the reply appeared in the live visitor widget, completing two-way verification.
