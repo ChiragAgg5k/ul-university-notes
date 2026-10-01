@@ -1,32 +1,40 @@
-import { mkdir, rm, writeFile, cp } from 'node:fs/promises';
+import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { knowledge, staticArticle } from './content.mjs';
+import { layout } from './layout.mjs';
+import about from './pages/about.mjs';
+import blogMcp from './pages/blog-mcp.mjs';
+import blogLogging from './pages/blog-logging.mjs';
+import blog from './pages/blog.mjs';
+import contact from './pages/contact.mjs';
+import education from './pages/education.mjs';
+import home from './pages/home.mjs';
+import knowledge from './pages/knowledge.mjs';
+import missing from './pages/missing.mjs';
+import pictures from './pages/pictures.mjs';
+import videos from './pages/videos.mjs';
 
 process.chdir(fileURLToPath(new URL('.', import.meta.url)));
-const original = 'https://www.chiragaggarwal.tech';
+
+// Array order is navigation order; pages without a label are not in the menu.
 const pages = [
-  ['index.html', 'Home', 'Chirag Aggarwal', `<div class="intro"><div><p class="lead">Platform engineer. Software engineering student.</p><p>I build backend systems with open-source technologies at Appwrite. I’m also studying Software Engineering at the University of Limerick.</p><p>Here you’ll find my education, projects and writing.</p><a class="button" href="knowledge.html">Explore my work</a></div><img class="portrait" src="assets/me.webp" alt="Chirag Aggarwal" width="280" height="280"></div><section><h2>Building tools for developers</h2><div class="columns"><article><h3>Platform engineering</h3><p>PHP services, Kubernetes infrastructure and developer tooling at Appwrite.</p><a href="knowledge.html">Professional knowledge →</a></article><article><h3>Learning at Limerick</h3><p>Studying software design and evolution alongside my engineering work.</p><a href="education.html">Education →</a></article></div></section>`],
-  ['about.html', 'About', 'A little about me', `<p class="lead">I enjoy understanding how systems work and making them easier for other people to use.</p><p>My professional work spans backend development, developer tools and open-source infrastructure. I also work on the frontend when a project calls for it.</p><h2>Experience</h2><dl><dt>Appwrite · Platform Engineer</dt><dd>December 2024–present. Started as an intern, then moved into a full-time role in June 2025.</dd><dt>Skillarena · Backend Developer</dt><dd>July–September 2024. Maintained MERN backend systems and worked on real-time chat using WebSockets and FastAPI.</dd><dt>Clearmind AI · Fullstack Developer</dt><dd>October–December 2023. Worked on personalised recommendations and Stripe payment integration.</dd></dl><h2>Elsewhere</h2><p><a href="https://github.com/ChiragAgg5k">GitHub</a> · <a href="https://www.linkedin.com/in/chiragagg5k/">LinkedIn</a> · <a href="${original}">Original portfolio</a></p>`],
-  ['education.html', 'Education', 'Education', `<p class="lead">I’m studying Software Engineering at the University of Limerick.</p><dl><dt>University of Limerick</dt><dd><strong>MSc Software Engineering</strong><br>September 2026–present.<br>Current studies include software engineering evolution, advanced software design, concurrency and research methods.</dd><dt>Bennett University</dt><dd><strong>BTech Computer Science Engineering</strong><br>2022–2026 · CGPA: 9.71.</dd><dt>Bharti Public School</dt><dd><strong>Senior Secondary, CBSE</strong><br>2010–2022 · Class X: 91.2%; Class XII: 89.5%.</dd></dl>`],
-  ['knowledge.html', 'Professional knowledge', 'Engineering in practice', knowledge],
-  ['pictures.html', 'Pictures gallery', 'Outside the editor', `<p class="lead">Photos from hackathons and developer events.</p><div class="gallery"><figure><a href="assets/hackcbs.jpeg"><img src="assets/hackcbs.jpeg" alt="Photograph from the HackCBS event" width="640" height="480" loading="lazy"></a><figcaption>HackCBS · open the full photograph</figcaption></figure><figure><a href="assets/github-constellation.jpeg"><img src="assets/github-constellation.jpeg" alt="Photograph from GitHub Constellation" width="640" height="480" loading="lazy"></a><figcaption>GitHub Constellation · open the full photograph</figcaption></figure><figure><a href="assets/hackaccino.jpeg"><img src="assets/hackaccino.jpeg" alt="Photograph from the Hackaccino event" width="640" height="480" loading="lazy"></a><figcaption>Hackaccino · open the full photograph</figcaption></figure></div>`],
-  ['videos.html', 'Video gallery', 'Work in motion', `<p class="lead">A space for project walkthroughs and technical demonstrations.</p><div class="notice"><h2>Video selection in progress</h2><p>This page is not finished. A project video and captions or a transcript will be added before submission.</p></div>`],
-  ['blog.html', 'Blog', 'Notes from building', `<p class="lead">Writing about the decisions behind software.</p><article><p class="eyebrow">Developer tooling · republished excerpt</p><h2><a href="blog-mcp.html">How I built the Appwrite MCP server</a></h2><p>Why exposing an API through a protocol was only the beginning of the work.</p><a href="blog-mcp.html">Read the excerpt →</a></article>`],
-  ['contact.html', 'Contact', 'Get in touch', `<p class="lead">Interested in open-source tools or platform engineering?</p><p><a class="button" href="mailto:chiragaggarwal5k@gmail.com">Email Chirag</a></p><section><h2>Chat directly</h2><p>Click “Chat with me” below. If I’m online, I can reply here. Otherwise, leave a message and I’ll follow up when available.</p><p>Chat uses Tawk.to and may take a moment to connect. You can also email me without opening chat.</p></section>`],
-  ['blog-mcp.html', 'Article', 'How I built the Appwrite MCP server', `<p class="eyebrow">By Chirag Aggarwal · excerpt from an existing article</p><p>When Anthropic introduced the Model Context Protocol on November 25, 2024, it got everyone's eyes on it, including Christy, who was Appwrite's Engineering Lead back then. I had just started my role as an "Engineering Intern" and had no idea what a whole new protocol meant, or why it was such a big deal.</p><p>Looking at the surface, I wasn't entirely wrong. MCP is JSON-RPC with a schema and a handshake stapled on. What took us sixteen months was everything stapled around it.</p><p><a href="${original}/blog/how-i-built-the-appwrite-mcp-server">Read the complete original article →</a></p><p><a href="blog.html">← All writing</a></p>`],
+  home,
+  about,
+  education,
+  knowledge,
+  pictures,
+  videos,
+  blog,
+  contact,
+  blogLogging,
+  blogMcp,
+  missing,
 ];
-pages.find(([file]) => file === 'blog.html')[3] += `<article><p class="eyebrow">Portfolio development · complete technical note</p><h2><a href="blog-static.html">Why this portfolio generates static HTML</a></h2><p>How the pages are built, why the site uses ordinary links, and what still needs work.</p><a href="blog-static.html">Read the development note →</a></article>`;
-pages.push(['blog-static.html', 'Article', 'Small by design', staticArticle]);
-const navigation = pages.filter(([, label]) => label !== 'Article');
-function layout(file, title, body) {
-  return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Chirag Aggarwal’s education, platform engineering work and writing."><title>${title} | Chirag Aggarwal</title><link rel="stylesheet" href="style.css"><script type="module" src="navigation.mjs"></script><script type="module" src="chat.mjs"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header><a class="identity" href="index.html">Chirag <br>Aggarwal<span>Engineering portfolio</span></a><nav aria-label="Main navigation">${navigation.map(([href,label]) => `<a href="${href}"${href === file || (href === 'blog.html' && file.startsWith('blog-')) ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav><p class="module">CS5709<br>Phase 1 · work in progress</p></header><div class="page"><main id="main" tabindex="-1"><p class="eyebrow">Software / systems / learning</p><h1>${title}</h1>${body}</main><footer><section aria-label="Live chat"><button class="button" type="button" data-open-chat aria-describedby="chat-privacy" hidden>Chat with me</button><p id="chat-privacy">Chat uses Tawk.to, which processes messages and connection data and may use cookies. After your first click, it loads on other pages in this tab. Close the tab to stop automatic loading. Don’t share sensitive information. <a href="https://www.tawk.to/privacy-policy/">Tawk.to privacy policy</a>.</p><p role="status" data-chat-status></p><noscript><p>Chat requires JavaScript.</p></noscript><p>Prefer email? <a href="mailto:chiragaggarwal5k@gmail.com">Email Chirag</a>.</p></section><p>Chirag Aggarwal · CS5709 digital portfolio</p><p>Coursework adapted from <a href="${original}">my original portfolio</a>. Video gallery unfinished.</p></footer></div></body></html>`;
-}
+const links = pages.filter(page => page.label);
+const scripts = ['chat.mjs', 'filter.mjs', 'navigation.mjs', 'projects.mjs'];
+
 await rm('dist', { recursive: true, force: true });
 await mkdir('dist', { recursive: true });
-for (const [file, , title, body] of pages) await writeFile(`dist/${file}`, layout(file, title, body));
-await writeFile('dist/404.html', layout('', 'Page not found', '<p>This address does not match a page in the portfolio.</p><a href="index.html">Return home</a>'));
-for (const file of ['style.css', 'filter.mjs', 'projects.mjs', 'navigation.mjs', 'chat.mjs']) await cp(file, `dist/${file}`);
+for (const page of pages) await writeFile(`dist/${page.file}`, layout(page, links));
+for (const file of ['style.css', ...scripts]) await cp(file, `dist/${file}`);
 await cp('assets', 'dist/assets', { recursive: true });
-console.log(`Built ${pages.length} pages and a 404 document.`);
+console.log(`Built ${pages.length} pages.`);

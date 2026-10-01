@@ -7,30 +7,70 @@ const source = await readFile(new URL('./chat.mjs', import.meta.url), 'utf8');
 function setup({ consent = false, prerendering = false, blockedStorage = false } = {}) {
   const listeners = {};
   const scripts = [];
-  const button = { hidden: true, disabled: false, addEventListener: (name, fn) => { listeners[name] = fn; } };
+  const button = {
+    hidden: true,
+    disabled: false,
+    addEventListener: (name, fn) => {
+      listeners[name] = fn;
+    },
+  };
   const status = { textContent: '' };
   const window = {};
   let remembered = consent ? 'yes' : null;
   let expire;
   const document = {
     prerendering,
-    querySelectorAll: () => [button], querySelector: () => status,
-    addEventListener: (name, fn) => { listeners[name] = fn; },
-    head: { append: script => scripts.push(script) },
-    createElement: () => ({ setAttribute() {}, addEventListener(name, fn) { this[name] = fn; } }),
-  };
-  vm.runInNewContext(source, { document, window, Date,
-    sessionStorage: {
-      getItem() { if (blockedStorage) throw Error('blocked'); return remembered; },
-      setItem(key, value) { if (blockedStorage) throw Error('blocked'); remembered = value; },
+    querySelectorAll: () => [button],
+    querySelector: () => status,
+    addEventListener: (name, fn) => {
+      listeners[name] = fn;
     },
-    setTimeout(fn) { expire = fn; return 1; }, clearTimeout() {},
+    head: { append: script => scripts.push(script) },
+    createElement: () => ({
+      setAttribute() {},
+      addEventListener(name, fn) {
+        this[name] = fn;
+      },
+    }),
+  };
+  vm.runInNewContext(source, {
+    document,
+    window,
+    Date,
+    sessionStorage: {
+      getItem() {
+        if (blockedStorage) throw Error('blocked');
+        return remembered;
+      },
+      setItem(key, value) {
+        if (blockedStorage) throw Error('blocked');
+        remembered = value;
+      },
+    },
+    setTimeout(fn) {
+      expire = fn;
+      return 1;
+    },
+    clearTimeout() {},
   });
   let opened = 0;
-  return { scripts, button, status, listeners,
-    click: () => listeners.click(), expire: () => expire(),
-    ready() { window.Tawk_API.maximize = () => opened++; window.Tawk_API.onLoad(); },
-    get opened() { return opened; }, get remembered() { return remembered; },
+  return {
+    scripts,
+    button,
+    status,
+    listeners,
+    click: () => listeners.click(),
+    expire: () => expire(),
+    ready() {
+      window.Tawk_API.maximize = () => opened++;
+      window.Tawk_API.onLoad();
+    },
+    get opened() {
+      return opened;
+    },
+    get remembered() {
+      return remembered;
+    },
   };
 }
 

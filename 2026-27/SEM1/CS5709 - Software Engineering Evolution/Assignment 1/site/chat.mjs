@@ -8,8 +8,11 @@ let timeout;
 let openWhenReady = false;
 
 function rememberedChoice() {
-  try { return sessionStorage.getItem(consentKey) === 'yes'; }
-  catch { return false; }
+  try {
+    return sessionStorage.getItem(consentKey) === 'yes';
+  } catch {
+    return false;
+  }
 }
 
 function fail() {
@@ -21,7 +24,8 @@ function fail() {
     button.disabled = true;
     button.textContent = 'Chat unavailable';
   }
-  status.textContent = 'Chat couldn’t connect. Reload to try again, or email Chirag. The chat service may be unavailable.';
+  status.textContent =
+    'Chat couldn’t connect. Reload to try again, or email Chirag. The chat service may be unavailable.';
 }
 
 function loadChat() {
@@ -53,7 +57,11 @@ function loadChat() {
 
 function openChat() {
   if (state === 'failed') return;
-  try { sessionStorage.setItem(consentKey, 'yes'); } catch { /* Storage is optional. */ }
+  try {
+    sessionStorage.setItem(consentKey, 'yes');
+  } catch {
+    /* Storage is optional. */
+  }
   if (state === 'ready') {
     window.Tawk_API.maximize();
     return;
@@ -76,5 +84,6 @@ function activate() {
 }
 
 // Do not create sessions in speculative, invisible documents, even after opt-in.
-if (document.prerendering) document.addEventListener('prerenderingchange', activate, { once: true });
+if (document.prerendering)
+  document.addEventListener('prerenderingchange', activate, { once: true });
 else activate();
