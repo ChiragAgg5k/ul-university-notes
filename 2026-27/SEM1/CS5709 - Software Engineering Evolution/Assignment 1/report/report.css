@@ -1,0 +1,238 @@
+@page {
+  size: A4;
+  margin: 18mm 18mm 20mm;
+  @bottom-left {
+    content: 'Chirag Aggarwal · 26253925 · CS5709 Assessment 1';
+    font:
+      7.5pt 'Helvetica Neue',
+      Helvetica,
+      Arial,
+      sans-serif;
+    color: #506278;
+  }
+  @bottom-right {
+    content: counter(page) ' / ' counter(pages);
+    font:
+      7.5pt 'Helvetica Neue',
+      Helvetica,
+      Arial,
+      sans-serif;
+    color: #506278;
+  }
+}
+@page :first {
+  @bottom-left {
+    content: none;
+  }
+  @bottom-right {
+    content: none;
+  }
+}
+:root {
+  --ink: #192b40;
+  --blue: #174a79;
+  --muted: #506278;
+  --divider: #d7e0ea;
+  --tint: #f3f6fa;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  font:
+    10.5pt/1.5 Georgia,
+    serif;
+}
+a {
+  color: var(--blue);
+}
+h1,
+h2,
+h3,
+caption,
+th,
+figcaption,
+.cover-module,
+.cover-details dt {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+h2 {
+  font-size: 17pt;
+  color: var(--blue);
+  margin: 0 0 8pt;
+}
+h3 {
+  font-size: 11.5pt;
+  margin: 12pt 0 4pt;
+  break-after: avoid;
+}
+p {
+  margin: 0 0 6pt;
+}
+code {
+  font:
+    8.5pt Menlo,
+    monospace;
+}
+.new-page {
+  break-before: page;
+}
+.new-page-before {
+  break-before: page;
+}
+.cover {
+  height: 250mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cover h1 {
+  font-size: 34pt;
+  line-height: 1.1;
+  color: var(--blue);
+  margin: 6pt 0 28pt;
+}
+.cover-module {
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 9.5pt;
+}
+.cover-details {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  gap: 6pt 0;
+  border-top: 1px solid var(--divider);
+  padding-top: 12pt;
+}
+.cover-details dt {
+  color: var(--muted);
+  font-size: 9.5pt;
+}
+.cover-details dd {
+  margin: 0;
+}
+.contents {
+  break-before: page;
+}
+.toc {
+  padding-left: 1.2em;
+  font-size: 11pt;
+}
+.toc li {
+  margin: 6pt 0;
+}
+.toc li a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.toc li span {
+  float: right;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 4pt 0 8pt;
+  break-inside: avoid;
+}
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 3pt 6pt 3pt 0;
+  border-bottom: 1px solid var(--divider);
+}
+th {
+  font-size: 8.5pt;
+  color: var(--muted);
+}
+table.compact td {
+  font-size: 9pt;
+  line-height: 1.35;
+}
+figure {
+  margin: 8pt 0;
+  break-inside: avoid;
+}
+figure img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+figcaption {
+  font-size: 8.5pt;
+  color: var(--muted);
+  margin-top: 4pt;
+}
+.figure-row {
+  display: flex;
+  gap: 8mm;
+  align-items: flex-start;
+}
+.block-diagram {
+  flex: 0 0 84mm;
+  margin-top: 0;
+}
+.design-notes h3:first-child {
+  margin-top: 0;
+}
+.screenshots figure {
+  flex: 3;
+}
+.screenshots .phone {
+  flex: 1;
+}
+.screenshots img {
+  border: 1px solid var(--divider);
+}
+.todo,
+.todo-inline {
+  background: #fff3c4;
+}
+.todo {
+  border-left: 3pt solid #c99a00;
+  padding: 6pt 8pt;
+  margin: 8pt 0;
+  font-size: 9.5pt;
+}
+.references {
+  padding-left: 1.4em;
+  font-size: 9.5pt;
+}
+.references li {
+  margin-bottom: 4pt;
+}
+.listing-file {
+  break-before: auto;
+  margin-top: 10pt;
+}
+.listing-file h3 {
+  font-size: 9.5pt;
+  background: var(--tint);
+  padding: 3pt 6pt;
+  margin: 0;
+  break-after: avoid;
+}
+.listing {
+  margin: 0;
+  font:
+    6.8pt/1.35 Menlo,
+    monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  counter-reset: line;
+}
+.listing span {
+  display: block;
+  padding-left: 7mm;
+  text-indent: -7mm;
+}
+.listing span::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 6mm;
+  margin-right: 1mm;
+  text-indent: 0;
+  text-align: right;
+  color: #8a99ab;
+}

@@ -14,7 +14,7 @@ Blog → two complete republished articles (“How we solved logging at Appwrite
 ## Block diagram
 
 ```mermaid
-flowchart LR
+flowchart TB
   Source[Pages: pages/*.mjs and layout.mjs] --> Build[Node build]
   Data[Evidence data: projects.mjs] --> Source
   Data --> Filter[Optional browser filter: filter.mjs]
@@ -40,7 +40,7 @@ flowchart TD
   Controls --> Matching[Pure skill matching function]
   Matching --> Status[Visible cards and live result count]
   Main --> Media[Pictures / Video]
-  Main --> Blog[Blog index and article]
+  Main --> Blog[Blog index and two republished articles]
   Main --> Contact[Contact: email and chat guidance]
   Footer --> Loader[chat.mjs: click-to-load state machine]
   Loader --> Provider[Tawk.to widget and owner inbox]
@@ -53,7 +53,8 @@ flowchart TD
 flowchart TD
   Start[Visitor opens URL] --> Exists{Static document exists?}
   Exists -->|Yes| Render[Browser renders HTML and CSS]
-  Exists -->|No| Missing[404 response]
+  Exists -->|No| Missing[Host serves 404 page; links resolve from site root]
+  Missing --> Action
   Render --> Action{Visitor chooses link}
   Render --> JS{Filter script available?}
   JS -->|No| All[All project evidence stays visible]

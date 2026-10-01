@@ -17,7 +17,7 @@ Audience: prospective collaborators and the assessor. Purpose: show Chirag's edu
 - Original generated URL (still available): https://6abcf8640007fde5290d.appwrite.network
 - Domain proxy rule: `45595318d1d7cc10d91686583a8ac5fc` (verified; linked to assignment site). Created with `appwrite proxy create-site-rule --domain chirag-cs5709.appwrite.network --site-id cs5709-portfolio-phase1`; HTTPS opening verified with Playwright.
 - [Deployment console](https://cloud.appwrite.io/console/project-sgp-chirag-project-prod/sites/site-cs5709-portfolio-phase1)
-- Status: working foundation, **not submission-ready** (video, final report and two-way chat verification pending)
+- Status: site deployed and verified on 1 October; report PDF generated. **Not submission-ready**: video, reflection, two-way chat check and policy review pending (see the yellow to-do boxes in the PDF).
 - Appwrite: Main Project (`chirag-project-prod`), Singapore (`sgp`)
 - Assignment site ID: `cs5709-portfolio-phase1` (separate from production)
 - Source repository: https://github.com/ChiragAgg5k/ul-university-notes (this directory; local changes need pushing)
@@ -36,23 +36,24 @@ Open http://localhost:5709. Requires Node 22+ and Python 3. No npm dependencies.
 
 ## Feature scheme
 
-| Area | Phase 1 target | Phase 2 proposal |
-|---|---|---|
-| Home | Introduction and selected work | More detailed case studies |
-| About | Background and professional links | Downloadable tailored CV |
-| Education | UL, Bennett and school history | Module/project evidence |
+| Area                   | Phase 1 target                                      | Phase 2 proposal                       |
+| ---------------------- | --------------------------------------------------- | -------------------------------------- |
+| Home                   | Introduction and selected work                      | More detailed case studies             |
+| About                  | Background and professional links                   | Downloadable tailored CV               |
+| Education              | UL, Bennett and school history                      | Module/project evidence                |
 | Professional knowledge | Three structured examples with working skill filter | Free-text search and more case studies |
-| Pictures | Captioned existing portfolio photos | Filtering and enlarged view |
-| Video | Playable relevant video with accessible description | Multiple videos and transcripts |
-| Blog | Locally readable article content | Tags, search and content management |
-| Messaging | Genuine visitor-to-owner instant messaging | History, notifications and moderation |
-| Navigation/CSS | All pages linked, responsive, keyboard usable | Further usability refinements |
+| Pictures               | Captioned existing portfolio photos                 | Filtering and enlarged view            |
+| Video                  | Playable relevant video with accessible description | Multiple videos and transcripts        |
+| Blog                   | Locally readable article content                    | Tags, search and content management    |
+| Messaging              | Genuine visitor-to-owner instant messaging          | History, notifications and moderation  |
+| Navigation/CSS         | All pages linked, responsive, keyboard usable       | Further usability refinements          |
 
 Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionality. The brief names six pages plus blog and messaging despite the rubric's five-page minimum. Implement the fuller brief. A mail link/contact form is not instant messaging.
 
 ## Single-session checklist
 
 ### Discovery (3 marks)
+
 - [x] Inspect authenticated assignment and expanded rubric.
 - [x] Record requirements, phase split and repository location.
 - [x] Select a simpler architecture and define sitemap.
@@ -61,10 +62,12 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 - [ ] Finalise video selection.
 
 ### Design (3 marks)
+
 - [x] Draft block, component and control-flow diagrams in `DESIGN.md`.
 - [x] Update diagrams to document the Tawk.to messaging integration.
 
 ### Development, iteration 1 (3 marks)
+
 - [x] Build Home, About, Education, Professional knowledge, Pictures, Blog and article; scaffold Video and Contact with honest incomplete states.
 - [x] Verify shared navigation and direct page URLs.
 - [x] Integrate real hosted messaging with click-to-load privacy notice, error handling and email fallback.
@@ -73,46 +76,45 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 - [x] Record initial foundation commit including current styling; no separate unstyled milestone is claimed.
 
 ### Development, iteration 2 (3 marks)
+
 - [x] Style every page and check desktop/mobile layouts for horizontal overflow.
-- [x] Test keyboard navigation, focus and contrast (image descriptions still generic: review alt text).
+- [x] Test keyboard navigation, focus and contrast and image descriptions (photo alt text rewritten from the photographs on 1 October).
 - [ ] Verify media, blog navigation and messaging end to end.
 - [x] Deploy isolated assignment site and record working live URL.
 - [x] Add progressively enhanced skill filtering, structured evidence and a complete technical article; verify interactions.
 
 ### Evaluation (3 marks)
+
 - [x] Record actual test commands/results and meaningful app screenshots.
-- [x] Draft critique with specific limitations and improvements in `REPORT-DRAFT.md` (student review outstanding).
+- [x] Draft critique with specific limitations and improvements in the report (student review outstanding).
 - [ ] Write an honest personal reflection based on the development log.
 
 ### Report and hand-in
-- [ ] Cover: title, name, student ID and module.
-- [ ] Table of contents, declaration/transparency, abstract.
-- [ ] Discovery, plan and tools (conservative interpretation: one page combined).
-- [ ] Design with all three diagrams (two pages maximum).
-- [ ] Full authored code listing plus GitHub link (exclude build output/dependencies).
+
+- [x] Cover: title, name, student ID and module.
+- [x] Table of contents, declaration/transparency, abstract.
+- [x] Discovery, plan and tools (conservative interpretation: one page combined).
+- [x] Design with all three diagrams (two pages maximum).
+- [x] Full authored code listing plus GitHub link (exclude build output/dependencies).
 - [ ] Innovation feature, critique (one page maximum), reflection, references.
-- [ ] Export and inspect PDF, check links, pagination and readability.
+- [x] Export and inspect PDF, check links, pagination and readability.
 - [ ] Student reviews factual details, declaration and final submission.
 
 ## Reuse and transparency
 
 Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc968437afac98464c8`. Existing biography, education, work descriptions and photographs are adapted, not claimed as newly created coursework. Both blog articles are republished in full from the original portfolio and link to their originals; the MCP article's two diagrams were captured from its rendered Mermaid figures, its bar chart is shown as its data table, and its two screenshots are copied from the original. Website implementation in this directory is new AI-assisted work; Chirag must review it, understand it and disclose assistance according to module policy. Do not invent a student ID, tests, reflection or development history.
 
-## Report draft
+## Report
 
-[REPORT-DRAFT.md](REPORT-DRAFT.md) contains the cover scaffold, proposed transparency wording, abstract, discovery/plan/tools, design explanation, innovation discussion, critique and references. It deliberately leaves student ID and personal reflection unresolved. This is not a submission-ready PDF; code listing, page layout and student review remain.
+The report source is [`report/source.html`](report/source.html) with print styles in `report/report.css`. Diagrams in `report/diagrams/` are rendered from the Mermaid blocks in `DESIGN.md` (Mermaid 11.17.2, neutral theme, 2x scale); re-render them after changing a diagram.
 
-## Report contents
+```sh
+node report/pdf.mjs
+```
 
-1. Front cover
-2. Table of contents
-3. Declaration and transparency
-4. Abstract
-5. Discovery, feature narrative, iterative plan and tools
-6. Design (block, component and control-flow diagrams)
-7. Full code listing and source link
-8. Critique, innovation and reflection
-9. References
+This inserts the full code listing from the authored source files, prints `report/dist/report.pdf` with headless Chrome, finds each section's page with `pdftotext` and prints again with numbered contents. Requires Google Chrome (or set `CHROME`) and Poppler (`brew install poppler`). The build reports how many yellow to-do markers remain; submit only when it reports 0.
+
+Contents: cover; contents; 1 declaration and transparency; 2 abstract; 3 discovery, feature narrative, iterative plan and tools (one page); 4 design with block, component and control-flow diagrams (two pages); 5 full code listing; 6 evaluation, innovation, critique (one page) and reflection; 7 references.
 
 ## Verification so far
 

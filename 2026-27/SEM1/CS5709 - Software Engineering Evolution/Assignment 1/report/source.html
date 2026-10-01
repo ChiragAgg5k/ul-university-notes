@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CS5709 Assessment 1: Digital Portfolio, Phase 1 | Chirag Aggarwal</title>
+<link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+<section class="cover">
+  <p class="cover-module">CS5709 Software Engineering Evolution · Assessment 1</p>
+  <h1>Digital Portfolio:<br>Phase 1</h1>
+  <dl class="cover-details">
+    <dt>Student</dt><dd>Chirag Aggarwal</dd>
+    <dt>Student ID</dt><dd>26253925</dd>
+    <dt>Programme</dt><dd>MSc Software Engineering, University of Limerick</dd>
+    <dt>Submitted</dt><dd>6 October 2026</dd>
+    <dt>Live site</dt><dd><a href="https://chirag-cs5709.appwrite.network">chirag-cs5709.appwrite.network</a></dd>
+    <dt>Source</dt><dd><a href="https://github.com/ChiragAgg5k/ul-university-notes">github.com/ChiragAgg5k/ul-university-notes</a> (folder <code>2026-27/SEM1/CS5709 - Software Engineering Evolution/Assignment 1</code>)</dd>
+  </dl>
+</section>
+
+<section class="contents">
+  <h2 class="unnumbered">Contents</h2>
+  <ol class="toc">
+    <li><a href="#declaration">Declaration and transparency</a><span data-page-of="declaration"></span></li>
+    <li><a href="#abstract">Abstract</a><span data-page-of="abstract"></span></li>
+    <li><a href="#discovery">Discovery, feature narrative, iterative plan and tools</a><span data-page-of="discovery"></span></li>
+    <li><a href="#design">Design</a><span data-page-of="design"></span></li>
+    <li><a href="#listing">Code listing</a><span data-page-of="listing"></span></li>
+    <li><a href="#evaluation">Evaluation, innovation, critique and reflection</a><span data-page-of="evaluation"></span></li>
+    <li><a href="#references">References</a><span data-page-of="references"></span></li>
+  </ol>
+</section>
+
+<section id="declaration" class="new-page">
+  <h2>1. Declaration and transparency</h2>
+  <p>This report and the website it describes are submitted for CS5709 Assessment 1. The website's code was written for this assessment. Some of its content was not.</p>
+  <h3>Reused material</h3>
+  <p>The biography, work history, education details, three event photographs and both blog articles are my own pre-existing material from my personal portfolio at <a href="https://www.chiragaggarwal.tech">chiragaggarwal.tech</a> (source repository <code>chiragagg5k/profile-website</code>, commit <code>70f641f</code>). The two articles, “How we solved logging at Appwrite” (April 2026) and “How I built the Appwrite MCP server” (August 2026), are republished in full with links to the originals. They are presented as evidence of my professional writing, not as writing produced for this module. The MCP article's diagrams and screenshots are taken from the original publication.</p>
+  <h3>Use of generative AI</h3>
+  <p>I used an AI coding assistant (Claude Code) throughout this assessment. It helped me interpret the brief, write and refactor the website's code and tests, run automated and browser checks, deploy the site, render the design diagrams and draft sections of this report. The decisions recorded in this report, the choice of content and the final text are mine, and I am responsible for them.</p>
+  <div class="todo"><strong>Before submitting:</strong> read the module's policy on generative AI and on reusing prior work in Brightspace, adjust this declaration to match it, and remove this box.</div>
+</section>
+
+<section id="abstract">
+  <h2>2. Abstract</h2>
+  <p>This project is a digital portfolio that presents my education, professional engineering work, event photographs and technical writing, and lets visitors message me directly. It is a separate site from my production portfolio, built to be small enough to explain completely. A Node.js build script combines one module per page with a shared layout and writes plain HTML documents, which Appwrite Sites serves. CSS provides a responsive layout, and two small browser scripts add progressive enhancements: a filter that links skills to project evidence, and a hosted Tawk.to chat widget that loads only after the visitor chooses to open it. All content stays readable without JavaScript. The work was carried out in three dated iterations recorded in Git, and is checked by 25 automated tests (structure, links, contrast, filtering, chat loading and a 404 regression) plus browser checks on the live site at desktop and mobile widths. The main remaining limitation is the video gallery (see Section 6).</p>
+</section>
+
+<section id="discovery" class="new-page">
+  <h2>3. Discovery, feature narrative, iterative plan and tools</h2>
+  <h3>Discovery</h3>
+  <p><strong>Audience and purpose.</strong> The site is read by the module assessor and by potential employers or collaborators. Both need evidence of what I have built and why, not a list of technologies. <strong>Requirements.</strong> The brief asks for Home, About, Education, Professional knowledge, Pictures and Video pages, a blog, instant messaging, shared navigation and CSS styling. <strong>Constraints.</strong> The deadline left about a week, the site had to be separate from my production portfolio, and the brief requires a full code listing, which rewards a small codebase.</p>
+  <p><strong>Key decisions.</strong> I generate static HTML at build time rather than building a single-page app, so every page has a real URL and works without JavaScript or a client-side router. For messaging, I compared building a WebSocket chat backend with using a hosted service. A custom backend would need hosting, storage, an owner interface and moderation, so I chose Tawk.to, which provides the visitor widget and an owner inbox and mobile app. Because it is a third party that processes visitor data, it loads only after a click and a privacy notice.</p>
+  <h3>Feature narrative</h3>
+  <table class="compact">
+    <thead><tr><th>Area</th><th>Phase 1 (this submission)</th><th>Phase 2 proposal</th></tr></thead>
+    <tbody>
+      <tr><td>Profile</td><td>Home, About, Education with shared navigation</td><td>Downloadable tailored CV</td></tr>
+      <tr><td>Professional knowledge</td><td>Three structured project examples; skill filter</td><td>More case studies; free-text search</td></tr>
+      <tr><td>Media</td><td>Captioned photo gallery; video page</td><td>Enlarged photo view; more videos with transcripts</td></tr>
+      <tr><td>Blog</td><td>Two full technical articles with figures</td><td>Tags, search, Markdown authoring</td></tr>
+      <tr><td>Messaging</td><td>Hosted instant messaging with privacy notice and email fallback</td><td>Notifications and conversation history for visitors</td></tr>
+      <tr><td>Quality</td><td>Responsive layout, keyboard use, automated tests</td><td>Automated deployment and user testing</td></tr>
+    </tbody>
+  </table>
+  <h3>Iterative plan and what happened</h3>
+  <table class="compact">
+    <thead><tr><th>Iteration</th><th>Date</th><th>Outcome</th></tr></thead>
+    <tbody>
+      <tr><td>1. Foundation</td><td>30 Sep</td><td>Requirements checklist, sitemap, shared layout, all pages styled, isolated Appwrite deployment (<code>7896a5b</code>, <code>058165d</code>)</td></tr>
+      <tr><td>2. Features</td><td>30 Sep</td><td>Project evidence and skill filter, Tawk.to chat with click-to-load, privacy notice and fallback, prefetching navigation, chat loading tests (<code>13ad3a3</code> to <code>284e1be</code>)</td></tr>
+      <tr><td>3. Quality and content</td><td>1 Oct</td><td>Per-page modules for a readable listing, 404 path fix, contrast tests, keyboard pass, full blog articles, descriptive alt text (<code>cc707ca</code>, <code>8c954ca</code>)</td></tr>
+    </tbody>
+  </table>
+  <h3>Tools and techniques</h3>
+  <p>HTML, CSS and JavaScript modules; Node.js 22 (build script and built-in test runner); Prettier for formatting; Playwright for browser checks and screenshots; Git and GitHub for version control; Appwrite CLI and Appwrite Sites (Singapore region) for deployment; Tawk.to for messaging; Mermaid for diagrams. The site has no runtime or build dependencies beyond Node.js.</p>
+</section>
+
+<section id="design" class="new-page">
+  <h2>4. Design</h2>
+  <p>The design separates content (page modules and project data), presentation (one stylesheet and a shared layout) and optional behaviour (filter and chat scripts). The build runs once before deployment, so visitors receive finished HTML.</p>
+  <div class="figure-row">
+    <figure class="block-diagram">
+      <img src="diagrams/block.png" alt="Block diagram">
+      <figcaption><strong>Figure 1. Block diagram.</strong> Page modules, project data and CSS are combined by the Node build into static HTML, which Appwrite Sites serves. The filter script and the Tawk.to service run in the visitor's browser; Tawk.to connects visitors to my inbox.</figcaption>
+    </figure>
+    <div class="design-notes">
+      <h3>Structure</h3>
+      <p>Each page is a module in <code>pages/</code> exporting its file name, menu label, title and body. <code>layout.mjs</code> wraps every page in the same document, so navigation, the skip link and the footer exist once. <code>build.mjs</code> lists the pages in menu order and writes <code>dist/</code>.</p>
+      <h3>Trade-offs</h3>
+      <p>Real HTML pages mean a full page load per navigation, which <code>navigation.mjs</code> reduces by asking supporting browsers to prefetch linked pages. Content edits need a rebuild and deploy; there is no CMS. Chat depends on Tawk.to's availability.</p>
+      <h3>Visual design</h3>
+      <p>A blue navigation rail and white reading column, Georgia headings and system body text, a 65-character line length and no decorative animation. The rail becomes a top bar below 720px. All text colours meet WCAG AA contrast (tested).</p>
+    </div>
+  </div>
+  <figure>
+    <img src="diagrams/component.png" alt="Component diagram">
+    <figcaption><strong>Figure 2. Component diagram.</strong> The shared layout provides navigation, page content and footer. The professional knowledge page contains the filter components; the footer contains the chat loader.</figcaption>
+  </figure>
+  <figure class="new-page-before">
+    <img src="diagrams/control-flow.png" alt="Control-flow diagram">
+    <figcaption><strong>Figure 3. Control-flow diagram.</strong> From opening a URL: a missing path gets the 404 page, whose links resolve from the site root. On a page, three flows run independently: following links, filtering projects (with all projects visible if the script does not run), and chat, which loads after an explicit choice, or automatically on later pages in the same tab, and falls back to email on error or after 20 seconds.</figcaption>
+  </figure>
+</section>
+
+<section id="listing" class="new-page">
+  <h2>5. Code listing</h2>
+  <p>The full authored source follows, in build order. Generated output (<code>dist/</code>), images and the original portfolio's content are not repeated. The same files are in the repository linked on the cover. Line numbers restart for each file.</p>
+  <!-- listing -->
+</section>
+
+<section id="evaluation" class="new-page">
+  <h2>6. Evaluation, innovation, critique and reflection</h2>
+  <h3>Testing</h3>
+  <table class="compact">
+    <thead><tr><th>Check</th><th>Method</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Every page: one heading level 1, language, skip link, one active menu item, local links and images exist, alt text present</td><td>Automated (<code>npm test</code>)</td><td>Pass</td></tr>
+      <tr><td>Skill matching, no-script fallback, chat loading states (7 cases), prefetch candidates</td><td>Automated</td><td>Pass</td></tr>
+      <tr><td>404 page at a nested missing path loads styles and links from the root</td><td>Automated regression test; live browser check</td><td>Pass (bug found and fixed in iteration 3)</td></tr>
+      <tr><td>Text colour contrast at least 4.5:1</td><td>Automated, computed from the stylesheet</td><td>Pass</td></tr>
+      <tr><td>Keyboard order and visible focus; no horizontal scrolling at 390px on all pages</td><td>Playwright, local and live</td><td>Pass</td></tr>
+      <tr><td>Chat: visitor message reaches owner inbox</td><td>Manual, live site and Tawk.to dashboard</td><td>Pass</td></tr>
+      <tr><td>Chat: owner reply reaches visitor</td><td>Manual</td><td class="todo-inline">To confirm</td></tr>
+    </tbody>
+  </table>
+  <div class="figure-row screenshots">
+    <figure><img src="../evidence/home-desktop.png" alt="Home page on desktop"><figcaption>Home page, desktop.</figcaption></figure>
+    <figure class="phone"><img src="../evidence/skill-filter-mobile.png" alt="Skill filter on mobile with Go selected"><figcaption>Filter on a 390px phone, “Go” selected.</figcaption></figure>
+  </div>
+  <h3>Innovation: skills linked to evidence</h3>
+  <p>Portfolios usually list skills on their own. Here each skill is a button that filters project case studies, each with the problem, my contribution, a design choice and where to look for evidence, so a reader can go from “Go” or “APIs” to the work that shows it. The buttons expose their state with <code>aria-pressed</code> and a live region announces the result count. The filter is added only when its script loads; without it, all projects stay visible. It is a small, site-specific enhancement rather than a new technique.</p>
+  <h3>Critique</h3>
+  <p><strong>Strengths.</strong> Every page is a real document, so links, refresh and the Back button behave normally and the site works without JavaScript. The per-page modules keep the code short enough to list in full. Tests cover the site's structure as well as its logic, and caught a real defect: the host serves the 404 page at any missing path, which broke its relative links until the page was given a root base URL.</p>
+  <p><strong>Weaknesses.</strong> <span class="todo-inline">[Video: update this sentence once the video decision is made.]</span> Messaging depends on a third party: during testing, Tawk.to returned server errors on some session starts, which the site can report but not fix, and the owner's reply has not yet been confirmed on the visitor side. The site also returns HTTP 200 for missing pages, which is host behaviour I could not change. Page content is written as HTML inside JavaScript modules, which is harder to edit than Markdown. Two of three professional knowledge examples come from my job, and the third is this coursework, so the evidence is thin. The automated tests check structure, not real usability, and no one outside the project has used the site.</p>
+  <p><strong>Improvements for Phase 2.</strong> Author articles in Markdown; add more case studies and search; add automated build, test and deploy on each push; run a short usability test with two or three people; and add notifications so visitors know when I reply.</p>
+  <h3>Reflection</h3>
+  <div class="todo"><strong>To write (about 250 words, in my own words).</strong> Prompts: which design decision I would defend and why; what I changed after reviewing AI-generated code or text; what the tests missed and what browser checks found; how republishing my existing work differed from writing for this module; what I would do differently.</div>
+</section>
+
+<section id="references" class="new-page">
+  <h2>7. References</h2>
+  <ol class="references">
+    <li>Aggarwal, C. (2026) <em>How I built the Appwrite MCP server (and decided to hide most of its capabilities)</em>. Available at: https://www.chiragaggarwal.tech/blog/how-i-built-the-appwrite-mcp-server (Accessed: 1 October 2026).</li>
+    <li>Aggarwal, C. (2026) <em>How we solved logging at Appwrite</em>. Available at: https://www.chiragaggarwal.tech/blog/how-we-solved-logging-at-appwrite (Accessed: 1 October 2026).</li>
+    <li>Aggarwal, C. (2026) <em>profile-website</em> [source code], commit 70f641f. Available at: https://github.com/chiragagg5k/profile-website (Accessed: 30 September 2026).</li>
+    <li>Appwrite (2026) <em>Sites</em>. Available at: https://appwrite.io/docs/products/sites (Accessed: 30 September 2026).</li>
+    <li>Appwrite (2026) <em>Appwrite CLI</em>. Available at: https://github.com/appwrite/cli (Accessed: 1 October 2026).</li>
+    <li>MDN Web Docs (2026) <em>Progressive enhancement</em>. Available at: https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement (Accessed: 30 September 2026).</li>
+    <li>MDN Web Docs (2026) <em>Speculation Rules API</em>. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API (Accessed: 30 September 2026).</li>
+    <li>Node.js (2026) <em>Test runner</em>. Available at: https://nodejs.org/api/test.html (Accessed: 30 September 2026).</li>
+    <li>Tawk.to (2026) <em>JavaScript API</em>. Available at: https://developer.tawk.to/jsapi/ (Accessed: 30 September 2026).</li>
+    <li>Tawk.to (2026) <em>Privacy policy</em>. Available at: https://www.tawk.to/privacy-policy/ (Accessed: 30 September 2026).</li>
+    <li>W3C (2024) <em>Web Content Accessibility Guidelines (WCAG) 2.2</em>. Available at: https://www.w3.org/TR/WCAG22/ (Accessed: 1 October 2026).</li>
+    <li>W3C WAI (2026) <em>ARIA Authoring Practices Guide: Button pattern</em>. Available at: https://www.w3.org/WAI/ARIA/apg/patterns/button/ (Accessed: 30 September 2026).</li>
+  </ol>
+</section>
+
+</body>
+</html>
