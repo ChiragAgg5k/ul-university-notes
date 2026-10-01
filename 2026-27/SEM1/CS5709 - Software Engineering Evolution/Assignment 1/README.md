@@ -1,6 +1,6 @@
 # Assessment 1: Digital portfolio (Phase 1)
 
-CS5709: Software Engineering Evolution · 15% · deadline: **6 October** (confirmed by Chirag). The 2026/27 module's Brightspace page still displays 2025 and 23:59; confirm the corrected year/time with the lecturer.
+CS5709: Software Engineering Evolution · 15% · deadline: **6 October 2026, 23:59** (Brightspace still shows 2025, copied from the previous year). **Submitted 1 October 2026, 4:11 PM, submission ID 999286.**
 
 [Assignment and rubric](https://learn.ul.ie/d2l/lms/dropbox/user/folder_submit_files.d2l?db=51831&grpid=0&isprv=0&bp=0&ou=91640) · [Original portfolio](https://github.com/chiragagg5k/profile-website)
 
@@ -17,7 +17,7 @@ Audience: prospective collaborators and the assessor. Purpose: show Chirag's edu
 - Original generated URL (still available): https://6abcf8640007fde5290d.appwrite.network
 - Domain proxy rule: `45595318d1d7cc10d91686583a8ac5fc` (verified; linked to assignment site). Created with `appwrite proxy create-site-rule --domain chirag-cs5709.appwrite.network --site-id cs5709-portfolio-phase1`; HTTPS opening verified with Playwright.
 - [Deployment console](https://cloud.appwrite.io/console/project-sgp-chirag-project-prod/sites/site-cs5709-portfolio-phase1)
-- Status: site deployed and verified on 1 October; report PDF generated. **Not submission-ready**: policy review of the declaration pending (see the yellow to-do boxes in the PDF).
+- Status: **submitted** on 1 October 2026 (Brightspace submission ID 999286): `report/dist/CS5709-Assessment1-Chirag-Aggarwal-26253925.pdf` with the live site and repository links in the comment.
 - Appwrite: Main Project (`chirag-project-prod`), Singapore (`sgp`)
 - Assignment site ID: `cs5709-portfolio-phase1` (separate from production)
 - Source repository: https://github.com/ChiragAgg5k/ul-university-notes (this directory; local changes need pushing)
@@ -59,7 +59,7 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 - [x] Inspect authenticated assignment and expanded rubric.
 - [x] Record requirements, phase split and repository location.
 - [x] Select a simpler architecture and define sitemap.
-- [ ] Confirm permission to adapt pre-existing work and applicable AI policy.
+- [x] Check AI and reuse policy: no module-specific policy found on Brightspace; reuse and AI use are disclosed in the report declaration.
 - [x] Choose Tawk.to and integrate the owner-provided public widget.
 - [x] Video: the brief lists a video gallery, so a one-minute animated explainer of the MCP article was built (`video/mcp-explainer.html`) and recorded with Playwright, with captions and a transcript.
 
@@ -89,7 +89,7 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 
 - [x] Record actual test commands/results and meaningful app screenshots.
 - [x] Draft critique with specific limitations and improvements in the report (student review outstanding).
-- [ ] Write an honest personal reflection based on the development log.
+- [x] Write the personal reflection (written by Chirag; spelling and grammar corrected only).
 
 ### Report and hand-in
 
@@ -98,9 +98,9 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 - [x] Discovery, plan and tools (conservative interpretation: one page combined).
 - [x] Design with all three diagrams (two pages maximum).
 - [x] Full authored code listing plus GitHub link (exclude build output/dependencies).
-- [ ] Innovation feature, critique (one page maximum), reflection, references.
+- [x] Innovation feature, critique (one page maximum), reflection, references.
 - [x] Export and inspect PDF, check links, pagination and readability.
-- [ ] Student reviews factual details, declaration and final submission.
+- [x] Student reviews factual details, declaration and final submission; submitted on Brightspace (ID 999286).
 
 ## Reuse and transparency
 
