@@ -236,3 +236,10 @@ figcaption {
   text-align: right;
   color: #8a99ab;
 }
+
+.component-diagram img {
+  max-height: 70mm;
+}
+.control-flow-diagram img {
+  max-height: 150mm;
+}
