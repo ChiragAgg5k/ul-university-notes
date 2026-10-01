@@ -22,9 +22,9 @@ Source: https://github.com/ChiragAgg5k/ul-university-notes
 
 ## 1. Declaration and transparency (proposed wording for review)
 
-This portfolio adapts biographical information, education, photographs and an article excerpt from my existing public portfolio. These materials predate this assessment and are not presented as newly created coursework. The original source and commit are recorded in the project README.
+This portfolio adapts biographical information, education, photographs and two blog articles from my existing public portfolio. These materials predate this assessment and are not presented as newly created coursework. The original source and commit are recorded in the project README.
 
-An AI coding assistant helped interpret the brief, generate implementation and documentation drafts, run tests and deploy the site. The new technical blog note is labelled AI-assisted. **Before submission, I must review the implementation, confirm the factual content, understand the code and ensure this assistance and reuse comply with module policy.** This draft is not a signed declaration of work already reviewed.
+An AI coding assistant helped interpret the brief, generate implementation and documentation drafts, run tests and deploy the site. Blog articles are my own previously published writing, republished with links to the originals. **Before submission, I must review the implementation, confirm the factual content, understand the code and ensure this assistance and reuse comply with module policy.** This draft is not a signed declaration of work already reviewed.
 
 ## 2. Abstract
 
@@ -36,7 +36,7 @@ The project is a digital portfolio presenting education, professional knowledge,
 
 ### Discovery and narrative
 
-The intended users are the assessor and potential professional collaborators. They need clear evidence of education, experience and technical work, not only a list of technologies. Home introduces the author; About and Education provide background. Professional knowledge connects skills to concrete examples and evidence links. Pictures presents captioned event photographs. Blog provides an existing article excerpt and a complete technical development note. The video page discloses missing content. Contact provides email and a real hosted chat widget loaded only when the visitor chooses to open it.
+The intended users are the assessor and potential professional collaborators. They need clear evidence of education, experience and technical work, not only a list of technologies. Home introduces the author; About and Education provide background. Professional knowledge connects skills to concrete examples and evidence links. Pictures presents captioned event photographs. Blog republishes my own technical writing: full republished articles on evolving Appwrite's logging and on building the Appwrite MCP server, each linking to its original. The video page discloses missing content. Contact provides email and a real hosted chat widget loaded only when the visitor chooses to open it.
 
 | Feature group | Phase 1 | Proposed Phase 2 |
 |---|---|---|
@@ -62,7 +62,7 @@ Insert the rendered diagrams from `DESIGN.md`, updating them after messaging int
 
 ### Structure and responsibility
 
-`build.mjs` owns document assembly and output generation. The shared layout supplies navigation, current-page state, main content and footer. `projects.mjs` contains structured project evidence and a pure matching function; `content.mjs` renders that evidence and the development article. `filter.mjs` handles project filtering. `navigation.mjs` supplies optional browser-native page preparation. `chat.mjs` loads the hosted widget on an explicit click and handles loading failures. `style.css` defines shared visual rules. Generated files are excluded from Git because they can be rebuilt.
+Each page is a module in `pages/` exporting its file name, navigation label, title and body. `layout.mjs` wraps every page in the shared document: navigation, current-page state, main content and footer. `build.mjs` only lists the pages in navigation order and writes the output. `projects.mjs` contains structured project evidence and a pure matching function; `pages/knowledge.mjs` renders that evidence. `filter.mjs` handles project filtering. `navigation.mjs` supplies optional browser-native page preparation. `chat.mjs` loads the hosted widget on an explicit click and handles loading failures. `style.css` defines shared visual rules. Generated files are excluded from Git because they can be rebuilt.
 
 Every main section has a real HTML URL. This avoids a client-side router and preserves normal refresh, link and Back behaviour. The trade-off is a complete document navigation between pages. A shared build-time layout reduces repetition but a defect in it can affect every page, motivating per-document tests.
 
@@ -78,7 +78,7 @@ The assignment site has its own Appwrite site ID and domain. It does not replace
 
 ## 5. Code listing
 
-The complete listing of authored source will be generated after final implementation. Include `build.mjs`, `content.mjs`, `projects.mjs`, `filter.mjs`, `navigation.mjs`, `chat.mjs`, `style.css`, tests, package configuration and deployment configuration. Do not print generated `dist` copies, binary photographs or dependency directories as source code. Keep the repository link alongside the listing, not as a substitute for the full listing requested by the brief.
+The complete listing of authored source will be generated after final implementation. Include `build.mjs`, `layout.mjs`, `profile.mjs`, `pages/*.mjs`, `projects.mjs`, `filter.mjs`, `navigation.mjs`, `chat.mjs`, `style.css`, tests, package configuration and deployment configuration. Do not print generated `dist` copies, binary photographs or dependency directories as source code. Keep the repository link alongside the listing, not as a substitute for the full listing requested by the brief.
 
 ## 6. Critique, innovation and reflection
 
@@ -90,7 +90,7 @@ Separate HTML documents make routes transparent and keep core content independen
 
 ### Limitations and improvements
 
-The current implementation lacks the required video. Messaging is integrated and owner inbox receipt is confirmed. A dashboard reply was sent, but intermittent session failures have prevented confirmation of its receipt in the visitor widget. The blog includes a reused excerpt and an AI-assisted draft, so student review and accurate attribution remain important. Some content is embedded as HTML strings in the build script; this keeps the toolchain small but becomes harder to edit as pages grow. A future content layer could improve maintainability, although adopting a CMS would add authentication and operational responsibilities.
+The current implementation lacks the required video. Messaging is integrated and owner inbox receipt is confirmed. A dashboard reply was sent, but intermittent session failures have prevented confirmation of its receipt in the visitor widget. The blog republishes existing articles rather than writing new ones for this assessment, so attribution to the originals matters. Page content is written as HTML inside JavaScript modules; this keeps the toolchain small but is less convenient to edit than Markdown as the blog grows. A future content layer could improve maintainability, although adopting a CMS would add authentication and operational responsibilities.
 
 The current tests do not establish WCAG conformance, real-user usability or messaging reliability. Browser testing observed a provider session request fail with HTTP 500 before a reload succeeded. Background loading reduces repeated click latency but cannot resolve provider outages. A manual keyboard pass, contrast checks and representative browser flows should complement them. The filter relies on JavaScript, but its no-script fallback intentionally preserves all content. Deployments are manual; a narrowly scoped CI build/test/deploy pipeline could reduce release mistakes. Media permission and factual accuracy should be reviewed by the student before submission.
 

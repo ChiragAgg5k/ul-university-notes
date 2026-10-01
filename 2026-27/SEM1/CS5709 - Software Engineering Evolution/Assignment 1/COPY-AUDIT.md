@@ -13,7 +13,7 @@ Scope: visitor-facing copy added for this assignment. Preserve original article 
 | “The principle is to add complexity for an identified requirement…” | Removed closing moral. | The article already explains the concrete choices. |
 | “A content blocker or network restriction may be preventing…” | “The chat service may be unavailable.” | Provider HTTP 500 errors were observed; avoid implying the visitor's browser is the cause. |
 
-Contact instructions, project descriptions and the shared footer are shorter. Privacy copy still identifies Tawk.to, message/connection-data processing, possible cookies, tab-scoped background loading and the instruction not to share sensitive information. The original MCP article excerpt is unchanged.
+Contact instructions, project descriptions and the shared footer are shorter. Privacy copy still identifies Tawk.to, message/connection-data processing, possible cookies, tab-scoped background loading and the instruction not to share sensitive information. The MCP article is now republished in full with its text unchanged; a text comparison against the original found only whitespace differences in highlighted code blocks.
 
 ## Checks
 
@@ -22,7 +22,7 @@ Contact instructions, project descriptions and the shared footer are shorter. Pr
 - Preservation scan: 132/133 extracted tokens preserved; the single missing “Limerick Connecting” was a false proper noun formed across a heading and paragraph. The university name remains unchanged.
 - Reviewed reduced negation counts manually: removed repeated caveats, retained the limitations on attribution, performance claims, no-script access and unfinished work.
 - Structure/readability scans of concatenated pages flagged repeated navigation/footer text and short UI labels. These are interface conventions, not reasons to rewrite page copy into an essay. No readability score is claimed for that combined sample.
-- Dates, grades, links and the quoted original article remain intact. Source attribution and AI-assisted draft labelling remain visible.
+- Dates, grades, links and the quoted original article remain intact. Source attribution remains visible. The AI-assisted development note was later replaced by a full republished article of my own; its only edit is three em dashes changed to a colon or comma.
 
 ## Chat verification update
 

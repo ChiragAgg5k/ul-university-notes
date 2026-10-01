@@ -9,13 +9,13 @@ Tokens: paper `#ffffff`, background `#f3f6fa`, ink `#192b40`, blue `#174a79`, mu
 ## Sitemap
 
 Home → About · Education · Professional knowledge · Pictures · Video · Blog · Contact.
-Blog → local article excerpt → original full article; Blog → complete technical development note. Professional knowledge → filter by skill → linked project evidence. Contact offers email and hosted Tawk.to chat. A shared footer button loads the provider after an explicit visitor click and privacy notice. The choice is remembered for the tab; later active pages warm the widget in the background. Video is a clearly marked unfinished page until a real video is selected.
+Blog → two complete republished articles (“How we solved logging at Appwrite” and “How I built the Appwrite MCP server”), each linking to its original. Professional knowledge → filter by skill → linked project evidence. Contact offers email and hosted Tawk.to chat. A shared footer button loads the provider after an explicit visitor click and privacy notice. The choice is remembered for the tab; later active pages warm the widget in the background. Video is a clearly marked unfinished page until a real video is selected.
 
 ## Block diagram
 
 ```mermaid
 flowchart LR
-  Source[Layout: build.mjs and content.mjs] --> Build[Node build]
+  Source[Pages: pages/*.mjs and layout.mjs] --> Build[Node build]
   Data[Evidence data: projects.mjs] --> Source
   Data --> Filter[Optional browser filter: filter.mjs]
   Filter --> Browser

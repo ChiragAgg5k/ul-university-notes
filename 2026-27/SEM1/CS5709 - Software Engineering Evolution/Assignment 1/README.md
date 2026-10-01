@@ -74,7 +74,7 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 
 ### Development, iteration 2 (3 marks)
 - [x] Style every page and check desktop/mobile layouts for horizontal overflow.
-- [ ] Test keyboard navigation, focus, contrast and image descriptions.
+- [x] Test keyboard navigation, focus and contrast (image descriptions still generic: review alt text).
 - [ ] Verify media, blog navigation and messaging end to end.
 - [x] Deploy isolated assignment site and record working live URL.
 - [x] Add progressively enhanced skill filtering, structured evidence and a complete technical article; verify interactions.
@@ -96,7 +96,7 @@ Phase 2 is a proposed enhancement list, not a reason to omit Phase 1 functionali
 
 ## Reuse and transparency
 
-Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc968437afac98464c8`. Existing biography, education, work descriptions and photographs are adapted, not claimed as newly created coursework. Blog excerpts link to their originals. Website implementation in this directory is new AI-assisted work; Chirag must review it, understand it and disclose assistance according to module policy. Do not invent a student ID, tests, reflection or development history.
+Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc968437afac98464c8`. Existing biography, education, work descriptions and photographs are adapted, not claimed as newly created coursework. Both blog articles are republished in full from the original portfolio and link to their originals; the MCP article's two diagrams were captured from its rendered Mermaid figures, its bar chart is shown as its data table, and its two screenshots are copied from the original. Website implementation in this directory is new AI-assisted work; Chirag must review it, understand it and disclose assistance according to module policy. Do not invent a student ID, tests, reflection or development history.
 
 ## Report draft
 
@@ -116,7 +116,9 @@ Content source: `chiragagg5k/profile-website` at commit `70f641f3ccbdfe146d2fbcc
 
 ## Verification so far
 
-- `cd site && npm run build && npm test`: **23 passing tests** (document structure, required files, internal links/assets, active navigation, image alt attributes, exact skill matching, progressive enhancement and incomplete-feature disclosures).
+- `cd site && npm run build && npm test`: **25 passing tests** (document structure, required files, internal links/assets, active navigation, image alt attributes, exact skill matching, progressive enhancement, incomplete-feature disclosures, 404 links resolving from the site root, and WCAG AA contrast of every text colour pair in the stylesheet).
+- Bug found 1 October: the host serves `404.html` at any missing path (with HTTP 200), so on `/blog/nested/missing` its relative stylesheet and navigation links resolved under `/blog/nested/` and every link led to another 404. Fixed with `<base href="/">` on the 404 document only; the regression test fails without it. Simulated nested-path check confirmed styles and links load from the root.
+- Keyboard pass 1 October: tab order is skip link, identity, eight navigation links, then page content; every focused element shows a solid outline. All ten pages at 390px: no horizontal overflow, one active navigation item, no script errors.
 - Initial live Playwright checks at 1440px and 390px: all nine original content URLs returned HTTP 200, one active navigation item each, no horizontal overflow.
 - Evidence iteration: local browser checks verified Go → 1 result, APIs → 2, All → 3; keyboard Space activation; mobile overflow; blog-to-article navigation; and three readable projects with JavaScript disabled. Rechecked live filtering, keyboard, reset, mobile layout and new article after deployment; no page errors observed.
 - `site/browser-check.mjs` exports reusable `checkPortfolio(page, baseURL)` for a caller-supplied Playwright Page. Browser tests are separate from `npm test`.
@@ -145,6 +147,6 @@ Messaging: Tawk.to widget `6abd0adffd2d7034457f30d7/1k3p74upi`, supplied by Chir
 
 ## Development log
 
-- Evidence iteration: added three structured project examples, accessible skill filtering and a full technical article labelled AI-assisted. Updated diagrams and wrote a report draft without inventing personal reflection. Screenshot inspection exposed an offscreen skip-link capture artefact; changed its hiding method to clipping while preserving keyboard focus.
+- Evidence iteration: added three structured project examples, accessible skill filtering and a full technical article labelled AI-assisted (replaced on 1 October by the full text of my own April 2026 post, “How we solved logging at Appwrite”, so the blog contains no AI-written articles). Updated diagrams and wrote a report draft without inventing personal reflection. Screenshot inspection exposed an offscreen skip-link capture artefact; changed its hiding method to clipping while preserving keyboard focus.
 - Kickoff: checked live rubric; inspected existing portfolio; chose independent static implementation to reduce code-listing and deployment complexity. Existing production website remains untouched.
 - Appwrite CLI project initialisation unexpectedly pulled unrelated functions/settings. Removed those local pulls from the assignment tree before staging; retained only project identity and isolated site configuration. No unrelated remote settings were pushed.
