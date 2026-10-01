@@ -12,7 +12,7 @@ export const projects = [
       'A command-line interface makes operations scriptable. The trade-off is that validation, error messages and documentation must work without a visual interface.',
     evidence:
       'The code and change history are in the public repository. Performance hasn’t been measured here.',
-    url: 'https://github.com/appwrite/cli',
+    url: 'https://github.com/appwrite/sdk-for-cli',
     label: 'View the CLI source',
   },
   {

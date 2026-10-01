@@ -31,6 +31,7 @@ const files = [
   'site/test.mjs',
   'site/chat.test.mjs',
   'site/browser-check.mjs',
+  'site/check-links.mjs',
   'video/mcp-explainer.html',
   'appwrite.config.json',
 ];

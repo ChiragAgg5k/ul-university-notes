@@ -34,6 +34,8 @@ python3 -m http.server 5709 --directory dist
 
 Open http://localhost:5709. Requires Node 22+ and Python 3. No npm dependencies.
 
+`npm run check-links` requests every external link in `dist/` (network required, so it is not part of `npm test`). On 1 October it found that the Appwrite CLI card linked to `github.com/appwrite/cli`, which no longer exists; the card now links to `appwrite/sdk-for-cli`.
+
 ## Feature scheme
 
 | Area                   | Phase 1 target                                      | Phase 2 proposal                       |

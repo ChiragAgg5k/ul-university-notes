@@ -11,6 +11,7 @@
   <p class="cover-module">CS5709 Software Engineering Evolution · Assessment 1</p>
   <h1>Digital Portfolio:<br>Phase 1</h1>
   <dl class="cover-details">
+    <dt>Module</dt><dd>CS5709 Software Engineering Evolution, 2026/27 Semester 1 (module lead: Salim Saay)</dd>
     <dt>Student</dt><dd>Chirag Aggarwal</dd>
     <dt>Student ID</dt><dd>26253925</dd>
     <dt>Programme</dt><dd>MSc Software Engineering, University of Limerick</dd>
@@ -53,6 +54,7 @@
   <p><strong>Audience and purpose.</strong> The site is read by the module assessor and by potential employers or collaborators. Both need evidence of what I have built and why, not a list of technologies. <strong>Requirements.</strong> The brief asks for Home, About, Education, Professional knowledge, Pictures and Video pages, a blog, instant messaging, shared navigation and CSS styling. <strong>Constraints.</strong> The deadline left about a week, the site had to be separate from my production portfolio, and the brief requires a full code listing, which rewards a small codebase.</p>
   <p><strong>Key decisions.</strong> I generate static HTML at build time rather than building a single-page app, so every page has a real URL and works without JavaScript or a client-side router. For messaging, I compared building a WebSocket chat backend with using a hosted service. A custom backend would need hosting, storage, an owner interface and moderation, so I chose Tawk.to, which provides the visitor widget and an owner inbox and mobile app. Because it is a third party that processes visitor data, it loads only after a click and a privacy notice.</p>
   <h3>Feature narrative</h3>
+  <p><strong>Site scheme.</strong> Home → About · Education · Professional knowledge · Pictures gallery · Video gallery · Blog (two articles) · Contact. Every page shares the navigation bar and the chat button.</p>
   <table class="compact">
     <thead><tr><th>Area</th><th>Phase 1 (this submission)</th><th>Phase 2 proposal</th></tr></thead>
     <tbody>
@@ -108,7 +110,7 @@
 
 <section id="listing" class="new-page">
   <h2>5. Code listing</h2>
-  <p>The full authored source follows, in build order. Generated output (<code>dist/</code>), images and the original portfolio's content are not repeated. The same files are in the repository linked on the cover. Line numbers restart for each file.</p>
+  <p>The full authored source follows, in build order. Generated output (<code>dist/</code>), images and the original portfolio's content are not repeated. The same files are in the GitHub repository at <a href="https://github.com/ChiragAgg5k/ul-university-notes/tree/main/2026-27/SEM1/CS5709%20-%20Software%20Engineering%20Evolution/Assignment%201">github.com/ChiragAgg5k/ul-university-notes</a> (folder <code>2026-27/SEM1/CS5709 - Software Engineering Evolution/Assignment 1</code>). Line numbers restart for each file.</p>
   <!-- listing -->
 </section>
 
@@ -143,18 +145,18 @@
 <section id="references" class="new-page">
   <h2>7. References</h2>
   <ol class="references">
-    <li>Aggarwal, C. (2026) <em>How I built the Appwrite MCP server (and decided to hide most of its capabilities)</em>. Available at: https://www.chiragaggarwal.tech/blog/how-i-built-the-appwrite-mcp-server (Accessed: 1 October 2026).</li>
-    <li>Aggarwal, C. (2026) <em>How we solved logging at Appwrite</em>. Available at: https://www.chiragaggarwal.tech/blog/how-we-solved-logging-at-appwrite (Accessed: 1 October 2026).</li>
-    <li>Aggarwal, C. (2026) <em>profile-website</em> [source code], commit 70f641f. Available at: https://github.com/chiragagg5k/profile-website (Accessed: 30 September 2026).</li>
-    <li>Appwrite (2026) <em>Sites</em>. Available at: https://appwrite.io/docs/products/sites (Accessed: 30 September 2026).</li>
-    <li>Appwrite (2026) <em>Appwrite CLI</em>. Available at: https://github.com/appwrite/cli (Accessed: 1 October 2026).</li>
-    <li>MDN Web Docs (2026) <em>Progressive enhancement</em>. Available at: https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement (Accessed: 30 September 2026).</li>
-    <li>MDN Web Docs (2026) <em>Speculation Rules API</em>. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API (Accessed: 30 September 2026).</li>
-    <li>Node.js (2026) <em>Test runner</em>. Available at: https://nodejs.org/api/test.html (Accessed: 30 September 2026).</li>
-    <li>Tawk.to (2026) <em>JavaScript API</em>. Available at: https://developer.tawk.to/jsapi/ (Accessed: 30 September 2026).</li>
-    <li>Tawk.to (2026) <em>Privacy policy</em>. Available at: https://www.tawk.to/privacy-policy/ (Accessed: 30 September 2026).</li>
-    <li>W3C (2024) <em>Web Content Accessibility Guidelines (WCAG) 2.2</em>. Available at: https://www.w3.org/TR/WCAG22/ (Accessed: 1 October 2026).</li>
-    <li>W3C WAI (2026) <em>ARIA Authoring Practices Guide: Button pattern</em>. Available at: https://www.w3.org/WAI/ARIA/apg/patterns/button/ (Accessed: 30 September 2026).</li>
+    <li>Aggarwal, C. (2026) <em>How I built the Appwrite MCP server (and decided to hide most of its capabilities)</em>. Available at: <a href="https://www.chiragaggarwal.tech/blog/how-i-built-the-appwrite-mcp-server">https://www.chiragaggarwal.tech/blog/how-i-built-the-appwrite-mcp-server</a> (Accessed: 1 October 2026).</li>
+    <li>Aggarwal, C. (2026) <em>How we solved logging at Appwrite</em>. Available at: <a href="https://www.chiragaggarwal.tech/blog/how-we-solved-logging-at-appwrite">https://www.chiragaggarwal.tech/blog/how-we-solved-logging-at-appwrite</a> (Accessed: 1 October 2026).</li>
+    <li>Aggarwal, C. (2026) <em>profile-website</em> [source code], commit 70f641f. Available at: <a href="https://github.com/chiragagg5k/profile-website">https://github.com/chiragagg5k/profile-website</a> (Accessed: 30 September 2026).</li>
+    <li>Appwrite (2026) <em>Sites</em>. Available at: <a href="https://appwrite.io/docs/products/sites">https://appwrite.io/docs/products/sites</a> (Accessed: 30 September 2026).</li>
+    <li>Appwrite (2026) <em>Appwrite CLI</em>. Available at: <a href="https://github.com/appwrite/sdk-for-cli">https://github.com/appwrite/sdk-for-cli</a> (Accessed: 1 October 2026).</li>
+    <li>MDN Web Docs (2026) <em>Progressive enhancement</em>. Available at: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement">https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement</a> (Accessed: 30 September 2026).</li>
+    <li>MDN Web Docs (2026) <em>Speculation Rules API</em>. Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API">https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API</a> (Accessed: 30 September 2026).</li>
+    <li>Node.js (2026) <em>Test runner</em>. Available at: <a href="https://nodejs.org/api/test.html">https://nodejs.org/api/test.html</a> (Accessed: 30 September 2026).</li>
+    <li>Tawk.to (2026) <em>JavaScript API</em>. Available at: <a href="https://developer.tawk.to/jsapi/">https://developer.tawk.to/jsapi/</a> (Accessed: 30 September 2026).</li>
+    <li>Tawk.to (2026) <em>Privacy policy</em>. Available at: <a href="https://www.tawk.to/privacy-policy/">https://www.tawk.to/privacy-policy/</a> (Accessed: 30 September 2026).</li>
+    <li>W3C (2024) <em>Web Content Accessibility Guidelines (WCAG) 2.2</em>. Available at: <a href="https://www.w3.org/TR/WCAG22/">https://www.w3.org/TR/WCAG22/</a> (Accessed: 1 October 2026).</li>
+    <li>W3C WAI (2026) <em>ARIA Authoring Practices Guide: Button pattern</em>. Available at: <a href="https://www.w3.org/WAI/ARIA/apg/patterns/button/">https://www.w3.org/WAI/ARIA/apg/patterns/button/</a> (Accessed: 30 September 2026).</li>
   </ol>
 </section>
 
