@@ -6,7 +6,7 @@ CS6451 — Advanced Software Design | 2026/7 SEM1 | Lecturer: J.J. Collins
 - [Marking scheme v1](CS6451-AssignPart1-MarkingScheme-S1AY2627-v1.pdf)
 - Team repo (private): [ChiragAgg5k/cs6451-gym-membership](https://github.com/ChiragAgg5k/cs6451-gym-membership). It holds the requirements draft, role proposal, diary, GenAI prompt log, sample-project lessons, and milestones for each iteration
 
-**Status: team formed (Brightspace Group 1), scenario chosen: gym and fitness club membership (23 Sep 2026). Tech stack agreed: Java 21 + Spring Boot (30 Sep 2026).**
+**Status: team formed (Brightspace Group 1), scenario chosen: gym and fitness club membership (23 Sep 2026). Tech stack agreed: Java 21 + Spring Boot (30 Sep 2026). Architecture (MVC + Hexagonal) and analysis sketches drafted on branch `docs/architecture-analysis` (7 Oct 2026).**
 
 ## Key facts
 
@@ -57,7 +57,7 @@ The suggested plan comes from the spec (Table 3). Dates assume Week 1 started Mo
 | Week (w/c) | Workflow | Done |
 | --- | --- | --- |
 | 3 (21 Sep) | ~~Form the team~~ (done: Group 1), ~~agree the scenario~~ (done: gym membership). Assign roles (proposal in team repo), ~~set up GitHub~~ (done), ~~look at existing projects~~ (done), start requirements (draft in team repo) | [ ] |
-| 4 (28 Sep) | Architecture and analysis. Team deadline Wed 30 Sep. Sample projects released Mon 28 Sep | [ ] |
+| 4 (28 Sep) | Architecture and analysis. Team deadline Wed 30 Sep. Sample projects released Mon 28 Sep. **Bootstrap drafts done 7 Oct** (team repo `docs/architecture`, `docs/analysis`): package, class, UC2 sequence, `Membership` state chart, ER | [ ] |
 | 5 (5 Oct) | Iteration 1: architecture, 2 key use cases, 2 test cases | [ ] |
 | 6 (12 Oct) | Iteration 2: 2 more use cases, design pattern(s) | [ ] |
 | 7 (19 Oct) | Iteration 3: design pattern(s), added value (CI/CD, metrics, refactoring) | [ ] |
@@ -81,8 +81,8 @@ Brightspace **Group 1**.
 - Scenario: **Gym and fitness club membership** (chosen 23 Sep 2026)
 - Package structure: **monolithic, package by layer** (`controller`, `service`, `domain`, `repository`). The lecture slides label package by feature (`customer/`, `order/`, each with its own controller, service and repository) as the microservice layout, which is Part 2. Each member owns one feature's classes across all layers
 - Language / stack: **Java 21 + Spring Boot 4.1.x, Maven** (agreed 30 Sep 2026). JSON file repositories + DTOs (no ORM), Postman as the front end, JUnit 5 + Mockito, GitHub Actions CI, JaCoCo + PMD + CK/SonarCloud metrics. Hosting stack: embedded Tomcat, JSON file store as EIS, in-process `ApplicationEventPublisher` as the message bus. Full rationale in the team repo `docs/tech-stack.md`
-- Self-researched architectural pattern: _TBD_
-- 4 design patterns: _TBD_
+- Self-researched architectural pattern: **Hexagonal / Ports and Adapters** (Cockburn 2005), chosen 7 Oct 2026. Adds `port.in`, `port.out` and `adapter` packages, still package by layer. Rejected: Microkernel (overlaps Strategy), Pipes and Filters (billing only), Service Layer + Data Mapper (the AY21/22 sample used it). Notes in the team repo `docs/architecture/README.md`
+- 4 design patterns (proposed at analysis): State (`Membership`), Strategy (`DiscountPolicy`), Observer (`Waitlist`), Factory (`PlanFactory`). Command is the reserve
 - Quality attributes: extensibility + _TBD_
 - Lifecycle: _TBD_
 - UML workbench: Visual Paradigm (UL licence), StarUML as fallback
