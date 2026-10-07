@@ -71,10 +71,10 @@ Brightspace **Group 1**.
 
 | Member | ID | Roles | Industry experience |
 | --- | --- | --- | --- |
-| Chirag Aggarwal | 26253925 | | Platform Engineer at Appwrite (open-source backend platform): PHP 8 / Swoole, Kubernetes, KEDA, Grafana / OpenTelemetry. Complete this row |
-| Bharat Doodi | | | |
-| DineshReddy Mogili | | | |
-| Dhruv Punj | | | |
+| Chirag Aggarwal | 26253925 | Architect, Designer. Owns Billing | Platform Engineer at Appwrite (open-source backend platform): PHP 8 / Swoole, Kubernetes, KEDA, Grafana / OpenTelemetry. Complete this row |
+| Bharat Doodi | | Project Manager, Tester. Owns Booking | |
+| DineshReddy Mogili | | Documentation Manager, Technical Lead + DevOps. Owns Member | |
+| Dhruv Punj | | Business Analyst, Systems Analyst. Owns Membership | |
 
 ## Decisions
 
