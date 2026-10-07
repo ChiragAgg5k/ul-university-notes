@@ -4,7 +4,7 @@ CS6451 — Advanced Software Design | 2026/7 SEM1 | Lecturer: J.J. Collins
 
 - [Specification v1.0](CS6451-AssignPart1-Spec-S1AY2627-v1.pdf) (issued Wed 23 Sep 2026, Week 3)
 - [Marking scheme v1](CS6451-AssignPart1-MarkingScheme-S1AY2627-v1.pdf)
-- Team repo (private): [ChiragAgg5k/cs6451-gym-membership](https://github.com/ChiragAgg5k/cs6451-gym-membership). It holds the requirements draft, role proposal, diary, GenAI prompt log, sample-project lessons, and milestones for each iteration
+- Team repo (public, course organisation): [CS6451-Advanced-Software-Design/Gym-Membership](https://github.com/CS6451-Advanced-Software-Design/Gym-Membership), moved there on 7 Oct 2026. It holds the requirements draft, role proposal, diary, GenAI prompt log, architecture and analysis drafts, and milestones for each iteration. The old private repo [ChiragAgg5k/cs6451-gym-membership](https://github.com/ChiragAgg5k/cs6451-gym-membership) still holds the sample-project lessons, which are confidential and were left out of the public repo
 
 **Status: team formed (Brightspace Group 1), scenario chosen: gym and fitness club membership (23 Sep 2026). Tech stack agreed: Java 21 + Spring Boot (30 Sep 2026). Architecture (MVC + Hexagonal) and analysis sketches drafted on branch `docs/architecture-analysis` (7 Oct 2026).**
 
@@ -81,7 +81,7 @@ Brightspace **Group 1**.
 - Scenario: **Gym and fitness club membership** (chosen 23 Sep 2026)
 - Package structure: **monolithic, package by layer** (`controller`, `service`, `domain`, `repository`). The lecture slides label package by feature (`customer/`, `order/`, each with its own controller, service and repository) as the microservice layout, which is Part 2. Each member owns one feature's classes across all layers
 - Language / stack: **Java 21 + Spring Boot 4.1.x, Maven** (agreed 30 Sep 2026). JSON file repositories + DTOs (no ORM), Postman as the front end, JUnit 5 + Mockito, GitHub Actions CI, JaCoCo + PMD + CK/SonarCloud metrics. Hosting stack: embedded Tomcat, JSON file store as EIS, in-process `ApplicationEventPublisher` as the message bus. Full rationale in the team repo `docs/tech-stack.md`
-- Self-researched architectural pattern: **Hexagonal / Ports and Adapters** (Cockburn 2005), chosen 7 Oct 2026. Adds `port.in`, `port.out` and `adapter` packages, still package by layer. Rejected: Microkernel (overlaps Strategy), Pipes and Filters (billing only), Service Layer + Data Mapper (the AY21/22 sample used it). Notes in the team repo `docs/architecture/README.md`
+- Self-researched architectural pattern: **Hexagonal / Ports and Adapters** (Cockburn 2005), chosen 7 Oct 2026. Adds `port.in`, `port.out` and `adapter` packages, still package by layer. Rejected: Microkernel (overlaps Strategy), Pipes and Filters (billing only), Service Layer + Data Mapper (a well-known enterprise default). Notes in the team repo `docs/architecture/README.md`
 - 4 design patterns (proposed at analysis): State (`Membership`), Strategy (`DiscountPolicy`), Observer (`Waitlist`), Factory (`PlanFactory`). Command is the reserve
 - Quality attributes: extensibility + _TBD_
 - Lifecycle: _TBD_
