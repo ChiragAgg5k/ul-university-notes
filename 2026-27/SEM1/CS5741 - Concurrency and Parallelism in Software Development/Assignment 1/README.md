@@ -12,10 +12,12 @@
 
 ## What to submit
 
+**Submitted 14 Oct 2026, 18:17** (Brightspace submission ID 1018364). Resubmissions are allowed until 22 Oct 23:59, and each one replaces the last.
+
 Two files, uploaded together. Each upload overwrites the previous one.
 
-- [ ] `ID26253925_Report.pdf`
-- [ ] `ID26253925_Assignment1.java`, starting with a prominent comment giving my ID and name. The public class must be called `ID26253925_Assignment1` or the file will not compile.
+- [x] `ID26253925_Report.pdf`
+- [x] `ID26253925_Assignment1.java`, starting with a prominent comment giving my ID and name. The public class must be called `ID26253925_Assignment1` or the file will not compile.
 
 ## The task
 
