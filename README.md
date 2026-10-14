@@ -25,6 +25,8 @@ Class notes, readings, and study material organized by academic year, semester, 
   - Lab handout and the three supplied Java files
   - Benchmark harness sweeping array size, thread count, and fork/join threshold
   - Worked analysis of the results
+- [Lectures 1–5](2026-27/SEM1/CS5741%20-%20Concurrency%20and%20Parallelism%20in%20Software%20Development/Lectures): AY26-27 slide decks from Brightspace
+- [Assignment 1: Parallel numerical integration](2026-27/SEM1/CS5741%20-%20Concurrency%20and%20Parallelism%20in%20Software%20Development/Assignment%201/README.md) — 30%, due **Thu 22 Oct 2026 23:59**; brief, serial code, machine specs, plan and pitfalls
 
 ### CS6081 — Research Methods and Practice
 
@@ -55,11 +57,14 @@ Class notes, readings, and study material organized by academic year, semester, 
     │   │   └── Part 1 - OOAD, OOP, Patterns, Refactoring/
     │   └── Resources/
     ├── CS5741 - Concurrency and Parallelism in Software Development/
-    │   └── Lab 01/
-    │       ├── Code/
-    │       ├── Handout/
-    │       ├── Notes/
-    │       └── Results/
+    │   ├── Lectures/
+    │   ├── Lab 01/
+    │   │   ├── Code/
+    │   │   ├── Handout/
+    │   │   ├── Notes/
+    │   │   └── Results/
+    │   └── Assignment 1/
+    │       └── Brief/
     └── CS6081 - Research Methods and Practice/
         ├── Lecture 04/
         │   └── Slides/
