@@ -1,0 +1,191 @@
+@page {
+  size: A4;
+  margin: 22mm 22mm 22mm;
+  @bottom-left {
+    content: 'Chirag Aggarwal · 26253925 · CS5709 Assessment 2';
+    font:
+      9pt 'Times New Roman',
+      Times,
+      serif;
+    color: #555;
+  }
+  @bottom-right {
+    content: counter(page) ' / ' counter(pages);
+    font:
+      9pt 'Times New Roman',
+      Times,
+      serif;
+    color: #555;
+  }
+}
+@page :first {
+  @bottom-left {
+    content: none;
+  }
+  @bottom-right {
+    content: none;
+  }
+}
+:root {
+  --ink: #111;
+  --muted: #555;
+  --divider: #bbb;
+  --todo: #c0392b;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  font:
+    12pt/1.4 'Times New Roman',
+    Times,
+    serif;
+}
+h1 {
+  font-size: 20pt;
+  margin: 0 0 4pt;
+}
+h2 {
+  font-size: 15pt;
+  margin: 0 0 8pt;
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 2pt;
+}
+h3 {
+  font-size: 13pt;
+  margin: 10pt 0 4pt;
+  break-after: avoid;
+}
+p {
+  margin: 0 0 7pt;
+  text-align: justify;
+}
+code {
+  font:
+    10pt Menlo,
+    monospace;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4pt 0 10pt;
+  font-size: 11pt;
+}
+th,
+td {
+  border: 1px solid var(--divider);
+  padding: 3pt 5pt;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: #eee;
+}
+figure {
+  margin: 6pt 0 10pt;
+  break-inside: avoid;
+}
+figure img {
+  max-width: 100%;
+}
+figcaption {
+  font-size: 10.5pt;
+  color: var(--muted);
+}
+.new-page {
+  break-before: page;
+}
+.cover {
+  height: 240mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cover-details {
+  display: grid;
+  grid-template-columns: 42mm 1fr;
+  gap: 4pt 8pt;
+  margin-top: 24pt;
+}
+.cover-details dt {
+  font-weight: bold;
+}
+.cover-details dd {
+  margin: 0;
+}
+.toc {
+  padding: 0;
+  list-style: none;
+}
+.toc li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted var(--divider);
+  padding: 4pt 0;
+}
+.toc a {
+  color: inherit;
+  text-decoration: none;
+}
+.todo {
+  border: 1.5px dashed var(--todo);
+  color: var(--todo);
+  padding: 6pt 8pt;
+  margin: 0 0 8pt;
+  font-size: 11pt;
+}
+.todo ul {
+  margin: 2pt 0 0;
+  padding-left: 14pt;
+}
+.references li {
+  margin-bottom: 4pt;
+  padding-left: 18pt;
+  text-indent: -18pt;
+  list-style: none;
+}
+.references {
+  padding: 0;
+}
+.toc-sub {
+  padding-left: 16pt !important;
+}
+.scan {
+  margin: 10pt 0 0;
+  text-align: center;
+}
+.scan img {
+  height: 84mm;
+  border: 1px solid var(--divider);
+}
+.stack {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 4pt 14pt;
+  list-style: none;
+  padding: 0;
+  margin: 2pt 0 6pt;
+}
+.stack li {
+  display: flex;
+  align-items: center;
+  gap: 4pt;
+  font-size: 10.5pt;
+}
+.stack svg {
+  width: 14pt;
+  height: 14pt;
+}
+#summary h3 {
+  margin: 6pt 0 2pt;
+}
+#summary ul:not(.stack) {
+  margin: 0 0 4pt;
+  padding-left: 16pt;
+}
+#summary .scan {
+  margin-top: 4pt;
+}
+#summary figcaption {
+  margin-top: 1pt;
+}
