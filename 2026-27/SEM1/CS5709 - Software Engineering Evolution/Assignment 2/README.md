@@ -44,6 +44,5 @@ Header: module code, title, student name and ID, module instructor, author name 
 - [x] Peer allocated (their A1 PDF stays out of the repo)
 - [x] Evidence gathered: `FINDINGS.md` (gitignored, since it names the peer)
 - [x] Report pipeline: `node report/pdf.mjs` builds the PDF (12pt Times New Roman, red to-write boxes, checks page limits and summary word count)
-- [ ] Write sections 2–5, then the summary (your own words)
-- [ ] Optional: concept-analysis table or reflexion figure to support section 3
-- [ ] Submit `report/dist/ID26253925_CS5709_Assessment2_Peer_Review.pdf` by 23 Oct 23:59
+- [x] Summary and sections 1–4 written; handwritten notes for the summary and sections 1–2
+- [x] Submitted `report/dist/ID26253925_CS5709_Assessment2_Peer_Review.pdf` on 18 October 2026 (Brightspace submission ID 1024621)
