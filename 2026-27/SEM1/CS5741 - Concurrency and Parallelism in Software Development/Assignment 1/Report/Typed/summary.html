@@ -1,0 +1,10 @@
+<ol>
+<li><strong>Partitioning:</strong> domain (data) decomposition
+<ul><li>n + 1 tasks (n = 10m, 100m, 500m)</li><li>the same operation for every task</li></ul></li>
+<li><strong>Communication:</strong> none during the computation
+<ul><li>one global sum reduction at the end</li><li>a tree reduction takes ⌈log<sub>2</sub> n⌉ rounds, e.g. 24 for 10m</li></ul></li>
+<li><strong>Agglomeration:</strong> contiguous blocks
+<ul><li>p blocks of about (n − 1) / p points each (p = number of threads)</li></ul></li>
+<li><strong>Mapping:</strong> static mapping
+<ul><li>the tasks are uniform</li></ul></li>
+</ol>

@@ -1,0 +1,21 @@
+<h4>Synchronisation</h4>
+<ul>
+<li>None is needed, as all tasks are independent.</li>
+<li>No locks and no atomics are used.</li>
+<li>Only <code>join()</code> is needed, to wait for the threads.</li>
+</ul>
+<h4>Correctness</h4>
+<p>The range calculation works on <i>m</i> = <i>n</i> − 1 interior points. Thread <i>t</i> gets:</p>
+<p>start = 1 + floor(<i>t</i> × <i>m</i> / <i>p</i>)<br>
+end = 1 + floor((<i>t</i> + 1) × <i>m</i> / <i>p</i>)</p>
+<p>If <i>n</i> ≤ 0 or <i>p</i> ≤ 0, an <code>IllegalArgumentException</code> is thrown.</p>
+<h4>Verification</h4>
+<table>
+<thead><tr><th><i>n</i></th><th><i>p</i></th><th style="text-align:left">Result vs serial</th></tr></thead>
+<tbody>
+<tr><td style="text-align:left">1</td><td>4</td><td style="text-align:left">✓</td></tr>
+<tr><td style="text-align:left">11</td><td>3</td><td style="text-align:left">✓</td></tr>
+<tr><td style="text-align:left">3</td><td>8</td><td style="text-align:left">✓</td></tr>
+<tr><td style="text-align:left">1,000,000</td><td>4</td><td style="text-align:left">✗ a very small difference, which is expected</td></tr>
+</tbody>
+</table>

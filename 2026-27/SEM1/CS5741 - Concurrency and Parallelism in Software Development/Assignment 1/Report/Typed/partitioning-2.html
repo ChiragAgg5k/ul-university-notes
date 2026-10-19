@@ -1,0 +1,27 @@
+<figure class="diagram">
+<svg viewBox="0 0 600 170" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Georgia" font-size="15">
+<g fill="#111">
+<text x="10" y="40" textLength="95" lengthAdjust="spacingAndGlyphs">area = h × [</text>
+<text x="110" y="40" textLength="76" lengthAdjust="spacingAndGlyphs">½ × f(x<tspan baseline-shift="sub" font-size="11">0</tspan>)</text>
+<text x="194" y="40" textLength="236" lengthAdjust="spacingAndGlyphs">+ f(x<tspan baseline-shift="sub" font-size="11">1</tspan>) + f(x<tspan baseline-shift="sub" font-size="11">2</tspan>) … f(x<tspan baseline-shift="sub" font-size="11">n−1</tspan>) +</text>
+<text x="438" y="40" textLength="76" lengthAdjust="spacingAndGlyphs">f(x<tspan baseline-shift="sub" font-size="11">n</tspan>) × ½</text>
+<text x="520" y="40">]</text>
+<text x="300" y="150" text-anchor="middle">special case</text>
+</g>
+<g stroke="#111" fill="none" stroke-width="1.2">
+<polyline points="108,52 108,60 188,60 188,52"/>
+<polyline points="436,52 436,60 516,60 516,52"/>
+<line x1="146" y1="62" x2="270" y2="132"/>
+<polyline points="259,131 270,132 265,122"/>
+<line x1="476" y1="62" x2="345" y2="132"/>
+<polyline points="350,123 345,132 356,133"/>
+</g>
+</svg>
+<figcaption>Diagram: trapezoid area formula with the first and last terms marked as the special case</figcaption>
+</figure>
+<h4>Why do the endpoints have weight ½?</h4>
+<p>The area of one trapezoid strip is h × (left height + right height) / 2, so:</p>
+<p>strip 1 = h/2 × (f(x<sub>0</sub>) + f(x<sub>1</sub>))<br>
+strip 2 = h/2 × (f(x<sub>1</sub>) + f(x<sub>2</sub>))<br>
+⋮</p>
+<p>Every interior point is shared by two neighbouring strips, so its two halves combine into a full weight. Only the first and last points keep a weight of ½.</p>

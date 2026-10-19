@@ -1,0 +1,9 @@
+<p>I parallelised trapezoidal-rule integration of e<sup>−x</sup> · sin(x) on [0, 10] using Foster's methodology, implemented it in Java, and checked the results against Amdahl's law.</p>
+<ul>
+<li><strong>Design:</strong> domain (data) decomposition, block grouping and static mapping.</li>
+<li><strong>Correctness:</strong> very good, with an error of only about 1e<sup>−13</sup> for very large n.</li>
+<li><strong>Main result:</strong> around 7.8× speedup at n = 500m, linear speedup up to p = 4, and a very small serial part (overhead).</li>
+<li><strong>Amdahl's law</strong> showed that the limitation was the <u>hardware</u>.</li>
+</ul>
+<h4>Possible improvement</h4>
+<p>Static mapping could be replaced, since not all the cores were equal.</p>

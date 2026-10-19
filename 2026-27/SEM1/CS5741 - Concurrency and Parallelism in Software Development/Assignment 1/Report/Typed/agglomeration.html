@@ -1,0 +1,15 @@
+<p>Take a problem size of 500m (500 million) as an example. One thread per task would be too fine-grained, since the actual work would be 500,000,000 × (exp × sin + x).</p>
+<h4>Block grouping</h4>
+<p>Block size = (n − 1) / p, where n = number of intervals and p = number of threads. The n − 1 interior points are shared out; the two endpoints are added once by the main thread.</p>
+<p>Each thread gets one contiguous chunk of the interior points (tasks) x<sub>1</sub>, x<sub>2</sub> … x<sub>n−1</sub>.</p>
+<p>This reduces the number of values to combine:</p>
+<ul>
+<li>before: n + 1 values to reduce</li>
+<li>now: p values to reduce (one partial sum per thread)</li>
+</ul>
+<h4>Block vs cyclic distribution</h4>
+<table>
+<tr><th>Block</th><td style="text-align:left">[0 0 0 0] [1 1 1 1] [2 2 2 2]</td><td style="text-align:left">✓ chosen</td></tr>
+<tr><th>Cyclic</th><td style="text-align:left">[0 1 2 0 1 2 0 1 2 0 1 2]</td><td style="text-align:left">✗ rejected</td></tr>
+</table>
+<p>A cyclic distribution is only useful if some parts of the task are more expensive than others.</p>

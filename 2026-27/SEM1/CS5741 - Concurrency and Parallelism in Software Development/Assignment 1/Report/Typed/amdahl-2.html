@@ -1,0 +1,18 @@
+<h4>Predicted speedups</h4>
+<table>
+<thead><tr><th>n</th><th>p = 2</th><th>p = 4</th><th>p = 8</th><th>p = 12</th><th>p = 16</th><th>max (1 / s)</th></tr></thead>
+<tbody>
+<tr><td>10m</td><td>1.98</td><td>3.87</td><td>7.44</td><td>10.73</td><td>13.77</td><td>93</td></tr>
+<tr><td>100m</td><td>2.00</td><td>3.99</td><td>7.94</td><td>11.86</td><td>15.74</td><td>909</td></tr>
+<tr><td>500m</td><td>2.00</td><td>4.00</td><td>7.99</td><td>11.97</td><td>15.95</td><td>5,000</td></tr>
+</tbody>
+</table>
+<p>The predictions barely change with problem size. Because s is very small, Amdahl's law allows a very high maximum speedup (93× at 10m, 909× at 100m and 5,000× at 500m), but the hardware is limited. Amdahl's assumptions do not hold on this machine:</p>
+<table>
+<thead><tr><th>Assumption</th><th style="text-align:left">Reality</th></tr></thead>
+<tbody>
+<tr><td style="text-align:left">All cores are equally fast</td><td style="text-align:left">8 performance and 4 efficiency cores</td></tr>
+<tr><td style="text-align:left">Number of cores = number of threads</td><td style="text-align:left">We ran up to 16 threads on 12 cores</td></tr>
+<tr><td style="text-align:left">Cores perform at the same speed</td><td style="text-align:left">Clock speeds do reduce (overhead)</td></tr>
+</tbody>
+</table>

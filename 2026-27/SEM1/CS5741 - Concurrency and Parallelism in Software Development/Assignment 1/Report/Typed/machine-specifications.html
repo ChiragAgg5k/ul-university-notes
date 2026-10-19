@@ -1,0 +1,9 @@
+<p>The M2 Pro has 8 performance cores and 4 efficiency cores, with no SMT (simultaneous multithreading). So there are 12 cores, and the 16-thread runs use 4 more threads than cores.</p>
+<p>Speedup for <i>n</i> = 500m:</p>
+<table>
+<tbody>
+<tr><th>Threads</th><td>2</td><td>4</td><td>8</td><td>12</td><td>16</td></tr>
+<tr><th>Speedup</th><td>1.91×</td><td>3.68×</td><td>6.20×</td><td>7.76×</td><td>7.83×</td></tr>
+</tbody>
+</table>
+<p>At 2 and 4 threads the speedup is close to ideal. From 8 threads on it is much smaller in comparison, and going from 12 to 16 threads adds almost nothing because there are only 12 cores.</p>

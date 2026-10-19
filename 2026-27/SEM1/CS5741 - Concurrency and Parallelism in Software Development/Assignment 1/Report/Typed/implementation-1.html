@@ -1,0 +1,34 @@
+<p>Each part of the Foster design maps directly to a part of the Java code:</p>
+<table>
+<thead><tr><th>Foster design</th><th style="text-align:left">Java code</th></tr></thead>
+<tbody>
+<tr><td style="text-align:left">Independent evaluations</td><td style="text-align:left"><code>f(a + i * h)</code></td></tr>
+<tr><td style="text-align:left">Block grouping</td><td style="text-align:left">start / end bounds</td></tr>
+<tr><td style="text-align:left">One block per thread</td><td style="text-align:left"><code>new Thread(...)</code></td></tr>
+<tr><td style="text-align:left">Independent computation</td><td style="text-align:left"><code>localSum</code></td></tr>
+<tr><td style="text-align:left">Collect each block result</td><td style="text-align:left"><code>partialSums[worker]</code></td></tr>
+<tr><td style="text-align:left">Combine / reduce</td><td style="text-align:left"><code>join()</code> → loop adding <code>partialSums</code></td></tr>
+</tbody>
+</table>
+<h4>Thread management</h4>
+<figure class="diagram">
+  <svg viewBox="0 0 440 260" width="100%" style="max-width:160mm" xmlns="http://www.w3.org/2000/svg" font-family="Georgia" font-size="13">
+    <defs>
+      <marker id="impl1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#111"/>
+      </marker>
+    </defs>
+    <text x="30" y="24" fill="#111">main thread</text>
+    <text x="300" y="24" fill="#111">worker threads</text>
+    <line x1="80" y1="40" x2="80" y2="230" stroke="#111" stroke-width="1.5" marker-end="url(#impl1-arrow)"/>
+    <line x1="80" y1="70" x2="110" y2="70" stroke="#111"/>
+    <text x="120" y="74" fill="#111">create + start → Thread 0 → sum → write 0</text>
+    <line x1="80" y1="105" x2="110" y2="105" stroke="#111"/>
+    <text x="120" y="109" fill="#111">create + start → Thread 1 → sum → write 1</text>
+    <text x="120" y="150" fill="#111">. . . .</text>
+    <text x="100" y="225" fill="#111">→ join every thread</text>
+    <text x="180" y="248" fill="#111">(wait all to finish)</text>
+  </svg>
+  <figcaption>Diagram: main thread creating and starting worker threads, then joining them</figcaption>
+</figure>
+<p>After all threads have joined, the main thread combines the partial sums, multiplies by <i>h</i> and returns the result.</p>
