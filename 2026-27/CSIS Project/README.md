@@ -1,6 +1,6 @@
 # CSIS Project — Supervisor Selection
 
-**Status: form submitted; supervisor not yet allocated.** The Microsoft Forms preference form (CSIS Masters Project, Spring Start) was due on Monday 28 September 2026 (week 4). On 19 October 2026 I emailed Gavin Wade (gavin.wade@ul.ie), the CSIS Masters Project coordinator, to ask about my allocation. Awaiting his reply. The next deadline is the Project Details Form on Brightspace, due 8 February 2027 at 15:00.
+**Status: supervisor provisionally allocated, name not yet released.** The Microsoft Forms preference form (CSIS Masters Project, Spring Start) was due on Monday 28 September 2026 (week 4). On 19 October 2026 I emailed Gavin Wade (gavin.wade@ul.ie), the CSIS Masters Project coordinator, to ask about my allocation. He replied the same day: a supervisor has been provisionally allocated, but they are still finalising details such as the second reader before sending out the list. Supervisor not named yet. The next deadline is the Project Details Form on Brightspace, due 8 February 2027 at 15:00.
 
 ## Supervisor choices
 
