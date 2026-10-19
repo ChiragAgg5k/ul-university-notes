@@ -12,7 +12,7 @@
 
 ## What to submit
 
-**Submitted 14 Oct 2026, 18:17** (Brightspace submission ID 1018364). Resubmissions are allowed until 22 Oct 23:59, and each one replaces the last.
+**Resubmitted 19 Oct 2026, 12:17** (Brightspace submission ID 1025980) with a fully typed report, after the lecturer said handwritten pages are not accepted. First submitted 14 Oct (ID 1018364). Resubmissions are allowed until 22 Oct 23:59, and each one replaces the last.
 
 Two files, uploaded together. Each upload overwrites the previous one.
 
