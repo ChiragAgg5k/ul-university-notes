@@ -106,6 +106,6 @@ From the lecture and the linked [#betterposter talk](https://www.youtube.com/wat
 | Member | Paper owned | Done |
 | --- | --- | --- |
 | Chirag Aggarwal | Basili et al. (1996) | [ ] |
-| Jagruti | El Emam et al. (2001) | [ ] |
+| Jagruti | El Emam et al. (2001), plus the comparison table and the overall poster design (layout, colours, fonts, enquiry flow diagram) | [ ] |
 | | | [ ] |
 | | | [ ] |
