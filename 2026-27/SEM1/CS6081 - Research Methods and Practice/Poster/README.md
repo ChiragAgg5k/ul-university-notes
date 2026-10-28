@@ -7,18 +7,18 @@ Introduced in Lecture 2 and fully briefed in [Lecture 04](../Lecture%2004/README
 
 ## Brief
 
-Make an academic poster that gives a **cohesive** summary and critique of **4 papers: the seed paper plus 3 follow-ups**, and ends with the research question they lead to. Work in a team of 4. Enquiry should drive which papers you choose: what the seed paper doesn't expand on, what you think should be there, or claims it gives too little evidence for. Each new paper should build on the first. Aim for a cohesive whole, not a paper-by-paper list (Lecture 2).
+Make an academic poster that gives a **cohesive** summary and critique of **5 papers: the seed paper plus 4 follow-ups**, and ends with the research question they lead to. Work in a team of 4. Enquiry should drive which papers you choose: what the seed paper doesn't expand on, what you think should be there, or claims it gives too little evidence for. Each new paper should build on the first. Aim for a cohesive whole, not a paper-by-paper list (Lecture 2).
 
 | | |
 | --- | --- |
 | Seed paper (SE stream) | [Chidamber, S.R. and Kemerer, C.F. (1994) 'A metrics suite for object oriented design', *IEEE Transactions on Software Engineering*, 20(6), 476–493. doi: 10.1109/32.295895](Chidamber%20and%20Kemerer%201994%20-%20A%20Metrics%20Suite%20for%20Object%20Oriented%20Design.pdf) (the Week 2 Brightspace copy) |
 | Weight | **20%** of the module |
 | Team | 4 people |
-| Papers | **4 in total**: the seed paper + 3 you find |
+| Papers | **5 in total**: the seed paper + 4 follow-ups you find |
 | Format | Poster **presentation and defence**. Each team has a slot of about **15 minutes** (Lecture 1) |
 | When | Week 8 (w/c Mon 26 Oct 2026). Lectures are on Mondays, and 26 Oct is the October bank holiday, so confirm the date |
 
-Lectures 1 and 2 mentioned "4 more" papers, but the Lecture 4 brief is 4 in total (the seed plus 3). Confirmed as 4 in total (28 Sep 2026).
+Lectures 1 and 2 said "4 more" papers. The Lecture 4 brief reads as 4 in total, but the team has confirmed **4 follow-ups** (28 Oct 2026), so 5 papers with the seed.
 
 SD students (CS5731) use O'Donnell and Buckley's pair programming pedagogy paper instead.
 
@@ -40,7 +40,7 @@ From the Lecture 4 "Marking" slide.
 - [ ] Everyone reads the seed paper, especially §VI "Future Directions" and §VII "Concluding Remarks" (quoted below)
 - [ ] Hold a Delphi-style session: each person proposes 2–3 lines of enquiry with a justification, then vote
 - [ ] Choose one research question that ties the follow-up papers together
-- [ ] Choose the 3 follow-up papers: one reader each, and the fourth member owns the seed paper and the synthesis
+- [ ] Choose the 4 follow-up papers: one per member. Everyone reads the seed paper and shares the synthesis
 - [ ] One-paragraph summary per paper, with page-cited claims
 - [ ] Comparison table: method, data set, languages/systems, findings, limitations
 - [ ] Critique: where the papers agree, contradict, or leave gaps. Answer the research question from this evidence
@@ -83,12 +83,13 @@ Grouped by line of enquiry. All citations were checked on Crossref.
 **4. Where did the field end up?**
 - Radjenović, D., Heričko, M., Torkar, R. and Živkovič, A. (2013) 'Software fault prediction metrics: a systematic literature review', *Information and Software Technology*, 55(8), 1397–1418. doi: 10.1016/j.infsof.2013.02.009
 
-**Strongest single-thread option:** *"Do the C&K metrics predict fault-proneness once class size is controlled for?"* It follows C&K's own "most obvious extension" and uses these 3 follow-ups:
+**Strongest single-thread option:** *"Do the C&K metrics predict fault-proneness once class size is controlled for?"* It follows C&K's own "most obvious extension" and uses these 4 follow-ups:
 - Basili et al. (1996) for early validation
 - Gyimóthy et al. (2005) for open-source replication
 - El Emam et al. (2001) for the size challenge
+- Subramanyam and Krishnan (2003) for the counter-evidence: with size controlled, some metrics still predict defects, and the effect differs between C++ and Java
 
-The papers partly contradict each other, which gives the critique something real to work with.
+The papers contradict each other on the central claim, which gives the critique something real to work with.
 
 ## Poster design
 
@@ -104,7 +105,7 @@ From the lecture and the linked [#betterposter talk](https://www.youtube.com/wat
 
 | Member | Paper owned | Done |
 | --- | --- | --- |
-| Chirag Aggarwal | | [ ] |
-| | | [ ] |
+| Chirag Aggarwal | Basili et al. (1996) | [ ] |
+| Jagruti | El Emam et al. (2001) | [ ] |
 | | | [ ] |
 | | | [ ] |
