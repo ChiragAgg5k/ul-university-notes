@@ -68,7 +68,7 @@ Grouped by line of enquiry. All citations were checked on Crossref.
 
 **1. Do the metrics predict quality? (C&K's "most obvious extension")**
 - Li, W. and Henry, S. (1993) 'Object-oriented metrics that predict maintainability', *Journal of Systems and Software*, 23(2), 111–122. doi: 10.1016/0164-1212(93)90077-B. C&K cite it themselves as early support
-- Basili, V.R., Briand, L.C. and Melo, W.L. (1996) 'A validation of object-oriented design metrics as quality indicators', *IEEE TSE*, 22(10), 751–761. doi: 10.1109/32.544352
+- [Basili, V.R., Briand, L.C. and Melo, W.L. (1996)](Basili%20et%20al%201996%20-%20A%20Validation%20of%20Object-Oriented%20Design%20Metrics%20as%20Quality%20Indicators.pdf) 'A validation of object-oriented design metrics as quality indicators', *IEEE TSE*, 22(10), 751–761. doi: 10.1109/32.544352
 - Subramanyam, R. and Krishnan, M.S. (2003) 'Empirical analysis of CK metrics for object-oriented design complexity: implications for software defects', *IEEE TSE*, 29(4), 297–310. doi: 10.1109/TSE.2003.1191795. Also tests C++ vs Java, which picks up the two-language gap
 - Gyimóthy, T., Ferenc, R. and Siket, I. (2005) 'Empirical validation of object-oriented metrics on open source software for fault prediction', *IEEE TSE*, 31(10), 897–910. doi: 10.1109/TSE.2005.112
 
@@ -78,7 +78,7 @@ Grouped by line of enquiry. All citations were checked on Crossref.
 - Kitchenham, B., Pfleeger, S.L. and Fenton, N. (1995) 'Towards a framework for software measurement validation', *IEEE TSE*, 21(12), 929–944. doi: 10.1109/32.489070
 
 **3. Is it just measuring size?**
-- El Emam, K., Benlarbi, S., Goel, N. and Rai, S.N. (2001) 'The confounding effect of class size on the validity of object-oriented metrics', *IEEE TSE*, 27(7), 630–650. doi: 10.1109/32.935855
+- [El Emam, K., Benlarbi, S., Goel, N. and Rai, S.N. (2001)](El%20Emam%20et%20al%202001%20-%20The%20Confounding%20Effect%20of%20Class%20Size%20on%20the%20Validity%20of%20Object-Oriented%20Metrics.pdf) 'The confounding effect of class size on the validity of object-oriented metrics', *IEEE TSE*, 27(7), 630–650. doi: 10.1109/32.935855
 
 **4. Where did the field end up?**
 - Radjenović, D., Heričko, M., Torkar, R. and Živkovič, A. (2013) 'Software fault prediction metrics: a systematic literature review', *Information and Software Technology*, 55(8), 1397–1418. doi: 10.1016/j.infsof.2013.02.009
