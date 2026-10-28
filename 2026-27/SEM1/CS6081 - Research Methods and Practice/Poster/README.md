@@ -1,7 +1,7 @@
 # Week 8 Poster: Moving Out from Chidamber & Kemerer
 CS6081 — Research Methods and Practice (SESD) | 2026/7 SEM1 | Lecturer: Jim Buckley
 
-Introduced in Lecture 2 and fully briefed in [Lecture 04](../Lecture%2004/README.md). No Brightspace assignment folder or group category exists for it yet (checked 28 Sep 2026).
+Introduced in Lecture 2 and fully briefed in [Lecture 04](../Lecture%2004/README.md). **Brightspace (28 Oct 2026):** the team lead submits the poster (PowerPoint or PDF) to the "Poster Presentations" folder by **Fri 30 Oct, 23:59**. Another member adds the team name, student IDs and names to [sheet 2 of Jim's spreadsheet](https://docs.google.com/spreadsheets/d/1oKSEwtItmzHQ6zSK_KPEkNc-DYQzqAlyupDsdffNoH0/edit?usp=sharing). Presentations are **Mon 2 Nov**.
 
 **Status: not started.** The team should have formed in Week 2 (Lecture 2: "Form teams of 4. Read and agree on 4 other articles/theme of your review"), so this is already late.
 

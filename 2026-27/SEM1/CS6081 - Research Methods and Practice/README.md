@@ -16,7 +16,7 @@ From Lecture 1 ("Module Assessment").
 | [Poster presentation and defence](Poster/README.md): cohesive summary, critique, research question | 8 | **20%** | 4 |
 | In-class research design and analysis exercises | — | 0% | Individual |
 | Statistics worksheet: pick the right test for each scenario | 11 | **10%** | Individual |
-| Research essay | 13 | **70%** | 2, possible interview |
+| [Research essay](Essay/README.md) (due Fri 4 Dec, 12:00) | 13 | **70%** | 2, possible interview |
 
 ## Schedule
 
