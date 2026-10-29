@@ -101,6 +101,31 @@ From the lecture and the linked [#betterposter talk](https://www.youtube.com/wat
 - **Silent presenter bar:** what someone reading on their own needs (question, papers, references).
 - The talk's goals aren't exactly ours. This poster is marked on the research question, traceability, and critique, so those must be easy to see. It is also *defended*, so the ammo bar should hold the evidence we'll be asked about.
 
+## Agreed layout (29 Oct 2026)
+
+The team kept the original four follow-ups and ordered them by date: CK → Basili → El Emam → Subramanyam & Krishnan → Gyimóthy.
+
+| # | Panel | Content |
+| --- | --- | --- |
+| 1 | Title | The research question |
+| 2 | The answer | Large text plus a size-confounder diagram |
+| 3 | Side bar | QR code, one line on the study that would settle the question, team names |
+| 4 | Evidence trail | One card per paper with its verdict: CK [?], Basili [YES], El Emam [NO], S&K [PARTLY], Gyimóthy [CBO]. Each card has 3–4 lines and a trust rating |
+| 5 | Contradiction map | Where the papers disagree, with the references alongside |
+
+### Basili card (Chirag)
+
+**[YES] Several C&K metrics predict which classes are faulty.**
+- 8 student teams built the same C++ system; 180 classes; logistic regression on faults found by independent testers (pp. 752–754)
+- DIT, RFC and CBO are strong predictors. NOC predicts in *reverse* (more children, fewer faults) and LCOM predicts nothing (pp. 757–758)
+- Beats traditional code metrics: inspecting the 80 classes the model flags would catch 48 of the 58 faulty ones (p. 758)
+
+**Trust: medium-low.** Students, small systems (5–14 KSLOC), one language, and class size is never controlled: the authors found it "difficult to decide what was the best way to measure the size of classes" (pp. 752, 759). That gap is the opening for El Emam.
+
+**For the contradiction map:** Basili says DIT and RFC predict faults and El Emam says the effect disappears once size is controlled. Basili's reversed NOC result goes against C&K's own hypothesis.
+
+**Comparison-table row (for Jagruti):** C++ · 8 student systems, 180 classes · logistic regression · faults found in testing · DIT, RFC and CBO predictive; NOC reversed; LCOM not significant · no size control.
+
 ## Team
 
 | Member | Paper owned | Done |
