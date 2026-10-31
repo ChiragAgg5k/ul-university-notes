@@ -3,7 +3,7 @@ CS6081 — Research Methods and Practice (SESD) | 2026/7 SEM1 | Lecturer: Jim Bu
 
 Introduced in Lecture 2 and fully briefed in [Lecture 04](../Lecture%2004/README.md). **Brightspace (28 Oct 2026):** the team lead submits the poster (PowerPoint or PDF) to the "Poster Presentations" folder by **Fri 30 Oct, 23:59**. Another member adds the team name, student IDs and names to [sheet 2 of Jim's spreadsheet](https://docs.google.com/spreadsheets/d/1oKSEwtItmzHQ6zSK_KPEkNc-DYQzqAlyupDsdffNoH0/edit?usp=sharing). Presentations are **Mon 2 Nov**.
 
-**Status: not started.** The team should have formed in Week 2 (Lecture 2: "Form teams of 4. Read and agree on 4 other articles/theme of your review"), so this is already late.
+**Status: poster finished.** The final poster is [CK Metrics Poster.pdf](CK%20Metrics%20Poster.pdf). Research question: *"Does coupling (CBO) still predict faults once class size is controlled?"* Presentation and defence on Mon 2 Nov.
 
 ## Brief
 
@@ -130,7 +130,7 @@ The team kept the original four follow-ups and ordered them by date: CK → Basi
 
 | Member | Paper owned | Done |
 | --- | --- | --- |
-| Chirag Aggarwal | Basili et al. (1996) | [ ] |
-| Jagruti | El Emam et al. (2001), plus the comparison table and the overall poster design (layout, colours, fonts, enquiry flow diagram) | [ ] |
-| | | [ ] |
-| | | [ ] |
+| Chirag Aggarwal | Basili et al. (1996) | [x] |
+| Jagruti Badgujar | El Emam et al. (2001), plus the comparison table and the overall poster design (layout, colours, fonts, enquiry flow diagram) | [ ] |
+| Dhruv Punj | | [ ] |
+| Snehal Patil | | [ ] |
