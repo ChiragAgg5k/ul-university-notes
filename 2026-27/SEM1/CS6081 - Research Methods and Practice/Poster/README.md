@@ -132,5 +132,5 @@ The team kept the original four follow-ups and ordered them by date: CK → Basi
 | --- | --- | --- |
 | Chirag Aggarwal | Basili et al. (1996) | [x] |
 | Jagruti Badgujar | El Emam et al. (2001), plus the comparison table and the overall poster design (layout, colours, fonts, enquiry flow diagram) | [ ] |
-| Dhruv Punj | | [ ] |
-| Snehal Patil | | [ ] |
+| Dhruv Punj | Subramanyam and Krishnan (2003) | [ ] |
+| Snehal Patil | Gyimóthy et al. (2005) | [ ] |
