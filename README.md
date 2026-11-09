@@ -4,6 +4,8 @@ Class notes, readings, and study material organized by academic year, semester, 
 
 ## 2026/27 · Semester 1
 
+- [Open work and deadlines](2026-27/SEM1/README.md): snapshot of 9 November 2026 from Brightspace and the UL inbox
+
 ### CS5709: Software Engineering Evolution
 
 - [Assessment 1: Digital portfolio](2026-27/SEM1/CS5709%20-%20Software%20Engineering%20Evolution/Assignment%201/README.md): 15%, due 6 October; rubric checklist, implementation, diagrams and deployment details
@@ -36,7 +38,7 @@ Class notes, readings, and study material organized by academic year, semester, 
 
 ## 2026/27 · CSIS Project
 
-- [Supervisor selection](2026-27/CSIS%20Project/README.md) — draft supervisor choices and form responses (deadline Mon 28 Sep 2026), plus the CSIS supervisor directory
+- [Supervisor selection](2026-27/CSIS%20Project/README.md) — allocated supervisor Tiziana Margaria and 2nd reader Abdul Razzaq, supervisor choices and form responses, plus the CSIS supervisor directory
 
 ## Organization
 
