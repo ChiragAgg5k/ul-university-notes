@@ -10,7 +10,7 @@ Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, anno
 | Fri 13 Nov | All | Check module selection on the Student Portal; log a TOPdesk call only if it is wrong | n/a | to check |
 | Week 11, likely Mon 16 Nov, 13:10–13:45 | CS6081 | In-class statistics test, 5 questions; [sample paper and preparation guide](CS6081%20-%20Research%20Methods%20and%20Practice/Stats%20Test/README.md) | 10% | to prepare |
 | Tue 17 Nov, 23:59 | CS5709 | Assessment 3: Digital Portfolio, Phase 2 | 30% (the brief also says 35% once) | not submitted |
-| Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF | not stated | not submitted |
+| Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF: 5 minutes max, any module topic, at least 5 references, every point cited; [requirements and checklist](CS5707%20-%20SE%20Development%20Paradigms/README.md) | not stated | not submitted |
 | Wed 25 Nov, 23:59 | CS5709 | Assessment 4: 5-minute technical presentation, using the template attached to the dropbox | 20% | not submitted |
 | Fri 4 Dec, 12:00 | CS5709 | Assessment 5: technical report, APA references | 20% | not submitted |
 | Fri 4 Dec, 23:59 | CS5707 | Final report: 8 pages max plus references, Harvard style, `report_template.docx` | not stated | not submitted |

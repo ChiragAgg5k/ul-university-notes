@@ -10,6 +10,10 @@ Class notes, readings, and study material organized by academic year, semester, 
 
 - [Assessment 1: Digital portfolio](2026-27/SEM1/CS5709%20-%20Software%20Engineering%20Evolution/Assignment%201/README.md): 15%, due 6 October; rubric checklist, implementation, diagrams and deployment details
 
+### CS5707 — SE Development Paradigms
+
+- [Presentation and final report](2026-27/SEM1/CS5707%20-%20SE%20Development%20Paradigms/README.md) — slides due Fri 20 Nov 2026, report due Fri 4 Dec 2026; requirements, common mistakes and an upload checklist
+
 ### CS6451 — Advanced Software Design
 
 - [Class 01: Introduction, Good Software, and the OO Paradigm](2026-27/SEM1/CS6451%20-%20Advanced%20Software%20Design/Class%2001/README.md)
