@@ -6,7 +6,7 @@ Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, anno
 
 | Due | Module | What | Weight | Status |
 | --- | --- | --- | --- | --- |
-| Week 10 or 11 | CS6451 | Group talk, 30 min: present one paper on porting a monolith to microservices, picked from the shared "CS6451" OneDrive folder | not stated | paper not picked yet |
+| Week 10 or 11 | CS6451 | Group talk, 30 min: present one paper on porting a monolith to microservices, picked from the shared "CS6451" OneDrive folder | not stated | group picked the "Chen" paper; talk to prepare |
 | Fri 13 Nov | All | Check module selection on the Student Portal; log a TOPdesk call only if it is wrong | n/a | to check |
 | Tue 17 Nov, 23:59 | CS5709 | Assessment 3: Digital Portfolio, Phase 2 | 30% (the brief also says 35% once) | not submitted |
 | Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF | not stated | not submitted |
