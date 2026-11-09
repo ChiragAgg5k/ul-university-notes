@@ -34,6 +34,7 @@ Class notes, readings, and study material organized by academic year, semester, 
 
 - [Module overview](2026-27/SEM1/CS6081%20-%20Research%20Methods%20and%20Practice/README.md) — assessment (poster 20%, stats worksheet 10%, essay 70%) and weekly schedule
 - [Lecture 04: Literature review, positioning, and plagiarism](2026-27/SEM1/CS6081%20-%20Research%20Methods%20and%20Practice/Lecture%2004/README.md)
+- [Week 11 statistics test](2026-27/SEM1/CS6081%20-%20Research%20Methods%20and%20Practice/Stats%20Test/README.md) — 10%, in class; sample paper, model answers, test-choice table and preparation plan
 - [Week 8 poster: moving out from Chidamber & Kemerer](2026-27/SEM1/CS6081%20-%20Research%20Methods%20and%20Practice/Poster/README.md) — 20%, team of 4, Week 8; brief, marking, checklist, the seed paper's own future-work gaps, and candidate follow-up papers
 
 ## 2026/27 · CSIS Project

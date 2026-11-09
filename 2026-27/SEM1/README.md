@@ -8,12 +8,13 @@ Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, anno
 | --- | --- | --- | --- | --- |
 | Week 10 or 11 | CS6451 | Group talk, 30 min: present one paper on porting a monolith to microservices, picked from the shared "CS6451" OneDrive folder | not stated | Group 1 picked paper 2: Chen, Li & Li (2017), "From Monolith to Microservices: A Dataflow-Driven Approach", APSEC 2017 (`MSA-Dataflow_Chen-2017.pdf`); talk to prepare |
 | Fri 13 Nov | All | Check module selection on the Student Portal; log a TOPdesk call only if it is wrong | n/a | to check |
+| Week 11, likely Mon 16 Nov, 13:10–13:45 | CS6081 | In-class statistics test, 5 questions; [sample paper and preparation guide](CS6081%20-%20Research%20Methods%20and%20Practice/Stats%20Test/README.md) | 10% | to prepare |
 | Tue 17 Nov, 23:59 | CS5709 | Assessment 3: Digital Portfolio, Phase 2 | 30% (the brief also says 35% once) | not submitted |
 | Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF | not stated | not submitted |
 | Wed 25 Nov, 23:59 | CS5709 | Assessment 4: 5-minute technical presentation, using the template attached to the dropbox | 20% | not submitted |
 | Fri 4 Dec, 12:00 | CS5709 | Assessment 5: technical report, APA references | 20% | not submitted |
 | Fri 4 Dec, 23:59 | CS5707 | Final report: 8 pages max plus references, Harvard style, `report_template.docx` | not stated | not submitted |
-| Fri 4 Dec | CS6081 | End-of-term essay; spec and video posted under Week 8 on 28 Oct | 70% | no dropbox yet |
+| Fri 4 Dec, 12:00 | CS6081 | End-of-term essay; spec and video posted under Week 8 on 28 Oct | 70% | no dropbox yet |
 | not announced | CS6451 | Assignment 2: apply the algorithm from the presented paper to the Part 1 monolith and evaluate | not stated | no dropbox yet |
 | Mon 8 Feb 2027, 15:00 | CSIS Project | Signed Project Details Form | n/a | needs supervisor sign-off |
 
@@ -33,8 +34,8 @@ Three reports land on Fri 4 Dec, five days before two exams on consecutive days.
 
 | Week | Coursework | Revision |
 | --- | --- | --- |
-| Week 10, 9–15 Nov | CS5709 Assessment 3 main build and report. CS6451: read the Chen paper and draft the talk. Check module selection by Fri 13. | None. |
-| Week 11, 16–22 Nov | Submit CS5709 Assessment 3 (Tue 17). CS5707 slides as PDF (Fri 20). CS6451 talk if not given in Week 10. Start the CS5709 Assessment 4 slides from the template. | CS5741: re-read lectures 1–4, one evening. |
+| Week 10, 9–15 Nov | CS5709 Assessment 3 main build and report. CS6451: read the Chen paper and draft the talk. Check module selection by Fri 13. | CS6081 statistics test: about three hours, ending with the sample paper closed-book on Sun 15. |
+| Week 11, 16–22 Nov | CS6081 statistics test (likely Mon 16). Submit CS5709 Assessment 3 (Tue 17). CS5707 slides as PDF (Fri 20). CS6451 talk if not given in Week 10. Start the CS5709 Assessment 4 slides from the template. | CS5741: re-read lectures 1–4, one evening. |
 | Week 12, 23–29 Nov | Submit CS5709 Assessment 4 (Wed 25). First full drafts of the CS5707 report and the CS6081 essay. Outline CS5709 Assessment 5 from the existing Assessment 1–3 reports. | CS5707: lecture notes pass. CS5741: lectures 5–9. |
 | 30 Nov – 4 Dec | Finish and submit CS5709 Assessment 5 (Fri 12:00), the CS5707 report (Fri 23:59) and the CS6081 essay (Fri). Aim to have two of the three done by Wed 2 Dec. | CS6451: redo the midterm topic checklist. |
 | 5–8 Dec | CS6451 Assignment 2 only if it is due before the exams. | CS5707 (Sat, Sun, Tue) and CS5741 (Mon, Tue): past papers under time. |
