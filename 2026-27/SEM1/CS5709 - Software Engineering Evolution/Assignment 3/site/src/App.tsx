@@ -23,6 +23,7 @@ const router = createBrowserRouter(
         { path: 'blog/:slug', Component: lazy(() => import('./pages/Article.tsx')) },
         { path: 'repositories', Component: lazy(() => import('./pages/Repositories.tsx')) },
         { path: 'contact', Component: lazy(() => import('./pages/Contact.tsx')) },
+        { path: 'readme', Component: lazy(() => import('./pages/Readme.tsx')) },
         { path: '*', Component: lazy(() => import('./pages/Missing.tsx')) },
       ],
     },

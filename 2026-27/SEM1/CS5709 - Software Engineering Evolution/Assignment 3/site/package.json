@@ -8,12 +8,16 @@
     "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
     "lint": "oxlint",
     "preview": "vite preview",
-    "format": "prettier --write src",
-    "typecheck": "tsc -b"
+    "format": "prettier --write src tests",
+    "typecheck": "tsc -b",
+    "test": "node --test \"tests/*.test.ts\"",
+    "walkthrough": "node tests/walkthrough.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "appwrite": "^29.2.0",
     "gsap": "^3.15.1",
+    "marked": "^18.2.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router": "^7.18.5"
@@ -24,6 +28,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "oxlint": "^1.90.0",
+    "playwright-core": "^1.65.0",
     "prettier": "^3.9.10",
     "typescript": "~7.0.2",
     "vite": "^8.3.6"

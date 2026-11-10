@@ -462,3 +462,74 @@ figure.video {
 main:focus {
   outline: none;
 }
+.reactions {
+  border-top: 1px solid var(--divider);
+  margin-top: 3rem;
+  padding-top: 1rem;
+  max-width: 65ch;
+}
+.reactions button {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.55rem 0.9rem;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  border: 1px solid var(--blue);
+  background: var(--paper);
+  color: var(--blue);
+  border-radius: 2rem;
+  cursor: pointer;
+  min-height: 44px;
+}
+.reactions button[aria-pressed='true'] {
+  background: var(--blue);
+  color: var(--paper);
+}
+.reactions button:disabled {
+  cursor: default;
+}
+.reactions button:disabled:not([aria-pressed='true']) {
+  border-color: var(--divider);
+  color: var(--muted);
+}
+.reactions .count {
+  margin-left: 0.5rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+.reactions .note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.document {
+  max-width: 80ch;
+}
+.document table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.document th,
+.document td {
+  border: 1px solid var(--divider);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.document th {
+  background: var(--background);
+}
+.document pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--divider);
+  background: var(--background);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+.document code {
+  font-size: 0.9em;
+}
+.document a {
+  overflow-wrap: anywhere;
+}

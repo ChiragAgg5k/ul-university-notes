@@ -1,5 +1,6 @@
 /**
- * @file One blog article. Its text is an HTML file in `data/articles/`, downloaded on demand.
+ * @file One blog article, followed by reader reactions. Its text is an HTML file in
+ * `data/articles/`, downloaded on demand.
  *
  * The articles are my own writing, republished from the original portfolio and stored in this
  * repository, so inserting their HTML directly is safe: no visitor input reaches it.
@@ -7,6 +8,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { Page } from '../components/Page.tsx';
+import { Reactions } from '../components/Reactions.tsx';
 import { asset } from '../data/asset.ts';
 import posts from '../data/posts.json';
 import Missing from './Missing.tsx';
@@ -46,6 +48,7 @@ export default function Article() {
       ) : (
         <div dangerouslySetInnerHTML={{ __html: body }} />
       )}
+      <Reactions article={post.slug} />
       <p>
         <Link to="/blog">← All writing</Link>
       </p>

@@ -28,7 +28,8 @@ jobs:
           cache-dependency-path: '2026-27/SEM1/CS5709 - Software Engineering Evolution/Assignment 3/site/package-lock.json'
       - run: npm ci
       - run: npm run lint
-      - run: npx prettier --check src
+      - run: npx prettier --check src tests
+      - run: npm test
       - id: pages
         if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v6
