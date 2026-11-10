@@ -1,14 +1,22 @@
 /**
- * @file Decides whether a project passes the current search text and skill.
+ * @file Decides whether an item passes a filter. Pure, so it can be reasoned about without React.
  */
-import type { Project } from '../types/Project.ts';
-import { everySkill } from './PortfolioContext.ts';
-import type { PortfolioState } from './PortfolioContext.ts';
+import { everyTag } from './PortfolioContext.ts';
+import type { Filter } from './PortfolioContext.ts';
 
-export function matches(project: Project, { query, skill }: PortfolioState): boolean {
-  const hasSkill = skill === everySkill || project.skills.includes(skill);
-  const text = [project.title, project.category, project.problem, ...project.skills]
-    .join(' ')
-    .toLowerCase();
-  return hasSkill && text.includes(query.trim().toLowerCase());
+/**
+ * @param text Everything about the item that the search box should look through.
+ * @param tags The item's tags; one must equal the selected tag unless "All" is selected.
+ */
+export function matches(text: string[], tags: string[], { query, tag }: Filter): boolean {
+  const hasTag = tag === everyTag || tags.includes(tag);
+  const haystack = [...text, ...tags].join(' ').toLowerCase();
+  return hasTag && haystack.includes(query.trim().toLowerCase());
+}
+
+/**
+ * Lists each tag once, in the order the data first mentions it.
+ */
+export function distinctTags(items: { tags: string[] }[]): string[] {
+  return [...new Set(items.flatMap(item => item.tags))];
 }

@@ -1,0 +1,40 @@
+[
+  {
+    "name": "mcp-explainer",
+    "title": "How I built the Appwrite MCP server, in one minute",
+    "width": 1280,
+    "height": 720,
+    "duration": 66,
+    "steps": [
+      {
+        "start": 0,
+        "text": "How I built the Appwrite MCP server, and decided to hide most of its capabilities"
+      },
+      {
+        "start": 6,
+        "text": "Sixteen months from the protocol launch in November 2024 to the hosted server in July 2026"
+      },
+      {
+        "start": 15,
+        "text": "The first version ran locally on a project API key, so it could only reach one project"
+      },
+      {
+        "start": 25,
+        "text": "The hosted version uses an OAuth token that belongs to the user, which took most of the time"
+      },
+      {
+        "start": 37,
+        "text": "Other servers expose 9 to 90 tools; clients such as Cursor and Windsurf cap how many they accept"
+      },
+      {
+        "start": 49,
+        "text": "Appwrite shows four tools and searches its catalog of 981 methods on request"
+      },
+      {
+        "start": 59,
+        "text": "Today it is one command with one URL: no API key and no project ID"
+      }
+    ],
+    "article": "how-i-built-the-appwrite-mcp-server"
+  }
+]

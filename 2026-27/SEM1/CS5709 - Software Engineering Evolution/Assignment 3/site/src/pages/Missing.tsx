@@ -1,15 +1,14 @@
 /**
- * @file Shown for any address that matches no route.
+ * @file Shown for any address that matches no route or no article.
  */
 import { Link } from 'react-router';
+import { Page } from '../components/Page.tsx';
 
 export default function Missing() {
   return (
-    <>
-      <h1>Page not found</h1>
-      <p>
-        <Link to="/">Back to the home page</Link>
-      </p>
-    </>
+    <Page title="Page not found">
+      <p>This address does not match a page in the portfolio.</p>
+      <Link to="/">Return home</Link>
+    </Page>
   );
 }

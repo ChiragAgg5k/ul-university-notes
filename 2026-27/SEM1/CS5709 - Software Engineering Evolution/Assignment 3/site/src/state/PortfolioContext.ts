@@ -1,32 +1,48 @@
 /**
- * @file Shared filter state for the project list: the search text and the selected skill.
+ * @file Shared filter state: one search text and one selected tag for each filterable collection.
+ *
+ * The state lives above the router, so a visitor who filters the projects, opens an article and
+ * comes back finds the filter as they left it.
  */
 import { createContext } from 'react';
 import type { Dispatch } from 'react';
 
-export const everySkill = 'All';
+export const everyTag = 'All';
 
-export interface PortfolioState {
+export type Collection = 'projects' | 'posts' | 'photos';
+
+export interface Filter {
   query: string;
-  skill: string;
+  tag: string;
 }
 
-export type PortfolioAction =
-  { type: 'search'; query: string } | { type: 'select'; skill: string } | { type: 'reset' };
+export type PortfolioState = Record<Collection, Filter>;
 
-export const initialState: PortfolioState = { query: '', skill: everySkill };
+export type PortfolioAction =
+  | { type: 'search'; collection: Collection; query: string }
+  | { type: 'select'; collection: Collection; tag: string }
+  | { type: 'reset'; collection: Collection };
+
+const emptyFilter: Filter = { query: '', tag: everyTag };
+
+export const initialState: PortfolioState = {
+  projects: emptyFilter,
+  posts: emptyFilter,
+  photos: emptyFilter,
+};
 
 /**
- * Returns the next filter state for an action.
+ * Returns the next state for an action. Only the named collection's filter changes.
  */
 export function reduce(state: PortfolioState, action: PortfolioAction): PortfolioState {
+  const current = state[action.collection];
   switch (action.type) {
     case 'search':
-      return { ...state, query: action.query };
+      return { ...state, [action.collection]: { ...current, query: action.query } };
     case 'select':
-      return { ...state, skill: action.skill };
+      return { ...state, [action.collection]: { ...current, tag: action.tag } };
     case 'reset':
-      return initialState;
+      return { ...state, [action.collection]: emptyFilter };
   }
 }
 

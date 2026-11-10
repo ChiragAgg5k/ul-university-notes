@@ -69,18 +69,37 @@ The peer review a classmate wrote of the Phase 1 report is also needed for secti
 
 | Requirement | Where | State |
 | --- | --- | --- |
-| Modular structure | `site/src/{api,components,data,hooks,pages,state,types}` | scaffolded |
-| JSON-driven data | `site/src/data/projects.json` (converted from Phase 1 `projects.mjs`) | projects only; education, blog, pictures and videos to move |
-| API connection | `site/src/api/github.ts`, shown on the Repositories page | working; choice of API to confirm |
-| GSAP | `site/src/hooks/useReveal.ts` (respects reduced motion) | one entrance animation |
+| Fully populated | All Phase 1 pages ported: Home, About, Education, Professional knowledge, Pictures, Video, Blog with both articles, Contact, plus a new Repositories page | done |
+| Modular structure | `site/src/{api,chat,components,data,hooks,pages,state,types}`, one concern per folder | done |
+| JSON-driven data | `site/src/data/*.json`: profile, education, projects, photos, videos, posts, navigation. Article text is HTML in `site/src/data/articles/` | done |
+| API connection | `site/src/api/github.ts`, shown on the Repositories page, with loading and failure states | done |
+| GSAP | `site/src/hooks/useReveal.ts`: staggered entrance on lists, skipped when the visitor prefers reduced motion | done; more to consider |
 | PropTypes or TypeScript | TypeScript, strict | done |
-| JSDoc headers | `@file` header on every source file | keep up as files are added |
-| Lazy loading | `React.lazy` per route in `site/src/App.tsx`; one chunk per page | done for routes; images to follow |
-| Search and filter | `site/src/components/ProjectFilter.tsx`, `site/src/state/matches.ts` | working on projects |
-| State management | `useReducer` + context in `site/src/state/`; the filter survives navigation | done |
+| JSDoc headers | `@file` header on every source file, JSDoc on non-obvious functions | done; keep up |
+| Lazy loading | One chunk per route (`React.lazy` in `site/src/App.tsx`), article text downloaded on demand, `loading="lazy"` on gallery images, video loads metadata only | done |
+| Search and filter | `site/src/components/CollectionFilter.tsx` on projects, blog and pictures | done |
+| State management | `useReducer` + context in `site/src/state/`: one filter per collection, kept across navigation. Chat status is an external store read with `useSyncExternalStore` | done |
 | CI/CD | `.github/workflows/cs5709-portfolio.yml` at the repository root: lint, format check, type check, build, then deploy on `main` | done; pipeline documentation to write |
 | Live site deployed by GitHub Actions | GitHub Pages, which the brief names for Iteration 5 | live since 10 November |
 | README | this file | in progress |
+
+## Source layout
+
+```
+site/
+  public/assets/        images and the video, served as they are
+  src/
+    main.tsx            browser entry point
+    App.tsx             route table; every page is a lazy chunk
+    api/                calls to outside services (GitHub)
+    chat/               Tawk.to loader: consent, loading states, failure
+    components/         pieces shared by pages (Layout, Page, CollectionFilter, ...)
+    data/               all content, as JSON and article HTML
+    hooks/              React glue: useFilter, useChat, useReveal
+    pages/              one file per route
+    state/              filter state, reducer and matching rules
+    types/              shapes of outside data
+```
 
 ## Run locally
 
@@ -107,12 +126,13 @@ Requires Node 22+. Stack: Vite 8, React 19, TypeScript 7, React Router 7, GSAP 3
 
 ### Iteration 3: port and extend
 
-- [ ] Move the remaining Phase 1 pages to React: About, Education, Pictures, Video, Blog and both articles, Contact.
-- [ ] Move their content into JSON under `site/src/data/`.
-- [ ] Bring back the Tawk.to chat with its click-to-load notice.
-- [ ] Extend search and filter to the blog and the gallery.
-- [ ] Lazy-load images and the video.
-- [ ] Port the rest of the Phase 1 stylesheet; check 390px and 1440px.
+- [x] Move the remaining Phase 1 pages to React: About, Education, Pictures, Video, Blog and both articles, Contact.
+- [x] Move their content into JSON under `site/src/data/`.
+- [x] Bring back the Tawk.to chat with its click-to-load notice (failure path checked with the provider blocked; a real conversation still to test on the live site).
+- [x] Extend search and filter to the blog and the gallery; add an enlarged view for photos.
+- [x] Lazy-load images and the video.
+- [x] Port the Phase 1 stylesheet; all 12 routes checked at 390px and 1440px on 10 November: no horizontal overflow, no broken images, one active navigation item, no script errors.
+- [ ] Phase 1 features not carried over: the 26 automated tests, the external link checker and the speculation-rules prefetch. Decide which to bring back.
 
 ### Iteration 4: CI/CD
 

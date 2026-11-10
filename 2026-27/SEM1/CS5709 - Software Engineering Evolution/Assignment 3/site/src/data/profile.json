@@ -1,0 +1,49 @@
+{
+  "name": "Chirag Aggarwal",
+  "tagline": "Engineering portfolio",
+  "email": "chiragaggarwal5k@gmail.com",
+  "original": "https://www.chiragaggarwal.tech",
+  "portrait": "assets/me.webp",
+  "lead": "Platform engineer. Software engineering student.",
+  "introduction": [
+    "I build backend systems with open-source technologies at Appwrite. I’m also studying Software Engineering at the University of Limerick.",
+    "Here you’ll find my education, projects and writing."
+  ],
+  "highlights": [
+    {
+      "title": "Platform engineering",
+      "text": "PHP services, Kubernetes infrastructure and developer tooling at Appwrite.",
+      "to": "/knowledge",
+      "label": "Professional knowledge"
+    },
+    {
+      "title": "Learning at Limerick",
+      "text": "Studying software design and evolution alongside my engineering work.",
+      "to": "/education",
+      "label": "Education"
+    }
+  ],
+  "about": [
+    "My professional work spans backend development, developer tools and open-source infrastructure. I also work on the frontend when a project calls for it."
+  ],
+  "aboutLead": "I enjoy understanding how systems work and making them easier for other people to use.",
+  "experience": [
+    {
+      "role": "Appwrite · Platform Engineer",
+      "detail": "December 2024–present. Started as an intern, then moved into a full-time role in June 2025."
+    },
+    {
+      "role": "Skillarena · Backend Developer",
+      "detail": "July–September 2024. Maintained MERN backend systems and worked on real-time chat using WebSockets and FastAPI."
+    },
+    {
+      "role": "Clearmind AI · Fullstack Developer",
+      "detail": "October–December 2023. Worked on personalised recommendations and Stripe payment integration."
+    }
+  ],
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/ChiragAgg5k" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/chiragagg5k/" },
+    { "label": "Original portfolio", "url": "https://www.chiragaggarwal.tech" }
+  ]
+}

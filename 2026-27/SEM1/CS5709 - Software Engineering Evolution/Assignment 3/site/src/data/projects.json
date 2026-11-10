@@ -2,7 +2,7 @@
   {
     "title": "Appwrite CLI",
     "category": "Developer tooling",
-    "skills": ["Go", "APIs"],
+    "tags": ["Go", "APIs"],
     "problem": "Developers need a repeatable way to manage Appwrite resources and deployments from their terminal.",
     "contribution": "As described in my original portfolio, I rewrote the CLI in Go and maintain SDKs across multiple languages.",
     "decision": "A command-line interface makes operations scriptable. The trade-off is that validation, error messages and documentation must work without a visual interface.",
@@ -13,7 +13,7 @@
   {
     "title": "Hosted Appwrite MCP server",
     "category": "Protocol integration",
-    "skills": ["APIs", "Authorization"],
+    "tags": ["APIs", "Authorization"],
     "problem": "AI clients need controlled access to Appwrite capabilities without manually wiring every API endpoint.",
     "contribution": "My article covers the resource server and Cloud integration I built. A colleague built the authorization server.",
     "decision": "The hosted transport uses a user-linked authorization model rather than a single-project API key. That changes the permission boundary, not just the transport.",
@@ -22,13 +22,13 @@
     "label": "Read the article"
   },
   {
-    "title": "This digital portfolio",
+    "title": "Digital portfolio, phase 1",
     "category": "Software evolution",
-    "skills": ["HTML", "CSS", "JavaScript"],
+    "tags": ["HTML", "CSS", "JavaScript"],
     "problem": "The assignment requires separate pages, documented design decisions and a full code listing.",
-    "contribution": "This assignment version is an AI-assisted implementation using existing portfolio material. It is separate from the production website.",
+    "contribution": "Phase 1 was an AI-assisted static site built from existing portfolio material, separate from the production website. This React site is its second phase.",
     "decision": "Generate HTML at build time, then use JavaScript for filtering and chat. Project content stays readable without scripts.",
-    "evidence": "The repository contains the code, tests and design notes. Chat uses Tawk.to.",
+    "evidence": "The repository contains the code, tests and design notes of both phases.",
     "url": "https://github.com/ChiragAgg5k/ul-university-notes",
     "label": "View the coursework source"
   }

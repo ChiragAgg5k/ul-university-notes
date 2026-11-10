@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "how-we-solved-logging-at-appwrite",
+    "date": "April 2026",
+    "tags": ["Observability"],
+    "title": "How we solved logging at Appwrite",
+    "summary": "Replacing two logging libraries with structured, coroutine-safe spans."
+  },
+  {
+    "slug": "how-i-built-the-appwrite-mcp-server",
+    "date": "August 2026",
+    "tags": ["Developer tooling"],
+    "title": "How I built the Appwrite MCP server (and decided to hide most of its capabilities)",
+    "summary": "Why exposing an API through a protocol was only the beginning of the work."
+  }
+]

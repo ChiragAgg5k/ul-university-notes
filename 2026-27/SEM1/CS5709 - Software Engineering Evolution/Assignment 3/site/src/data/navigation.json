@@ -1,0 +1,11 @@
+[
+  { "to": "/", "label": "Home" },
+  { "to": "/about", "label": "About" },
+  { "to": "/education", "label": "Education" },
+  { "to": "/knowledge", "label": "Professional knowledge" },
+  { "to": "/pictures", "label": "Pictures gallery" },
+  { "to": "/videos", "label": "Video gallery" },
+  { "to": "/blog", "label": "Blog" },
+  { "to": "/repositories", "label": "Repositories" },
+  { "to": "/contact", "label": "Contact" }
+]
