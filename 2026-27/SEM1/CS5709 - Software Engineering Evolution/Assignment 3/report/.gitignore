@@ -1,0 +1,3 @@
+# The built report and the file naming the peer reviewer stay out of the public repository.
+dist/
+private.json

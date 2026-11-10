@@ -1,0 +1,214 @@
+@page {
+  size: A4;
+  margin: 22mm 22mm 22mm;
+  @bottom-right {
+    content: counter(page) ' / ' counter(pages);
+    font:
+      9pt 'Times New Roman',
+      Times,
+      serif;
+    color: #555;
+  }
+}
+@page :first {
+  @bottom-right {
+    content: none;
+  }
+}
+:root {
+  --ink: #111;
+  --muted: #555;
+  --divider: #bbb;
+  --todo: #c0392b;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  font:
+    12pt/1.4 'Times New Roman',
+    Times,
+    serif;
+}
+h1 {
+  font-size: 20pt;
+  margin: 0 0 4pt;
+}
+h2 {
+  font-size: 15pt;
+  margin: 0 0 8pt;
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 2pt;
+}
+h3 {
+  font-size: 13pt;
+  margin: 10pt 0 4pt;
+  break-after: avoid;
+}
+p {
+  margin: 0 0 7pt;
+  text-align: justify;
+}
+code {
+  font:
+    10pt Menlo,
+    monospace;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4pt 0 10pt;
+  font-size: 11pt;
+}
+th,
+td {
+  border: 1px solid var(--divider);
+  padding: 3pt 5pt;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: #eee;
+}
+figure {
+  margin: 6pt 0 10pt;
+  break-inside: avoid;
+}
+figure img {
+  max-width: 100%;
+}
+figcaption {
+  font-size: 10.5pt;
+  color: var(--muted);
+}
+.new-page {
+  break-before: page;
+}
+.cover {
+  height: 240mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cover-details {
+  display: grid;
+  grid-template-columns: 42mm 1fr;
+  gap: 4pt 8pt;
+  margin-top: 24pt;
+}
+.cover-details dt {
+  font-weight: bold;
+}
+.cover-details dd {
+  margin: 0;
+}
+.toc {
+  padding: 0;
+  list-style: none;
+}
+.toc li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted var(--divider);
+  padding: 4pt 0;
+}
+.toc a {
+  color: inherit;
+  text-decoration: none;
+}
+.todo {
+  border: 1.5px dashed var(--todo);
+  color: var(--todo);
+  padding: 6pt 8pt;
+  margin: 0 0 8pt;
+  font-size: 11pt;
+}
+.todo ul {
+  margin: 2pt 0 0;
+  padding-left: 14pt;
+}
+.references li {
+  margin-bottom: 4pt;
+  padding-left: 18pt;
+  text-indent: -18pt;
+  list-style: none;
+}
+.references {
+  padding: 0;
+}
+pre {
+  font:
+    7.8pt/1.35 Menlo,
+    monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--divider);
+  padding: 5pt 6pt;
+  margin: 4pt 0 10pt;
+  background: #f7f7f7;
+}
+pre code {
+  font: inherit;
+}
+table code {
+  font-size: 9pt;
+  overflow-wrap: anywhere;
+}
+td,
+th {
+  overflow-wrap: break-word;
+}
+table {
+  break-inside: auto;
+}
+tr {
+  break-inside: avoid;
+}
+h4 {
+  font-size: 12pt;
+  margin: 8pt 0 3pt;
+  break-after: avoid;
+}
+ul,
+ol {
+  margin: 0 0 7pt;
+  padding-left: 18pt;
+}
+a {
+  color: inherit;
+  overflow-wrap: anywhere;
+}
+.shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8pt;
+}
+.shots.phone {
+  grid-template-columns: repeat(3, 1fr);
+}
+figure img {
+  border: 1px solid var(--divider);
+}
+.caption {
+  font-size: 10.5pt;
+  color: var(--muted);
+  margin-top: -6pt;
+}
+.listing h4 {
+  font:
+    bold 9.5pt Menlo,
+    monospace;
+  margin: 10pt 0 2pt;
+}
+.listing pre {
+  font-size: 7.5pt;
+  background: none;
+}
+.references p {
+  padding-left: 22pt;
+  text-indent: -22pt;
+  text-align: left;
+  margin-bottom: 5pt;
+}
+h2:not(.new-page):not(:first-child) {
+  margin-top: 18pt;
+}
