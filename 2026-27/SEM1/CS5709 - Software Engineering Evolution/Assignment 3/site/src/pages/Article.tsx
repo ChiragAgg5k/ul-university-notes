@@ -24,15 +24,18 @@ export default function Article() {
   const { slug } = useParams();
   const post = posts.find(candidate => candidate.slug === slug);
   const [loaded, setLoaded] = useState<{ slug: string; html: string }>();
+  const [failed, setFailed] = useState<string>();
   const body = loaded && loaded.slug === slug ? loaded.html : undefined;
 
   useEffect(() => {
     let current = true;
-    articles[`../data/articles/${slug}.html`]?.().then(html => {
-      if (current && slug) {
-        setLoaded({ slug, html: html.replace(imagePath, `src="${asset('assets/')}`) });
-      }
-    });
+    articles[`../data/articles/${slug}.html`]?.()
+      .then(html => {
+        if (current && slug) {
+          setLoaded({ slug, html: html.replace(imagePath, `src="${asset('assets/')}`) });
+        }
+      })
+      .catch(() => current && setFailed(slug));
     return () => {
       current = false;
     };
@@ -43,7 +46,9 @@ export default function Article() {
   }
   return (
     <Page title={post.title}>
-      {body === undefined ? (
+      {failed === slug ? (
+        <p role="alert">The article couldn’t be loaded. Reload to try again.</p>
+      ) : body === undefined ? (
         <p role="status">Loading the article…</p>
       ) : (
         <div dangerouslySetInnerHTML={{ __html: body }} />

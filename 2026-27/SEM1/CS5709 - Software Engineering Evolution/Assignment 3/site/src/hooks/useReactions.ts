@@ -39,14 +39,24 @@ function remember(key: string, value: string): void {
   }
 }
 
+/**
+ * Reads the visitor's own reactions, keyed by article. Anything unreadable counts as none, so a
+ * damaged entry cannot stop an article from rendering.
+ */
+function recallAll(): Record<string, Kind[]> {
+  try {
+    return JSON.parse(recall(mineKey) ?? '{}');
+  } catch {
+    return {};
+  }
+}
+
 function recallMine(article: string): Kind[] {
-  const stored: Record<string, Kind[]> = JSON.parse(recall(mineKey) ?? '{}');
-  return stored[article] ?? [];
+  return recallAll()[article] ?? [];
 }
 
 function rememberMine(article: string, mine: Kind[]): void {
-  const stored: Record<string, Kind[]> = JSON.parse(recall(mineKey) ?? '{}');
-  remember(mineKey, JSON.stringify({ ...stored, [article]: mine }));
+  remember(mineKey, JSON.stringify({ ...recallAll(), [article]: mine }));
 }
 
 interface Loaded {
