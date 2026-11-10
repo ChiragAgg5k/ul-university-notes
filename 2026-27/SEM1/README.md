@@ -8,7 +8,7 @@ Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, anno
 | --- | --- | --- | --- | --- |
 | Week 10 or 11 | CS6451 | Group talk, 30 min: present one paper on porting a monolith to microservices, picked from the shared "CS6451" OneDrive folder | not stated | Group 1 picked paper 2: Chen, Li & Li (2017), "From Monolith to Microservices: A Dataflow-Driven Approach", APSEC 2017 (`MSA-Dataflow_Chen-2017.pdf`); [paper, notes and talk outline](CS6451%20-%20Advanced%20Software%20Design/Paper%20Talk/README.md); slides to prepare |
 | Week 11, likely Mon 16 Nov, 13:10–13:45 | CS6081 | In-class statistics test, 5 questions; [sample paper and preparation guide](CS6081%20-%20Research%20Methods%20and%20Practice/Stats%20Test/README.md) | 10% | to prepare |
-| Tue 17 Nov, 23:59 | CS5709 | [Assessment 3: Digital Portfolio, Phase 2](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/README.md) | 30% (the brief also says 35% once) | scaffolded 10 Nov; not submitted |
+| Tue 17 Nov, 23:59 | CS5709 | [Assessment 3: Digital Portfolio, Phase 2](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/README.md) | 30% (the brief also says 35% once) | site ported and live 10 Nov; discovery, innovation, evaluation and report still to do |
 | Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF: 5 minutes max, any module topic, at least 5 references, every point cited; [requirements and checklist](CS5707%20-%20SE%20Development%20Paradigms/README.md) | not stated | not submitted |
 | Wed 25 Nov, 23:59 | CS5709 | Assessment 4: 5-minute technical presentation, using the template attached to the dropbox | 20% | not submitted |
 | Fri 4 Dec, 12:00 | CS5709 | Assessment 5: technical report, APA references | 20% | not submitted |

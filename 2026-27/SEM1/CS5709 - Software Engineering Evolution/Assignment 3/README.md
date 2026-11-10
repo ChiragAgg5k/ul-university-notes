@@ -8,6 +8,23 @@ Live site: https://chiragagg5k.github.io/ul-university-notes/
 
 Phase 2 evolves the [Phase 1 static site](../Assignment%201/README.md) into a React application. Phase 1 stays as it is, at its own URL, so the report can compare the two.
 
+## Pick up from here
+
+State on 10 November 2026: the site is fully ported and live, CI/CD deploys it, and the brief is captured below. Nothing of the report exists yet. Seven days remain.
+
+In order:
+
+1. **Peer review of my Phase 1 report** (blocked on other people). Ask Jagruti whether she reviewed my portfolio, and ask Salim Saay how reviews are returned and what to write under "Enhanced based on peer review" if none arrives. Until then, the lecturer's Assessment 1 feedback (table below) is the only review to answer.
+2. **Discovery, to answer the Phase 1 feedback.** Write two or three personas (for example a recruiter, an open-source collaborator, the assessor), a scenario for each, and a short review of a few existing developer portfolios. Derive the Phase 2 requirements from them and map each to a feature that exists.
+3. **Choose and build the innovation feature** (10 marks, the largest item). The brief's example is a database; "features beyond class coverage". Candidates to weigh: a guestbook or article reactions stored in an Appwrite database; a command palette for keyboard search across all content; a visitor-facing change log generated from the Git history.
+4. **Click through the live site in a browser.** The 10 November check of the full port ran against a local build and plain HTTP requests to the live site; the browser tool dropped before the live pass. Also hold one real chat conversation and confirm it reaches the Tawk.to inbox.
+5. **Decide what returns from Phase 1**: the automated tests, the external link checker, the speculation-rules prefetch. The tests feed the Evaluation section.
+6. **Evaluation** (5 marks): a code inspection with a named method and checklist, and a recorded walkthrough. Save screenshots under `evidence/`.
+7. **Report**: copy the `report/pdf.mjs` pipeline from Assignment 1 and set 12pt Times New Roman. Sections are listed under "Report structure". Factual tables and the code listing can be generated; the summary, critique and reflection are mine to write.
+8. **Submit** on Brightspace with the live URL and repository link in the comment.
+
+Checks to confirm before submitting: the third project card was reworded to describe Phase 1, and the photos were tagged "Hackathon" or "Conference"; both were drafted with AI assistance and need my review.
+
 ## Brief
 
 "This is the continuation of your Phase 1 portfolio. The website should now be fully populated, hosted online, and accessible. Improvements from Phase 1 feedback provided must be integrated."
