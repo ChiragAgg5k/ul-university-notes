@@ -14,7 +14,7 @@ State on 10 November 2026: the site is fully ported and live, CI/CD deploys it, 
 
 In order:
 
-1. **Peer review of my Phase 1 report** (blocked on other people). Ask Jagruti whether she reviewed my portfolio, and ask Salim Saay how reviews are returned and what to write under "Enhanced based on peer review" if none arrives. Until then, the lecturer's Assessment 1 feedback (table below) is the only review to answer.
+1. ~~Peer review of my Phase 1 report.~~ Received 10 November; its recommendations and their state are under "Peer review to address". Open items from it: a Readme page on the site, an analysis of the lecturer's portfolio, a recovered module view, and splitting this file into technical documentation and working notes.
 2. **Discovery, to answer the Phase 1 feedback.** Write two or three personas (for example a recruiter, an open-source collaborator, the assessor), a scenario for each, and a short review of a few existing developer portfolios. Derive the Phase 2 requirements from them and map each to a feature that exists.
 3. **Choose and build the innovation feature** (10 marks, the largest item). The brief's example is a database; "features beyond class coverage". Candidates to weigh: a guestbook or article reactions stored in an Appwrite database; a command palette for keyboard search across all content; a visitor-facing change log generated from the Git history.
 4. **Click through the live site in a browser.** The 10 November check of the full port ran against a local build and plain HTTP requests to the live site; the browser tool dropped before the live pass. Also hold one real chat conversation and confirm it reaches the Tawk.to inbox.
@@ -80,7 +80,34 @@ Assessment 1 scored 12/15 (feedback released 14 October 2026).
 | Evaluation | 3/3 | "The review can be more structured and academic." | Use a named inspection method with a checklist and a recorded walkthrough |
 | Overall | | "Requirements should be gathered based on scenarios and personas, and the code should include more comments and be divided into clear sections." | Folder-per-concern structure under `site/src/` |
 
-The peer review a classmate wrote of the Phase 1 report is also needed for section 3; it is not in this repository yet.
+## Peer review to address
+
+A classmate's review of the Phase 1 report (dated 22 October 2026) arrived on 10 November. The PDF stays out of this repository. It feeds report section 3, "Enhanced based on peer review". Its recommendations, in the reviewer's priority order:
+
+| # | Recommendation | State in Phase 2 |
+| --- | --- | --- |
+| 1 | Add a Readme page to the site that explains pages, build and folders; the brief asks for it and Phase 1 had none | to do: no such route yet |
+| 2 | Add two personas and four scenarios, and trace every feature to one | to do; same point as the lecturer's Discovery comment. The reviewer's own walkthrough used a module assessor and a hiring manager |
+| 3 | Analyse the lecturer's provided portfolio: what it has, what was kept or dropped, and why | to do, in the report |
+| 4 | Add a module view recovered from the code (files and imports), and show tests in the block diagram | to do, in the report |
+| 5 | Header comment in every module; fix the seven logged defects | header comments done. Defects: see below |
+| 6 | Run the build and tests in GitHub Actions on every push | lint, format, type check and build run; no tests exist in Phase 2 yet |
+| 7 | Move the articles out of code into Markdown; refactor the chat module | partly: articles are separate HTML files loaded on demand; chat is an external store with a typed status |
+| 8 | Split the README into technical documentation and working notes | to do: this file still mixes both |
+| | Thin galleries (three photos, one video, three projects): add case studies, photos and videos | to do; content is mine to supply |
+
+The seven defects were logged against Phase 1 files that the React rewrite replaced:
+
+| Defect | Phase 1 problem | Phase 2 |
+| --- | --- | --- |
+| D1 | Status text "3 of 3 projects shown." typed by hand | fixed: `CollectionFilter` computes the counts |
+| D2, D3 | Skills parsed from `data-skills` on every click; missing null check | not applicable: data comes from JSON imports, no DOM contract |
+| D4 | Chat states as free strings in mutable module state | partly: `ChatStatus` is a typed union; the store is still module state by design |
+| D5 | Chat activates on import, so it cannot be tested without a page | fixed: importing `chat/loader.ts` does nothing; `useChat` calls `load` from an effect |
+| D6 | Undocumented HTML contract; magic string "All" in four files | fixed: `everyTag` constant, no HTML contract |
+| D7 | Browser scripts listed by hand in the build | not applicable: Vite bundles from imports |
+
+Recommendations not applicable go in the same report section, with the reason.
 
 ## Requirements and where each one lives
 
@@ -137,7 +164,8 @@ Requires Node 22+. Stack: Vite 8, React 19, TypeScript 7, React Router 7, GSAP 3
 
 - [x] Copy the full brief, rubric and dropbox link into this file.
 - [x] Host for the Actions deployment: GitHub Pages, named in the brief.
-- [ ] Get the peer review of the Phase 1 report and list its recommendations.
+- [x] Get the peer review of the Phase 1 report and list its recommendations.
+- [ ] Add a Readme page to the site (peer review item 1, and "readme" in the brief).
 - [ ] Write personas and scenarios (Phase 1 lost a Discovery mark for lacking them).
 - [ ] Decide the innovation feature (10 marks, the largest open item).
 
