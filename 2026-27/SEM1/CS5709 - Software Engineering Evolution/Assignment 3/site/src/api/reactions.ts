@@ -74,13 +74,14 @@ export async function addReaction(article: string, kind: Kind, visitor: string):
 
 /**
  * Calls `added` whenever any visitor reacts to the article, with the kind and the row identifier
- * so the caller can recognise its own reaction. Returns a function that stops listening.
+ * so the caller can recognise its own reaction. Resolves once the subscription is in place, to a
+ * function that stops listening.
  */
-export function watchReactions(
+export async function watchReactions(
   article: string,
   added: (kind: Kind, row: string) => void,
-): () => void {
-  const subscription = realtime.subscribe(
+): Promise<() => void> {
+  const subscription = await realtime.subscribe(
     Channel.tablesdb(database).table(table).row().create(),
     event => {
       const reaction = event.payload as Reaction;
@@ -90,6 +91,6 @@ export function watchReactions(
     },
   );
   return () => {
-    subscription.then(active => active.close()).catch(() => {});
+    subscription.close().catch(() => {});
   };
 }

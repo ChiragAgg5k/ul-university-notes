@@ -6,7 +6,8 @@
  * deployed copy instead, for example
  * `SITE=https://chiragagg5k.github.io/ul-university-notes/ npm run walkthrough`.
  *
- * Scenario S5 writes one real reaction to the database on every run.
+ * Scenario S5 writes one real reaction to the database on every run. Scenario S2 checks that the
+ * chat widget loads after consent; it does not send a message.
  */
 import { spawn } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -59,7 +60,7 @@ const scenarios = [
   {
     id: 'S2',
     persona: 'Module assessor',
-    goal: 'Start a live chat, and confirm nothing loads from the chat provider before agreeing',
+    goal: 'Open the live chat, and confirm nothing loads from the chat provider before agreeing',
     viewport: desktop,
     async run(page) {
       const requests = [];
@@ -75,7 +76,7 @@ const scenarios = [
       expect(before === 0, `${before} chat requests before the click`);
       return {
         actions: 1,
-        observed: `0 requests to the provider before the click, ${requests.length} after; status "Chat is ready"`,
+        observed: `0 requests to the provider before the click, ${requests.length} after; status "Chat is ready". Message delivery is not checked`,
       };
     },
   },
@@ -132,52 +133,68 @@ const scenarios = [
     viewport: phone,
     async run(page, browser) {
       const other = await browser.newPage({ viewport: desktop });
-      await Promise.all([page.goto(site + article), other.goto(site + article)]);
+      await other.addInitScript(() => localStorage.setItem('portfolio.reactions', 'null'));
+      const secondTab = await page.context().newPage();
+      const readers = [page, other, secondTab];
+      await Promise.all(readers.map(reader => reader.goto(site + article)));
+      await Promise.all(readers.map(reader => reader.getByText('Counts update live').waitFor()));
       const mine = page.getByRole('button', { name: /Useful/ });
-      const theirs = other.getByRole('button', { name: /Useful/ });
-      await Promise.all([
-        page.getByText('Counts update live').waitFor(),
-        other.getByText('Counts update live').waitFor(),
-      ]);
-      const before = count(await theirs.innerText());
+      const useful = reader => reader.getByRole('button', { name: /Useful/ });
+      const before = count(await useful(other).innerText());
       await mine.click();
-      await other.waitForFunction(
-        ([expected]) =>
-          [...document.querySelectorAll('.reactions button')].some(
-            button =>
-              button.textContent.startsWith('Useful') &&
-              button.textContent.endsWith(String(expected)),
-          ),
-        [before + 1],
-      );
+      for (const reader of [other, secondTab]) {
+        await reader.waitForFunction(
+          expected =>
+            [...document.querySelectorAll('.reactions button')].some(
+              button =>
+                button.textContent.startsWith('Useful') &&
+                button.textContent.endsWith(String(expected)),
+            ),
+          before + 1,
+        );
+      }
       await page.waitForTimeout(1500);
-      expect(count(await mine.innerText()) === before + 1, 'own count did not rise by exactly one');
+      for (const reader of readers) {
+        expect(
+          count(await useful(reader).innerText()) === before + 1,
+          'a count did not rise by exactly one',
+        );
+      }
       expect((await mine.getAttribute('aria-pressed')) === 'true', 'button not marked as used');
+      expect(
+        (await useful(secondTab).getAttribute('aria-pressed')) === 'true',
+        'second tab not marked as used',
+      );
       expect(!(await overflows(page)), 'horizontal overflow at phone width');
       await page.reload();
       await page.getByText('Counts update live').waitFor();
       expect(await mine.isDisabled(), 'reaction not remembered after reload');
       expect(count(await mine.innerText()) === before + 1, 'count not stored');
       await other.close();
+      await secondTab.close();
       return {
         actions: 1,
-        observed: `"Useful" went from ${before} to ${before + 1} in both browsers without a reload, and survived a reload`,
+        observed: `"Useful" went from ${before} to ${before + 1} without a reload in the reader's own tab, their second tab and another reader's browser (whose stored reactions were deliberately damaged), and survived a reload`,
       };
     },
   },
   {
     id: 'S6',
     persona: 'Fellow developer',
-    goal: 'Using the keyboard only, skip the menu and open the latest repositories',
+    goal: 'Using the keyboard only, reach the latest repositories, then skip the menu',
     viewport: desktop,
     async run(page) {
+      const focused = () => page.evaluate(() => document.activeElement.textContent.trim());
       await page.goto(site);
+      await page.getByRole('heading', { level: 1 }).waitFor();
       await page.keyboard.press('Tab');
-      expect(
-        (await page.evaluate(() => document.activeElement.textContent)) === 'Skip to content',
-        'skip link is not first',
-      );
-      await page.getByRole('navigation').getByRole('link', { name: 'Repositories' }).focus();
+      expect((await focused()) === 'Skip to content', 'skip link is not the first stop');
+      let presses = 1;
+      while ((await focused()) !== 'Repositories') {
+        expect(presses < 30, 'Repositories was not reached with the Tab key');
+        await page.keyboard.press('Tab');
+        presses += 1;
+      }
       await page.keyboard.press('Enter');
       await page.locator('article.case-study').first().waitFor();
       expect(
@@ -185,9 +202,17 @@ const scenarios = [
         'focus did not move to the content',
       );
       const shown = await page.locator('article.case-study').count();
+      await page.reload();
+      await page.getByRole('heading', { level: 1 }).waitFor();
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Enter');
+      expect(
+        (await page.evaluate(() => document.activeElement.id)) === 'main',
+        'the skip link did not move focus to the content',
+      );
       return {
-        actions: 2,
-        observed: `Skip link is the first stop; after navigation focus is on the content; ${shown} repositories loaded from GitHub`,
+        actions: presses + 3,
+        observed: `${presses} Tab presses and Enter open Repositories, with focus moved to the content and ${shown} repositories loaded from GitHub; on the next load, Tab then Enter on the skip link jumps past the menu`,
       };
     },
   },
@@ -265,7 +290,8 @@ await probe.close();
 const results = [];
 try {
   for (const scenario of scenarios) {
-    const page = await browser.newPage({ viewport: scenario.viewport, userAgent });
+    const context = await browser.newContext({ viewport: scenario.viewport, userAgent });
+    const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     let outcome;
@@ -276,7 +302,7 @@ try {
       outcome = { result: 'Fail', actions: '', observed: error.message.split('\n')[0] };
     }
     await page.screenshot({ path: fileURLToPath(new URL(`${scenario.id}.png`, folder)) });
-    await page.close();
+    await context.close();
     results.push({
       id: scenario.id,
       persona: scenario.persona,
