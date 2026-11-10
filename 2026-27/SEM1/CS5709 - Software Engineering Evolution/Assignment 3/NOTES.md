@@ -4,7 +4,11 @@ Assessment material that is not technical documentation: what is left to do, the
 
 Deadline: **Tue 17 November 2026, 23:59** on Brightspace. [Assignment and rubric](https://learn.ul.ie/d2l/lms/dropbox/user/folder_submit_files.d2l?db=51833&grpid=0&isprv=0&bp=0&ou=91640), copied on 10 November 2026.
 
-## Left to do before submitting
+## Submission
+
+First version submitted on Brightspace on 10 November 2026, 9:33 PM (submission ID 1063603). A review of that version found faults that were fixed the same evening (reaction counting across tabs, malformed stored data, the keyboard scenario, several report claims); the corrected report has not been resubmitted yet.
+
+## Left to do before resubmitting
 
 State on 10 November 2026: the site, the pipeline, the innovation, the evaluation evidence and the factual parts of the report are done. The report is complete and builds with no sections left to write. What remains is mine to check or decide.
 

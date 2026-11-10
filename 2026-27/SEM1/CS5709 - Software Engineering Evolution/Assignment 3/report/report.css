@@ -212,3 +212,14 @@ figure img {
 h2:not(.new-page):not(:first-child) {
   margin-top: 18pt;
 }
+.defects th:nth-child(2) {
+  width: 26%;
+}
+.defects td:nth-child(2) code {
+  font-size: 8pt;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.defects td:nth-child(2) {
+  overflow-wrap: break-word;
+}
