@@ -11,17 +11,22 @@ const Knowledge = lazy(() => import('./pages/Knowledge.tsx'));
 const Repositories = lazy(() => import('./pages/Repositories.tsx'));
 const Missing = lazy(() => import('./pages/Missing.tsx'));
 
-const router = createBrowserRouter([
-  {
-    Component: Layout,
-    children: [
-      { index: true, Component: Home },
-      { path: 'knowledge', Component: Knowledge },
-      { path: 'repositories', Component: Repositories },
-      { path: '*', Component: Missing },
-    ],
-  },
-]);
+const basename = import.meta.env.BASE_URL;
+
+const router = createBrowserRouter(
+  [
+    {
+      Component: Layout,
+      children: [
+        { index: true, Component: Home },
+        { path: 'knowledge', Component: Knowledge },
+        { path: 'repositories', Component: Repositories },
+        { path: '*', Component: Missing },
+      ],
+    },
+  ],
+  { basename },
+);
 
 export default function App() {
   return (
