@@ -6,9 +6,9 @@ Deadline: **Tue 17 November 2026, 23:59** on Brightspace. [Assignment and rubric
 
 ## Submission
 
-First version submitted on Brightspace on 10 November 2026, 9:33 PM (submission ID 1063603). A review of that version found faults that were fixed the same evening (reaction counting across tabs, malformed stored data, the keyboard scenario, several report claims); the corrected report has not been resubmitted yet.
+First version submitted on Brightspace on 10 November 2026, 9:33 PM (submission ID 1063603). A review of that version found faults that were fixed the same evening (reaction counting across tabs, malformed stored data, the keyboard scenario, several report claims); the corrected report was resubmitted at 9:59 PM (submission ID 1063641), with a comment asking for that one to be marked.
 
-## Left to do before resubmitting
+## Still open, for a further resubmission if wanted
 
 State on 10 November 2026: the site, the pipeline, the innovation, the evaluation evidence and the factual parts of the report are done. The report is complete and builds with no sections left to write. What remains is mine to check or decide.
 
