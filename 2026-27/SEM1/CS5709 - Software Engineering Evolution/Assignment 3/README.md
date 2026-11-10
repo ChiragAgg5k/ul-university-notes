@@ -1,39 +1,28 @@
 # Assessment 3: Digital portfolio (Phase 2)
 
-CS5709: Software Engineering Evolution · 30% (the brief also says 35% once) · deadline: **Tue 17 November 2026, 23:59** on Brightspace. Status: **scaffolded, not submitted**.
+CS5709: Software Engineering Evolution · deadline: **Tue 17 November 2026, 23:59** on Brightspace. Status: **scaffolded, not submitted**.
+
+[Assignment and rubric](https://learn.ul.ie/d2l/lms/dropbox/user/folder_submit_files.d2l?db=51833&grpid=0&isprv=0&bp=0&ou=91640) · brief and rubric copied from Brightspace on 10 November 2026.
 
 Phase 2 evolves the [Phase 1 static site](../Assignment%201/README.md) into a React application. Phase 1 stays as it is, at its own URL, so the report can compare the two.
 
-> The requirements below come from my notes of the brief taken on 9 November. The full brief and rubric still need copying in from the Brightspace dropbox; check them before building further.
+## Brief
 
-## Requirements and where each one lives
+"This is the continuation of your Phase 1 portfolio. The website should now be fully populated, hosted online, and accessible. Improvements from Phase 1 feedback provided must be integrated."
 
-| Requirement | Where | State |
-| --- | --- | --- |
-| Modular structure | `site/src/{api,components,data,hooks,pages,state,types}` | scaffolded |
-| JSON-driven data | `site/src/data/projects.json` (converted from Phase 1 `projects.mjs`) | projects only; education, blog, pictures and videos to move |
-| API connection | `site/src/api/github.ts`, shown on the Repositories page | working; choice of API to confirm |
-| GSAP | `site/src/hooks/useReveal.ts` (respects reduced motion) | one entrance animation |
-| PropTypes or TypeScript | TypeScript, strict | done |
-| JSDoc headers | `@file` header on every source file | keep up as files are added |
-| Lazy loading | `React.lazy` per route in `site/src/App.tsx`; one chunk per page | done for routes; images to follow |
-| Search and filter | `site/src/components/ProjectFilter.tsx`, `site/src/state/matches.ts` | working on projects |
-| State management | `useReducer` + context in `site/src/state/`; the filter survives navigation | done |
-| CI/CD | `.github/workflows/cs5709-portfolio.yml` at the repository root: lint, type check, build | CI only; deploy job to add |
-| Live site deployed by GitHub Actions | not chosen yet | to do |
-| README | this file | in progress |
+Deliverables:
 
-## Marks
+- Enhanced portfolio website (live), with GitHub Actions deployment, auto CI/CD, readme, modular structure, and dynamic data management with JSON file, API connection, adding GSAP for better interactivity, PropTypes or TypeScript, JSDoc headers, use lazy loading, add search and filter functionality, and State Management.
+- Implementation of modular, maintainable, and well-documented code.
+- GitHub repository with CI/CD pipeline and action.
+- Innovation features beyond class coverage.
+- Updated technical report with critique and references.
 
-| Item | Marks |
-| --- | --- |
-| Iteration 3 | 10 |
-| Iteration 4: CI/CD | 2.5 |
-| Iteration 5: live site | 2.5 |
-| Innovation | 10 |
-| Evaluation | 5 |
+### Weighting is inconsistent
 
-## Run locally
+The brief says 35% in one place and 30% in another. Its marks table totals 30. The Brightspace rubric adds a sixth criterion, Reflection (5), and totals 35, while the dropbox is scored out of 30. Write the reflection regardless.
+
+### Run locally
 
 ```sh
 cd site
@@ -50,8 +39,10 @@ Requires Node 22+. Stack: Vite 8, React 19, TypeScript 7, React Router 7, GSAP 3
 
 ### Before building further
 
-- [ ] Copy the full brief, rubric and dropbox link into this file.
-- [ ] Decide the host for the Actions deployment (see below).
+- [x] Copy the full brief, rubric and dropbox link into this file.
+- [x] Host for the Actions deployment: GitHub Pages, named in the brief.
+- [ ] Get the peer review of the Phase 1 report and list its recommendations.
+- [ ] Write personas and scenarios (Phase 1 lost a Discovery mark for lacking them).
 - [ ] Decide the innovation feature (10 marks, the largest open item).
 
 ### Iteration 3: port and extend
@@ -77,12 +68,12 @@ Requires Node 22+. Stack: Vite 8, React 19, TypeScript 7, React Router 7, GSAP 3
 
 - [ ] Record test commands, results and screenshots under `evidence/`.
 - [ ] Report: reuse the `report/pdf.mjs` pipeline from Assignment 1.
-- [ ] Reflection and critique, written by Chirag.
+- [ ] Summary, reflection and critique, written by Chirag.
+- [ ] Evaluation: code inspection and walkthrough with a named method.
 
-## Deployment options
+## Deployment
 
-- **Appwrite Sites, new site `cs5709-portfolio-phase2`**: same host as Phase 1 and supports a single-page fallback. Needs an API key stored as a GitHub Actions secret.
-- **GitHub Pages**: no secret needed, but the site sits under `/ul-university-notes/`, so Vite's `base` and the router's `basename` must be set and deep links need a `404.html` copy.
+The brief asks for "a GitHub page", so the site goes to GitHub Pages from the Actions workflow. It will sit under `/ul-university-notes/`, so Vite's `base` and the router's `basename` must be set, and deep links need a `404.html` copy of `index.html`. A database or other backend, which the brief gives as an innovation example, can still live on Appwrite.
 
 ## Transparency
 

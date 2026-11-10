@@ -47,7 +47,7 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 
 ## Notes on the briefs
 
-- **CS5709 Assessment 3** asks for: a live site deployed by GitHub Actions, CI/CD, a README, modular structure, JSON-driven data, an API connection, GSAP, PropTypes or TypeScript, JSDoc headers, lazy loading, search and filter, and state management. Marks: Iteration 3 (10), Iteration 4 CI/CD (2.5), Iteration 5 live site (2.5), Innovation (10), Evaluation (5).
+- **CS5709 Assessment 3** ([full brief](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/README.md)) asks for: a live site deployed by GitHub Actions, CI/CD, a README, modular structure, JSON-driven data, an API connection, GSAP, PropTypes or TypeScript, JSDoc headers, lazy loading, search and filter, and state management. Marks: Iteration 3 (10), Iteration 4 CI/CD (2.5), Iteration 5 live site (2.5), Innovation (10), Evaluation (5); the Brightspace rubric adds Reflection (5).
 - **CS5707 final report** sections: Abstract, Introduction, Background, Approach, Results, Discussion, Conclusion, References. Every fact and claim needs a citation. Reports written by generative AI are marked zero.
 - **CS5741**: no second assignment posted. Week 8 and 9 lecture slides are up.
 
