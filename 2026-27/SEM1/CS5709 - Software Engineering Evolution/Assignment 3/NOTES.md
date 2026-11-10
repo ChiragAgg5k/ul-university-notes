@@ -6,15 +6,14 @@ Deadline: **Tue 17 November 2026, 23:59** on Brightspace. [Assignment and rubric
 
 ## Left to do before submitting
 
-State on 10 November 2026: the site, the pipeline, the innovation, the evaluation evidence and the factual parts of the report are done. What remains is mine to write or decide.
+State on 10 November 2026: the site, the pipeline, the innovation, the evaluation evidence and the factual parts of the report are done. The report is complete and builds with no sections left to write. What remains is mine to check or decide.
 
-1. **Write the four boxed sections of the report** in `report/report.md` (each is a `<div class="todo">` with the supporting facts listed): the summary (250 words), the note on the lecturer's portfolio (peer recommendation 3), the critique, and the reflection. Replace each box with prose, then run `node report/pdf.mjs`; it reports the summary word count and how many boxes are left.
-2. **Lecturer's portfolio.** Open it on Brightspace and either analyse it in half a page or state that Phase 1 did not start from it.
-3. **Read the report through** and check the things drafted with AI assistance: the three personas, the review of other people's portfolios, the references (APA), and the declaration.
-4. **Check two content edits** made during the port: the third project card was reworded to describe Phase 1, and the photos were tagged "Hackathon" or "Conference".
-5. **Reaction counts on the live site are test data** from the walkthrough runs (the logging article). Decide whether to clear the `reactions` table in the Appwrite console before submitting; the report's figures quote the current numbers.
-6. **Hold one real chat conversation** on the live site and confirm it reaches the Tawk.to inbox. The walkthrough only confirms that the widget loads after consent.
-7. **Submit** on Brightspace: the PDF from `report/dist/`, with the live URL and the repository link in the comment.
+1. ~~Write the four boxed sections of the report.~~ Done 10 November; the lecturer's portfolio is recorded as not analysed.
+2. **Read the report through** and check the things drafted with AI assistance: the three personas, the review of other people's portfolios, the references (APA), and the declaration.
+3. **Check two content edits** made during the port: the third project card was reworded to describe Phase 1, and the photos were tagged "Hackathon" or "Conference".
+4. **Reaction counts on the live site are test data** from the walkthrough runs (the logging article). Decide whether to clear the `reactions` table in the Appwrite console before submitting; the report's figures quote the current numbers.
+5. **Hold one real chat conversation** on the live site and confirm it reaches the Tawk.to inbox. The walkthrough only confirms that the widget loads after consent.
+6. **Submit** on Brightspace: the PDF from `report/dist/`, with the live URL and the repository link in the comment.
 
 Optional, if time allows: more photos, a second video or a fourth case study (both reviews call the galleries thin); the three open minor defects I5 to I7 in the report's defect log.
 
