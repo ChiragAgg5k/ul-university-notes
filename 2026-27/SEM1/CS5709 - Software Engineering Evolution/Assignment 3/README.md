@@ -1,6 +1,8 @@
 # Assessment 3: Digital portfolio (Phase 2)
 
-CS5709: Software Engineering Evolution · deadline: **Tue 17 November 2026, 23:59** on Brightspace. Status: **scaffolded, not submitted**.
+CS5709: Software Engineering Evolution · deadline: **Tue 17 November 2026, 23:59** on Brightspace. Status: **scaffolded and live, not submitted**.
+
+Live site: https://chiragagg5k.github.io/ul-university-notes/
 
 [Assignment and rubric](https://learn.ul.ie/d2l/lms/dropbox/user/folder_submit_files.d2l?db=51833&grpid=0&isprv=0&bp=0&ou=91640) · brief and rubric copied from Brightspace on 10 November 2026.
 
@@ -76,8 +78,8 @@ The peer review a classmate wrote of the Phase 1 report is also needed for secti
 | Lazy loading | `React.lazy` per route in `site/src/App.tsx`; one chunk per page | done for routes; images to follow |
 | Search and filter | `site/src/components/ProjectFilter.tsx`, `site/src/state/matches.ts` | working on projects |
 | State management | `useReducer` + context in `site/src/state/`; the filter survives navigation | done |
-| CI/CD | `.github/workflows/cs5709-portfolio.yml` at the repository root: lint, type check, build | CI only; deploy job to add |
-| Live site deployed by GitHub Actions | GitHub Pages, which the brief names for Iteration 5 | to do |
+| CI/CD | `.github/workflows/cs5709-portfolio.yml` at the repository root: lint, format check, type check, build, then deploy on `main` | done; pipeline documentation to write |
+| Live site deployed by GitHub Actions | GitHub Pages, which the brief names for Iteration 5 | live since 10 November |
 | README | this file | in progress |
 
 ## Run locally
@@ -115,12 +117,13 @@ Requires Node 22+. Stack: Vite 8, React 19, TypeScript 7, React Router 7, GSAP 3
 ### Iteration 4: CI/CD
 
 - [x] Lint, type check and build on every push that touches this folder.
-- [ ] Add the deploy job.
+- [x] Deploy job: `main` pushes publish the build to GitHub Pages.
+- [ ] Describe the pipeline for the report (1 of the 2.5 marks is for its documentation).
 
 ### Iteration 5: live site
 
-- [ ] Deploy from GitHub Actions and record the URL here.
-- [ ] Make deep links such as `/knowledge` work on the host (single-page fallback).
+- [x] Deploy from GitHub Actions and record the URL here.
+- [x] Make deep links such as `/knowledge` work on the host: the build copies `index.html` to `404.html`. Verified live on 10 November; the page renders, but GitHub answers such addresses with HTTP status 404.
 
 ### Evaluation and report
 
@@ -131,7 +134,11 @@ Requires Node 22+. Stack: Vite 8, React 19, TypeScript 7, React Router 7, GSAP 3
 
 ## Deployment
 
-The brief asks for "a GitHub page", so the site goes to GitHub Pages from the Actions workflow. It will sit under `/ul-university-notes/`, so Vite's `base` and the router's `basename` must be set, and deep links need a `404.html` copy of `index.html`. A database or other backend, which the brief gives as an innovation example, can still live on Appwrite.
+The brief asks for "a GitHub page", so the workflow publishes to GitHub Pages (source: GitHub Actions). On every push to `main` that touches `site/`, the `check` job lints, checks formatting, type checks and builds, then uploads `dist/`; the `deploy` job publishes it. Pull requests and other branches run the checks only.
+
+Pages serves the repository under `/ul-university-notes/`. The workflow reads that path from the Pages configuration and passes it to Vite as `BASE_PATH`; the router takes the same value as its `basename`. Local builds use `/`.
+
+A database or other backend, which the brief gives as an innovation example, can still live on Appwrite.
 
 ## Transparency
 
