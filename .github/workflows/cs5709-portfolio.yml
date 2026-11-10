@@ -1,0 +1,32 @@
+name: CS5709 portfolio
+
+on:
+  push:
+    paths:
+      - '2026-27/SEM1/CS5709 - Software Engineering Evolution/Assignment 3/site/**'
+      - '.github/workflows/cs5709-portfolio.yml'
+  pull_request:
+    paths:
+      - '2026-27/SEM1/CS5709 - Software Engineering Evolution/Assignment 3/site/**'
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: '2026-27/SEM1/CS5709 - Software Engineering Evolution/Assignment 3/site'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: '2026-27/SEM1/CS5709 - Software Engineering Evolution/Assignment 3/site/package-lock.json'
+      - run: npm ci
+      - run: npm run lint
+      - run: npx prettier --check src
+      - run: npm run build

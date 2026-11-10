@@ -9,6 +9,7 @@ Class notes, readings, and study material organized by academic year, semester, 
 ### CS5709: Software Engineering Evolution
 
 - [Assessment 1: Digital portfolio](2026-27/SEM1/CS5709%20-%20Software%20Engineering%20Evolution/Assignment%201/README.md): 15%, due 6 October; rubric checklist, implementation, diagrams and deployment details
+- [Assessment 3: Digital portfolio, Phase 2](2026-27/SEM1/CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/README.md): 30%, due 17 November; React scaffold, requirements map and checklist
 
 ### CS5707 — SE Development Paradigms
 
