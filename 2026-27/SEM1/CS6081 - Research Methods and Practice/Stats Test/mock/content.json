@@ -1,0 +1,186 @@
+{
+  "tests": ["Wilcoxon", "Mann-Whitney", "Friedman", "Page's L", "Kruskal-Wallis", "Jonckheere", "Spearman's rho", "Chi-square"],
+  "drill": [
+    { "scenario": "The same 15 developers fix bugs once with an AI assistant and once without. Times are heavily skewed.", "answer": "Wilcoxon", "why": "Two conditions, same subjects, non-normal data." },
+    { "scenario": "Bugs found per hour by a team in Limerick and a different team in Cork. Small groups, ordinal ratings.", "answer": "Mann-Whitney", "why": "Two conditions, different subjects." },
+    { "scenario": "Each of 10 testers rates four interface designs on a 1 to 7 scale. No order is predicted.", "answer": "Friedman", "why": "More than two conditions, same subjects, no predicted trend." },
+    { "scenario": "The same radiologists read scans after 0, 1 and 2 nights without sleep. Errors are predicted to rise with each night.", "answer": "Page's L", "why": "More than two conditions, same subjects, and a predicted order." },
+    { "scenario": "Three separate classes are taught by lecture, video or lab. Exam ranks are compared with no prediction about which is best.", "answer": "Kruskal-Wallis", "why": "More than two conditions, different subjects, no predicted trend." },
+    { "scenario": "Three separate groups of 8 get 0, 2 or 4 hours of training. Scores are predicted to rise with training.", "answer": "Jonckheere", "why": "More than two conditions, different subjects, a predicted order, and equal group sizes." },
+    { "scenario": "Is there a relationship between years of experience and code-review score across 20 engineers?", "answer": "Spearman's rho", "why": "An association between two variables, not a difference between conditions." },
+    { "scenario": "120 projects are counted by language (Java, Python, Go) and by licence (open, closed).", "answer": "Chi-square", "why": "Counts of subjects falling into categories, not scores." },
+    { "scenario": "Patients' pain ratings before and after physiotherapy.", "answer": "Wilcoxon", "why": "Before and after on the same people is two related conditions." },
+    { "scenario": "Recall scores of people who were given a title before reading a text, against other people who were not.", "answer": "Mann-Whitney", "why": "Two conditions, different people in each." },
+    { "scenario": "Do novices, intermediates and experts differ in the number of defects they find? Groups have 4, 3 and 4 people.", "answer": "Kruskal-Wallis", "why": "Three unrelated groups. Unequal sizes rule out Jonckheere even if a trend were predicted." },
+    { "scenario": "Eight programmers are measured with 8, 6 and 4 hours of sleep. The researcher only asks whether sleep makes any difference.", "answer": "Friedman", "why": "Same subjects, three conditions, no direction asked for." },
+    { "scenario": "GPs are ranked on diagnosis speed and on crossword speed. Do the rankings agree?", "answer": "Spearman's rho", "why": "Two rankings of the same people: a correlation." },
+    { "scenario": "Experts and novices are each classified as using a bottom-up, top-down or mixed comprehension strategy.", "answer": "Chi-square", "why": "Each person is allocated to one category; the data are frequencies." },
+    { "scenario": "The same nurses enter records on a paper form, a tablet and a voice system. Entry time is predicted to fall in that order.", "answer": "Page's L", "why": "Same subjects, three conditions, predicted trend." },
+    { "scenario": "Male and female students' satisfaction ratings (1 to 5) for one module.", "answer": "Mann-Whitney", "why": "Gender is a fixed property, so the design must be between subjects; two conditions." },
+    { "scenario": "Four separate groups of 6 patients receive 0, 5, 10 or 20 mg of a drug. Symptom scores are predicted to fall as the dose rises.", "answer": "Jonckheere", "why": "Different subjects, more than two conditions, predicted order, equal groups." },
+    { "scenario": "Does time spent in the lab go with final grade? Both are available for 30 students, and grades are ordinal.", "answer": "Spearman's rho", "why": "A relationship between two variables measured on the same students." },
+    { "scenario": "Each of 12 users tries two login screens. Their error counts are not normally distributed.", "answer": "Wilcoxon", "why": "Two conditions, same users." },
+    { "scenario": "Hospital wards are counted by size (small, medium, large) and by whether they adopted the new system (yes, no).", "answer": "Chi-square", "why": "A contingency table of counts." },
+    { "scenario": "Six reviewers each score five grant proposals. Do the proposals differ?", "answer": "Friedman", "why": "Each reviewer scores every proposal: same subjects, five conditions." },
+    { "scenario": "Readers from three different schools rate one textbook. No school is predicted to rate it higher.", "answer": "Kruskal-Wallis", "why": "Three unrelated groups, no predicted order." }
+  ],
+  "papers": [
+    {
+      "id": "A",
+      "title": "Mock paper A",
+      "focus": "Same shape as the sample paper",
+      "questions": [
+        {
+          "prompt": "A paper reports that a Mann-Whitney analysis of two teaching methods gave P = 0.03. What does the choice of Mann-Whitney tell you about the design of the study, and what does the P value mean?",
+          "scheme": [
+            "Two conditions were compared.",
+            "Between subjects: different participants were in each condition.",
+            "The data were treated as non-parametric: not interval, not normally distributed, or with unequal variance, so scores were ranked.",
+            "P = 0.03 is a 3% probability that the difference is due to chance. It is below 0.05, so significant at the 5% level, but not at the 1% level."
+          ]
+        },
+        {
+          "prompt": "A study of 25 developers correlates years of experience with the number of defects in their code. It reports Spearman's rho = −0.82, P = 0.004. Explain both figures and the conclusions that can be drawn.",
+          "scheme": [
+            "rho runs from −1 to +1. −0.82 is a strong correlation.",
+            "It is negative: as experience rises, defects fall.",
+            "P = 0.004 is a 0.4% probability of a correlation this strong arising by chance; significant at both the 5% and 1% levels.",
+            "Conclusion: there is a reliable association, but a correlation does not show that experience causes fewer defects."
+          ]
+        },
+        {
+          "prompt": "State the three conditions that data must meet for a parametric test to be used. What should a researcher do if one of them does not hold?",
+          "scheme": [
+            "Scores are on an interval scale.",
+            "The scores have a normal distribution.",
+            "Homogeneity of variance: the variability of scores is roughly the same in each condition.",
+            "If any one fails, use a non-parametric test, which works on ranks. (Shapiro-Wilk checks normality, Levene's test checks variance.)"
+          ]
+        },
+        {
+          "prompt": "160 software projects were counted by language and licence. Which statistical test fits? Explain its basis by working out the expected frequency of the Open / Java cell.",
+          "table": [["", "Java", "Python", "Go", "Total"], ["Open", "30", "45", "15", "90"], ["Closed", "40", "25", "5", "70"], ["Total", "70", "70", "20", "160"]],
+          "scheme": [
+            "Chi-square: projects are allocated to categories, so the data are frequencies, not scores.",
+            "It compares the observed frequencies with those expected if language and licence were unrelated.",
+            "Expected = (row total × column total) ÷ grand total = (90 × 70) ÷ 160 = 39.4, against 30 observed.",
+            "The statistic sums (O − E)² ÷ E over all cells; the larger it is, the less likely the pattern is chance. (Here it is 9.80 with 2 degrees of freedom, above the 5% critical value of 5.99, so significant.)"
+          ]
+        },
+        {
+          "prompt": "Three separate groups of 8 programmers (novice, intermediate, expert) each debug the same program. The researcher predicts that the number of bugs found rises with expertise. The data are skewed. Which technique or techniques should be used, and why?",
+          "scheme": [
+            "Different participants in each group: a between-subjects design.",
+            "More than two conditions, and non-parametric data.",
+            "Kruskal-Wallis tests whether the three groups differ at all, but gives no direction.",
+            "Because an order is predicted, Jonckheere's trend test is the better choice; it is allowed here because the groups are of equal size."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "title": "Mock paper B",
+      "focus": "Adds the ranking mechanics from the lecture",
+      "questions": [
+        {
+          "prompt": "A paper states: \"A Friedman test showed a difference between the interfaces (χr² = 9.5, P = 0.009).\" What does the choice of Friedman imply about the design, and what can and cannot be concluded?",
+          "scheme": [
+            "Within subjects: the same participants used every interface.",
+            "There were more than two conditions, and the data were non-parametric.",
+            "P = 0.009 is a 0.9% probability that the differences are due to chance; significant at the 1% level.",
+            "Friedman has no direction: it shows the interfaces differ, not which is better or in what order. A trend test (Page's L) or pairwise comparisons would be needed."
+          ]
+        },
+        {
+          "prompt": "Eight participants were timed under condition 1 and condition 2. The differences (condition 1 minus condition 2) were: −3, −1, +2, −4, 0, −2, −5, +1. Name the test, calculate its statistic, and say whether it is significant one-tailed at P = 0.05 if the table value for this number of subjects is 3.",
+          "scheme": [
+            "Wilcoxon: two conditions, same participants. The zero difference is dropped, leaving N = 7.",
+            "Ranks by size, ignoring sign, ties sharing the average: the two 1s get 1.5, the two 2s get 3.5, then 3 → 5, 4 → 6, 5 → 7.",
+            "Positive ranks sum to 3.5 + 1.5 = 5; negative ranks sum to 23. W is the smaller: 5.",
+            "W must be less than or equal to the table value. 5 is greater than 3, so the result is not significant."
+          ]
+        },
+        {
+          "prompt": "Compare within-subjects and between-subjects designs. Give one advantage and one disadvantage of each.",
+          "scheme": [
+            "Within subjects: the same participants do every condition. Advantage: individual differences cancel out.",
+            "Within disadvantage: order effects such as learning or fatigue, where the earlier condition affects the later one.",
+            "Between subjects: different participants per condition. Advantage: no order effects, each person meets the task fresh.",
+            "Between disadvantage: individual differences between the groups may explain the result; controlled by matching or random allocation."
+          ]
+        },
+        {
+          "prompt": "Twelve nurses each enter patient records using a paper form, a tablet and a voice system. Entry times are skewed. (a) Which test checks whether the systems differ? (b) How does the answer change if the researcher predicted that times fall from paper to tablet to voice?",
+          "scheme": [
+            "The same nurses use all three systems: within subjects, more than two conditions.",
+            "Skewed data are non-parametric, so (a) is Friedman.",
+            "(b) With a predicted order, use Page's L trend test.",
+            "Page's L uses the same within-row ranking but weights the columns in the predicted order, so a rising trend gives a large L; larger is more significant."
+          ]
+        },
+        {
+          "prompt": "What do the significance levels P = 0.05 and P = 0.01 mean? Why might a researcher insist on one and not the other?",
+          "scheme": [
+            "P is the probability that the result is due to chance (variability in the sample) and not the effect being tested.",
+            "P = 0.05 is a 5%, or 1 in 20, probability; P = 0.01 is 1%, or 1 in 100.",
+            "The smaller the P, the more confidence that the effect is real; 0.01 is the stricter level.",
+            "The acceptable level depends on what is at stake: a new drug or aircraft safety needs the stricter level, an educational aid can accept 0.05."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "title": "Mock paper C",
+      "focus": "Harder readings and a between-subjects calculation",
+      "questions": [
+        {
+          "prompt": "A study reports a Kruskal-Wallis result of H = 7.21, P = 0.027. Describe the design this implies and interpret the result.",
+          "scheme": [
+            "Between subjects: different participants in each condition.",
+            "More than two conditions, with non-parametric data; all scores were ranked together and the rank totals compared.",
+            "P = 0.027 is a 2.7% probability that the differences are due to chance: significant at the 5% level, not at the 1% level.",
+            "It shows a difference, not a direction: it does not say which groups differ or in what order."
+          ]
+        },
+        {
+          "prompt": "Two different groups of four students scored as follows. Group 1: 12, 15, 9, 15. Group 2: 9, 20, 15, 7. Name the test, rank the scores, and give the rank total of each group. What do the totals suggest?",
+          "scheme": [
+            "Mann-Whitney: two conditions, different subjects, so all eight scores are ranked together.",
+            "Ranks: 7 → 1; the two 9s → 2.5 each; 12 → 4; the three 15s → 6 each; 20 → 8.",
+            "Group 1 total: 4 + 6 + 2.5 + 6 = 18.5. Group 2 total: 2.5 + 8 + 6 + 1 = 17.5.",
+            "The totals are almost equal, so there is little sign of a difference. (U = 16 + 10 − 18.5 = 7.5, U′ = 8.5; the smaller, 7.5, is far too large to be significant.)"
+          ]
+        },
+        {
+          "prompt": "Two experiments each compare the same two conditions and obtain almost identical means. Explain why a researcher still cannot say that both show the same effect, and what an inferential statistical test adds.",
+          "scheme": [
+            "Means hide variability: in one experiment the scores may barely overlap, in the other they may overlap heavily.",
+            "With high variability, a difference in means could easily arise by chance.",
+            "Descriptive statistics only describe the data collected; inferential statistics judge whether the difference is dependable beyond this sample.",
+            "The test gives the probability that the result is due to chance; the smaller it is, the more confidence in the hypothesis."
+          ]
+        },
+        {
+          "prompt": "A survey of 400 students reports a correlation between hours of social media use and exam anxiety of rho = 0.31, P = 0.002. A newspaper headline says \"Social media strongly causes exam anxiety\". Comment.",
+          "scheme": [
+            "rho = 0.31 is a weak positive correlation: more use goes with somewhat more anxiety.",
+            "P = 0.002 means it is very unlikely to be chance; it is statistically significant.",
+            "Significance is not strength: a large sample can make a weak correlation significant, so \"strongly\" is wrong.",
+            "Correlation is an association, not cause and effect, so \"causes\" is wrong too."
+          ]
+        },
+        {
+          "prompt": "Name the appropriate test for each study and give the reason. (a) 40 patients are classified by treatment (A or B) and by outcome (improved or not improved). (b) The same 15 students sit an ordinal-scored test before and after a course.",
+          "scheme": [
+            "(a) Chi-square.",
+            "Because each patient is allocated to one category and the data are counts; it needs more than 20 subjects and at least 5 expected in each cell.",
+            "(b) Wilcoxon.",
+            "Because there are two conditions, the same students do both, and ordinal scores are non-parametric."
+          ]
+        }
+      ]
+    }
+  ]
+}

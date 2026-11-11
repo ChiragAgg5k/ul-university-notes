@@ -5,7 +5,7 @@
 - [Sample test](Sample%20test.png), handed out in Week 10 as "Sample test for next week's Stats test"
 - Source material: the Week 9 lecture ("Lecture 9 stats small refinements") and the worked tables beside it on Brightspace (Wilcoxon, Mann-Whitney, Friedman, Page's L, Kruskal-Wallis, Jonckheere and Spearman)
 
-The answers below are my own working, not the lecturer's marking scheme. Check them against the Week 9 slides.
+The answers below are my own working, not the lecturer's marking scheme. They were checked against the Week 9 slides and speaker notes on 11 November.
 
 ## What the test asks for
 
@@ -90,14 +90,24 @@ All of these are non-parametric: they work on ranks or counts, so they suit ordi
 
 ## Preparation plan
 
-About three hours in total.
+About four and a half hours over six days, written on Wed 11 November. Materials:
 
-| When | What | Time |
-| --- | --- | --- |
-| Wed 11 or Thu 12 Nov | Re-read the Week 9 lecture. Rebuild the test-choice table above from memory until it comes out right twice. | 60 min |
-| Fri 13 or Sat 14 Nov | Go through each worked example on Brightspace (Wilcoxon, Mann-Whitney, Friedman, Page's L, Kruskal-Wallis, Jonckheere, Spearman). For each, say aloud why that test fits the design. | 60 min |
-| Sun 15 Nov | Do the sample test closed-book in 35 minutes, on paper. Mark it against the answers here and the slides. | 45 min |
-| Before the test | Reread the "Reading a result" list and the chi-square expected-frequency formula. | 15 min |
+- [Study guide](Study%20Guide.md): the lecture's content in the order to learn it, with every worked example recomputed
+- [Mock tests](Mock%20Tests.md): three practice papers with marking schemes, and 22 name-the-test studies
+- [Practice page](https://claude.ai/artifact/CidQLrqJhygcWELdQfY64s) (private link): the same drill and papers, with a 35-minute timer and self-marking. It is built from `mock/content.json` by `mock/build.mjs`
+
+| Day | Do | Time | Done when |
+| --- | --- | --- | --- |
+| Wed 11 | Study guide sections 1 to 4: why statistics, vocabulary, parametric conditions, the decision tree. Then the quick drill. | 45 min | The tree is written from memory twice, and the drill gives 15 correct in a row |
+| Thu 12 | Sections 5 and 6: ranking and each test. Redo four lecture examples by hand without looking: the Wilcoxon W, the Mann-Whitney rank totals, the Friedman rank totals, one chi-square expected frequency. | 60 min | All four match the guide, and the "small or large is significant" table is known |
+| Fri 13 | Section 7, reading a result. Then mock paper A, timed, on paper. Mark it. | 50 min | A score out of 20 and a list of missed scheme points |
+| Sat 14 | Re-read the parts behind Friday's misses. Mock paper B, timed. Write the one-page recall sheet from memory. | 50 min | Recall sheet complete without looking |
+| Sun 15 | The lecturer's sample test, closed book, 35 minutes. Then mock paper C. Redo any question below 3 out of 4. | 75 min | 16 or more on both |
+| Mon 16, before 13:10 | Recall sheet once, ten drill studies. Nothing new. | 15 min | |
+
+How to answer in the test: about seven minutes a question. For "which test" questions, write the three design facts first (number of conditions, same or different subjects, why non-parametric), then the test, then the trend refinement if an order is predicted. For "read this result" questions, give design, statistic, P, conclusion.
+
+Things to confirm with Jim: the test date and time, and whether statistical tables are provided or any calculation is expected. The sample paper needs almost none, but the lecture taught the ranking mechanics, so mock papers B and C include a little.
 
 Week 11 also covers confidence intervals, sampling and ethics. If those are taught before the test starts, expect one short question on them.
 

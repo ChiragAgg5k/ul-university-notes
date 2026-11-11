@@ -1,0 +1,345 @@
+<title>CS6081 Stats Drill</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600&display=swap">
+<style>
+/* Layout: one narrow working column, like an exam script. A sticky bar switches between the
+   decision tree, the quick drill and the timed papers. */
+:root {
+  --paper: #fbfaf6;
+  --sheet: #ffffff;
+  --ink: #1c2330;
+  --muted: #5d6675;
+  --rule: #d9d6cb;
+  --accent: #1f5f8b;
+  --accent-ink: #ffffff;
+  --good: #1d6b3f;
+  --good-bg: #e3f2e7;
+  --bad: #9c2b23;
+  --bad-bg: #f8e4e1;
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'IBM Plex Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #14181f; --sheet: #1b212b; --ink: #e8e6df; --muted: #a2abb9; --rule: #333c4a;
+    --accent: #7db8e0; --accent-ink: #10202c; --good: #7fd19c; --good-bg: #183324;
+    --bad: #f0a097; --bad-bg: #3a1f1c; color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --paper: #14181f; --sheet: #1b212b; --ink: #e8e6df; --muted: #a2abb9; --rule: #333c4a;
+  --accent: #7db8e0; --accent-ink: #10202c; --good: #7fd19c; --good-bg: #183324;
+  --bad: #f0a097; --bad-bg: #3a1f1c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+section, header { scroll-margin-top: 4rem; }
+body { background: var(--paper); color: var(--ink); font: 16px/1.55 var(--body); }
+body::before { content: ''; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.wrap { max-width: 46rem; margin: 0 auto; padding-block: 1.5rem 4rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 1.5rem; }
+h1 { font: 600 2rem/1.15 var(--display); margin: 0; text-wrap: balance; }
+h2 { font: 600 1.35rem/1.2 var(--display); margin: 0; text-wrap: balance; }
+h3 { font: 600 1rem/1.3 var(--body); margin: 0; }
+p { margin: 0; }
+.lede { color: var(--muted); max-width: 60ch; }
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 0.25rem; padding-block: 0.5rem; }
+nav a { font: 500 0.9rem var(--body); color: var(--muted); text-decoration: none; padding: 0.4rem 0.7rem; border-radius: 4px; }
+nav a[aria-current='page'] { background: var(--accent); color: var(--accent-ink); }
+a:focus-visible, button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+section { display: flex; flex-direction: column; gap: 1rem; }
+.sheet { background: var(--sheet); border: 1px solid var(--rule); padding: 1.1rem; display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; }
+pre { font: 0.82rem/1.5 var(--mono); margin: 0; overflow-x: auto; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.92rem; }
+th, td { border: 1px solid var(--rule); padding: 0.35rem 0.6rem; text-align: left; vertical-align: top; }
+th { font-weight: 600; }
+.label { font: 500 0.72rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+button { font: 500 0.92rem var(--body); color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 4px; padding: 0.5rem 0.8rem; cursor: pointer; min-height: 44px; }
+button.primary { background: var(--accent); color: var(--accent-ink); }
+button:disabled { opacity: 0.55; cursor: default; }
+.choices { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 0.5rem; }
+.choices button.right { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.choices button.wrong { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+.row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+.clock { font: 500 1.6rem var(--mono); font-variant-numeric: tabular-nums; }
+.clock.late { color: var(--bad); }
+textarea { width: 100%; min-height: 7.5rem; font: 0.95rem/1.5 var(--body); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; padding: 0.6rem; resize: vertical; }
+.scheme { border-top: 1px dashed var(--rule); padding-top: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.scheme label { display: flex; gap: 0.6rem; align-items: flex-start; }
+.scheme input { margin-top: 0.3rem; width: 1.1rem; height: 1.1rem; flex: none; }
+.note { color: var(--muted); font-size: 0.9rem; }
+.feedback { min-height: 3rem; }
+.score { font: 500 1.1rem var(--mono); }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="label">CS6081 Research Methods · statistics test · Week 11</p>
+    <h1>Pick the test, read the result</h1>
+    <p class="lede">Five questions, four marks each, 35 minutes. Practise the decision first, then sit a timed paper and mark yourself against the scheme.</p>
+  </header>
+  <nav aria-label="Sections">
+    <a href="#tree">Decision tree</a>
+    <a href="#drill">Quick drill</a>
+    <a href="#paper-a">Paper A</a>
+    <a href="#paper-b">Paper B</a>
+    <a href="#paper-c">Paper C</a>
+  </nav>
+
+  <section id="view-tree" hidden>
+    <h2>Three questions, in order</h2>
+    <p class="lede">What is the aim? How many conditions? Same or different subjects? Then ask whether a trend was predicted.</p>
+    <div class="sheet">
+<pre>A difference between conditions
+├── 2 conditions
+│     ├── same subjects ........ Wilcoxon
+│     └── different subjects ... Mann-Whitney
+└── more than 2 conditions
+      ├── same subjects ........ Friedman        trend: Page's L
+      └── different subjects ... Kruskal-Wallis  trend: Jonckheere
+A relationship between two variables ... Spearman's rho
+Counts in categories ................... Chi-square</pre>
+    </div>
+    <div class="sheet">
+      <h3>Which way is significant</h3>
+      <div class="scroll">
+        <table>
+          <tr><th>Test</th><th>Statistic</th><th>Significant when</th></tr>
+          <tr><td>Wilcoxon</td><td>W, the smaller signed-rank sum</td><td>small</td></tr>
+          <tr><td>Mann-Whitney</td><td>U, the smaller of U and U′</td><td>small</td></tr>
+          <tr><td>Friedman</td><td>χr²</td><td>large</td></tr>
+          <tr><td>Page's L</td><td>L</td><td>large</td></tr>
+          <tr><td>Kruskal-Wallis</td><td>H</td><td>large</td></tr>
+          <tr><td>Jonckheere</td><td>S</td><td>large; needs equal groups</td></tr>
+          <tr><td>Chi-square</td><td>χ² = Σ (O − E)² ÷ E</td><td>large; at least 5 per cell</td></tr>
+        </table>
+      </div>
+      <p class="note">Parametric tests need interval data, a normal distribution and equal variance. If one fails, the test is non-parametric. A two-tailed test is harder to pass than a one-tailed one, because allowing either direction doubles the probability of a chance result.</p>
+    </div>
+  </section>
+
+  <section id="view-drill" hidden>
+    <h2>Quick drill</h2>
+    <p class="lede">Read the study, name the test. The reason appears after you answer.</p>
+    <div class="sheet">
+      <p class="label" id="drill-count"></p>
+      <p id="drill-scenario"></p>
+      <div class="choices" id="drill-choices"></div>
+      <p class="feedback" id="drill-feedback" role="status"></p>
+      <div class="row">
+        <button class="primary" id="drill-next" type="button">Next study</button>
+        <span class="score" id="drill-score"></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-paper" hidden>
+    <div class="row" style="justify-content: space-between">
+      <div>
+        <h2 id="paper-title"></h2>
+        <p class="note" id="paper-focus"></p>
+      </div>
+      <div class="row">
+        <span class="clock" id="clock" role="timer">35:00</span>
+        <button class="primary" id="clock-start" type="button">Start 35 minutes</button>
+      </div>
+    </div>
+    <p class="note">Write each answer before opening its scheme. Each scheme point is one mark. These papers are practice questions written from the Week 9 lecture, not the lecturer's.</p>
+    <div id="paper-questions" style="display: flex; flex-direction: column; gap: 1rem"></div>
+    <p class="score" id="paper-score" role="status"></p>
+  </section>
+</div>
+
+<script>
+const content = /*CONTENT*/;
+const views = { tree: 'view-tree', drill: 'view-drill', paper: 'view-paper' };
+const total = 35 * 60;
+let timer = null;
+let remaining = total;
+let order = [];
+let position = -1;
+let right = 0;
+let asked = 0;
+
+function element(tag, properties = {}, children = []) {
+  const node = Object.assign(document.createElement(tag), properties);
+  node.append(...children);
+  return node;
+}
+
+function shuffle(list) {
+  const copy = [...list];
+  for (let index = copy.length - 1; index > 0; index -= 1) {
+    const other = Math.floor(Math.random() * (index + 1));
+    [copy[index], copy[other]] = [copy[other], copy[index]];
+  }
+  return copy;
+}
+
+function nextStudy() {
+  position += 1;
+  if (position >= order.length) {
+    order = shuffle(content.drill);
+    position = 0;
+  }
+  const study = order[position];
+  document.getElementById('drill-count').textContent = `Study ${asked + 1}`;
+  document.getElementById('drill-scenario').textContent = study.scenario;
+  document.getElementById('drill-feedback').textContent = '';
+  const choices = document.getElementById('drill-choices');
+  choices.replaceChildren(
+    ...content.tests.map(test =>
+      element('button', {
+        type: 'button',
+        textContent: test,
+        onclick: event => answer(study, test, event.currentTarget),
+      }),
+    ),
+  );
+}
+
+function answer(study, chosen, button) {
+  const buttons = [...document.querySelectorAll('#drill-choices button')];
+  buttons.forEach(candidate => {
+    candidate.disabled = true;
+    if (candidate.textContent === study.answer) candidate.classList.add('right');
+  });
+  asked += 1;
+  if (chosen === study.answer) {
+    right += 1;
+  } else {
+    button.classList.add('wrong');
+  }
+  document.getElementById('drill-feedback').textContent =
+    `${chosen === study.answer ? 'Correct.' : `It is ${study.answer}.`} ${study.why}`;
+  document.getElementById('drill-score').textContent = `${right} of ${asked} correct`;
+}
+
+function showClock() {
+  const clock = document.getElementById('clock');
+  const shown = Math.abs(remaining);
+  const minutes = String(Math.floor(shown / 60)).padStart(2, '0');
+  const seconds = String(shown % 60).padStart(2, '0');
+  clock.textContent = `${remaining < 0 ? '+' : ''}${minutes}:${seconds}`;
+  clock.classList.toggle('late', remaining < 0);
+}
+
+function resetClock() {
+  clearInterval(timer);
+  timer = null;
+  remaining = total;
+  showClock();
+  document.getElementById('clock-start').textContent = 'Start 35 minutes';
+}
+
+function toggleClock() {
+  const button = document.getElementById('clock-start');
+  if (timer) {
+    clearInterval(timer);
+    timer = null;
+    button.textContent = 'Resume';
+    return;
+  }
+  const end = Date.now() + remaining * 1000;
+  timer = setInterval(() => {
+    remaining = Math.round((end - Date.now()) / 1000);
+    showClock();
+  }, 500);
+  button.textContent = 'Pause';
+}
+
+function scorePaper() {
+  const ticked = document.querySelectorAll('#paper-questions .scheme input:checked').length;
+  const opened = document.querySelectorAll('#paper-questions .scheme:not([hidden])').length;
+  document.getElementById('paper-score').textContent = opened
+    ? `Marked so far: ${ticked} of ${opened * 4} (paper total 20)`
+    : '';
+}
+
+function showPaper(paper) {
+  resetClock();
+  document.getElementById('paper-title').textContent = paper.title;
+  document.getElementById('paper-focus').textContent = paper.focus;
+  document.getElementById('paper-questions').replaceChildren(
+    ...paper.questions.map((question, index) => {
+      const scheme = element(
+        'div',
+        { className: 'scheme', hidden: true },
+        [
+          element('p', { className: 'label', textContent: 'Marking scheme: tick each point you made' }),
+          ...question.scheme.map((point, mark) => {
+            const box = element('input', {
+              type: 'checkbox',
+              id: `mark-${paper.id}-${index}-${mark}`,
+              onchange: scorePaper,
+            });
+            return element('label', {}, [box, element('span', { textContent: point })]);
+          }),
+        ],
+      );
+      const reveal = element('button', {
+        type: 'button',
+        textContent: 'Show marking scheme',
+        onclick: () => {
+          scheme.hidden = false;
+          reveal.hidden = true;
+          scorePaper();
+        },
+      });
+      const parts = [
+        element('p', { className: 'label', textContent: `Question ${index + 1} · 4 marks` }),
+        element('p', { textContent: question.prompt }),
+      ];
+      if (question.table) {
+        const table = element(
+          'table',
+          {},
+          question.table.map((row, line) =>
+            element(
+              'tr',
+              {},
+              row.map((cell, column) =>
+                element(line === 0 || column === 0 ? 'th' : 'td', { textContent: cell }),
+              ),
+            ),
+          ),
+        );
+        parts.push(element('div', { className: 'scroll' }, [table]));
+      }
+      parts.push(
+        element('textarea', {
+          id: `answer-${paper.id}-${index}`,
+          placeholder: 'Your answer',
+          ariaLabel: `Answer to question ${index + 1}`,
+        }),
+        element('div', { className: 'row' }, [reveal]),
+        scheme,
+      );
+      return element('div', { className: 'sheet' }, parts);
+    }),
+  );
+  scorePaper();
+}
+
+function route() {
+  const name = location.hash.slice(1) || 'tree';
+  const paper = content.papers.find(candidate => `paper-${candidate.id.toLowerCase()}` === name);
+  const view = paper ? 'paper' : views[name] ? name : 'tree';
+  for (const [key, id] of Object.entries(views)) {
+    document.getElementById(id).hidden = key !== view;
+  }
+  document.querySelectorAll('nav a').forEach(link => {
+    const current = link.getAttribute('href') === `#${paper ? name : view}`;
+    if (current) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+  if (paper) showPaper(paper);
+  if (view === 'drill' && position === -1) nextStudy();
+}
+
+document.getElementById('drill-next').addEventListener('click', nextStudy);
+document.getElementById('clock-start').addEventListener('click', toggleClock);
+addEventListener('hashchange', route);
+route();
+</script>
