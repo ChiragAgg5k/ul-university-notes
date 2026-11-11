@@ -1,5 +1,7 @@
 # 2026/27 · Semester 1 — open work
 
+[Lessons from feedback](LESSONS.md): checks to run before every submission.
+
 Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, announcements and the UL student inbox. Brightspace is the source of truth; recheck it before relying on a date.
 
 ## Deadlines
