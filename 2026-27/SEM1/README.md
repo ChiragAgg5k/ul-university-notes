@@ -11,6 +11,7 @@ Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, anno
 | Tue 17 Nov, 23:59 | CS5709 | [Assessment 3: Digital Portfolio, Phase 2](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/README.md) | 30% (the brief also says 35% once) | site, pipeline, innovation and evaluation done 10 Nov; submitted 10 Nov; corrected version resubmitted the same evening (ID 1063641) ([what is left](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/NOTES.md)) |
 | Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF: 5 minutes max, any module topic, at least 5 references, every point cited; [requirements and checklist](CS5707%20-%20SE%20Development%20Paradigms/README.md) | not stated | not submitted |
 | Wed 25 Nov, 23:59 | CS5709 | Assessment 4: 5-minute technical presentation, using the template attached to the dropbox | 20% | not submitted |
+| Thu 26 Nov, 23:59 | CS5741 | Assignment 2: Simulating Forest Fire Spread and Recovery | 30 marks | opens 12 Nov; brief not read |
 | Fri 4 Dec, 12:00 | CS5709 | Assessment 5: technical report, APA references | 20% | not submitted |
 | Fri 4 Dec, 23:59 | CS5707 | Final report: 8 pages max plus references, Harvard style, `report_template.docx` | not stated | not submitted |
 | Fri 4 Dec, 12:00 | CS6081 | End-of-term essay; spec and video posted under Week 8 on 28 Oct | 70% | no dropbox yet |
@@ -49,7 +50,7 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 
 - **CS5709 Assessment 3** ([full brief](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/NOTES.md)) asks for: a live site deployed by GitHub Actions, CI/CD, a README, modular structure, JSON-driven data, an API connection, GSAP, PropTypes or TypeScript, JSDoc headers, lazy loading, search and filter, and state management. Marks: Iteration 3 (10), Iteration 4 CI/CD (2.5), Iteration 5 live site (2.5), Innovation (10), Evaluation (5); the Brightspace rubric adds Reflection (5).
 - **CS5707 final report** sections: Abstract, Introduction, Background, Approach, Results, Discussion, Conclusion, References. Every fact and claim needs a citation. Reports written by generative AI are marked zero.
-- **CS5741**: no second assignment posted. Week 8 and 9 lecture slides are up.
+- **CS5741**: Assignment 1 came back on 11 Nov at **23/30 (76.7%)**; the marker's three comments are in the [Assignment 1 notes](CS5741%20-%20Concurrency%20and%20Parallelism%20in%20Software%20Development/Assignment%201/README.md). **Assignment 2, "Simulating Forest Fire Spread and Recovery", is on Brightspace: 30 marks, opens Thu 12 Nov, due Thu 26 Nov, 23:59.** Brief not read yet.
 
 ## Other dates
 

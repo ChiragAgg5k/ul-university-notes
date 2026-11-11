@@ -76,3 +76,15 @@ The cold number includes JIT warm-up. Final measurements need warm-up runs and t
 - **Endpoints counted twice or not at all.** Add `0.5·(f(a) + f(b))` once, outside the chunks, and make sure each interior `i` from 1 to n−1 belongs to exactly one chunk.
 - **The last digits will change.** Parallel summation reorders floating-point additions. Report the error against the exact value rather than expecting identical output.
 - **Timing noise.** Plug in power, close heavy apps, and use the same JVM flags for every run.
+
+## Result
+
+**23 / 30 (76.67%)**, released 11 November 2026 by Faeq Alrimawi as three comments on the report:
+
+| Where | Comment |
+| --- | --- |
+| 1.1 Partitioning | "unclear what chunk sizes have been considered or if foster's checklist for this has been applied" |
+| 2. Parallel Implementation | "there should more explicit reference to the code that relates to the decisions made in the first part" |
+| 4.6 Amdahl's Law, the serial fraction estimate | "parallel part should be calculated based on the implementation/code" |
+
+For Assignment 2: state the alternatives considered at each of Foster's steps and run his checklist explicitly; tie each design decision to the line of code that implements it; and derive the serial and parallel fractions from the code itself, not from measured overhead.
