@@ -27,6 +27,26 @@ I work as a Platform Engineer at Appwrite (open-source backend platform), runnin
 
 Open to guidance on narrowing the topic. If the project ends up with a supervisor in AI for software engineering instead, I'd happily steer it towards observability or evaluation of AI-assisted developer tooling, which I also work on.
 
+## Project guidelines (spring start), version 1.0 of 10 November 2026
+
+Read on 11 November 2026 from [the guidelines](CSIS%20Project%20Guidelines%20-%20spring%20start_v.1.0.pdf). Coordinator: Gavin Wade (gavin.wade@ul.ie, CS2-006). The Software Engineering course director has not yet posted course-specific guidance for the form.
+
+| When | What | Consequence |
+| --- | --- | --- |
+| Friday, Week 2 of spring, 12:00 | [Project Details Form](CSIS%20Masters%20Project%20Details%20Form%20AY2627.docx), fully signed by supervisor and student, with all declarations. The earlier note in this repository says Mon 8 Feb 2027, 15:00; check which is right on the dropbox | Not submitted: No Grade for the module |
+| Thursday, Week 7 of spring | Last realistic date for an ethics application, needed if the project involves human participants | Data collected without approval is not graded |
+| Friday, Week 10 of spring | Literature review report: introduction, background, methodology with timeline and risks, conclusions, appendices | Not graded; feedback within about three weeks; non-submission can affect the final grade |
+| Week 12 of spring | Last date to arrange hardware, software or reimbursed costs | Nothing can be processed in summer |
+| 3 August 2027, 16:00 | Final report (on the provided template, with all declarations) and product. A product upload is always required, even if it is a note saying there is none | 1% per weekday late |
+| 6 August 2027, 16:00 | Cut-off | No grading after this |
+| Summer exam period | Dissertation defence, if the course or an assessor asks: about 10 minutes plus 5 of questions | Failing it can zero the related parts |
+
+The final submission is 100% of the grade. Supervisor and second reader mark it independently against [the rubric](MScProject_FinalSubmission_GradingRubric_1.0.docx): project framing, literature review (Harvard / Cite it Right), methodology, primary research and results, requirements, design, artefact quality, artefact analysis, artefact presentation, analysis, conclusions, report quality. Analysis and artefact quality carry the heaviest weight.
+
+**Generative AI is not permitted for any part of the project at any stage**, unless the supervisor gives written permission by email (the exchange goes in the report, with a declaration of which AI was used, how and why), or AI is itself an integral part of the project and is discussed in full. Breaking this removes the affected parts from grading.
+
+Meetings with the supervisor are on a schedule agreed with them; options narrow in summer.
+
 ## Reference
 
 - [CSIS Supervisor Directory AY2026-27](CSIS%20Supervisor%20Directory%20AY2026-27.pdf) — full list of supervisors, key themes, and sample projects.

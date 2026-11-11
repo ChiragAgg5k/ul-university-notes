@@ -14,7 +14,7 @@ Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, anno
 | Fri 4 Dec, 12:00 | CS5709 | Assessment 5: technical report, APA references | 20% | not submitted |
 | Fri 4 Dec, 23:59 | CS5707 | Final report: 8 pages max plus references, Harvard style, `report_template.docx` | not stated | not submitted |
 | Fri 4 Dec, 12:00 | CS6081 | End-of-term essay; spec and video posted under Week 8 on 28 Oct | 70% | no dropbox yet |
-| not announced | CS6451 | Assignment 2: apply the algorithm from the presented paper to the Part 1 monolith and evaluate | not stated | no dropbox yet |
+| Thu 10 Dec, 23:59 | CS6451 | [Assignment Part 2](CS6451%20-%20Advanced%20Software%20Design/Assignments/Part%202%20-%20Microservices%20Architecture/README.md): port the gym monolith to microservices with Chen's approach, evaluate with metrics (MicroValid) | 15% | brief read 11 Nov; not started |
 | Mon 8 Feb 2027, 15:00 | CSIS Project | Signed Project Details Form | n/a | needs supervisor sign-off |
 
 ## Exams
@@ -37,7 +37,7 @@ Three reports land on Fri 4 Dec, five days before two exams on consecutive days.
 | Week 11, 16–22 Nov | CS6081 statistics test (likely Mon 16). Submit CS5709 Assessment 3 (Tue 17). CS5707 slides as PDF (Fri 20). CS6451 talk if not given in Week 10. Start the CS5709 Assessment 4 slides from the template. | CS5741: re-read lectures 1–4, one evening. |
 | Week 12, 23–29 Nov | Submit CS5709 Assessment 4 (Wed 25). First full drafts of the CS5707 report and the CS6081 essay. Outline CS5709 Assessment 5 from the existing Assessment 1–3 reports. | CS5707: lecture notes pass. CS5741: lectures 5–9. |
 | 30 Nov – 4 Dec | Finish and submit CS5709 Assessment 5 (Fri 12:00), the CS5707 report (Fri 23:59) and the CS6081 essay (Fri). Aim to have two of the three done by Wed 2 Dec. | CS6451: redo the midterm topic checklist. |
-| 5–8 Dec | CS6451 Assignment 2 only if it is due before the exams. | CS5707 (Sat, Sun, Tue) and CS5741 (Mon, Tue): past papers under time. |
+| 5–8 Dec | Finish the CS6451 Part 2 report (due Thu 10 Dec, the day of the CS5741 exam). | CS5707 (Sat, Sun, Tue) and CS5741 (Mon, Tue): past papers under time. |
 | Wed 9 Dec | **CS5707 exam, 16:00.** | Evening: CS5741 formulas and worked examples. |
 | Thu 10 Dec | **CS5741 exam, 12:30.** | Rest of the day off. |
 | 11–14 Dec | — | CS6451: patterns, SOLID and metrics, statecharts, architecture (interceptor, microservices), then past papers. |
