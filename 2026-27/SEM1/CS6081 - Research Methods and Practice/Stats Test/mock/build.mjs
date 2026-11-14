@@ -1,7 +1,7 @@
 /**
  * @file Builds the mock test document and the practice page from one content file, so the
  * questions and marking schemes cannot differ between them. The page also carries the prep plan,
- * the by-hand exercises, the lecturer's sample test and the recall sheet from prep.json.
+ * the lecturer's sample test and the recall sheet from prep.json.
  *
  * Usage: node build.mjs <folder for the practice page>
  */

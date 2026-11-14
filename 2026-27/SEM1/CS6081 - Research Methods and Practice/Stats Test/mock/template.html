@@ -86,6 +86,7 @@ code, .num { font-family: var(--mono); font-size: 0.86em; }
 .exam { background: var(--sunk); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem 1.25rem; display: flex; flex-direction: column; gap: 0.6rem; }
 .tag { align-self: flex-start; font-size: 0.75rem; font-weight: 600; line-height: 1; padding: 0.3rem 0.55rem; border-radius: 6px; background: var(--primary); color: var(--primary-ink); }
 .tag.plain { background: transparent; color: var(--ink); border: 1px solid var(--line); font-weight: 500; }
+.sample-question { display: flex; flex-direction: column; gap: 0.6rem; font-weight: 500; }
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
 .grid2 > * { min-width: 0; }
 
@@ -175,13 +176,7 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
 .scheme input { margin-top: 0.3rem; }
 .qlabel { font-size: 0.78rem; font-weight: 500; color: var(--muted); }
 .paper-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: flex-end; }
-.steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.75rem; }
-.steps label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.82rem; font-weight: 500; color: var(--muted); }
-.steps input { font: 500 0.92rem var(--mono); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; min-height: 40px; width: 100%; box-shadow: var(--shadow); }
-.steps input.right { border-color: var(--good); color: var(--good); }
-.steps input.wrong { border-color: var(--bad); color: var(--bad); }
 .data { font: 0.82rem/1.55 var(--mono); background: var(--sunk); border: 1px solid var(--line); border-radius: 6px; padding: 0.55rem 0.75rem; }
-.working { display: flex; flex-direction: column; gap: 0.45rem; border-top: 1px solid var(--line); padding-top: 0.8rem; }
 @media (prefers-reduced-motion: reduce) { .progress span { transition: none; } }
 </style>
 
@@ -216,7 +211,7 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
   <div class="box">
     <div class="countdown">
       <strong id="countdown"></strong>
-      <span class="muted small">Mon 16 November, 13:10 to 13:45. Likely date; confirm with Jim Buckley, and ask whether statistical tables are given out.</span>
+      <span class="muted small">Mon 16 November, 13:10 to 13:45. Short on time? Read <a href="#essentials">Essentials</a> and sit the <a href="#sample">lecturer's sample</a>; the rest is depth.</span>
     </div>
     <div class="progress" aria-hidden="true"><span id="progress-bar" style="width: 0"></span></div>
     <p class="small muted" id="progress-summary"></p>
@@ -237,7 +232,7 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
   <header>
     <span class="eyebrow">Notes · Chapter 1</span>
     <h1>About the exam</h1>
-    <p class="lead">The test is about choosing the right statistical test for a study and explaining what a result means. You will not be asked to run SPSS, and there is almost no arithmetic.</p>
+    <p class="lead">The test is about choosing the right statistical test for a study and explaining what a result means. You will not be asked to run SPSS (Statistical Package for the Social Sciences, the IBM program that does the calculations), and there is almost no arithmetic.</p>
   </header>
   <div class="box">
     <h2>The format</h2>
@@ -395,9 +390,18 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
   </header>
   <div class="box">
     <h2>Why means are not enough</h2>
-    <p>The lecture compared two experiments with almost the same means: 6.5 against 4, and 6.4 against 3.6. In the first, every score in condition 1 beats condition 2. In the second, the scores overlap a lot. <mark>Means hide variability.</mark> The second difference could easily be luck.</p>
-    <figure class="fig"><div id="fig-dots"></div><figcaption>Illustrative scores with the lecture's means. Lines mark each condition's mean.</figcaption></figure>
-    <p>A statistical test weighs the size of the difference against how much the scores vary, and gives the probability that the difference is due to chance.</p>
+    <p>The <strong>mean</strong> is the ordinary average: add the scores and divide by how many there are. Bugs of 6, 6, 7 and 7 give a mean of 26 ÷ 4 = 6.5.</p>
+    <p>The lecture compared two experiments with almost the same means: 6.5 against 4, and 6.4 against 3.6. Going by the means alone, both look equally convincing. They are not, because <mark>means hide variability</mark>: how spread out the scores are.</p>
+    <div class="scroll"><table>
+      <thead><tr><th></th><th>Condition 1</th><th>Condition 2</th><th>What you see</th></tr></thead>
+      <tbody>
+        <tr><td>Experiment 1</td><td>6, 6, 6.5, 7, 7 (mean 6.5)</td><td>3, 4, 4, 4, 5 (mean 4)</td><td>Tightly packed. Every score in condition 1 beats every score in condition 2. Hard to put down to luck.</td></tr>
+        <tr><td>Experiment 2</td><td>2, 5, 7, 9, 9 (mean 6.4)</td><td>1, 2, 3, 5, 7 (mean 3.6)</td><td>Spread out and overlapping. A 7 in condition 2 beats a 2 and a 5 in condition 1. Swap a couple of people and the gap could vanish.</td></tr>
+      </tbody>
+    </table></div>
+    <figure class="fig"><div id="fig-dots"></div><figcaption>The same scores as dots. Lines mark each condition's mean.</figcaption></figure>
+    <p>A statistical test weighs the <strong>size of the difference</strong> against <strong>how much the scores vary</strong>, and gives P, the probability that the difference is due to chance. Experiment 1 would get a small P (significant), experiment 2 a large one (not significant).</p>
+    <p>Non-parametric tests see this through ranks. In experiment 1, condition 2 takes all the low ranks and condition 1 all the high ones. In experiment 2 the ranks are mixed between the groups.</p>
   </div>
   <div class="box">
     <h2>Descriptive and inferential</h2>
@@ -457,7 +461,9 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
     <p>Use one-tailed only when the direction was predicted, with a reason, before the data was seen. Otherwise two-tailed is the safe default.</p>
   </div>
   <div class="exam">
-    <span class="tag">Sample Q3, model answer</span>
+    <span class="tag">Sample Q3</span>
+    <div class="sample-question" data-sample="3"></div>
+    <span class="tag plain">Model answer</span>
     <p>A one-tailed test is used when the hypothesis predicts the direction of a difference; use it only if theory or earlier evidence justifies that direction in advance. A two-tailed test is used when a difference is predicted without a direction. The two-tailed test is harder to reach significance with, because allowing a difference in either direction doubles the chance probability: the 5% is split into 2.5% at each end, so the result has to be more extreme.</p>
   </div>
   <details class="check"><summary>Check yourself: P = 0.03. Significant at 5%? At 1%? What does 0.03 mean?</summary><div><p>Yes at 5%, no at 1%. There is a 3% probability that a result this large is due to chance.</p></div></details>
@@ -501,22 +507,6 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
     <span class="tag">Clues in the question</span>
     <p>Any of these means non-parametric: "skewed", "non-normal", "ratings on a 1 to 5 scale", "ranked", "ordinal", "a small sample", "variances differ". In the test, say which condition fails: <em>"the data are not normally distributed, so a parametric test isn't appropriate."</em></p>
   </div>
-  <div class="box">
-    <h2>Parametric equivalents</h2>
-    <p class="muted small">For recognition only. If a question mentions one, this is its non-parametric partner.</p>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Parametric</th><th>Non-parametric</th></tr></thead>
-        <tbody>
-          <tr><td>Related t-test</td><td>Wilcoxon</td></tr>
-          <tr><td>Independent t-test</td><td>Mann-Whitney</td></tr>
-          <tr><td>Repeated-measures ANOVA</td><td>Friedman</td></tr>
-          <tr><td>One-way ANOVA</td><td>Kruskal-Wallis</td></tr>
-          <tr><td>Pearson's r</td><td>Spearman's rho</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
   <details class="check"><summary>Check yourself: name the three conditions for a parametric test, and the two SPSS checks.</summary><div><p>Interval data, normal distribution, homogeneity of variance. Shapiro-Wilk (normality) and Levene's test (variance).</p></div></details>
   <details class="check"><summary>Check yourself: satisfaction rated 1 to 5. Parametric or not, and why?</summary><div><p>Non-parametric. A rating scale is ordinal: the gap between 1 and 2 isn't necessarily the same as between 4 and 5.</p></div></details>
 </section>
@@ -525,7 +515,7 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
   <header>
     <span class="eyebrow">Notes · Chapter 6</span>
     <h1>Choosing the test</h1>
-    <p class="lead">Ask four questions, always in the same order. The answers lead to exactly one test.</p>
+    <p class="lead">Ask four questions, always in the same order. The answers lead to exactly one test. This chapter explains why each question matters and why each test is the right one, so you can justify your choice, which is where the marks are.</p>
   </header>
   <div class="box">
     <h2>The four questions</h2>
@@ -535,133 +525,85 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
       <li><strong>Same or different people?</strong> Within (related) or between (unrelated)?</li>
       <li><strong>Was an order predicted?</strong> Only for three or more conditions. If the researcher predicts scores rise or fall across the conditions, use the trend test.</li>
     </ol>
+    <p>Before any of these, the question has already told you (or you have checked) that the data is <strong>non-parametric</strong>: not interval, not normal, or unequal spread. Every test here works on ranks or counts, which is why they survive skewed data and outliers.</p>
   </div>
   <div class="tree" id="tree-static"></div>
   <div class="box">
-    <h2>Which way is significant</h2>
-    <p>Each test gives one number, the statistic, which is compared with a value from a printed table. The direction differs between tests.</p>
+    <h2>Why each question matters</h2>
+    <h3>1. The aim decides what kind of data you have</h3>
+    <p>The three aims produce three different shapes of data, and a test can only work with one shape.</p>
+    <ul>
+      <li><strong>Difference</strong>: the researcher changes something (the IV) and measures a score (the DV) in each condition. The question is whether the scores differ between conditions. Clue words: "compare", "effect of", "differences between the conditions", "does X improve Y".</li>
+      <li><strong>Relationship</strong>: nothing is changed. Two things are measured on the same people, and the question is whether they move together. Clue words: "relationship", "association", "correlation", "go together", two measures per person.</li>
+      <li><strong>Counts in categories</strong>: each person or thing is not given a score but placed in one box, and you count how many land in each. Clue words: "number of", "how many fall into", a table of frequencies.</li>
+    </ul>
+    <h3>2. The number of conditions decides how much the test can say</h3>
+    <p>With <strong>two</strong> conditions, a difference has only one possible shape: one is higher than the other. So the two-condition tests (Wilcoxon, Mann-Whitney) tell you both <em>whether</em> there is a difference and <em>which way</em> it goes.</p>
+    <p>With <strong>three or more</strong>, the differences could fall in many patterns (A highest, or C lowest, or A and B the same with C different). The general tests (Friedman, Kruskal-Wallis) only answer "do the conditions differ at all?". They can't say which conditions differ or in what order. That is why there is a fourth question about trends.</p>
+    <h3>3. Same or different people decides what gets ranked</h3>
+    <p>This changes how the test handles <strong>individual differences</strong>: some programmers are simply more careful than others, whatever the condition.</p>
+    <ul>
+      <li><strong>Same people (within, related)</strong>: each person's scores belong together, so the test compares each person with <em>themselves</em> (a difference per person, or ranks across each person's own row). A naturally careless programmer is careless in every condition, so that cancels out. This makes related tests more sensitive.</li>
+      <li><strong>Different people (between, unrelated)</strong>: there is no pairing, so the test has to rank all scores together and compare the groups as wholes. Individual differences stay in the data as noise.</li>
+    </ul>
+    <p>Using the wrong one is a real error: a between-subjects test on related data throws away the pairing, and a within-subjects test on unrelated data invents pairs that don't exist.</p>
+    <h3>4. A predicted order earns a stronger test</h3>
+    <p>If the researcher said in advance that scores should rise (or fall) across the conditions in a particular order, a trend test checks that one specific pattern, not every possible pattern. Asking a narrower question makes it easier to reach significance when the prediction is right, and it also tells you the direction, which the general test can't. The prediction must come before seeing the data; choosing it afterwards is cheating.</p>
+  </div>
+  <div class="box">
+    <h2>Each test and why it is the right one</h2>
     <div class="scroll">
       <table>
-        <thead><tr><th>Test</th><th>Statistic</th><th>Table</th><th>Significant when</th></tr></thead>
+        <thead><tr><th>Test</th><th>Use it when</th><th>Why this test</th><th>Example</th></tr></thead>
         <tbody>
-          <tr><td>Wilcoxon</td><td>W</td><td>A</td><td><mark>at or below</mark> the table value</td></tr>
-          <tr><td>Mann-Whitney</td><td>U</td><td>B1 to B4</td><td><mark>at or below</mark></td></tr>
-          <tr><td>Friedman</td><td>χr² ("chi r squared")</td><td>C</td><td>at or above</td></tr>
-          <tr><td>Page's L</td><td>L</td><td>D</td><td>at or above</td></tr>
-          <tr><td>Kruskal-Wallis</td><td>H</td><td>E</td><td>at or above</td></tr>
-          <tr><td>Jonckheere</td><td>S</td><td>G</td><td>at or above</td></tr>
-          <tr><td>Spearman</td><td>rho</td><td></td><td>far from 0, with enough people</td></tr>
-          <tr><td>Chi-square</td><td>χ²</td><td></td><td>at or above</td></tr>
+          <tr><td><strong>Wilcoxon</strong></td><td>Difference, 2 conditions, same people</td><td>Takes each person's difference between the two conditions, ranks the differences by size, and checks whether the positive and negative ones balance. If nearly everyone changes the same way, one side's rank total is tiny.</td><td>Bugs by the same programmers after 8 hours' sleep and after none.</td></tr>
+          <tr><td><strong>Mann-Whitney</strong></td><td>Difference, 2 conditions, different people</td><td>No pairs exist, so it ranks everyone together and checks whether one group's ranks bunch at the top. If the groups don't differ, their ranks mix evenly.</td><td>Bugs by male and female programmers.</td></tr>
+          <tr><td><strong>Friedman</strong></td><td>Difference, 3+ conditions, same people</td><td>Ranks each person's scores across their own row, so each person is compared with themselves, then checks whether some condition keeps getting the high ranks.</td><td>The same radiologists after normal sleep, one night and two nights without.</td></tr>
+          <tr><td><strong>Page's L</strong></td><td>As Friedman, plus a predicted order</td><td>Same ranking as Friedman, but weights the conditions by their predicted position, so a total that climbs in the predicted order gives a large L.</td><td>Errors predicted to rise: slept &lt; one night &lt; two nights.</td></tr>
+          <tr><td><strong>Kruskal-Wallis</strong></td><td>Difference, 3+ conditions, different people</td><td>Ranks everyone together, as Mann-Whitney does, and checks whether the groups' average ranks are further apart than chance allows. Allows unequal group sizes.</td><td>Three separate groups of programmers, each using a different IDE.</td></tr>
+          <tr><td><strong>Jonckheere</strong></td><td>As Kruskal-Wallis, plus a predicted order</td><td>For each score, counts how many scores in the later groups beat it. If the predicted order is right, later groups keep winning. Needs equal group sizes.</td><td>Novices &lt; intermediates &lt; experts on a code-reading score.</td></tr>
+          <tr><td><strong>Spearman's rho</strong></td><td>Relationship between two measures on the same people</td><td>Ranks each measure separately and checks whether the two rankings agree. It shows association only: nothing was manipulated, so it can't show cause.</td><td>Pupils' maths rank against their reading rank.</td></tr>
+          <tr><td><strong>Chi-square</strong></td><td>Counts in categories</td><td>There are no scores to rank, only counts. It compares the counts observed in each cell with the counts expected if the two variables were unrelated.</td><td>Experts and novices counted by reading style (bottom-up, top-down, mixed).</td></tr>
         </tbody>
       </table>
     </div>
-    <p>Memory hook: the two-condition tests take the <em>smaller</em> rank total, so <mark>small is significant</mark>. Everything else measures how big the differences are, so big is significant.</p>
+    <p>The tests come in mirror pairs: Wilcoxon and Mann-Whitney, Friedman and Kruskal-Wallis, Page's L and Jonckheere. In each pair the first is for <strong>same people</strong> and the second for <strong>different people</strong>. Learn the pairs and you only have to remember which side of each pair is which.</p>
   </div>
+  <details class="check"><summary>Check yourself: why is a trend test stronger than Friedman when an order was predicted?</summary><div><p>It tests one specific pattern instead of any difference at all, so a correct prediction reaches significance more easily, and it also gives the direction, which Friedman can't.</p></div></details>
+  <details class="check"><summary>Check yourself: why are related designs more sensitive?</summary><div><p>Each person is compared with themselves, so individual differences (some people are just better or worse) cancel out instead of adding noise.</p></div></details>
   <div class="exam">
-    <span class="tag">Sample Q5, model answer</span>
+    <span class="tag">Sample Q5</span>
+    <div class="sample-question" data-sample="5"></div>
+    <span class="tag plain">Model answer</span>
     <p>One group of radiologists does all three conditions, so the design is related (within subjects). There are three conditions, and the data are non-normal, so a non-parametric test for three or more related conditions is needed: <strong>Friedman</strong>, which tests whether the conditions differ at all. Because the conditions have a natural order (slept, one night without, two nights without) and errors would be predicted to rise, <strong>Page's L</strong> trend test is the stronger choice if that order is stated in the hypothesis.</p>
   </div>
   <p>Walk through the tree interactively on <a href="#tree">Decision tree</a>, then practise on <a href="#drill">Quick drill</a>.</p>
 </section>
 
-<section class="view" id="view-notes-7" data-view="notes-7" hidden>
-  <header>
-    <span class="eyebrow">Notes · Chapter 7</span>
-    <h1>Ranking</h1>
-    <p class="lead">Every non-parametric test except chi-square starts by turning scores into ranks. How you rank depends on the design.</p>
-  </header>
-  <div class="box">
-    <h2>The rules</h2>
-    <ul>
-      <li>The smallest score gets rank 1.</li>
-      <li><mark>Tied scores share the average of the ranks they occupy.</mark></li>
-      <li>Check: the ranks of N scores always add up to N × (N + 1) ÷ 2.</li>
-    </ul>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Score</th><th class="num">4</th><th class="num">8</th><th class="num">3</th><th class="num">3</th><th class="num">1</th><th class="num">7</th><th class="num">4</th></tr></thead>
-        <tbody><tr><th>Rank</th><td class="num">4.5</td><td class="num">7</td><td class="num">2.5</td><td class="num">2.5</td><td class="num">1</td><td class="num">6</td><td class="num">4.5</td></tr></tbody>
-      </table>
-    </div>
-    <p class="small muted">Sorted, the scores are 1, 3, 3, 4, 4, 7, 8. The two 3s take positions 2 and 3, so each gets 2.5. The two 4s take 4 and 5, so each gets 4.5. Total 28 = 7 × 8 ÷ 2.</p>
-  </div>
-  <div class="box">
-    <h2>Three ways to rank</h2>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Design</th><th>How to rank</th><th>Tests</th></tr></thead>
-        <tbody>
-          <tr><th>Different people</th><td>Rank all scores from every condition together as one list, then add up the ranks in each condition.</td><td>Mann-Whitney, Kruskal-Wallis</td></tr>
-          <tr><th>Same people, 2 conditions</th><td>Each row is one person. Take the difference (condition 1 minus condition 2), rank the differences by size ignoring the sign, then put the signs back. <mark>A difference of zero is dropped</mark> and N falls by one.</td><td>Wilcoxon</td></tr>
-          <tr><th>Same people, 3+ conditions</th><td>Rank across each person's own row (1, 2, 3), then add up each column.</td><td>Friedman, Page's L</td></tr>
-          <tr><th>Two measures</th><td>Rank each measure separately, then compare each person's two ranks.</td><td>Spearman</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>Always look at the means first to see which way the data goes.</p>
-  </div>
-  <details class="check"><summary>Check yourself: rank 10, 20, 20, 20, 30.</summary><div><p>1, 3, 3, 3, 5. The three 20s take positions 2, 3 and 4, average 3.</p></div></details>
-  <p>Practise on <a href="#by-hand">By hand</a>.</p>
-</section>
-
 <section class="view" id="view-notes-8" data-view="notes-8" hidden>
   <header>
-    <span class="eyebrow">Notes · Chapter 8</span>
+    <span class="eyebrow">Notes · Chapter 7</span>
     <h1>Two conditions: Wilcoxon and Mann-Whitney</h1>
-    <p class="lead">Same people: Wilcoxon. Different people: Mann-Whitney. For both, a small statistic is significant.</p>
+    <p class="lead">Same people: Wilcoxon. Different people: Mann-Whitney.</p>
   </header>
   <div class="box">
     <span class="tag plain">Same people</span>
-    <h2>Wilcoxon (signed-rank)</h2>
-    <ol>
-      <li>For each person, difference = condition 1 − condition 2.</li>
-      <li>Drop zeros. N is the number left.</li>
-      <li>Rank the differences by size, ignoring the sign. Ties share the average.</li>
-      <li>Add up the ranks of the positive differences and of the negative ones separately.</li>
-      <li><mark>W is the smaller sum.</mark> Compare with Table A for that N: significant if W is at or below the table value.</li>
-    </ol>
-    <p><em>Why small?</em> If nearly every difference goes the same way, the sum for the other direction is tiny.</p>
-  </div>
-  <div class="box">
-    <span class="tag plain">Worked example from the lecture</span>
-    <p>Bugs by 10 programmers with 8 hours sleep (C1) and with none (C2).</p>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Programmer</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th><th class="num">6</th><th class="num">7</th><th class="num">8</th><th class="num">9</th><th class="num">10</th></tr></thead>
-        <tbody>
-          <tr><th>C1 − C2</th><td class="num">−2</td><td class="num">−1</td><td class="num">+1</td><td class="num">−4</td><td class="num">+1</td><td class="num">−3</td><td class="num">−2</td><td class="num">0</td><td class="num">−4</td><td class="num">−2</td></tr>
-          <tr><th>Signed rank</th><td class="num">−5</td><td class="num">−2</td><td class="num">+2</td><td class="num">−8.5</td><td class="num">+2</td><td class="num">−7</td><td class="num">−5</td><td class="num">drop</td><td class="num">−8.5</td><td class="num">−5</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <ul>
-      <li>Sizes 1, 1, 1 take ranks 1–3 → 2 each. Sizes 2, 2, 2 take 4–6 → 5 each. Size 3 → 7. Sizes 4, 4 take 8–9 → 8.5 each.</li>
-      <li>Positive sum 2 + 2 = 4. Negative sum 41. <strong>W = 4, N = 9.</strong></li>
-      <li>One-tailed, Table A gives 6 at P = 0.025. 4 is below 6, so <mark>significant at P = 0.025</mark>, a 1 in 40 chance.</li>
-    </ul>
+    <h2>Wilcoxon</h2>
+    <p>Use it for <mark>2 conditions with the same people</mark> in both (or matched pairs), and non-parametric data.</p>
+    <p>How it works, in words: take each person's difference between the two conditions and rank the differences by size. If nearly everyone changes the same way, the ranks pile up on one side, which is unlikely to be chance.</p>
+    <p class="small muted">Lecture example: 10 programmers, bugs after 8 hours' sleep and after none. Significant at P = 0.025.</p>
   </div>
   <div class="box">
     <span class="tag plain">Different people</span>
-    <h2>Mann-Whitney (U)</h2>
-    <ol>
-      <li>Rank all scores from both groups together.</li>
-      <li>Add up the ranks in each group: T1 and T2.</li>
-      <li>Work out U and U′, and <mark>take the smaller</mark>.</li>
-      <li>Compare with Tables B1 to B4 (one table per significance level): significant if U is at or below the table value.</li>
-    </ol>
-    <div class="formula">U = n1·n2 + n1(n1 + 1) ÷ 2 − T1&nbsp;&nbsp;&nbsp;U′ = n1·n2 − U</div>
-  </div>
-  <div class="box">
-    <span class="tag plain">Worked example from the lecture</span>
-    <p>Bugs by gender: n1 = 6, n2 = 8. Rank totals T1 = 24.5, T2 = 80.5.</p>
-    <ul>
-      <li>U = 6 × 8 + 6 × 7 ÷ 2 − 24.5 = 48 + 21 − 24.5 = 44.5</li>
-      <li>U′ = 48 − 44.5 = <strong>3.5</strong>, the smaller.</li>
-      <li>3.5 is below the table value of 4, so <mark>significant at P = 0.005</mark>.</li>
-    </ul>
+    <h2>Mann-Whitney</h2>
+    <p>Use it for <mark>2 conditions with different people</mark> in each, and non-parametric data.</p>
+    <p>How it works, in words: rank everyone's scores together, then see whether one group's ranks bunch at the top. If the groups don't really differ, their ranks mix evenly.</p>
+    <p class="small muted">Lecture example: bugs by male and female programmers. Significant at P = 0.005.</p>
   </div>
   <div class="exam">
-    <span class="tag">Sample Q1, model answer</span>
+    <span class="tag">Sample Q1</span>
+    <div class="sample-question" data-sample="1"></div>
+    <span class="tag plain">Model answer</span>
     <p>Choosing Wilcoxon means the study compared <strong>two conditions</strong> in a <strong>related design</strong>: the same participants did both (or matched pairs). It is non-parametric, so the data were ordinal or not normally distributed. P = 0.015 means there is a 1.5% probability that a difference this large is due to chance. That is below 0.05, so the difference is significant at the 5% level and the null hypothesis is rejected; it is not significant at the stricter 1% level.</p>
   </div>
   <details class="check"><summary>Check yourself: a Mann-Whitney result. What does that tell you about the design?</summary><div><p>Two conditions, different people in each, and data treated as non-parametric.</p></div></details>
@@ -669,40 +611,33 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
 
 <section class="view" id="view-notes-9" data-view="notes-9" hidden>
   <header>
-    <span class="eyebrow">Notes · Chapter 9</span>
+    <span class="eyebrow">Notes · Chapter 8</span>
     <h1>Three or more conditions</h1>
     <p class="lead">Friedman and Kruskal-Wallis say whether the conditions differ, but not how. When an order is predicted, the trend tests Page's L and Jonckheere say more.</p>
   </header>
   <div class="box">
     <span class="tag plain">Same people</span>
-    <h2>Friedman (χr²)</h2>
-    <p>Rank across each person's row, add up each condition's ranks. The more the totals differ, the less likely it is chance.</p>
-    <div class="formula">χr² = [12 ÷ (N·C·(C + 1))] × ΣT² − 3·N·(C + 1)</div>
-    <p class="small muted">N = people, C = conditions, T = each condition's rank total.</p>
-    <p><strong>Lecture example:</strong> 8 programmers with 8, 4 and 6 hours sleep; rank totals 11, 21, 16.</p>
-    <p class="formula">(12 ÷ 96) × (121 + 441 + 256) − 96 = 102.25 − 96 = 6.25</p>
-    <p><mark>Limit: no direction.</mark> A significant Friedman says the conditions differ, not which one or in what order. Pairwise Wilcoxon tests can locate the difference.</p>
+    <h2>Friedman</h2>
+    <p>Use it for <mark>3 or more conditions with the same people</mark> in all of them.</p>
+    <p>It ranks each person's scores across the conditions and checks whether some condition keeps getting the high ranks.</p>
+    <p><mark>Limit: no direction.</mark> A significant result says the conditions differ, not which one or in what order.</p>
   </div>
   <div class="box">
     <span class="tag plain">Same people, order predicted</span>
     <h2>Page's L</h2>
-    <p>Same ranking as Friedman. Put the conditions in the predicted order, then weight their totals 1, 2, 3… Later columns count for more, so a trend in the predicted direction gives a large L.</p>
-    <div class="formula">L = T1 × 1 + T2 × 2 + T3 × 3 …</div>
-    <p><strong>Lecture example:</strong> ordered 8 hours, 6 hours, 4 hours, with totals 11, 16, 21: L = 11 + 32 + 63 = <strong>106</strong>. Against Table D this was not significant.</p>
+    <p>Use it instead of Friedman when the researcher <mark>predicted an order</mark> in advance, such as errors rising with each night of lost sleep. It tests that specific trend, so it is stronger and gives a direction.</p>
   </div>
   <div class="box">
     <span class="tag plain">Different people</span>
-    <h2>Kruskal-Wallis (H)</h2>
-    <p>Rank all scores together, add up each group's ranks. Groups can be different sizes.</p>
-    <div class="formula">H = [12 ÷ (N(N + 1))] × Σ(T² ÷ n) − 3(N + 1)</div>
-    <p><strong>Lecture example:</strong> three groups of 4, 3 and 4 (N = 11); rank totals 38, 14, 14. H = (12 ÷ 132) × (361 + 65.33 + 49) − 36 = <strong>7.21</strong>.</p>
-    <p><mark>Limit: no direction</mark>, like Friedman. Pairwise Mann-Whitney tests can locate the difference.</p>
+    <h2>Kruskal-Wallis</h2>
+    <p>Use it for <mark>3 or more conditions with different people</mark> in each. Groups can be different sizes.</p>
+    <p>It ranks everyone together and checks whether the groups' ranks are further apart than chance allows.</p>
+    <p><mark>Limit: no direction</mark>, like Friedman.</p>
   </div>
   <div class="box">
     <span class="tag plain">Different people, order predicted</span>
-    <h2>Jonckheere (S)</h2>
-    <p>No ranking. Put the groups in the predicted order. For each score, count how many scores in the groups to its right are larger. S is built from those counts; large is significant.</p>
-    <p><mark>Needs the same number of people in every group.</mark> With unequal groups, fall back to Kruskal-Wallis.</p>
+    <h2>Jonckheere</h2>
+    <p>Use it instead of Kruskal-Wallis when an <mark>order was predicted</mark>, such as novice &lt; intermediate &lt; expert. It needs the same number of people in every group.</p>
   </div>
   <div class="exam">
     <span class="tag">How to spot the trend version</span>
@@ -714,7 +649,7 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
 
 <section class="view" id="view-notes-10" data-view="notes-10" hidden>
   <header>
-    <span class="eyebrow">Notes · Chapter 10</span>
+    <span class="eyebrow">Notes · Chapter 9</span>
     <h1>Relationships and counts</h1>
     <p class="lead">Spearman measures whether two things go together. Chi-square compares counts in categories. Both appeared on the sample paper.</p>
   </header>
@@ -726,9 +661,6 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
       <li><strong>The coefficient, rho</strong>, from −1 to +1. The sign gives the direction (positive: both rise together; negative: one rises as the other falls). The size gives the strength: near 0 is no relationship, near ±1 is very strong. As a rough guide, below 0.3 is weak, 0.3 to 0.7 moderate, above 0.7 strong.</li>
       <li><strong>The P value</strong>: whether a correlation that strong could be chance. This depends heavily on how many people there are.</li>
     </ul>
-    <div class="formula">rho = 1 − (6 × Σd²) ÷ (N(N² − 1))</div>
-    <p class="small muted">Rank each variable separately; d is each person's difference between their two ranks. A small Σd² means the rankings agree.</p>
-    <p><strong>Lecture example:</strong> maths and reading for 12 pupils, Σd² = 61. rho = 1 − 366 ÷ 1716 = <strong>0.79</strong>, a strong positive correlation.</p>
   </div>
   <div class="box">
     <h2>The traps</h2>
@@ -744,7 +676,9 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
     </div>
   </div>
   <div class="exam">
-    <span class="tag">Sample Q2, model answer</span>
+    <span class="tag">Sample Q2</span>
+    <div class="sample-question" data-sample="2"></div>
+    <span class="tag plain">Model answer</span>
     <p>rho = 0.95 is a very strong positive correlation: GPs who rank fast at diagnosis also rank fast at the crossword (rho runs from −1 to +1). But P = 0.13 is above 0.05, so the correlation is not significant: there is a 13% probability of a correlation this strong arising by chance. A very strong coefficient with a weak P points to a very small sample. We can't reject the null hypothesis or claim a relationship; the study should be repeated with more GPs. Even a significant result would only show an association, not that one skill causes the other.</p>
   </div>
   <div class="box">
@@ -756,36 +690,20 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
     </ul>
     <p>The test compares the <mark>observed</mark> count in each cell with the count <mark>expected</mark> if the two variables were unrelated.</p>
     <div class="formula">Expected = row total × column total ÷ grand total</div>
-    <div class="formula">χ² = Σ (Observed − Expected)² ÷ Expected&nbsp;&nbsp;&nbsp;df = (rows − 1) × (columns − 1)</div>
-    <p>The bigger the gaps between observed and expected, the bigger χ², and the less likely the pattern is chance. Compare with the critical value for those degrees of freedom: 5.99 for df = 2, 9.49 for df = 4 (at 5%).</p>
-  </div>
-  <div class="box">
-    <span class="tag plain">Worked example from the lecture</span>
-    <div class="scroll">
-      <table>
-        <thead><tr><th></th><th class="num">Bottom-up</th><th class="num">Top-down</th><th class="num">Mixed</th><th class="num">Total</th></tr></thead>
-        <tbody>
-          <tr><th>Experts</th><td class="num">6</td><td class="num">15</td><td class="num">23</td><td class="num">44</td></tr>
-          <tr><th>Novices</th><td class="num">10</td><td class="num">8</td><td class="num">24</td><td class="num">42</td></tr>
-          <tr><th>Total</th><td class="num">16</td><td class="num">23</td><td class="num">47</td><td class="num">86</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <ul>
-      <li>Expected for experts, bottom-up: 44 × 16 ÷ 86 = 8.19, against 6 observed.</li>
-      <li>Full χ² = 3.11 with df = (2 − 1)(3 − 1) = 2. The 5% critical value is 5.99, so <mark>not significant</mark>.</li>
-    </ul>
+    <p>The bigger the gaps between observed and expected, the bigger χ², and the less likely the pattern is chance. The expected-count sum is only needed for the bonus marks on Sample Q4.</p>
   </div>
   <div class="exam">
-    <span class="tag">Sample Q4, model answer</span>
-    <p>The test is <strong>chi-square</strong>: the data are counts of tools falling into categories (tool type and cancer category), each tool counted once. <em>Bonus:</em> it compares each observed count with the count expected if tool type and cancer category were unrelated. For LNC and tool type 1, expected = 72 × 36 ÷ 144 = 18, against 25 observed; that cell contributes (25 − 18)² ÷ 18 ≈ 2.72. Adding all nine cells gives χ² (about 10.19), compared with 9.49 for df = 4 at 5%: significant.</p>
+    <span class="tag">Sample Q4</span>
+    <div class="sample-question" data-sample="4"></div>
+    <span class="tag plain">Model answer</span>
+    <p>The test is <strong>chi-square</strong>: the data are counts of tools falling into categories (tool type and cancer category), each tool counted once. <em>Bonus:</em> it compares each observed count with the count expected if tool type and cancer category were unrelated. For LNC and tool type 1, expected = 72 × 36 ÷ 144 = 18, against 25 observed; the bigger these gaps across all the cells, the less likely the pattern is chance.</p>
   </div>
   <details class="check"><summary>Check yourself: 120 projects counted by language and by licence. Which test?</summary><div><p>Chi-square: projects are allocated to categories and counted.</p></div></details>
 </section>
 
 <section class="view" id="view-notes-11" data-view="notes-11" hidden>
   <header>
-    <span class="eyebrow">Notes · Chapter 11</span>
+    <span class="eyebrow">Notes · Chapter 10</span>
     <h1>Writing full-mark answers</h1>
     <p class="lead">Each question is worth 4 marks. Aim for four distinct points; the marker is looking for each one.</p>
   </header>
@@ -830,6 +748,153 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
   <p>Now sit the <a href="#sample">lecturer's sample test</a> and the mock papers.</p>
 </section>
 
+<section class="view" id="view-essentials" data-view="essentials" hidden>
+  <header>
+    <span class="eyebrow">Start</span>
+    <h1>Essentials</h1>
+    <p class="lead">Only what the five sample questions actually ask for. If you know this page, you can answer all of them. The notes chapters are there if you want the why.</p>
+  </header>
+  <div class="box">
+    <h2>What the questions look like</h2>
+    <p>The sample paper has only two kinds of question:</p>
+    <ol>
+      <li><strong>"Which test?"</strong> A study is described; you name the test and say why. (Sample Q4, Q5.)</li>
+      <li><strong>"What does this result mean?"</strong> A test name and a P value (or rho) are given; you explain them. (Sample Q1, Q2.)</li>
+    </ol>
+    <p>Plus one definition question: one-tailed against two-tailed (Sample Q3). No arithmetic is needed, apart from one optional bonus.</p>
+  </div>
+  <div class="box">
+    <h2>1. Picking the test</h2>
+    <p>Answer three questions about the study, in order:</p>
+    <ol>
+      <li><strong>Aim?</strong> Difference between conditions, relationship between two measures, or counts in categories.</li>
+      <li><strong>How many conditions?</strong> 2, or 3+.</li>
+      <li><strong>Same or different people?</strong></li>
+    </ol>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Same people</th><th>Different people</th></tr></thead>
+        <tbody>
+          <tr><td><strong>2 conditions</strong></td><td>Wilcoxon</td><td>Mann-Whitney</td></tr>
+          <tr><td><strong>3+ conditions</strong></td><td>Friedman</td><td>Kruskal-Wallis</td></tr>
+          <tr><td><strong>3+, order predicted</strong></td><td>Page's L</td><td>Jonckheere</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong>Relationship</strong> between two measures: <strong>Spearman's rho</strong>.</li>
+      <li><strong>Counts</strong> of people or things in categories: <strong>chi-square</strong>.</li>
+    </ul>
+    <p>Why non-parametric at all: a parametric test needs interval data, a normal distribution and equal variance. If the question says "non-normal" (or ranks, or uneven spread), one condition fails, so you use the tests above.</p>
+    <div class="exam">
+      <span class="tag plain">Answer template</span>
+      <p>"[One group / separate groups] did [2 / 3] conditions, so the design is [related / unrelated]. The data are [non-normal], so a non-parametric test is needed: <strong>[test]</strong>. [If 3+ and the conditions have a natural order: Because errors are predicted to rise across the conditions, the trend test <strong>[Page's L / Jonckheere]</strong> is stronger.]"</p>
+    </div>
+  </div>
+  <div class="box">
+    <h2>2. Reading a result</h2>
+    <p>Work the test name backwards to the design: Wilcoxon means 2 conditions, same people, non-parametric data. Then explain P.</p>
+    <p><strong>P</strong> is the probability that a difference this large is due to chance. Compare it with 0.05 (and 0.01).</p>
+    <div class="exam">
+      <span class="tag plain">Answer template</span>
+      <p>"[Test] means [2 / 3+] conditions with [the same / different] people, and non-parametric data. P = 0.015 means there is a 1.5% probability the difference is due to chance. This is below 0.05, so it is significant at the 5% level and the hypothesis is supported, though not at the 1% level."</p>
+    </div>
+    <h3>Spearman's rho (Sample Q2)</h3>
+    <p>Two separate things to explain:</p>
+    <ul>
+      <li><strong>rho</strong>: −1 to +1. The sign is the direction, the size is the strength. 0.95 is a very strong positive correlation.</li>
+      <li><strong>P</strong>: whether it could be chance. P = 0.13 is above 0.05, so <strong>not significant</strong>, despite the strong rho.</li>
+    </ul>
+    <p>Strong rho with high P: too few people; repeat with more. Always add: correlation is not causation.</p>
+  </div>
+  <div class="box">
+    <h2>3. One-tailed and two-tailed (Sample Q3)</h2>
+    <ul>
+      <li><strong>One-tailed</strong>: the hypothesis predicts a direction ("sleep loss <em>increases</em> bugs"). Use only if the direction was justified in advance.</li>
+      <li><strong>Two-tailed</strong>: predicts a difference with no direction ("sleep loss <em>changes</em> bugs").</li>
+      <li>Two-tailed is <strong>harder</strong> to reach significance: allowing either direction doubles the chance probability (the 5% is split 2.5% at each end).</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>4. Chi-square (Sample Q4)</h2>
+    <p>Use it when each person or thing is <strong>put in a category and counted</strong>, not given a score. A table of counts is the giveaway.</p>
+    <p>Bonus: it compares observed counts with expected ones. Expected for a cell = row total × column total ÷ grand total. The bigger the gaps, the bigger χ², and the less likely it is chance.</p>
+  </div>
+  <p>Next: sit the <a href="#sample">lecturer's sample</a> on the clock, then check your answers against the schemes.</p>
+</section>
+
+<section class="view" id="view-questions" data-view="questions" hidden>
+  <header>
+    <span class="eyebrow">Start</span>
+    <h1>Your questions</h1>
+    <p class="lead">Questions asked while preparing, with short answers. Open each one only after you have tried to answer it yourself.</p>
+  </header>
+  <div class="box">
+    <h2>Words and ideas</h2>
+    <details class="check"><summary>What does "parametric" mean?</summary><div>
+      <p>A parametric test assumes the data follows a known shape, described by parameters such as the mean and the spread. It does its maths on the actual values. It needs three things: interval data, a normal distribution, and equal variance. If any one fails, use a non-parametric test, which only uses ranks.</p>
+    </div></details>
+    <details class="check"><summary>What is SPSS?</summary><div>
+      <p>Statistical Package for the Social Sciences: IBM's statistics program. It does the calculations. You will not run it in the test; Jim's point is that you need to know which test to choose and what the result means.</p>
+    </div></details>
+    <details class="check"><summary>What does Jim's summary mean: "the decision tree, how to determine if data is non-parametric, your design, the technique and the meaning of the results"?</summary><div>
+      <p>Five things to be able to do: walk the decision tree to a test; say why data is non-parametric (which of the three conditions fails); name the design (how many conditions, same or different people); name the technique (the test); and explain what the statistic and P say. The arithmetic is SPSS's job.</p>
+    </div></details>
+    <details class="check"><summary>What is an independent variable?</summary><div>
+      <p>In general: the input or presumed cause, the variable you change or choose to see whether something else changes. In y = f(x), it is x. On a graph it goes on the x-axis.</p>
+      <p>In an experiment: what the experimenter deliberately changes. Its values are the conditions. In "lack of sleep causes more bugs", the IV is hours of sleep (8 hours or none).</p>
+      <p>For the exam, the IV tells you how many conditions there are, and whether the design must be between subjects (if the IV is something people already are, such as gender or expertise).</p>
+    </div></details>
+    <details class="check"><summary>Why are they called "independent" and "dependent" variables?</summary><div>
+      <p>The independent variable is set by the experimenter; nothing else in the study decides its value. The dependent variable is measured, and its value depends on the IV. In "A causes B", A is independent and B is dependent. Bugs (DV) depend on sleep (IV).</p>
+    </div></details>
+    <details class="check"><summary>What is a control group?</summary><div>
+      <p>The group that does not get the thing being tested but is otherwise treated exactly the same. It gives a baseline. Programmers with a new debugging tool are compared with similar programmers doing the same task without it; any other influence (task difficulty, practice, time of day) affects both groups equally, so only the IV differs.</p>
+      <p>Related: a placebo (a fake treatment for the control group), blinding (people do not know their group), and random assignment (so the groups start out alike).</p>
+    </div></details>
+  </div>
+  <div class="box">
+    <h2>Means and spread</h2>
+    <details class="check"><summary>What is a mean, and why are means not enough?</summary><div>
+      <p>The mean is the ordinary average: add the scores and divide by how many. 6, 6, 7 and 7 give 26 ÷ 4 = 6.5.</p>
+      <p>Two experiments can have nearly the same means and very different evidence. If the scores are tightly packed and do not overlap, the difference is convincing. If they are spread out and overlap, the same gap in means could be luck. A test weighs the size of the difference against how much the scores vary.</p>
+    </div></details>
+    <details class="check"><summary>What does "6.5 against 4" mean?</summary><div>
+      <p>Condition 1's mean is 6.5 and condition 2's mean is 4. "Against" means "compared with": 6.5 bugs on average in one condition versus 4 in the other.</p>
+    </div></details>
+    <details class="check"><summary>What does equal variance mean?</summary><div>
+      <p>Variance is how spread out the scores are. Equal variance (homogeneity of variance) means each condition's scores are spread out by roughly the same amount, even if their means differ. Group A at 4 to 6 and group B at 8 to 10 have equal spread; group B at 1 to 20 would not. It is the third condition for a parametric test.</p>
+    </div></details>
+    <details class="check"><summary>What is a normal distribution, and why does it matter here?</summary><div>
+      <p>The bell curve: most scores near the middle, fewer towards the edges, symmetric on both sides. Heights of adults are roughly normal. Bugs per programmer are usually skewed: most make a few, a handful make many, giving a long tail to the right.</p>
+      <p>Parametric tests assume the bell shape; with skewed data a few extreme scores drag the mean and the P value misleads. Non-parametric tests only use ranks, so an outlier of 20 is just "the highest rank". Normality is one of the three conditions for a parametric test.</p>
+    </div></details>
+    <details class="check"><summary>What are the SPSS checks?</summary><div>
+      <p>Two tests run before the main analysis to choose parametric or non-parametric:</p>
+      <ul>
+        <li><strong>Shapiro-Wilk</strong> checks normality.</li>
+        <li><strong>Levene's test</strong> checks equal variance.</li>
+      </ul>
+      <p>Here the logic is reversed: the starting assumption is that the data is fine, so P &lt; 0.05 means the check failed and you go non-parametric. Interval data is judged by looking at what was measured, not by a test.</p>
+    </div></details>
+  </div>
+  <div class="box">
+    <h2>P and significance</h2>
+    <details class="check"><summary>What does P measure?</summary><div>
+      <p>How likely a result this large is if chance alone were at work, meaning the IV had no real effect. P = 0.03: with no real effect, a difference this big would still turn up by luck about 3 times in 100.</p>
+      <p>Small P: chance is unlikely, so the result is significant. Large P: chance could easily explain it. P is not the probability the hypothesis is true, does not say how big the effect is, and "not significant" does not mean "no effect".</p>
+    </div></details>
+    <details class="check"><summary>Why "a result this large"? Why count larger results too?</summary><div>
+      <p>"This large" means "this large or larger". Any exact result is unlikely on its own (exactly 50 heads in 100 flips happens only about 8% of the time), so the exact probability tells you nothing. The useful question is how often chance produces something as impressive as this or more.</p>
+      <p>9 heads in 10 flips: a fair coin gives 9 or more heads 11 times in 1024, so P ≈ 0.01, and the coin is probably biased. A one-tailed test counts only the predicted extreme; a two-tailed test counts both ends, roughly doubling P.</p>
+    </div></details>
+    <details class="check"><summary>A question says "P = 0.03, significance level 5%". What does it mean?</summary><div>
+      <p>P = 0.03 is what the test found. The 5% (0.05) significance level is the pass mark chosen before looking at the data. P at or below the level means significant: 0.03 ≤ 0.05, so it is significant and the hypothesis is supported. At a 1% level the same result would not be significant, since 0.03 &gt; 0.01.</p>
+      <p>In the exam: "P = 0.03 means there is a 3% probability that the difference is due to chance. This is below the 5% level, so the result is significant and the hypothesis is supported. It would not be significant at 1%."</p>
+    </div></details>
+  </div>
+</section>
+
 <section class="view" id="view-tree" data-view="tree" hidden>
   <header>
     <span class="eyebrow">Practise</span>
@@ -856,15 +921,6 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
       <span class="score" id="drill-score"></span>
     </div>
   </div>
-</section>
-
-<section class="view" id="view-by-hand" data-view="by-hand" hidden>
-  <header>
-    <span class="eyebrow">Practise</span>
-    <h1>By hand</h1>
-    <p class="lead">Work each one on paper first, type your numbers in, then check. Answers within 0.01 count. The lecture examples match the slides.</p>
-  </header>
-  <div id="exercises" style="display: flex; flex-direction: column; gap: 1rem"></div>
 </section>
 
 <section class="view" id="view-paper" data-view="paper" hidden>
@@ -910,7 +966,7 @@ textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color:
 <script>
 const content = /*CONTENT*/;
 const NAV = [
-  { group: 'Start', items: [['overview', 'Overview']] },
+  { group: 'Start', items: [['overview', 'Overview'], ['essentials', 'Essentials'], ['questions', 'Your questions']] },
   {
     group: 'Notes',
     numbered: true,
@@ -921,21 +977,20 @@ const NAV = [
       ['notes-4', 'Chance, P and significance'],
       ['notes-5', 'Parametric or not'],
       ['notes-6', 'Choosing the test'],
-      ['notes-7', 'Ranking'],
       ['notes-8', 'Two conditions'],
       ['notes-9', 'Three or more conditions'],
       ['notes-10', 'Relationships and counts'],
       ['notes-11', 'Writing answers'],
     ],
   },
-  { group: 'Practise', items: [['tree', 'Decision tree'], ['drill', 'Quick drill'], ['by-hand', 'By hand']] },
+  { group: 'Practise', items: [['tree', 'Decision tree'], ['drill', 'Quick drill']] },
   {
     group: 'Test yourself',
-    items: [['sample', "Lecturer's sample"], ['paper-a', 'Mock paper A'], ['paper-b', 'Mock paper B'], ['paper-c', 'Mock paper C'], ['recall', 'Recall sheet']],
+    items: [['sample', "Lecturer's sample"], ['paper-a', 'Mock paper A'], ['recall', 'Recall sheet']],
   },
 ];
 const sheets = [
-  ...content.papers.map(paper => ({ hash: `paper-${paper.id.toLowerCase()}`, paper })),
+  ...content.papers.filter(paper => paper.id === 'A').map(paper => ({ hash: `paper-${paper.id.toLowerCase()}`, paper })),
   { hash: 'sample', paper: content.sample },
 ];
 const total = 35 * 60;
@@ -1009,7 +1064,7 @@ function buildNav() {
     const view = document.getElementById(`view-${hash}`);
     view.append(doneRow(hash, 'chapter'), pager);
   });
-  ['tree', 'drill', 'by-hand', 'recall'].forEach(hash => document.getElementById(`view-${hash}`).append(doneRow(hash, 'section')));
+  ['tree', 'drill', 'recall'].forEach(hash => document.getElementById(`view-${hash}`).append(doneRow(hash, 'section')));
   document.getElementById('view-paper').append(doneRow(null, 'paper'));
 }
 
@@ -1407,55 +1462,6 @@ function refreshDone() {
   );
 }
 
-function near(value, target) {
-  return Math.abs(value - target) <= Math.max(0.01, Math.abs(target) * 0.002);
-}
-
-function renderExercises() {
-  document.getElementById('exercises').replaceChildren(
-    ...content.exercises.map(exercise => {
-      const inputs = exercise.steps.map((_, index) => element('input', { id: `step-${exercise.id}-${index}`, inputMode: 'decimal', autocomplete: 'off' }));
-      const result = element('span', { className: 'score', role: 'status' });
-      const working = element('div', { className: 'working', hidden: true }, [
-        element('span', { className: 'qlabel', textContent: 'Working' }),
-        ...exercise.working.map(line => element('p', { textContent: line })),
-      ]);
-      const reveal = element('button', {
-        type: 'button',
-        textContent: 'Show working',
-        onclick: () => {
-          working.hidden = !working.hidden;
-          reveal.textContent = working.hidden ? 'Show working' : 'Hide working';
-        },
-      });
-      const check = element('button', {
-        className: 'primary',
-        type: 'button',
-        textContent: 'Check',
-        onclick: () => {
-          let correct = 0;
-          inputs.forEach((input, index) => {
-            const raw = input.value.trim().replace('−', '-').replace(',', '.');
-            const ok = raw !== '' && near(Number(raw), exercise.steps[index].answer);
-            input.classList.toggle('right', ok);
-            input.classList.toggle('wrong', !ok);
-            if (ok) correct += 1;
-          });
-          result.textContent = `${correct} of ${inputs.length} right`;
-        },
-      });
-      return element('div', { className: 'box' }, [
-        element('h2', { textContent: exercise.title }),
-        element('p', { className: 'muted small', textContent: exercise.note }),
-        element('p', { className: 'data', textContent: exercise.data }),
-        element('div', { className: 'steps' }, exercise.steps.map((step, index) => element('label', { htmlFor: inputs[index].id }, [element('span', { textContent: step.label }), inputs[index]]))),
-        element('div', { className: 'row' }, [check, reveal, result]),
-        working,
-      ]);
-    }),
-  );
-}
-
 function setupRecall() {
   const draft = document.getElementById('recall-draft');
   draft.value = load('recall', '');
@@ -1499,10 +1505,13 @@ function route() {
 
 buildNav();
 drawFigures();
+document.querySelectorAll('.sample-question').forEach(slot => {
+  const question = content.sample.questions[Number(slot.dataset.sample) - 1];
+  slot.append(element('p', { textContent: question.prompt }), ...(question.table ? [table(question.table)] : []));
+});
 renderTree('tree-static');
 renderTree('tree-static-2');
 walk();
-renderExercises();
 setupRecall();
 renderCountdown();
 refreshDone();
