@@ -1,159 +1,943 @@
 <title>CS6081 Stats Drill</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one narrow working column, like an exam script. A sticky bar switches between the
-   decision tree, the quick drill and the timed papers. */
+/* Layout: a shadcn-style docs shell. Sidebar of contents on the left (a select on phones), one
+   reading column on the right. Black and white, hairline borders, small radii. */
 :root {
-  --paper: #fbfaf6;
-  --sheet: #ffffff;
-  --ink: #1c2330;
-  --muted: #5d6675;
-  --rule: #d9d6cb;
-  --accent: #1f5f8b;
-  --accent-ink: #ffffff;
-  --good: #1d6b3f;
-  --good-bg: #e3f2e7;
-  --bad: #9c2b23;
-  --bad-bg: #f8e4e1;
-  --display: 'Fraunces', Georgia, serif;
-  --body: 'IBM Plex Sans', system-ui, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --sunk: #f4f4f5;
+  --side: #fafafa;
+  --ink: #09090b;
+  --muted: #71717a;
+  --line: #e4e4e7;
+  --primary: #18181b;
+  --primary-ink: #fafafa;
+  --good: #15803d;
+  --bad: #dc2626;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --sans: 'Geist', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --paper: #14181f; --sheet: #1b212b; --ink: #e8e6df; --muted: #a2abb9; --rule: #333c4a;
-    --accent: #7db8e0; --accent-ink: #10202c; --good: #7fd19c; --good-bg: #183324;
-    --bad: #f0a097; --bad-bg: #3a1f1c; color-scheme: dark;
+    --bg: #09090b; --surface: #09090b; --sunk: #18181b; --side: #0c0c0e; --ink: #fafafa; --muted: #a1a1aa;
+    --line: #27272a; --primary: #fafafa; --primary-ink: #18181b; --good: #4ade80; --bad: #f87171;
+    --shadow: none; color-scheme: dark;
   }
 }
 :root[data-theme='dark'] {
-  --paper: #14181f; --sheet: #1b212b; --ink: #e8e6df; --muted: #a2abb9; --rule: #333c4a;
-  --accent: #7db8e0; --accent-ink: #10202c; --good: #7fd19c; --good-bg: #183324;
-  --bad: #f0a097; --bad-bg: #3a1f1c; color-scheme: dark;
+  --bg: #09090b; --surface: #09090b; --sunk: #18181b; --side: #0c0c0e; --ink: #fafafa; --muted: #a1a1aa;
+  --line: #27272a; --primary: #fafafa; --primary-ink: #18181b; --good: #4ade80; --bad: #f87171;
+  --shadow: none; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-section, header { scroll-margin-top: 4rem; }
-body { background: var(--paper); color: var(--ink); font: 16px/1.55 var(--body); }
-body::before { content: ''; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
-.wrap { max-width: 46rem; margin: 0 auto; padding-block: 1.5rem 4rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 1.5rem; }
-h1 { font: 600 2rem/1.15 var(--display); margin: 0; text-wrap: balance; }
-h2 { font: 600 1.35rem/1.2 var(--display); margin: 0; text-wrap: balance; }
-h3 { font: 600 1rem/1.3 var(--body); margin: 0; }
-p { margin: 0; }
-.lede { color: var(--muted); max-width: 60ch; }
-nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 0.25rem; padding-block: 0.5rem; }
-nav a { font: 500 0.9rem var(--body); color: var(--muted); text-decoration: none; padding: 0.4rem 0.7rem; border-radius: 4px; }
-nav a[aria-current='page'] { background: var(--accent); color: var(--accent-ink); }
-a:focus-visible, button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-section { display: flex; flex-direction: column; gap: 1rem; }
-.sheet { background: var(--sheet); border: 1px solid var(--rule); padding: 1.1rem; display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; }
-pre { font: 0.82rem/1.5 var(--mono); margin: 0; overflow-x: auto; }
+html { scroll-padding-top: 5rem; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+body::before { content: ''; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+p, li { margin: 0; max-width: 68ch; }
+ul, ol { margin: 0; padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem; }
+a { color: var(--ink); text-underline-offset: 3px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+h1 { font-size: clamp(1.75rem, 3.6vw, 2.25rem); font-weight: 700; line-height: 1.15; }
+h2 { font-size: 1.15rem; font-weight: 600; line-height: 1.3; }
+h3 { font-size: 1rem; font-weight: 600; line-height: 1.35; }
+strong { font-weight: 600; }
+mark { background: var(--sunk); color: var(--ink); font-weight: 600; padding: 0.05em 0.3em; border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+code, .num { font-family: var(--mono); font-size: 0.86em; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.shell { display: grid; grid-template-columns: minmax(0, 1fr); min-height: 100vh; }
+.side { display: none; }
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); display: flex; gap: 0.75rem; align-items: center; padding-block: 0.6rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.topbar .brand { font-weight: 600; white-space: nowrap; }
+.topbar select { flex: 1; min-width: 0; font: 500 0.9rem var(--sans); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0.45rem 0.6rem; min-height: 40px; box-shadow: var(--shadow); }
+@media (min-width: 960px) {
+  .shell { grid-template-columns: 16rem minmax(0, 1fr); }
+  .topbar { display: none; }
+  .side { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--side); border-right: 1px solid var(--line); padding-block: calc(1.25rem + env(safe-area-inset-top, 0px)) 2rem; padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: 12px; }
+}
+.brand-block { display: flex; align-items: center; gap: 0.6rem; padding: 0.25rem 0.5rem; }
+.logo { width: 2rem; height: 2rem; border-radius: 6px; background: var(--primary); color: var(--primary-ink); display: grid; place-items: center; font: 600 0.8rem var(--mono); flex: none; }
+.brand-block div { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-block strong { font-size: 0.9rem; }
+.brand-block span { font-size: 0.78rem; color: var(--muted); }
+.side-count { border: 1px solid var(--line); background: var(--bg); border-radius: 8px; padding: 0.6rem 0.75rem; display: flex; flex-direction: column; gap: 0.1rem; box-shadow: var(--shadow); }
+.side-count b { font-size: 0.9rem; font-weight: 600; }
+.nav-group { display: flex; flex-direction: column; gap: 1px; }
+.nav-group > span { font-size: 0.75rem; font-weight: 500; color: var(--muted); padding: 0 0.5rem 0.35rem; }
+.nav-group a { font-size: 0.875rem; line-height: 1.3; color: var(--muted); text-decoration: none; padding: 0.4rem 0.5rem; border-radius: 6px; display: flex; gap: 0.5rem; align-items: baseline; }
+.nav-group a:hover { color: var(--ink); background: var(--sunk); }
+.nav-group a[aria-current='page'] { color: var(--ink); background: var(--sunk); font-weight: 500; }
+.nav-group a .n { font: 0.72rem var(--mono); min-width: 1.2rem; }
+.nav-group a .tick { margin-left: auto; font-size: 0.75rem; color: var(--ink); }
+
+.content { width: 100%; max-width: 46rem; margin: 0 auto; padding-block: 2.5rem 5rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.view { display: flex; flex-direction: column; gap: 1.25rem; }
+.view > header { display: flex; flex-direction: column; gap: 0.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--line); margin-bottom: 0.25rem; }
+.eyebrow { font-size: 0.8rem; font-weight: 500; color: var(--muted); }
+.lead { font-size: 1.05rem; color: var(--muted); line-height: 1.6; }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; box-shadow: var(--shadow); }
+.exam { background: var(--sunk); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem 1.25rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.tag { align-self: flex-start; font-size: 0.75rem; font-weight: 600; line-height: 1; padding: 0.3rem 0.55rem; border-radius: 6px; background: var(--primary); color: var(--primary-ink); }
+.tag.plain { background: transparent; color: var(--ink); border: 1px solid var(--line); font-weight: 500; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.grid2 > * { min-width: 0; }
+
 .scroll { overflow-x: auto; }
-table { border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.92rem; }
-th, td { border: 1px solid var(--rule); padding: 0.35rem 0.6rem; text-align: left; vertical-align: top; }
-th { font-weight: 600; }
-.label { font: 500 0.72rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-button { font: 500 0.92rem var(--body); color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 4px; padding: 0.5rem 0.8rem; cursor: pointer; min-height: 44px; }
-button.primary { background: var(--accent); color: var(--accent-ink); }
-button:disabled { opacity: 0.55; cursor: default; }
-.choices { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 0.5rem; }
-.choices button.right { background: var(--good-bg); border-color: var(--good); color: var(--good); }
-.choices button.wrong { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
-.row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
-.clock { font: 500 1.6rem var(--mono); font-variant-numeric: tabular-nums; }
-.clock.late { color: var(--bad); }
-textarea { width: 100%; min-height: 7.5rem; font: 0.95rem/1.5 var(--body); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; padding: 0.6rem; resize: vertical; }
-.scheme { border-top: 1px dashed var(--rule); padding-top: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; }
-.scheme label { display: flex; gap: 0.6rem; align-items: flex-start; }
-.scheme input { margin-top: 0.3rem; width: 1.1rem; height: 1.1rem; flex: none; }
-.note { color: var(--muted); font-size: 0.9rem; }
+table { border-collapse: collapse; font-size: 0.875rem; line-height: 1.5; font-variant-numeric: tabular-nums; width: 100%; }
+th, td { border-bottom: 1px solid var(--line); padding: 0.55rem 0.6rem; text-align: left; vertical-align: top; }
+thead th { font-weight: 500; color: var(--muted); }
+tbody tr:last-child > * { border-bottom: 0; }
+tbody th { font-weight: 600; }
+td.num, th.num { font-family: var(--mono); font-size: 0.82rem; }
+
+details.check { border: 1px solid var(--line); border-radius: 8px; padding: 0.7rem 0.9rem; }
+details.check summary { cursor: pointer; font-weight: 500; list-style: none; display: flex; gap: 0.6rem; }
+details.check summary::-webkit-details-marker { display: none; }
+details.check summary::before { content: '+'; font: 500 0.85rem/1.3rem var(--mono); width: 1.3rem; height: 1.3rem; text-align: center; border: 1px solid var(--line); border-radius: 5px; flex: none; margin-top: 0.1rem; }
+details.check[open] summary::before { content: '−'; }
+details.check > div { margin-top: 0.6rem; padding-left: 1.9rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--muted); }
+
+.formula { font: 0.85rem/1.6 var(--mono); background: var(--sunk); border: 1px solid var(--line); border-radius: 6px; padding: 0.55rem 0.75rem; overflow-x: auto; white-space: nowrap; }
+.fig svg { width: 100%; height: auto; display: block; }
+.fig figcaption { font-size: 0.82rem; color: var(--muted); }
+figure { margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.svg-text { fill: var(--muted); font: 12px var(--mono); }
+.svg-strong { fill: var(--ink); font: 600 13px var(--sans); }
+.axis { stroke: var(--line); stroke-width: 1.5; }
+.area { fill: var(--sunk); }
+.stroke { fill: none; stroke: var(--ink); stroke-width: 2; }
+.tail { fill: var(--ink); opacity: 0.22; }
+.guide { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 4; }
+.dot-a { fill: var(--ink); }
+.dot-b { fill: var(--bg); stroke: var(--ink); stroke-width: 1.5; }
+.mean { stroke: var(--ink); stroke-width: 2; }
+
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
+.pager a { border: 1px solid var(--line); border-radius: 8px; padding: 0.75rem 1rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.1rem; color: var(--ink); font-weight: 500; font-size: 0.9rem; box-shadow: var(--shadow); }
+.pager a span { font-size: 0.78rem; color: var(--muted); font-weight: 400; }
+.pager a.next { text-align: right; grid-column: 2; }
+.pager a:hover { background: var(--sunk); }
+.done-row { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 0.5rem; }
+
+button { font: 500 0.875rem var(--sans); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; min-height: 40px; box-shadow: var(--shadow); }
+button:hover:not(:disabled) { background: var(--sunk); }
+button.primary { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+button.primary:hover:not(:disabled) { background: var(--primary); opacity: 0.9; }
+button:disabled { cursor: default; }
+.row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.choices { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 0.5rem; }
+.choices button { text-align: left; }
+.choices button:disabled { opacity: 0.5; }
+.choices button.right { opacity: 1; border-color: var(--good); color: var(--good); font-weight: 600; }
+.choices button.wrong { opacity: 1; border-color: var(--bad); color: var(--bad); text-decoration: line-through; }
+.score { font: 500 0.875rem var(--mono); color: var(--muted); }
 .feedback { min-height: 3rem; }
-.score { font: 500 1.1rem var(--mono); }
+
+.walker-trail { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.walker-trail span { font-size: 0.78rem; border: 1px solid var(--line); border-radius: 6px; padding: 0.15rem 0.5rem; color: var(--muted); }
+.walker-q { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
+.walker-options { display: flex; flex-direction: column; gap: 0.5rem; }
+.walker-options button { text-align: left; }
+.result { border-radius: 8px; border: 1px solid var(--line); background: var(--sunk); padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.result strong { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+
+.tree { display: grid; gap: 0.75rem; }
+.branch { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; box-shadow: var(--shadow); }
+.branch h3 { font-size: 0.9rem; }
+.leaves { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 0.5rem; }
+.leaf { border: 1px solid var(--line); border-radius: 8px; padding: 0.55rem 0.7rem; display: flex; flex-direction: column; gap: 0.05rem; font-size: 0.85rem; line-height: 1.4; }
+.leaf b { font-size: 0.95rem; font-weight: 600; }
+.leaf small { color: var(--muted); font-family: var(--mono); font-size: 0.75rem; }
+
+.countdown { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; align-items: baseline; }
+.countdown strong { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+.progress { height: 6px; background: var(--sunk); border-radius: 999px; overflow: hidden; }
+.progress span { display: block; height: 100%; background: var(--primary); transition: width 0.3s; }
+.checklist { display: flex; flex-direction: column; }
+.checklist label { display: flex; gap: 0.7rem; align-items: center; padding: 0.55rem 0; border-bottom: 1px solid var(--line); font-size: 0.92rem; }
+.checklist label:last-child { border-bottom: 0; }
+.checklist label.checked span { color: var(--muted); text-decoration: line-through; }
+.checklist a { margin-left: auto; font-size: 0.82rem; font-weight: 500; white-space: nowrap; }
+input[type='checkbox'] { width: 1rem; height: 1rem; flex: none; accent-color: var(--primary); }
+
+.clock { font: 500 1.5rem var(--mono); font-variant-numeric: tabular-nums; }
+.clock.late { color: var(--bad); }
+textarea { width: 100%; min-height: 8rem; font: 0.92rem/1.55 var(--sans); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0.65rem 0.75rem; resize: vertical; box-shadow: var(--shadow); }
+.scheme { border-top: 1px solid var(--line); padding-top: 0.8rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.scheme label { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.92rem; }
+.scheme input { margin-top: 0.3rem; }
+.qlabel { font-size: 0.78rem; font-weight: 500; color: var(--muted); }
+.paper-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: flex-end; }
+.steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.75rem; }
+.steps label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.82rem; font-weight: 500; color: var(--muted); }
+.steps input { font: 500 0.92rem var(--mono); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; min-height: 40px; width: 100%; box-shadow: var(--shadow); }
+.steps input.right { border-color: var(--good); color: var(--good); }
+.steps input.wrong { border-color: var(--bad); color: var(--bad); }
+.data { font: 0.82rem/1.55 var(--mono); background: var(--sunk); border: 1px solid var(--line); border-radius: 6px; padding: 0.55rem 0.75rem; }
+.working { display: flex; flex-direction: column; gap: 0.45rem; border-top: 1px solid var(--line); padding-top: 0.8rem; }
+@media (prefers-reduced-motion: reduce) { .progress span { transition: none; } }
 </style>
 
-<div class="wrap">
+<div class="shell">
+  <aside class="side" aria-label="Contents">
+    <div class="brand-block">
+      <span class="logo" aria-hidden="true">χ²</span>
+      <div><strong>Statistics test</strong><span>CS6081 · Week 11</span></div>
+    </div>
+    <div class="side-count">
+      <b id="side-countdown"></b>
+      <span class="small muted">Mon 16 Nov, 13:10–13:45</span>
+    </div>
+    <nav id="side-nav" style="display: flex; flex-direction: column; gap: 1.2rem"></nav>
+  </aside>
+
+  <div style="min-width: 0">
+    <div class="topbar">
+      <span class="brand">Stats test</span>
+      <label for="jump" hidden>Go to section</label>
+      <select id="jump" aria-label="Go to section"></select>
+    </div>
+
+    <main class="content">
+
+<section class="view" id="view-overview" data-view="overview" hidden>
   <header>
-    <p class="label">CS6081 Research Methods · statistics test · Week 11</p>
-    <h1>Pick the test, read the result</h1>
-    <p class="lede">Five questions, four marks each, 35 minutes. Practise the decision first, then sit a timed paper and mark yourself against the scheme.</p>
+    <span class="eyebrow">Overview</span>
+    <h1>Statistics test prep</h1>
+    <p class="lead">Everything for the CS6081 stats test in one place. Go at your own pace: read the notes in order, practise, then sit the papers. Tick things off as you finish them.</p>
   </header>
-  <nav aria-label="Sections">
-    <a href="#tree">Decision tree</a>
-    <a href="#drill">Quick drill</a>
-    <a href="#paper-a">Paper A</a>
-    <a href="#paper-b">Paper B</a>
-    <a href="#paper-c">Paper C</a>
-  </nav>
+  <div class="box">
+    <div class="countdown">
+      <strong id="countdown"></strong>
+      <span class="muted small">Mon 16 November, 13:10 to 13:45. Likely date; confirm with Jim Buckley, and ask whether statistical tables are given out.</span>
+    </div>
+    <div class="progress" aria-hidden="true"><span id="progress-bar" style="width: 0"></span></div>
+    <p class="small muted" id="progress-summary"></p>
+  </div>
+  <div id="progress-groups" style="display: flex; flex-direction: column; gap: 1rem"></div>
+  <div class="exam">
+    <span class="tag">In the test</span>
+    <ul>
+      <li>Five questions, four marks each, 35 minutes: about seven minutes a question.</li>
+      <li>"Which test?" questions: write the design facts first (aim, number of conditions, same or different people, why non-parametric), then name the test, then the trend refinement if an order is predicted.</li>
+      <li>"What does this result mean?" questions: design, statistic, what P means, conclusion with a caution.</li>
+    </ul>
+    <p class="small muted">Ticks are saved in this browser only.</p>
+  </div>
+</section>
 
-  <section id="view-tree" hidden>
-    <h2>Three questions, in order</h2>
-    <p class="lede">What is the aim? How many conditions? Same or different subjects? Then ask whether a trend was predicted.</p>
-    <div class="sheet">
-<pre>A difference between conditions
-├── 2 conditions
-│     ├── same subjects ........ Wilcoxon
-│     └── different subjects ... Mann-Whitney
-└── more than 2 conditions
-      ├── same subjects ........ Friedman        trend: Page's L
-      └── different subjects ... Kruskal-Wallis  trend: Jonckheere
-A relationship between two variables ... Spearman's rho
-Counts in categories ................... Chi-square</pre>
+<section class="view" id="view-notes-1" data-view="notes-1" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 1</span>
+    <h1>About the exam</h1>
+    <p class="lead">The test is about choosing the right statistical test for a study and explaining what a result means. You will not be asked to run SPSS, and there is almost no arithmetic.</p>
+  </header>
+  <div class="box">
+    <h2>The format</h2>
+    <ul>
+      <li>In class, Week 11, most likely Monday 16 November, 13:10 sharp to 13:45. Class resumes at 13:50.</li>
+      <li>Five questions, 4 marks each, 20 marks in total, worth <mark>10% of the module</mark>.</li>
+      <li>Written answers in the space under each question.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Three kinds of question</h2>
+    <p>Every question on the lecturer's sample paper is one of these:</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Kind</th><th>What it looks like</th><th>Sample</th></tr></thead>
+        <tbody>
+          <tr><th>Pick the test</th><td>A study is described. Name the test and justify it from the design.</td><td>Q4, Q5</td></tr>
+          <tr><th>Read a result</th><td>"A paper reports a Wilcoxon result with P = 0.015." What does the test imply about the design, and what does P mean?</td><td>Q1, Q2</td></tr>
+          <tr><th>Explain a concept</th><td>One-tailed against two-tailed tests, and which is harder to pass.</td><td>Q3</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="sheet">
-      <h3>Which way is significant</h3>
-      <div class="scroll">
-        <table>
-          <tr><th>Test</th><th>Statistic</th><th>Significant when</th></tr>
-          <tr><td>Wilcoxon</td><td>W, the smaller signed-rank sum</td><td>small</td></tr>
-          <tr><td>Mann-Whitney</td><td>U, the smaller of U and U′</td><td>small</td></tr>
-          <tr><td>Friedman</td><td>χr²</td><td>large</td></tr>
-          <tr><td>Page's L</td><td>L</td><td>large</td></tr>
-          <tr><td>Kruskal-Wallis</td><td>H</td><td>large</td></tr>
-          <tr><td>Jonckheere</td><td>S</td><td>large; needs equal groups</td></tr>
-          <tr><td>Chi-square</td><td>χ² = Σ (O − E)² ÷ E</td><td>large; at least 5 per cell</td></tr>
-        </table>
-      </div>
-      <p class="note">Parametric tests need interval data, a normal distribution and equal variance. If one fails, the test is non-parametric. A two-tailed test is harder to pass than a one-tailed one, because allowing either direction doubles the probability of a chance result.</p>
+    <p>The only calculation on the sample is a bonus: one expected frequency for a chi-square table.</p>
+  </div>
+  <div class="exam">
+    <span class="tag">What Jim said you need</span>
+    <p>"You only need know the decision tree for non-parametric techniques, how to determine if data is non-parametric, your design, the technique and the meaning of the results."</p>
+  </div>
+  <div class="box">
+    <h2>The whole topic in one paragraph</h2>
+    <p>A researcher runs a study to see whether something makes a difference (does sleep change how many bugs programmers write?) or whether two things go together (do people good at maths also read well?). Scores always vary a bit by chance, so a difference in the data might be real or might be luck. A <mark>statistical test</mark> works out how likely it is that the result is just chance. Which test you use depends on the <mark>design</mark> of the study (how many conditions, same or different people) and the <mark>kind of data</mark> (can it be treated as proper numbers or only as ranks?). This module only uses <mark>non-parametric</mark> tests, the ones that work on ranks.</p>
+  </div>
+  <div class="box">
+    <h2>The eight tests you need</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Test</th><th>Used for</th></tr></thead>
+        <tbody>
+          <tr><th>Wilcoxon</th><td>2 conditions, the same people in both</td></tr>
+          <tr><th>Mann-Whitney</th><td>2 conditions, different people in each</td></tr>
+          <tr><th>Friedman</th><td>3 or more conditions, the same people in all</td></tr>
+          <tr><th>Page's L</th><td>Like Friedman, when an order (trend) is predicted</td></tr>
+          <tr><th>Kruskal-Wallis</th><td>3 or more conditions, different people in each</td></tr>
+          <tr><th>Jonckheere</th><td>Like Kruskal-Wallis, when an order is predicted</td></tr>
+          <tr><th>Spearman's rho</th><td>A relationship between two measures</td></tr>
+          <tr><th>Chi-square</th><td>Counts of people or things falling into categories</td></tr>
+        </tbody>
+      </table>
     </div>
-  </section>
+    <p class="muted small">Chapters 2 to 5 explain the words in the right-hand column. Chapter 6 turns them into a decision tree.</p>
+  </div>
+</section>
 
-  <section id="view-drill" hidden>
-    <h2>Quick drill</h2>
-    <p class="lede">Read the study, name the test. The reason appears after you answer.</p>
-    <div class="sheet">
-      <p class="label" id="drill-count"></p>
-      <p id="drill-scenario"></p>
-      <div class="choices" id="drill-choices"></div>
-      <p class="feedback" id="drill-feedback" role="status"></p>
-      <div class="row">
-        <button class="primary" id="drill-next" type="button">Next study</button>
-        <span class="score" id="drill-score"></span>
-      </div>
+<section class="view" id="view-notes-2" data-view="notes-2" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 2</span>
+    <h1>How an experiment is described</h1>
+    <p class="lead">Every question describes a study. You need the vocabulary to say what is changed, what is measured and what is being tested.</p>
+  </header>
+  <div class="box">
+    <h2>The parts of an experiment</h2>
+    <p>Running example from the lecture: <em>do programmers who slept make fewer bugs than programmers who did not?</em></p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Term</th><th>Meaning</th><th>In the example</th></tr></thead>
+        <tbody>
+          <tr><th>Hypothesis</th><td>A prediction that A causes B</td><td>Lack of sleep causes more bugs</td></tr>
+          <tr><th>Independent variable (IV)</th><td>What the researcher changes</td><td>Hours of sleep</td></tr>
+          <tr><th>Conditions</th><td>The values the IV takes; each is one group of scores to compare</td><td>8 hours, no sleep: 2 conditions</td></tr>
+          <tr><th>Dependent variable (DV)</th><td>What is measured, often through a proxy because the real thing can't be measured directly</td><td>Number of bugs (a proxy for code quality)</td></tr>
+          <tr><th>Control</th><td>Making sure A, and only A, causes B</td><td>Same task, same time of day, same language</td></tr>
+        </tbody>
+      </table>
     </div>
-  </section>
+  </div>
+  <div class="box">
+    <h2>Control</h2>
+    <p>If something other than the IV changes between conditions, you can't tell which caused the difference. Ways to control:</p>
+    <ul>
+      <li>Remove or hold constant the other factors (same task, same room, same instructions).</li>
+      <li>Use a <mark>control group</mark> that gets no treatment, as a baseline.</li>
+      <li>Make participants, or the researchers scoring them, <mark>blind</mark> to which condition they are in, so expectations don't leak into the results.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>The null hypothesis</h2>
+    <p>The hypothesis predicts an effect. The <mark>null hypothesis</mark> says there is no effect: no difference between conditions, or no relationship. A statistical test asks: <em>if the null hypothesis were true, how likely would results like ours be?</em> If very unlikely, we <mark>reject the null hypothesis</mark>, and the result supports the hypothesis.</p>
+  </div>
+  <div class="box">
+    <h2>Difference or relationship</h2>
+    <p>Most studies look for a <mark>difference between conditions</mark>: the researcher sets the conditions and compares scores. Some look for a <mark>relationship</mark> (correlation) between two things measured on the same people, with nothing manipulated: maths score and reading score of each pupil. A relationship never shows cause.</p>
+  </div>
+  <details class="check"><summary>Check yourself: "Does using an AI assistant change how long developers take to fix a bug?" Name the IV, the conditions and the DV.</summary><div><p>IV: whether the developer uses an AI assistant. Conditions: with and without (2). DV: time to fix the bug.</p></div></details>
+  <details class="check"><summary>Check yourself: what does the null hypothesis say for that study?</summary><div><p>Using an AI assistant makes no difference to fix time.</p></div></details>
+</section>
 
-  <section id="view-paper" hidden>
-    <div class="row" style="justify-content: space-between">
-      <div>
-        <h2 id="paper-title"></h2>
-        <p class="note" id="paper-focus"></p>
-      </div>
-      <div class="row">
-        <span class="clock" id="clock" role="timer">35:00</span>
-        <button class="primary" id="clock-start" type="button">Start 35 minutes</button>
-      </div>
+<section class="view" id="view-notes-3" data-view="notes-3" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 3</span>
+    <h1>Same people or different people</h1>
+    <p class="lead">The single most important design fact. It decides between Wilcoxon and Mann-Whitney, and between Friedman and Kruskal-Wallis.</p>
+  </header>
+  <div class="grid2">
+    <div class="box">
+      <span class="tag plain">Related</span>
+      <h2>Within subjects</h2>
+      <p>The <mark>same participants</mark> do every condition. Also called related, repeated measures. Matched pairs count as related too.</p>
+      <p class="small muted">The same 10 programmers are tested after 8 hours sleep and after none.</p>
     </div>
-    <p class="note">Write each answer before opening its scheme. Each scheme point is one mark. These papers are practice questions written from the Week 9 lecture, not the lecturer's.</p>
-    <div id="paper-questions" style="display: flex; flex-direction: column; gap: 1rem"></div>
-    <p class="score" id="paper-score" role="status"></p>
-  </section>
+    <div class="box">
+      <span class="tag plain">Unrelated</span>
+      <h2>Between subjects</h2>
+      <p><mark>Different participants</mark> in each condition. Also called unrelated or independent groups.</p>
+      <p class="small muted">6 female and 8 male programmers; bugs are compared by gender.</p>
+    </div>
+  </div>
+  <div class="box">
+    <h2>Strengths and weaknesses</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Within subjects</th><th>Between subjects</th></tr></thead>
+        <tbody>
+          <tr><th>Strength</th><td>Individual differences cancel out: each person is compared with themselves. Needs fewer people.</td><td>No order effects: each person meets the task fresh.</td></tr>
+          <tr><th>Weakness</th><td><mark>Order effects</mark>: learning, practice, fatigue, boredom. The earlier condition affects the later one, and you can't mislead someone twice.</td><td><mark>Individual differences</mark> between the groups might explain the result. Controlled by matching or random allocation.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Order effects in a within design are usually reduced by <em>counterbalancing</em>: half the people do condition A first, half do B first.</p>
+  </div>
+  <div class="box">
+    <h2>When between subjects is forced</h2>
+    <p>When the condition is a <mark>fixed property of the person</mark>: gender, expert or novice, nationality, which school they attend. You can't test the same person as both an expert and a novice. Also when taking part once changes the person for good (they've learned the trick, or seen through the deception).</p>
+  </div>
+  <div class="exam">
+    <span class="tag">Clues in the question</span>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Wording</th><th>Design</th></tr></thead>
+        <tbody>
+          <tr><td>"the same participants", "each developer did both", "one group under three conditions", "before and after", "rated all four designs"</td><td>Within (related)</td></tr>
+          <tr><td>"two groups", "a different team", "separate classes", "men and women", "experts and novices"</td><td>Between (unrelated)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <details class="check"><summary>Check yourself: patients rate their pain before and after physiotherapy. Which design?</summary><div><p>Within subjects: before and after on the same people.</p></div></details>
+  <details class="check"><summary>Check yourself: experts and novices read the same code. Which design, and why can't it be the other?</summary><div><p>Between subjects. Expertise is a fixed property of the person, so no one can be in both conditions.</p></div></details>
+</section>
+
+<section class="view" id="view-notes-4" data-view="notes-4" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 4</span>
+    <h1>Chance, P and significance</h1>
+    <p class="lead">Half the marks on the sample paper are for explaining what a P value means. This chapter is the one to know best.</p>
+  </header>
+  <div class="box">
+    <h2>Why means are not enough</h2>
+    <p>The lecture compared two experiments with almost the same means: 6.5 against 4, and 6.4 against 3.6. In the first, every score in condition 1 beats condition 2. In the second, the scores overlap a lot. <mark>Means hide variability.</mark> The second difference could easily be luck.</p>
+    <figure class="fig"><div id="fig-dots"></div><figcaption>Illustrative scores with the lecture's means. Lines mark each condition's mean.</figcaption></figure>
+    <p>A statistical test weighs the size of the difference against how much the scores vary, and gives the probability that the difference is due to chance.</p>
+  </div>
+  <div class="box">
+    <h2>Descriptive and inferential</h2>
+    <ul>
+      <li><mark>Descriptive</mark> statistics describe the data you have: a mean, a range, a batting average.</li>
+      <li><mark>Inferential</mark> statistics go beyond it: is this difference dependable, or chance? Every test in this module is inferential.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>What P means</h2>
+    <p><mark>P is the probability that a result this large is due to chance</mark> (variability in the sample) and not to the thing being tested. Strictly: the probability of getting a result at least this extreme if the null hypothesis were true.</p>
+    <ul>
+      <li>Small P: unlikely to be chance, so we reject the null hypothesis. The result is <mark>significant</mark>.</li>
+      <li>Large P: chance can't be ruled out. Not significant.</li>
+    </ul>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Level</th><th>Percent</th><th>Chance</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td class="num">0.05</td><td>5%</td><td>1 in 20</td><td>The usual level</td></tr>
+          <tr><td class="num">0.025</td><td>2.5%</td><td>1 in 40</td><td>Seen in the lecture's Wilcoxon example</td></tr>
+          <tr><td class="num">0.01</td><td>1%</td><td>1 in 100</td><td>Stricter</td></tr>
+          <tr><td class="num">0.005</td><td>0.5%</td><td>1 in 200</td><td>Seen in the Mann-Whitney example</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>A result is significant at a level when P is at or below it. The acceptable level depends on what is at stake: <mark>a new drug or a plane landing safely needs far more certainty than an educational aid</mark>.</p>
+  </div>
+  <div class="box">
+    <h2>Reading P values</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>P</th><th>At 5%?</th><th>At 1%?</th><th>How to say it</th></tr></thead>
+        <tbody>
+          <tr><td class="num">0.015</td><td>Yes</td><td>No</td><td>A 1.5% probability the difference is due to chance; significant at the 5% level but not at 1%.</td></tr>
+          <tr><td class="num">0.004</td><td>Yes</td><td>Yes</td><td>A 0.4% probability of chance; significant at both levels.</td></tr>
+          <tr><td class="num">0.13</td><td>No</td><td>No</td><td>A 13% probability of chance; not significant, the null hypothesis can't be rejected.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="box">
+    <h2>Two warnings</h2>
+    <ul>
+      <li><mark>Not significant is not "no effect".</mark> It means the evidence is too weak to rule out chance. Small samples often give this.</li>
+      <li><mark>Significant is not the same as large or important.</mark> With many participants, a tiny effect can be significant.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>One-tailed and two-tailed</h2>
+    <ul>
+      <li>A <mark>one-tailed</mark> test goes with a hypothesis that predicts a direction: "sleep-deprived programmers make <em>more</em> bugs."</li>
+      <li>A <mark>two-tailed</mark> test goes with a hypothesis that predicts a difference without saying which way: "sleep makes a difference to bugs."</li>
+    </ul>
+    <figure class="fig"><div id="fig-tails"></div><figcaption>The shaded areas are where a result counts as significant at 5%. Two-tailed splits the 5% between both ends, so each end is smaller and a result must be more extreme to land in it.</figcaption></figure>
+    <p>You might expect a one-tailed test to be harder. It is the other way round: <mark>the two-tailed test is harder to reach significance with</mark>. Allowing either direction doubles the probability of a chance result, so the same data gives twice the P value; equivalently, the 5% is split 2.5% into each tail.</p>
+    <p>Use one-tailed only when the direction was predicted, with a reason, before the data was seen. Otherwise two-tailed is the safe default.</p>
+  </div>
+  <div class="exam">
+    <span class="tag">Sample Q3, model answer</span>
+    <p>A one-tailed test is used when the hypothesis predicts the direction of a difference; use it only if theory or earlier evidence justifies that direction in advance. A two-tailed test is used when a difference is predicted without a direction. The two-tailed test is harder to reach significance with, because allowing a difference in either direction doubles the chance probability: the 5% is split into 2.5% at each end, so the result has to be more extreme.</p>
+  </div>
+  <details class="check"><summary>Check yourself: P = 0.03. Significant at 5%? At 1%? What does 0.03 mean?</summary><div><p>Yes at 5%, no at 1%. There is a 3% probability that a result this large is due to chance.</p></div></details>
+  <details class="check"><summary>Check yourself: a result is "not significant". Can you conclude there is no effect?</summary><div><p>No. Chance can't be ruled out, which is different from showing there is no effect. A bigger sample might find it.</p></div></details>
+</section>
+
+<section class="view" id="view-notes-5" data-view="notes-5" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 5</span>
+    <h1>Parametric or non-parametric</h1>
+    <p class="lead">Parametric tests use the actual numbers. Non-parametric tests only use their order. You need to know when the numbers can't be trusted.</p>
+  </header>
+  <div class="box">
+    <h2>Three kinds of data</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Scale</th><th>What it is</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><th>Nominal</th><td>Named categories, no order. You can only count how many fall in each.</td><td>Programming language, gender, cancer type</td></tr>
+          <tr><th>Ordinal</th><td>An order, but the gaps between values aren't equal.</td><td>A 1 to 7 rating, finishing position, "low / medium / high"</td></tr>
+          <tr><th>Interval</th><td>True numbers with equal gaps.</td><td>Time in seconds, temperature, number of bugs</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="box">
+    <h2>A parametric test needs all three</h2>
+    <ol>
+      <li>Scores on an <mark>interval scale</mark>.</li>
+      <li>A <mark>normal distribution</mark>: roughly symmetric, most scores in the middle, few at the ends.</li>
+      <li><mark>Homogeneity of variance</mark>: the scores are spread out about the same amount in each condition.</li>
+    </ol>
+    <figure class="fig"><div id="fig-shapes"></div><figcaption>Left: a normal distribution. Right: a skewed one, with a long tail of a few very large scores, typical of times and error counts.</figcaption></figure>
+    <p><mark>If any one fails, use a non-parametric test.</mark> In SPSS, <mark>Shapiro-Wilk</mark> checks normality and <mark>Levene's test</mark> checks equality of variance.</p>
+  </div>
+  <div class="box">
+    <h2>What non-parametric tests do</h2>
+    <p>They replace scores with <mark>ranks</mark> (1st, 2nd, 3rd…) and only ask whether scores are higher or lower, not by how much. That makes them safe for ordinal data and skewed distributions, at the cost of throwing away some information.</p>
+  </div>
+  <div class="exam">
+    <span class="tag">Clues in the question</span>
+    <p>Any of these means non-parametric: "skewed", "non-normal", "ratings on a 1 to 5 scale", "ranked", "ordinal", "a small sample", "variances differ". In the test, say which condition fails: <em>"the data are not normally distributed, so a parametric test isn't appropriate."</em></p>
+  </div>
+  <div class="box">
+    <h2>Parametric equivalents</h2>
+    <p class="muted small">For recognition only. If a question mentions one, this is its non-parametric partner.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Parametric</th><th>Non-parametric</th></tr></thead>
+        <tbody>
+          <tr><td>Related t-test</td><td>Wilcoxon</td></tr>
+          <tr><td>Independent t-test</td><td>Mann-Whitney</td></tr>
+          <tr><td>Repeated-measures ANOVA</td><td>Friedman</td></tr>
+          <tr><td>One-way ANOVA</td><td>Kruskal-Wallis</td></tr>
+          <tr><td>Pearson's r</td><td>Spearman's rho</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <details class="check"><summary>Check yourself: name the three conditions for a parametric test, and the two SPSS checks.</summary><div><p>Interval data, normal distribution, homogeneity of variance. Shapiro-Wilk (normality) and Levene's test (variance).</p></div></details>
+  <details class="check"><summary>Check yourself: satisfaction rated 1 to 5. Parametric or not, and why?</summary><div><p>Non-parametric. A rating scale is ordinal: the gap between 1 and 2 isn't necessarily the same as between 4 and 5.</p></div></details>
+</section>
+
+<section class="view" id="view-notes-6" data-view="notes-6" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 6</span>
+    <h1>Choosing the test</h1>
+    <p class="lead">Ask four questions, always in the same order. The answers lead to exactly one test.</p>
+  </header>
+  <div class="box">
+    <h2>The four questions</h2>
+    <ol>
+      <li><strong>What is the aim?</strong> A difference between conditions, a relationship between two measures, or counts in categories?</li>
+      <li><strong>How many conditions?</strong> Two, or three or more?</li>
+      <li><strong>Same or different people?</strong> Within (related) or between (unrelated)?</li>
+      <li><strong>Was an order predicted?</strong> Only for three or more conditions. If the researcher predicts scores rise or fall across the conditions, use the trend test.</li>
+    </ol>
+  </div>
+  <div class="tree" id="tree-static"></div>
+  <div class="box">
+    <h2>Which way is significant</h2>
+    <p>Each test gives one number, the statistic, which is compared with a value from a printed table. The direction differs between tests.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Test</th><th>Statistic</th><th>Table</th><th>Significant when</th></tr></thead>
+        <tbody>
+          <tr><td>Wilcoxon</td><td>W</td><td>A</td><td><mark>at or below</mark> the table value</td></tr>
+          <tr><td>Mann-Whitney</td><td>U</td><td>B1 to B4</td><td><mark>at or below</mark></td></tr>
+          <tr><td>Friedman</td><td>χr² ("chi r squared")</td><td>C</td><td>at or above</td></tr>
+          <tr><td>Page's L</td><td>L</td><td>D</td><td>at or above</td></tr>
+          <tr><td>Kruskal-Wallis</td><td>H</td><td>E</td><td>at or above</td></tr>
+          <tr><td>Jonckheere</td><td>S</td><td>G</td><td>at or above</td></tr>
+          <tr><td>Spearman</td><td>rho</td><td></td><td>far from 0, with enough people</td></tr>
+          <tr><td>Chi-square</td><td>χ²</td><td></td><td>at or above</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Memory hook: the two-condition tests take the <em>smaller</em> rank total, so <mark>small is significant</mark>. Everything else measures how big the differences are, so big is significant.</p>
+  </div>
+  <div class="exam">
+    <span class="tag">Sample Q5, model answer</span>
+    <p>One group of radiologists does all three conditions, so the design is related (within subjects). There are three conditions, and the data are non-normal, so a non-parametric test for three or more related conditions is needed: <strong>Friedman</strong>, which tests whether the conditions differ at all. Because the conditions have a natural order (slept, one night without, two nights without) and errors would be predicted to rise, <strong>Page's L</strong> trend test is the stronger choice if that order is stated in the hypothesis.</p>
+  </div>
+  <p>Walk through the tree interactively on <a href="#tree">Decision tree</a>, then practise on <a href="#drill">Quick drill</a>.</p>
+</section>
+
+<section class="view" id="view-notes-7" data-view="notes-7" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 7</span>
+    <h1>Ranking</h1>
+    <p class="lead">Every non-parametric test except chi-square starts by turning scores into ranks. How you rank depends on the design.</p>
+  </header>
+  <div class="box">
+    <h2>The rules</h2>
+    <ul>
+      <li>The smallest score gets rank 1.</li>
+      <li><mark>Tied scores share the average of the ranks they occupy.</mark></li>
+      <li>Check: the ranks of N scores always add up to N × (N + 1) ÷ 2.</li>
+    </ul>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Score</th><th class="num">4</th><th class="num">8</th><th class="num">3</th><th class="num">3</th><th class="num">1</th><th class="num">7</th><th class="num">4</th></tr></thead>
+        <tbody><tr><th>Rank</th><td class="num">4.5</td><td class="num">7</td><td class="num">2.5</td><td class="num">2.5</td><td class="num">1</td><td class="num">6</td><td class="num">4.5</td></tr></tbody>
+      </table>
+    </div>
+    <p class="small muted">Sorted, the scores are 1, 3, 3, 4, 4, 7, 8. The two 3s take positions 2 and 3, so each gets 2.5. The two 4s take 4 and 5, so each gets 4.5. Total 28 = 7 × 8 ÷ 2.</p>
+  </div>
+  <div class="box">
+    <h2>Three ways to rank</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Design</th><th>How to rank</th><th>Tests</th></tr></thead>
+        <tbody>
+          <tr><th>Different people</th><td>Rank all scores from every condition together as one list, then add up the ranks in each condition.</td><td>Mann-Whitney, Kruskal-Wallis</td></tr>
+          <tr><th>Same people, 2 conditions</th><td>Each row is one person. Take the difference (condition 1 minus condition 2), rank the differences by size ignoring the sign, then put the signs back. <mark>A difference of zero is dropped</mark> and N falls by one.</td><td>Wilcoxon</td></tr>
+          <tr><th>Same people, 3+ conditions</th><td>Rank across each person's own row (1, 2, 3), then add up each column.</td><td>Friedman, Page's L</td></tr>
+          <tr><th>Two measures</th><td>Rank each measure separately, then compare each person's two ranks.</td><td>Spearman</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Always look at the means first to see which way the data goes.</p>
+  </div>
+  <details class="check"><summary>Check yourself: rank 10, 20, 20, 20, 30.</summary><div><p>1, 3, 3, 3, 5. The three 20s take positions 2, 3 and 4, average 3.</p></div></details>
+  <p>Practise on <a href="#by-hand">By hand</a>.</p>
+</section>
+
+<section class="view" id="view-notes-8" data-view="notes-8" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 8</span>
+    <h1>Two conditions: Wilcoxon and Mann-Whitney</h1>
+    <p class="lead">Same people: Wilcoxon. Different people: Mann-Whitney. For both, a small statistic is significant.</p>
+  </header>
+  <div class="box">
+    <span class="tag plain">Same people</span>
+    <h2>Wilcoxon (signed-rank)</h2>
+    <ol>
+      <li>For each person, difference = condition 1 − condition 2.</li>
+      <li>Drop zeros. N is the number left.</li>
+      <li>Rank the differences by size, ignoring the sign. Ties share the average.</li>
+      <li>Add up the ranks of the positive differences and of the negative ones separately.</li>
+      <li><mark>W is the smaller sum.</mark> Compare with Table A for that N: significant if W is at or below the table value.</li>
+    </ol>
+    <p><em>Why small?</em> If nearly every difference goes the same way, the sum for the other direction is tiny.</p>
+  </div>
+  <div class="box">
+    <span class="tag plain">Worked example from the lecture</span>
+    <p>Bugs by 10 programmers with 8 hours sleep (C1) and with none (C2).</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Programmer</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th><th class="num">6</th><th class="num">7</th><th class="num">8</th><th class="num">9</th><th class="num">10</th></tr></thead>
+        <tbody>
+          <tr><th>C1 − C2</th><td class="num">−2</td><td class="num">−1</td><td class="num">+1</td><td class="num">−4</td><td class="num">+1</td><td class="num">−3</td><td class="num">−2</td><td class="num">0</td><td class="num">−4</td><td class="num">−2</td></tr>
+          <tr><th>Signed rank</th><td class="num">−5</td><td class="num">−2</td><td class="num">+2</td><td class="num">−8.5</td><td class="num">+2</td><td class="num">−7</td><td class="num">−5</td><td class="num">drop</td><td class="num">−8.5</td><td class="num">−5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li>Sizes 1, 1, 1 take ranks 1–3 → 2 each. Sizes 2, 2, 2 take 4–6 → 5 each. Size 3 → 7. Sizes 4, 4 take 8–9 → 8.5 each.</li>
+      <li>Positive sum 2 + 2 = 4. Negative sum 41. <strong>W = 4, N = 9.</strong></li>
+      <li>One-tailed, Table A gives 6 at P = 0.025. 4 is below 6, so <mark>significant at P = 0.025</mark>, a 1 in 40 chance.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <span class="tag plain">Different people</span>
+    <h2>Mann-Whitney (U)</h2>
+    <ol>
+      <li>Rank all scores from both groups together.</li>
+      <li>Add up the ranks in each group: T1 and T2.</li>
+      <li>Work out U and U′, and <mark>take the smaller</mark>.</li>
+      <li>Compare with Tables B1 to B4 (one table per significance level): significant if U is at or below the table value.</li>
+    </ol>
+    <div class="formula">U = n1·n2 + n1(n1 + 1) ÷ 2 − T1&nbsp;&nbsp;&nbsp;U′ = n1·n2 − U</div>
+  </div>
+  <div class="box">
+    <span class="tag plain">Worked example from the lecture</span>
+    <p>Bugs by gender: n1 = 6, n2 = 8. Rank totals T1 = 24.5, T2 = 80.5.</p>
+    <ul>
+      <li>U = 6 × 8 + 6 × 7 ÷ 2 − 24.5 = 48 + 21 − 24.5 = 44.5</li>
+      <li>U′ = 48 − 44.5 = <strong>3.5</strong>, the smaller.</li>
+      <li>3.5 is below the table value of 4, so <mark>significant at P = 0.005</mark>.</li>
+    </ul>
+  </div>
+  <div class="exam">
+    <span class="tag">Sample Q1, model answer</span>
+    <p>Choosing Wilcoxon means the study compared <strong>two conditions</strong> in a <strong>related design</strong>: the same participants did both (or matched pairs). It is non-parametric, so the data were ordinal or not normally distributed. P = 0.015 means there is a 1.5% probability that a difference this large is due to chance. That is below 0.05, so the difference is significant at the 5% level and the null hypothesis is rejected; it is not significant at the stricter 1% level.</p>
+  </div>
+  <details class="check"><summary>Check yourself: a Mann-Whitney result. What does that tell you about the design?</summary><div><p>Two conditions, different people in each, and data treated as non-parametric.</p></div></details>
+</section>
+
+<section class="view" id="view-notes-9" data-view="notes-9" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 9</span>
+    <h1>Three or more conditions</h1>
+    <p class="lead">Friedman and Kruskal-Wallis say whether the conditions differ, but not how. When an order is predicted, the trend tests Page's L and Jonckheere say more.</p>
+  </header>
+  <div class="box">
+    <span class="tag plain">Same people</span>
+    <h2>Friedman (χr²)</h2>
+    <p>Rank across each person's row, add up each condition's ranks. The more the totals differ, the less likely it is chance.</p>
+    <div class="formula">χr² = [12 ÷ (N·C·(C + 1))] × ΣT² − 3·N·(C + 1)</div>
+    <p class="small muted">N = people, C = conditions, T = each condition's rank total.</p>
+    <p><strong>Lecture example:</strong> 8 programmers with 8, 4 and 6 hours sleep; rank totals 11, 21, 16.</p>
+    <p class="formula">(12 ÷ 96) × (121 + 441 + 256) − 96 = 102.25 − 96 = 6.25</p>
+    <p><mark>Limit: no direction.</mark> A significant Friedman says the conditions differ, not which one or in what order. Pairwise Wilcoxon tests can locate the difference.</p>
+  </div>
+  <div class="box">
+    <span class="tag plain">Same people, order predicted</span>
+    <h2>Page's L</h2>
+    <p>Same ranking as Friedman. Put the conditions in the predicted order, then weight their totals 1, 2, 3… Later columns count for more, so a trend in the predicted direction gives a large L.</p>
+    <div class="formula">L = T1 × 1 + T2 × 2 + T3 × 3 …</div>
+    <p><strong>Lecture example:</strong> ordered 8 hours, 6 hours, 4 hours, with totals 11, 16, 21: L = 11 + 32 + 63 = <strong>106</strong>. Against Table D this was not significant.</p>
+  </div>
+  <div class="box">
+    <span class="tag plain">Different people</span>
+    <h2>Kruskal-Wallis (H)</h2>
+    <p>Rank all scores together, add up each group's ranks. Groups can be different sizes.</p>
+    <div class="formula">H = [12 ÷ (N(N + 1))] × Σ(T² ÷ n) − 3(N + 1)</div>
+    <p><strong>Lecture example:</strong> three groups of 4, 3 and 4 (N = 11); rank totals 38, 14, 14. H = (12 ÷ 132) × (361 + 65.33 + 49) − 36 = <strong>7.21</strong>.</p>
+    <p><mark>Limit: no direction</mark>, like Friedman. Pairwise Mann-Whitney tests can locate the difference.</p>
+  </div>
+  <div class="box">
+    <span class="tag plain">Different people, order predicted</span>
+    <h2>Jonckheere (S)</h2>
+    <p>No ranking. Put the groups in the predicted order. For each score, count how many scores in the groups to its right are larger. S is built from those counts; large is significant.</p>
+    <p><mark>Needs the same number of people in every group.</mark> With unequal groups, fall back to Kruskal-Wallis.</p>
+  </div>
+  <div class="exam">
+    <span class="tag">How to spot the trend version</span>
+    <p>The question says scores are <em>predicted</em> to rise or fall across conditions that have a natural order: 0, 1, 2 nights without sleep; 0, 5, 10 mg; novice, intermediate, expert. "Do they differ?" without a predicted order means Friedman or Kruskal-Wallis.</p>
+  </div>
+  <details class="check"><summary>Check yourself: three separate groups of 8 get 0, 2 or 4 hours training; scores are predicted to rise. Which test?</summary><div><p>Jonckheere: different people, three conditions, predicted order, equal groups.</p></div></details>
+  <details class="check"><summary>Check yourself: a significant Kruskal-Wallis result. Can you say which group scored highest?</summary><div><p>No. It only shows the groups differ. Look at the rank totals descriptively, or run pairwise Mann-Whitney tests.</p></div></details>
+</section>
+
+<section class="view" id="view-notes-10" data-view="notes-10" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 10</span>
+    <h1>Relationships and counts</h1>
+    <p class="lead">Spearman measures whether two things go together. Chi-square compares counts in categories. Both appeared on the sample paper.</p>
+  </header>
+  <div class="box">
+    <h2>Spearman's rho</h2>
+    <p>Used when you look for an <mark>association between two variables</mark> measured on the same people, not a difference between conditions. Nothing is manipulated, so it can't show cause and effect.</p>
+    <p>A Spearman result has <mark>two separate parts</mark>:</p>
+    <ul>
+      <li><strong>The coefficient, rho</strong>, from −1 to +1. The sign gives the direction (positive: both rise together; negative: one rises as the other falls). The size gives the strength: near 0 is no relationship, near ±1 is very strong. As a rough guide, below 0.3 is weak, 0.3 to 0.7 moderate, above 0.7 strong.</li>
+      <li><strong>The P value</strong>: whether a correlation that strong could be chance. This depends heavily on how many people there are.</li>
+    </ul>
+    <div class="formula">rho = 1 − (6 × Σd²) ÷ (N(N² − 1))</div>
+    <p class="small muted">Rank each variable separately; d is each person's difference between their two ranks. A small Σd² means the rankings agree.</p>
+    <p><strong>Lecture example:</strong> maths and reading for 12 pupils, Σd² = 61. rho = 1 − 366 ÷ 1716 = <strong>0.79</strong>, a strong positive correlation.</p>
+  </div>
+  <div class="box">
+    <h2>The traps</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Result</th><th>Reading</th></tr></thead>
+        <tbody>
+          <tr><td>Strong rho, high P (0.95, P = 0.13)</td><td>Not significant despite the strength. Usually <mark>too few people</mark>. Can't claim a relationship.</td></tr>
+          <tr><td>Weak rho, low P (0.31, P = 0.002)</td><td>Significant but still weak. Usually <mark>many people</mark>. Real but small.</td></tr>
+          <tr><td>Any correlation</td><td><mark>Correlation is not causation.</mark></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="exam">
+    <span class="tag">Sample Q2, model answer</span>
+    <p>rho = 0.95 is a very strong positive correlation: GPs who rank fast at diagnosis also rank fast at the crossword (rho runs from −1 to +1). But P = 0.13 is above 0.05, so the correlation is not significant: there is a 13% probability of a correlation this strong arising by chance. A very strong coefficient with a weak P points to a very small sample. We can't reject the null hypothesis or claim a relationship; the study should be repeated with more GPs. Even a significant result would only show an association, not that one skill causes the other.</p>
+  </div>
+  <div class="box">
+    <h2>Chi-square (χ²)</h2>
+    <p>Used only when people or things are <mark>allocated to categories and counted</mark>, not given scores. Each one sits in exactly one cell of a table.</p>
+    <ul>
+      <li>The researcher can't decide in advance how many land in each cell; that's the result.</li>
+      <li>Usually more than 20 subjects, and <mark>at least 5 in each cell</mark>, before it can be trusted.</li>
+    </ul>
+    <p>The test compares the <mark>observed</mark> count in each cell with the count <mark>expected</mark> if the two variables were unrelated.</p>
+    <div class="formula">Expected = row total × column total ÷ grand total</div>
+    <div class="formula">χ² = Σ (Observed − Expected)² ÷ Expected&nbsp;&nbsp;&nbsp;df = (rows − 1) × (columns − 1)</div>
+    <p>The bigger the gaps between observed and expected, the bigger χ², and the less likely the pattern is chance. Compare with the critical value for those degrees of freedom: 5.99 for df = 2, 9.49 for df = 4 (at 5%).</p>
+  </div>
+  <div class="box">
+    <span class="tag plain">Worked example from the lecture</span>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th class="num">Bottom-up</th><th class="num">Top-down</th><th class="num">Mixed</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><th>Experts</th><td class="num">6</td><td class="num">15</td><td class="num">23</td><td class="num">44</td></tr>
+          <tr><th>Novices</th><td class="num">10</td><td class="num">8</td><td class="num">24</td><td class="num">42</td></tr>
+          <tr><th>Total</th><td class="num">16</td><td class="num">23</td><td class="num">47</td><td class="num">86</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li>Expected for experts, bottom-up: 44 × 16 ÷ 86 = 8.19, against 6 observed.</li>
+      <li>Full χ² = 3.11 with df = (2 − 1)(3 − 1) = 2. The 5% critical value is 5.99, so <mark>not significant</mark>.</li>
+    </ul>
+  </div>
+  <div class="exam">
+    <span class="tag">Sample Q4, model answer</span>
+    <p>The test is <strong>chi-square</strong>: the data are counts of tools falling into categories (tool type and cancer category), each tool counted once. <em>Bonus:</em> it compares each observed count with the count expected if tool type and cancer category were unrelated. For LNC and tool type 1, expected = 72 × 36 ÷ 144 = 18, against 25 observed; that cell contributes (25 − 18)² ÷ 18 ≈ 2.72. Adding all nine cells gives χ² (about 10.19), compared with 9.49 for df = 4 at 5%: significant.</p>
+  </div>
+  <details class="check"><summary>Check yourself: 120 projects counted by language and by licence. Which test?</summary><div><p>Chi-square: projects are allocated to categories and counted.</p></div></details>
+</section>
+
+<section class="view" id="view-notes-11" data-view="notes-11" hidden>
+  <header>
+    <span class="eyebrow">Notes · Chapter 11</span>
+    <h1>Writing full-mark answers</h1>
+    <p class="lead">Each question is worth 4 marks. Aim for four distinct points; the marker is looking for each one.</p>
+  </header>
+  <div class="box">
+    <h2>"What does this result mean?"</h2>
+    <ol>
+      <li><strong>Design</strong> the test implies: number of conditions, same or different people, non-parametric data, trend or not.</li>
+      <li><strong>The statistic</strong>: for a correlation, its direction and strength.</li>
+      <li><strong>P</strong>: the probability that a result this large is due to chance, with the number in words ("a 1.5% probability").</li>
+      <li><strong>Conclusion</strong>: compare with 0.05 and 0.01, say whether the null hypothesis is rejected, add a caution.</li>
+    </ol>
+  </div>
+  <div class="box">
+    <h2>"Which test should be used?"</h2>
+    <ol>
+      <li>Same or different people, with the evidence from the question.</li>
+      <li>How many conditions (or that it is a relationship, or counts).</li>
+      <li>Why non-parametric (skewed, ordinal, non-normal).</li>
+      <li>The test, plus the trend version if an order is predicted, or the follow-up if direction matters.</li>
+    </ol>
+  </div>
+  <div class="box">
+    <h2>Cautions worth a mark</h2>
+    <ul>
+      <li>Not significant means chance can't be ruled out, not that there is no effect.</li>
+      <li>Significant doesn't mean large: big samples make small effects significant.</li>
+      <li>A strong correlation with a high P usually means too few people.</li>
+      <li>Friedman and Kruskal-Wallis don't say which conditions differ.</li>
+      <li>Correlation is not causation.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Phrases to reuse</h2>
+    <ul>
+      <li>"There is a 3% probability that a difference this large is due to chance."</li>
+      <li>"P is below 0.05, so the result is significant at the 5% level and the null hypothesis is rejected."</li>
+      <li>"It is not significant at the stricter 1% level."</li>
+      <li>"The same participants took part in every condition, so the design is related."</li>
+      <li>"The data are not normally distributed, so a non-parametric test is needed."</li>
+    </ul>
+  </div>
+  <p>Now sit the <a href="#sample">lecturer's sample test</a> and the mock papers.</p>
+</section>
+
+<section class="view" id="view-tree" data-view="tree" hidden>
+  <header>
+    <span class="eyebrow">Practise</span>
+    <h1>Decision tree</h1>
+    <p class="lead">Answer the questions for a study and the tree names the test. Then write the whole tree from memory until it comes out right twice.</p>
+  </header>
+  <div class="box" id="walker"></div>
+  <div class="tree" id="tree-static-2"></div>
+</section>
+
+<section class="view" id="view-drill" data-view="drill" hidden>
+  <header>
+    <span class="eyebrow">Practise</span>
+    <h1>Quick drill</h1>
+    <p class="lead">Read the study, name the test. The reason appears after you answer. Goal: 15 correct in a row.</p>
+  </header>
+  <div class="box">
+    <span class="qlabel" id="drill-count"></span>
+    <p id="drill-scenario" style="font-size: 1.12rem"></p>
+    <div class="choices" id="drill-choices"></div>
+    <p class="feedback" id="drill-feedback" role="status"></p>
+    <div class="row">
+      <button class="primary" id="drill-next" type="button">Next study</button>
+      <span class="score" id="drill-score"></span>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="view-by-hand" data-view="by-hand" hidden>
+  <header>
+    <span class="eyebrow">Practise</span>
+    <h1>By hand</h1>
+    <p class="lead">Work each one on paper first, type your numbers in, then check. Answers within 0.01 count. The lecture examples match the slides.</p>
+  </header>
+  <div id="exercises" style="display: flex; flex-direction: column; gap: 1rem"></div>
+</section>
+
+<section class="view" id="view-paper" data-view="paper" hidden>
+  <header class="paper-head">
+    <div style="display: flex; flex-direction: column; gap: 0.4rem">
+      <span class="eyebrow">Test yourself</span>
+      <h1 id="paper-title"></h1>
+      <p class="muted" id="paper-focus"></p>
+    </div>
+    <div class="row">
+      <span class="clock" id="clock" role="timer">35:00</span>
+      <button class="primary" id="clock-start" type="button">Start 35 minutes</button>
+    </div>
+  </header>
+  <p class="small muted" id="paper-note"></p>
+  <div id="paper-questions" style="display: flex; flex-direction: column; gap: 1rem"></div>
+  <p class="score" id="paper-score" role="status"></p>
+</section>
+
+<section class="view" id="view-recall" data-view="recall" hidden>
+  <header>
+    <span class="eyebrow">Test yourself</span>
+    <h1>Recall sheet</h1>
+    <p class="lead">Write everything from memory, then compare. Done when it comes out complete twice without looking. Your draft is kept in this browser.</p>
+  </header>
+  <div class="box">
+    <textarea id="recall-draft" aria-label="Recall sheet from memory" placeholder="Parametric needs…" style="min-height: 16rem"></textarea>
+    <div class="row">
+      <button class="primary" id="recall-show" type="button">Compare with the sheet</button>
+      <button id="recall-clear" type="button">Clear my draft</button>
+    </div>
+    <div id="recall-key" class="working" hidden>
+      <span class="qlabel">The sheet</span>
+      <ol id="recall-list"></ol>
+    </div>
+  </div>
+</section>
+
+    </main>
+  </div>
 </div>
 
 <script>
 const content = /*CONTENT*/;
-const views = { tree: 'view-tree', drill: 'view-drill', paper: 'view-paper' };
+const NAV = [
+  { group: 'Start', items: [['overview', 'Overview']] },
+  {
+    group: 'Notes',
+    numbered: true,
+    items: [
+      ['notes-1', 'About the exam'],
+      ['notes-2', 'Experiments'],
+      ['notes-3', 'Same or different people'],
+      ['notes-4', 'Chance, P and significance'],
+      ['notes-5', 'Parametric or not'],
+      ['notes-6', 'Choosing the test'],
+      ['notes-7', 'Ranking'],
+      ['notes-8', 'Two conditions'],
+      ['notes-9', 'Three or more conditions'],
+      ['notes-10', 'Relationships and counts'],
+      ['notes-11', 'Writing answers'],
+    ],
+  },
+  { group: 'Practise', items: [['tree', 'Decision tree'], ['drill', 'Quick drill'], ['by-hand', 'By hand']] },
+  {
+    group: 'Test yourself',
+    items: [['sample', "Lecturer's sample"], ['paper-a', 'Mock paper A'], ['paper-b', 'Mock paper B'], ['paper-c', 'Mock paper C'], ['recall', 'Recall sheet']],
+  },
+];
+const sheets = [
+  ...content.papers.map(paper => ({ hash: `paper-${paper.id.toLowerCase()}`, paper })),
+  { hash: 'sample', paper: content.sample },
+];
 const total = 35 * 60;
 let timer = null;
 let remaining = total;
@@ -161,11 +945,263 @@ let order = [];
 let position = -1;
 let right = 0;
 let asked = 0;
+let streak = 0;
+let best = 0;
 
 function element(tag, properties = {}, children = []) {
   const node = Object.assign(document.createElement(tag), properties);
   node.append(...children);
   return node;
+}
+
+function load(key, fallback) {
+  try {
+    const value = localStorage.getItem(`cs6081-stats:${key}`);
+    return value === null ? fallback : JSON.parse(value);
+  } catch {
+    return fallback;
+  }
+}
+
+function save(key, value) {
+  try {
+    localStorage.setItem(`cs6081-stats:${key}`, JSON.stringify(value));
+  } catch {}
+}
+
+function buildNav() {
+  const side = document.getElementById('side-nav');
+  const jump = document.getElementById('jump');
+  NAV.forEach(group => {
+    const links = group.items.map(([hash, label], index) =>
+      element('a', { href: `#${hash}` }, [
+        ...(group.numbered ? [element('span', { className: 'n', textContent: String(index + 1).padStart(2, '0') })] : []),
+        element('span', { textContent: label }),
+      ]),
+    );
+    links.forEach((link, index) => {
+      const tick = element('span', { className: 'tick' });
+      tick.dataset.hash = group.items[index][0];
+      link.append(tick);
+    });
+    side.append(element('div', { className: 'nav-group' }, [element('span', { textContent: group.group }), ...links]));
+    jump.append(
+      element(
+        'optgroup',
+        { label: group.group },
+        group.items.map(([hash, label], index) =>
+          element('option', { value: hash, textContent: group.numbered ? `${index + 1}. ${label}` : label }),
+        ),
+      ),
+    );
+  });
+  jump.addEventListener('change', () => {
+    location.hash = jump.value;
+  });
+  const notes = NAV[1].items;
+  notes.forEach(([hash, label], index) => {
+    const pager = element('nav', { className: 'pager', ariaLabel: 'Chapters' });
+    if (index > 0) {
+      pager.append(element('a', { href: `#${notes[index - 1][0]}` }, [element('span', { textContent: 'Previous' }), document.createTextNode(notes[index - 1][1])]));
+    }
+    const next = notes[index + 1] ?? ['tree', 'Decision tree practice'];
+    pager.append(element('a', { className: 'next', href: `#${next[0]}` }, [element('span', { textContent: 'Next' }), document.createTextNode(next[1])]));
+    const view = document.getElementById(`view-${hash}`);
+    view.append(doneRow(hash, 'chapter'), pager);
+  });
+  ['tree', 'drill', 'by-hand', 'recall'].forEach(hash => document.getElementById(`view-${hash}`).append(doneRow(hash, 'section')));
+  document.getElementById('view-paper').append(doneRow(null, 'paper'));
+}
+
+function svg(tag, attributes = {}, children = []) {
+  const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
+  children.forEach(child => node.append(child));
+  return node;
+}
+
+function text(x, y, value, className = 'svg-text', anchor = 'middle') {
+  const node = svg('text', { x, y, class: className, 'text-anchor': anchor });
+  node.textContent = value;
+  return node;
+}
+
+function curvePath(f, from, to, x0, width, base, height, peak, closed) {
+  const points = [];
+  for (let step = 0; step <= 120; step += 1) {
+    const value = from + ((to - from) * step) / 120;
+    points.push([x0 + ((value - from) / (to - from)) * width, base - (f(value) / peak) * height]);
+  }
+  const line = points.map(([x, y], index) => `${index ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+  return closed ? `${line} L${points.at(-1)[0].toFixed(1)},${base} L${points[0][0].toFixed(1)},${base} Z` : line;
+}
+
+function drawFigures() {
+  const normal = x => Math.exp((-x * x) / 2);
+  const skew = x => (x <= 0 ? 0 : Math.pow(x, 1.5) * Math.exp(-x));
+  const skewPeak = skew(1.5);
+
+  const shapes = svg('svg', { viewBox: '0 0 640 190', role: 'img', 'aria-label': 'A symmetric normal curve beside a right-skewed curve' });
+  shapes.append(
+    svg('path', { d: curvePath(normal, -3.2, 3.2, 20, 280, 150, 120, 1, true), class: 'area' }),
+    svg('path', { d: curvePath(normal, -3.2, 3.2, 20, 280, 150, 120, 1, false), class: 'stroke' }),
+    svg('line', { x1: 20, y1: 150, x2: 300, y2: 150, class: 'axis' }),
+    svg('line', { x1: 160, y1: 26, x2: 160, y2: 150, class: 'guide' }),
+    text(160, 172, 'Normal: symmetric', 'svg-strong'),
+    text(160, 20, 'mean = middle'),
+    svg('path', { d: curvePath(skew, 0, 9, 340, 280, 150, 120, skewPeak, true), class: 'area' }),
+    svg('path', { d: curvePath(skew, 0, 9, 340, 280, 150, 120, skewPeak, false), class: 'stroke' }),
+    svg('line', { x1: 340, y1: 150, x2: 620, y2: 150, class: 'axis' }),
+    text(480, 172, 'Skewed: long tail', 'svg-strong'),
+    text(560, 120, 'a few very large scores →'),
+  );
+  document.getElementById('fig-shapes').append(shapes);
+
+  const tails = svg('svg', { viewBox: '0 0 640 200', role: 'img', 'aria-label': 'One-tailed test with 5% in one tail; two-tailed test with 2.5% in each tail' });
+  const panel = (x0, cuts, label, labels) => {
+    const from = -3.4;
+    const to = 3.4;
+    const toX = value => x0 + ((value - from) / (to - from)) * 280;
+    const parts = [svg('path', { d: curvePath(normal, from, to, x0, 280, 150, 115, 1, true), class: 'area' })];
+    cuts.forEach(([a, b]) => {
+      const left = Math.max(a, from);
+      const rightEdge = Math.min(b, to);
+      parts.push(svg('path', { d: curvePath(normal, left, rightEdge, toX(left), toX(rightEdge) - toX(left), 150, 115, 1, true), class: 'tail' }));
+    });
+    parts.push(
+      svg('path', { d: curvePath(normal, from, to, x0, 280, 150, 115, 1, false), class: 'stroke' }),
+      svg('line', { x1: x0, y1: 150, x2: x0 + 280, y2: 150, class: 'axis' }),
+      text(x0 + 140, 180, label, 'svg-strong'),
+    );
+    labels.forEach(([value, words]) => parts.push(text(toX(value), 136, words)));
+    return parts;
+  };
+  tails.append(
+    ...panel(20, [[1.645, 3.4]], 'One-tailed: all 5% at one end', [[2.45, '5%']]),
+    ...panel(340, [[-3.4, -1.96], [1.96, 3.4]], 'Two-tailed: 2.5% at each end', [[-2.6, '2.5%'], [2.6, '2.5%']]),
+  );
+  document.getElementById('fig-tails').append(tails);
+
+  const dots = svg('svg', { viewBox: '0 0 640 210', role: 'img', 'aria-label': 'Two experiments with similar means; in the first the conditions do not overlap, in the second they overlap' });
+  const experiments = [
+    { y: 40, title: 'Experiment 1: means 6.5 and 4', a: [6, 6, 6.5, 7, 7], b: [3, 4, 4, 4, 5] },
+    { y: 140, title: 'Experiment 2: means 6.4 and 3.6', a: [2, 5, 7, 9, 9], b: [1, 2, 3, 5, 7] },
+  ];
+  const toX = value => 90 + value * 52;
+  experiments.forEach(({ y, title, a, b }) => {
+    dots.append(text(20, y - 14, title, 'svg-strong', 'start'));
+    [[a, 'dot-a', y + 8, 'C1'], [b, 'dot-b', y + 34, 'C2']].forEach(([values, className, rowY, name]) => {
+      dots.append(svg('line', { x1: toX(0), y1: rowY, x2: toX(10), y2: rowY, class: 'axis' }), text(60, rowY + 4, name, 'svg-text', 'end'));
+      const seen = {};
+      values.forEach(value => {
+        seen[value] = (seen[value] ?? 0) + 1;
+        dots.append(svg('circle', { cx: toX(value) + (seen[value] - 1) * 9 - (values.filter(other => other === value).length - 1) * 4.5, cy: rowY, r: 5.5, class: className }));
+      });
+      const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
+      dots.append(svg('line', { x1: toX(mean), y1: rowY - 11, x2: toX(mean), y2: rowY + 11, class: 'mean' }));
+    });
+  });
+  [0, 2, 4, 6, 8, 10].forEach(value => dots.append(text(toX(value), 205, value)));
+  document.getElementById('fig-dots').append(dots);
+}
+
+const TREE = [
+  {
+    title: 'A difference between 2 conditions',
+    leaves: [
+      ['Wilcoxon', 'Same people', 'W · small is significant'],
+      ['Mann-Whitney', 'Different people', 'U · small is significant'],
+    ],
+  },
+  {
+    title: 'A difference between 3 or more conditions',
+    leaves: [
+      ['Friedman', 'Same people', 'χr² · no direction'],
+      ["Page's L", 'Same people, order predicted', 'L · large is significant'],
+      ['Kruskal-Wallis', 'Different people', 'H · no direction'],
+      ['Jonckheere', 'Different people, order predicted', 'S · needs equal groups'],
+    ],
+  },
+  {
+    title: 'A relationship, or counts',
+    leaves: [
+      ["Spearman's rho", 'Two measures on the same people', 'rho −1 to +1, plus P'],
+      ['Chi-square', 'Counts of subjects in categories', 'χ² · at least 5 per cell'],
+    ],
+  },
+];
+
+function renderTree(id) {
+  document.getElementById(id).replaceChildren(
+    ...TREE.map(branch =>
+      element('div', { className: 'branch' }, [
+        element('h3', { textContent: branch.title }),
+        element(
+          'div',
+          { className: 'leaves' },
+          branch.leaves.map(([name, when, note]) =>
+            element('div', { className: 'leaf' }, [element('b', { textContent: name }), element('span', { textContent: when }), element('small', { textContent: note })]),
+          ),
+        ),
+      ]),
+    ),
+  );
+}
+
+const WALK = {
+  aim: {
+    question: 'What is the study trying to show?',
+    options: [
+      ['A difference between conditions', 'count'],
+      ['A relationship between two measures', 'Spearman'],
+      ['How many people or things fall into each category', 'Chi-square'],
+    ],
+  },
+  count: { question: 'How many conditions?', options: [['Two', 'two'], ['Three or more', 'many']] },
+  two: { question: 'Same people in both conditions, or different people?', options: [['Same people (related)', 'Wilcoxon'], ['Different people (unrelated)', 'Mann-Whitney']] },
+  many: { question: 'Same people in every condition, or different people?', options: [['Same people (related)', 'manySame'], ['Different people (unrelated)', 'manyDifferent']] },
+  manySame: { question: 'Did the researcher predict an order (scores rising or falling across the conditions)?', options: [['No, only "is there a difference?"', 'Friedman'], ['Yes, an order is predicted', "Page's L"]] },
+  manyDifferent: {
+    question: 'Did the researcher predict an order?',
+    options: [['No', 'Kruskal-Wallis'], ['Yes, and the groups are the same size', 'Jonckheere'], ['Yes, but the groups are different sizes', 'Kruskal-Wallis']],
+  },
+};
+const RESULTS = {
+  Wilcoxon: 'Two related conditions. Rank the differences, W is the smaller sum; small is significant.',
+  'Mann-Whitney': 'Two unrelated conditions. Rank everything together, U is the smaller of U and U′; small is significant.',
+  Friedman: 'Three or more related conditions. Rank within each person; large χr² is significant. Says they differ, not how.',
+  "Page's L": 'Related conditions with a predicted trend. Weight the rank totals in the predicted order; large L is significant.',
+  'Kruskal-Wallis': 'Three or more unrelated groups. Rank everything together; large H is significant. Says they differ, not how.',
+  Jonckheere: 'Unrelated groups with a predicted trend and equal sizes. Large S is significant.',
+  Spearman: 'An association, not cause. Report rho (direction and strength) and P (significance) separately.',
+  'Chi-square': 'Counts in categories. Compare observed with expected (row × column ÷ total); large χ² is significant.',
+};
+
+function walk(node = 'aim', trail = []) {
+  const box = document.getElementById('walker');
+  const crumbs = element('div', { className: 'walker-trail' }, trail.map(step => element('span', { textContent: step })));
+  if (RESULTS[node]) {
+    box.replaceChildren(
+      crumbs,
+      element('div', { className: 'result' }, [
+        element('span', { className: 'qlabel', textContent: 'Use' }),
+        element('strong', { textContent: node === 'Spearman' ? "Spearman's rho" : node }),
+        element('p', { textContent: RESULTS[node] }),
+      ]),
+      element('div', { className: 'row' }, [element('button', { className: 'primary', type: 'button', textContent: 'Start again', onclick: () => walk() })]),
+    );
+    return;
+  }
+  const step = WALK[node];
+  box.replaceChildren(
+    ...(trail.length ? [crumbs] : [element('span', { className: 'qlabel', textContent: 'Walk the tree' })]),
+    element('p', { className: 'walker-q', textContent: step.question }),
+    element(
+      'div',
+      { className: 'walker-options' },
+      step.options.map(([label, next]) => element('button', { type: 'button', textContent: label, onclick: () => walk(next, [...trail, label]) })),
+    ),
+  );
 }
 
 function shuffle(list) {
@@ -187,41 +1223,35 @@ function nextStudy() {
   document.getElementById('drill-count').textContent = `Study ${asked + 1}`;
   document.getElementById('drill-scenario').textContent = study.scenario;
   document.getElementById('drill-feedback').textContent = '';
-  const choices = document.getElementById('drill-choices');
-  choices.replaceChildren(
+  document.getElementById('drill-choices').replaceChildren(
     ...content.tests.map(test =>
-      element('button', {
-        type: 'button',
-        textContent: test,
-        onclick: event => answer(study, test, event.currentTarget),
-      }),
+      element('button', { type: 'button', textContent: test, onclick: event => answer(study, test, event.currentTarget) }),
     ),
   );
 }
 
 function answer(study, chosen, button) {
-  const buttons = [...document.querySelectorAll('#drill-choices button')];
-  buttons.forEach(candidate => {
+  document.querySelectorAll('#drill-choices button').forEach(candidate => {
     candidate.disabled = true;
     if (candidate.textContent === study.answer) candidate.classList.add('right');
   });
   asked += 1;
   if (chosen === study.answer) {
     right += 1;
+    streak += 1;
+    best = Math.max(best, streak);
   } else {
+    streak = 0;
     button.classList.add('wrong');
   }
-  document.getElementById('drill-feedback').textContent =
-    `${chosen === study.answer ? 'Correct.' : `It is ${study.answer}.`} ${study.why}`;
-  document.getElementById('drill-score').textContent = `${right} of ${asked} correct`;
+  document.getElementById('drill-feedback').textContent = `${chosen === study.answer ? 'Correct.' : `It is ${study.answer}.`} ${study.why}`;
+  document.getElementById('drill-score').textContent = `${right} of ${asked} correct · streak ${streak} (best ${best})`;
 }
 
 function showClock() {
   const clock = document.getElementById('clock');
   const shown = Math.abs(remaining);
-  const minutes = String(Math.floor(shown / 60)).padStart(2, '0');
-  const seconds = String(shown % 60).padStart(2, '0');
-  clock.textContent = `${remaining < 0 ? '+' : ''}${minutes}:${seconds}`;
+  clock.textContent = `${remaining < 0 ? '+' : ''}${String(Math.floor(shown / 60)).padStart(2, '0')}:${String(shown % 60).padStart(2, '0')}`;
   clock.classList.toggle('late', remaining < 0);
 }
 
@@ -252,32 +1282,37 @@ function toggleClock() {
 function scorePaper() {
   const ticked = document.querySelectorAll('#paper-questions .scheme input:checked').length;
   const opened = document.querySelectorAll('#paper-questions .scheme:not([hidden])').length;
-  document.getElementById('paper-score').textContent = opened
-    ? `Marked so far: ${ticked} of ${opened * 4} (paper total 20)`
-    : '';
+  document.getElementById('paper-score').textContent = opened ? `Marked so far: ${ticked} of ${opened * 4} (paper total 20)` : '';
+}
+
+function table(rows) {
+  return element('div', { className: 'scroll' }, [
+    element(
+      'table',
+      {},
+      rows.map((row, line) =>
+        element('tr', {}, row.map((cell, column) => element(line === 0 || column === 0 ? 'th' : 'td', { textContent: cell, className: line && column ? 'num' : '' }))),
+      ),
+    ),
+  ]);
 }
 
 function showPaper(paper) {
   resetClock();
   document.getElementById('paper-title').textContent = paper.title;
   document.getElementById('paper-focus').textContent = paper.focus;
+  document.getElementById('paper-note').textContent =
+    paper === content.sample
+      ? "The lecturer's own questions. Write each answer before opening its scheme; each point is one mark. The scheme is a model answer, not the lecturer's marking."
+      : "Write each answer before opening its scheme. Each scheme point is one mark. These are practice questions written from the Week 9 lecture, not the lecturer's.";
   document.getElementById('paper-questions').replaceChildren(
     ...paper.questions.map((question, index) => {
-      const scheme = element(
-        'div',
-        { className: 'scheme', hidden: true },
-        [
-          element('p', { className: 'label', textContent: 'Marking scheme: tick each point you made' }),
-          ...question.scheme.map((point, mark) => {
-            const box = element('input', {
-              type: 'checkbox',
-              id: `mark-${paper.id}-${index}-${mark}`,
-              onchange: scorePaper,
-            });
-            return element('label', {}, [box, element('span', { textContent: point })]);
-          }),
-        ],
-      );
+      const scheme = element('div', { className: 'scheme', hidden: true }, [
+        element('span', { className: 'qlabel', textContent: 'Marking scheme: tick each point you made' }),
+        ...question.scheme.map((point, mark) =>
+          element('label', {}, [element('input', { type: 'checkbox', id: `mark-${paper.id}-${index}-${mark}`, onchange: scorePaper }), element('span', { textContent: point })]),
+        ),
+      ]);
       const reveal = element('button', {
         type: 'button',
         textContent: 'Show marking scheme',
@@ -287,59 +1322,193 @@ function showPaper(paper) {
           scorePaper();
         },
       });
-      const parts = [
-        element('p', { className: 'label', textContent: `Question ${index + 1} · 4 marks` }),
+      return element('div', { className: 'box' }, [
+        element('span', { className: 'qlabel', textContent: `Question ${index + 1} · 4 marks` }),
         element('p', { textContent: question.prompt }),
-      ];
-      if (question.table) {
-        const table = element(
-          'table',
-          {},
-          question.table.map((row, line) =>
-            element(
-              'tr',
-              {},
-              row.map((cell, column) =>
-                element(line === 0 || column === 0 ? 'th' : 'td', { textContent: cell }),
-              ),
-            ),
-          ),
-        );
-        parts.push(element('div', { className: 'scroll' }, [table]));
-      }
-      parts.push(
-        element('textarea', {
-          id: `answer-${paper.id}-${index}`,
-          placeholder: 'Your answer',
-          ariaLabel: `Answer to question ${index + 1}`,
-        }),
+        ...(question.table ? [table(question.table)] : []),
+        element('textarea', { id: `answer-${paper.id}-${index}`, placeholder: 'Your answer', ariaLabel: `Answer to question ${index + 1}` }),
         element('div', { className: 'row' }, [reveal]),
         scheme,
-      );
-      return element('div', { className: 'sheet' }, parts);
+      ]);
     }),
   );
   scorePaper();
 }
 
-function route() {
-  const name = location.hash.slice(1) || 'tree';
-  const paper = content.papers.find(candidate => `paper-${candidate.id.toLowerCase()}` === name);
-  const view = paper ? 'paper' : views[name] ? name : 'tree';
-  for (const [key, id] of Object.entries(views)) {
-    document.getElementById(id).hidden = key !== view;
-  }
-  document.querySelectorAll('nav a').forEach(link => {
-    const current = link.getAttribute('href') === `#${paper ? name : view}`;
-    if (current) link.setAttribute('aria-current', 'page');
-    else link.removeAttribute('aria-current');
-  });
-  if (paper) showPaper(paper);
-  if (view === 'drill' && position === -1) nextStudy();
+function today() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 }
 
+function renderCountdown() {
+  const left = new Date(content.test) - Date.now();
+  let words = 'Test time has passed';
+  if (left > 0) {
+    const days = Math.floor(left / 86400000);
+    const hours = Math.floor((left % 86400000) / 3600000);
+    words = `${days} day${days === 1 ? '' : 's'}, ${hours} hour${hours === 1 ? '' : 's'} to go`;
+  }
+  document.getElementById('countdown').textContent = words;
+  document.getElementById('side-countdown').textContent = words;
+}
+
+function isDone(hash) {
+  return Boolean(load('done', {})[hash]);
+}
+
+function setDone(hash, value) {
+  const done = load('done', {});
+  done[hash] = value;
+  save('done', done);
+  refreshDone();
+}
+
+function doneRow(hash, noun) {
+  const button = element('button', { type: 'button', className: 'done-button' });
+  button.dataset.hash = hash ?? '';
+  button.addEventListener('click', () => {
+    const target = button.dataset.hash;
+    if (target) setDone(target, !isDone(target));
+  });
+  return element('div', { className: 'done-row' }, [element('span', { className: 'small muted', textContent: `Finished this ${noun}? Mark it so the overview tracks it.` }), button]);
+}
+
+function refreshDone() {
+  const done = load('done', {});
+  document.querySelectorAll('.done-button').forEach(button => {
+    const finished = Boolean(done[button.dataset.hash]);
+    button.textContent = finished ? 'Done ✓' : 'Mark as done';
+    button.classList.toggle('primary', !finished);
+  });
+  document.querySelectorAll('#side-nav .tick').forEach(tick => {
+    tick.textContent = done[tick.dataset.hash] ? '✓' : '';
+  });
+  const items = NAV.slice(1).flatMap(group => group.items);
+  const count = items.filter(([hash]) => done[hash]).length;
+  document.getElementById('progress-bar').style.width = `${Math.round((count / items.length) * 100)}%`;
+  document.getElementById('progress-summary').textContent = `${count} of ${items.length} done`;
+  document.getElementById('progress-groups').replaceChildren(
+    ...NAV.slice(1).map(group =>
+      element('div', { className: 'box' }, [
+        element('h2', { textContent: group.group }),
+        element(
+          'div',
+          { className: 'checklist' },
+          group.items.map(([hash, label], index) =>
+            element('label', { className: done[hash] ? 'checked' : '' }, [
+              element('input', { type: 'checkbox', id: `done-${hash}`, checked: Boolean(done[hash]), onchange: event => setDone(hash, event.currentTarget.checked) }),
+              element('span', { textContent: group.numbered ? `${index + 1}. ${label}` : label }),
+              element('a', { href: `#${hash}`, textContent: 'Open' }),
+            ]),
+          ),
+        ),
+      ]),
+    ),
+  );
+}
+
+function near(value, target) {
+  return Math.abs(value - target) <= Math.max(0.01, Math.abs(target) * 0.002);
+}
+
+function renderExercises() {
+  document.getElementById('exercises').replaceChildren(
+    ...content.exercises.map(exercise => {
+      const inputs = exercise.steps.map((_, index) => element('input', { id: `step-${exercise.id}-${index}`, inputMode: 'decimal', autocomplete: 'off' }));
+      const result = element('span', { className: 'score', role: 'status' });
+      const working = element('div', { className: 'working', hidden: true }, [
+        element('span', { className: 'qlabel', textContent: 'Working' }),
+        ...exercise.working.map(line => element('p', { textContent: line })),
+      ]);
+      const reveal = element('button', {
+        type: 'button',
+        textContent: 'Show working',
+        onclick: () => {
+          working.hidden = !working.hidden;
+          reveal.textContent = working.hidden ? 'Show working' : 'Hide working';
+        },
+      });
+      const check = element('button', {
+        className: 'primary',
+        type: 'button',
+        textContent: 'Check',
+        onclick: () => {
+          let correct = 0;
+          inputs.forEach((input, index) => {
+            const raw = input.value.trim().replace('−', '-').replace(',', '.');
+            const ok = raw !== '' && near(Number(raw), exercise.steps[index].answer);
+            input.classList.toggle('right', ok);
+            input.classList.toggle('wrong', !ok);
+            if (ok) correct += 1;
+          });
+          result.textContent = `${correct} of ${inputs.length} right`;
+        },
+      });
+      return element('div', { className: 'box' }, [
+        element('h2', { textContent: exercise.title }),
+        element('p', { className: 'muted small', textContent: exercise.note }),
+        element('p', { className: 'data', textContent: exercise.data }),
+        element('div', { className: 'steps' }, exercise.steps.map((step, index) => element('label', { htmlFor: inputs[index].id }, [element('span', { textContent: step.label }), inputs[index]]))),
+        element('div', { className: 'row' }, [check, reveal, result]),
+        working,
+      ]);
+    }),
+  );
+}
+
+function setupRecall() {
+  const draft = document.getElementById('recall-draft');
+  draft.value = load('recall', '');
+  draft.addEventListener('input', () => save('recall', draft.value));
+  document.getElementById('recall-list').replaceChildren(...content.recall.map(line => element('li', { textContent: line })));
+  const show = document.getElementById('recall-show');
+  show.addEventListener('click', () => {
+    const key = document.getElementById('recall-key');
+    key.hidden = !key.hidden;
+    show.textContent = key.hidden ? 'Compare with the sheet' : 'Hide the sheet';
+  });
+  document.getElementById('recall-clear').addEventListener('click', () => {
+    draft.value = '';
+    save('recall', '');
+    draft.focus();
+  });
+}
+
+function route() {
+  const name = location.hash.slice(1) || 'overview';
+  const paper = sheets.find(candidate => candidate.hash === name)?.paper;
+  const known = paper || document.getElementById(`view-${name}`);
+  const current = known ? name : 'overview';
+  const view = paper ? 'paper' : current;
+  document.querySelectorAll('.view').forEach(section => {
+    section.hidden = section.dataset.view !== view;
+  });
+  document.querySelectorAll('#side-nav a').forEach(link => {
+    if (link.getAttribute('href') === `#${current}`) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+  document.getElementById('jump').value = current;
+  if (paper) {
+    showPaper(paper);
+    document.querySelector('#view-paper .done-button').dataset.hash = current;
+    refreshDone();
+  }
+  if (view === 'drill' && position === -1) nextStudy();
+  scrollTo(0, 0);
+}
+
+buildNav();
+drawFigures();
+renderTree('tree-static');
+renderTree('tree-static-2');
+walk();
+renderExercises();
+setupRecall();
+renderCountdown();
+refreshDone();
 document.getElementById('drill-next').addEventListener('click', nextStudy);
 document.getElementById('clock-start').addEventListener('click', toggleClock);
 addEventListener('hashchange', route);
+setInterval(renderCountdown, 60000);
 route();
 </script>

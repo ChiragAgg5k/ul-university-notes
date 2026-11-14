@@ -1,6 +1,7 @@
 /**
  * @file Builds the mock test document and the practice page from one content file, so the
- * questions and marking schemes cannot differ between them.
+ * questions and marking schemes cannot differ between them. The page also carries the prep plan,
+ * the by-hand exercises, the lecturer's sample test and the recall sheet from prep.json.
  *
  * Usage: node build.mjs <folder for the practice page>
  */
@@ -10,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 process.chdir(fileURLToPath(new URL('.', import.meta.url)));
 
 const content = JSON.parse(await readFile('content.json', 'utf8'));
+const prep = JSON.parse(await readFile('prep.json', 'utf8'));
 const template = await readFile('template.html', 'utf8');
 const output = process.argv[2];
 
@@ -55,6 +57,6 @@ ${drill}
 `,
 );
 if (output) {
-  await writeFile(`${output}/stats-drill.html`, template.replace('/*CONTENT*/', JSON.stringify(content)));
+  await writeFile(`${output}/stats-drill.html`, template.replace('/*CONTENT*/', () => JSON.stringify({ ...content, ...prep })));
 }
 console.log(`Wrote Mock Tests.md${output ? ' and the practice page' : ''}.`);

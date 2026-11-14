@@ -1,0 +1,301 @@
+{
+  "test": "2026-11-16T13:10:00Z",
+  "exercises": [
+    {
+      "id": "ties",
+      "title": "Ranking with ties",
+      "note": "Every test starts here. Smallest gets rank 1; tied scores share the average of the ranks they occupy.",
+      "data": "Scores: 4, 8, 3, 3, 1, 7, 4",
+      "steps": [
+        {
+          "label": "Rank of 4 (first)",
+          "answer": 4.5
+        },
+        {
+          "label": "Rank of 8",
+          "answer": 7
+        },
+        {
+          "label": "Rank of 3 (each)",
+          "answer": 2.5
+        },
+        {
+          "label": "Rank of 1",
+          "answer": 1
+        },
+        {
+          "label": "Rank of 7",
+          "answer": 6
+        }
+      ],
+      "working": [
+        "Sorted: 1, 3, 3, 4, 4, 7, 8 take positions 1 to 7.",
+        "The two 3s occupy positions 2 and 3, so each gets 2.5. The two 4s occupy 4 and 5, so each gets 4.5.",
+        "Check: the ranks always sum to N(N + 1) ÷ 2 = 28."
+      ]
+    },
+    {
+      "id": "wilcoxon",
+      "title": "Wilcoxon W (lecture example)",
+      "note": "Bugs with 8 hours sleep (C1) and none (C2), same 10 programmers. Differences are C1 minus C2.",
+      "data": "Differences: −2, −1, +1, −4, +1, −3, −2, 0, −4, −2",
+      "steps": [
+        {
+          "label": "N after dropping zeros",
+          "answer": 9
+        },
+        {
+          "label": "Rank given to each ±1",
+          "answer": 2
+        },
+        {
+          "label": "Rank given to each ±2",
+          "answer": 5
+        },
+        {
+          "label": "Sum of positive ranks",
+          "answer": 4
+        },
+        {
+          "label": "Sum of negative ranks",
+          "answer": 41
+        },
+        {
+          "label": "W",
+          "answer": 4
+        }
+      ],
+      "working": [
+        "Drop the 0, so N = 9.",
+        "Rank by size ignoring sign: three 1s take positions 1–3 → 2 each; three 2s take 4–6 → 5 each; the 3 → 7; two 4s take 8–9 → 8.5 each.",
+        "Positive: +1, +1 → 2 + 2 = 4. Negative: 2 + 8.5 + 7 + 5 + 5 + 8.5 + 5 = 41. (Check: 4 + 41 = 45 = 9 × 10 ÷ 2.)",
+        "W is the smaller sum: 4. Table A, one-tailed, gives 6 at P = 0.025. 4 ≤ 6, so significant. Small is significant."
+      ]
+    },
+    {
+      "id": "mann-whitney",
+      "title": "Mann-Whitney U",
+      "note": "Two different groups. Rank all scores together, total per group, then U = n1·n2 + n1(n1 + 1)/2 − T1 and U′ = n1·n2 − U.",
+      "data": "Group 1 (n1 = 5): 3, 7, 7, 10, 12. Group 2 (n2 = 4): 5, 8, 14, 15.",
+      "steps": [
+        {
+          "label": "Rank total T1 (group 1)",
+          "answer": 21
+        },
+        {
+          "label": "Rank total T2 (group 2)",
+          "answer": 24
+        },
+        {
+          "label": "U",
+          "answer": 14
+        },
+        {
+          "label": "U′",
+          "answer": 6
+        },
+        {
+          "label": "The U you report",
+          "answer": 6
+        },
+        {
+          "label": "Lecture: n1 = 6, n2 = 8, T1 = 24.5. U′ = ?",
+          "answer": 3.5
+        }
+      ],
+      "working": [
+        "All nine together: 3→1, 5→2, 7 and 7→3.5 each, 8→5, 10→6, 12→7, 14→8, 15→9.",
+        "T1 = 1 + 3.5 + 3.5 + 6 + 7 = 21. T2 = 2 + 5 + 8 + 9 = 24. Check: 21 + 24 = 45 = 9 × 10 ÷ 2.",
+        "U = 20 + 15 − 21 = 14. U′ = 20 − 14 = 6. Report the smaller, 6. Small is significant.",
+        "Lecture: U = 48 + 21 − 24.5 = 44.5, U′ = 48 − 44.5 = 3.5; 3.5 is below the table's 4, significant at P = 0.005."
+      ]
+    },
+    {
+      "id": "friedman",
+      "title": "Friedman χr² and Page's L (lecture example)",
+      "note": "Same 8 programmers, 8, 4 and 6 hours sleep. Each row was ranked 1 to 3; rank totals 11, 21, 16. χr² = [12 ÷ (N·C·(C + 1))] × Σ T² − 3·N·(C + 1).",
+      "data": "N = 8, C = 3, rank totals: 8 h = 11, 4 h = 21, 6 h = 16",
+      "steps": [
+        {
+          "label": "12 ÷ (N·C·(C + 1))",
+          "answer": 0.125
+        },
+        {
+          "label": "Σ T² (sum of squared totals)",
+          "answer": 818
+        },
+        {
+          "label": "3·N·(C + 1)",
+          "answer": 96
+        },
+        {
+          "label": "χr²",
+          "answer": 6.25
+        },
+        {
+          "label": "Page's L, ordered 8 h, 6 h, 4 h",
+          "answer": 106
+        }
+      ],
+      "working": [
+        "12 ÷ (8 × 3 × 4) = 12 ÷ 96 = 0.125.",
+        "11² + 21² + 16² = 121 + 441 + 256 = 818.",
+        "0.125 × 818 = 102.25; 102.25 − 96 = 6.25. Large is significant. It says the conditions differ, not how.",
+        "Page's L: order columns as predicted and weight 1, 2, 3: 11 × 1 + 16 × 2 + 21 × 3 = 11 + 32 + 63 = 106. Not significant against Table D."
+      ]
+    },
+    {
+      "id": "chi-square",
+      "title": "Chi-square expected frequency",
+      "note": "Expected = row total × column total ÷ grand total. Each cell contributes (O − E)² ÷ E.",
+      "data": "Sample test Q4: LNC row total 72, Tool type 1 column total 36, grand total 144, observed 25. Lecture: experts 44, bottom-up 16, total 86, observed 6.",
+      "steps": [
+        {
+          "label": "Expected, LNC / Type 1",
+          "answer": 18
+        },
+        {
+          "label": "Its contribution (O − E)² ÷ E",
+          "answer": 2.72
+        },
+        {
+          "label": "Degrees of freedom for the 3 × 3 table",
+          "answer": 4
+        },
+        {
+          "label": "Expected, experts / bottom-up",
+          "answer": 8.19
+        }
+      ],
+      "working": [
+        "72 × 36 ÷ 144 = 18. Observed 25, so (25 − 18)² ÷ 18 = 49 ÷ 18 ≈ 2.72.",
+        "df = (rows − 1) × (columns − 1) = 2 × 2 = 4. Sum all nine contributions (≈ 10.19) and compare with 9.49 at 5%: significant.",
+        "Lecture: 44 × 16 ÷ 86 = 8.19 expected against 6 observed."
+      ]
+    },
+    {
+      "id": "spearman",
+      "title": "Spearman's rho (lecture example)",
+      "note": "rho = 1 − (6 × Σd²) ÷ (N(N² − 1)). A small Σd² means the two rankings agree.",
+      "data": "Maths against reading, 12 pupils, Σd² = 61",
+      "steps": [
+        {
+          "label": "6 × Σd²",
+          "answer": 366
+        },
+        {
+          "label": "N(N² − 1)",
+          "answer": 1716
+        },
+        {
+          "label": "rho (2 decimals)",
+          "answer": 0.79
+        }
+      ],
+      "working": [
+        "6 × 61 = 366. 12 × (144 − 1) = 12 × 143 = 1716.",
+        "rho = 1 − 366 ÷ 1716 = 1 − 0.213 = 0.79: a strong positive correlation. Its significance is a separate question."
+      ]
+    }
+  ],
+  "sample": {
+    "id": "S",
+    "title": "Lecturer's sample test",
+    "focus": "Handed out in Week 10. Sit it closed book on Sunday. The scheme is my model answer, not the lecturer's",
+    "questions": [
+      {
+        "prompt": "You read a paper where the Wilcoxon analysis obtains a \"P value of 0.015\". Discuss what the choice of Wilcoxon implies about the design of the authors' study and what the 'P' value means in terms of statistical significance.",
+        "scheme": [
+          "Two conditions were compared.",
+          "Related design: the same participants did both conditions (or matched pairs), so differences per person were ranked.",
+          "Non-parametric: the data were ordinal, not normally distributed, or had unequal variance.",
+          "P = 0.015 is a 1.5% probability that the difference is due to chance. Below 0.05, so significant at the 5% level; above 0.01, so not at the 1% level."
+        ]
+      },
+      {
+        "prompt": "A study assessing GPs' speed in accurately diagnosing patients and their speed in completing the 'Irish Times' crossword found a Spearman rho of 0.95 (with a P value of 0.13). Explain the meaning of both aspects of the results and the conclusions you can draw (or not).",
+        "scheme": [
+          "rho runs from −1 to +1; 0.95 is a very strong positive correlation: GPs fast at diagnosis tend to be fast at the crossword.",
+          "P = 0.13 is above 0.05, so the correlation is not significant: a 13% probability it is due to chance.",
+          "A very strong coefficient with a weak P points to too few GPs in the sample.",
+          "Conclusion: no relationship can be claimed; repeat with more GPs. Even if significant, correlation would not show cause."
+        ]
+      },
+      {
+        "prompt": "Describe what we mean by a one-tailed test and a two-tailed test, and when we might use them, stating which one is more difficult to obtain statistical significance in (and why).",
+        "scheme": [
+          "One-tailed: the hypothesis predicts the direction of the difference. Use only when the direction is justified before the data is seen.",
+          "Two-tailed: the hypothesis predicts a difference without a direction. The safer default.",
+          "The two-tailed test is harder to reach significance with.",
+          "Allowing either direction doubles the probability of a chance result: the 5% is split 2.5% in each tail, so the result must be more extreme."
+        ]
+      },
+      {
+        "prompt": "Your study looks at three different types of cancer detection tools in terms of determining their focus on three different categories of cancer: Lymph Node Cancer (LNC), Breast Cancer (BC) and Pancreatic Cancer (PC). The data below details the number of tools (of each type) that focus primarily on each category. Identify the test used to see if there are statistically significant differences for different tool-types in terms of the cancer-categories they focus on. For a bonus 2 marks explain the basis for this analysis, using one cell as an example.",
+        "table": [
+          [
+            "",
+            "Tool type 1",
+            "Tool type 2",
+            "Tool type 3",
+            "Totals"
+          ],
+          [
+            "LNC",
+            "25",
+            "27",
+            "20",
+            "72"
+          ],
+          [
+            "BC",
+            "6",
+            "22",
+            "25",
+            "53"
+          ],
+          [
+            "PC",
+            "5",
+            "8",
+            "6",
+            "19"
+          ],
+          [
+            "Totals",
+            "36",
+            "57",
+            "51",
+            "144"
+          ]
+        ],
+        "scheme": [
+          "Chi-square: the data are counts of tools falling into categories, each tool counted once.",
+          "It compares observed frequencies with those expected if tool type and cancer category were unrelated.",
+          "Bonus: expected for LNC / Type 1 = 72 × 36 ÷ 144 = 18, against 25 observed; that cell adds (25 − 18)² ÷ 18 ≈ 2.72.",
+          "Bonus: sum over all cells, df = (3 − 1)(3 − 1) = 4; the larger χ², the less likely chance (≈ 10.19 > 9.49, significant at 5%)."
+        ]
+      },
+      {
+        "prompt": "Your study looks at the relative performance of one group of radiologists undergoing different conditions over time, in terms of the number of errors they make in their diagnoses. In the 1st condition they have been allowed sleep, in the 2nd they have been sleep deprived for one night and the 3rd they have been sleep deprived for two nights. Identify the statistical technique(s) you should use to study any differences between the conditions, if the data distributions are non-normal. Explain your reasoning.",
+        "scheme": [
+          "One group does every condition: a related, within-subjects design.",
+          "Three conditions and non-normal data, so a non-parametric test for more than two related conditions.",
+          "Friedman tests whether there is any difference between the three conditions, but gives no direction.",
+          "The conditions are ordered and errors are expected to rise with deprivation, so Page's L trend test is the stronger choice if that order is predicted."
+        ]
+      }
+    ]
+  },
+  "recall": [
+    "Parametric needs: interval scale, normal distribution, equal variance. Checks: Shapiro-Wilk (normality), Levene (variance).",
+    "Tree: 2 same = Wilcoxon; 2 different = Mann-Whitney; 3+ same = Friedman (trend: Page's L); 3+ different = Kruskal-Wallis (trend: Jonckheere); relationship = Spearman; categories = chi-square.",
+    "Ranks: smallest gets 1; ties share the average; zero differences are dropped in Wilcoxon.",
+    "Small is significant: W, U. Large is significant: χr², L, H, S, χ².",
+    "Two-tailed is harder: allowing either direction doubles the chance probability.",
+    "P = probability the result is due to chance. 0.05 = 1 in 20, 0.01 = 1 in 100.",
+    "Chi-square: expected = row × column ÷ total; at least 5 per cell; more than 20 subjects; df = (r − 1)(c − 1).",
+    "Jonckheere needs equal group sizes. Friedman and Kruskal-Wallis give no direction.",
+    "Reading a result: design → statistic → what P means → conclusion with a caution."
+  ]
+}
