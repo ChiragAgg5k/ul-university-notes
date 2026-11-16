@@ -1,6 +1,6 @@
 # CS6451 paper talk: Chen, Li & Li (2017)
 
-**Group 1, paper 2 on the reading list.** A 30-minute group talk in Week 10 or 11 (slot not confirmed), then Assignment 2 applies the paper's algorithm to our Part 1 monolith (the gym membership system) and evaluates it. No due date for Assignment 2 yet.
+**Group 1, paper 2 on the reading list.** A 30-minute group talk on Wed 18 November 2026 (Week 11), then Assignment 2 applies the paper's algorithm to our Part 1 monolith (the gym membership system) and evaluates it. No due date for Assignment 2 yet.
 
 - Paper: [MSA-Dataflow_Chen-2017.pdf](Readings/MSA-Dataflow_Chen-2017.pdf)
 - R. Chen, S. Li and Z. Li, "From Monolith to Microservices: A Dataflow-Driven Approach," *2017 24th Asia-Pacific Software Engineering Conference (APSEC)*, Nanjing, 2017, pp. 466–475. DOI 10.1109/APSEC.2017.53.
