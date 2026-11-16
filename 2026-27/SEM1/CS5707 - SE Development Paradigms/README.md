@@ -9,7 +9,9 @@ Class notes taken in Week 10, tidied. The Brightspace dropbox is "Presentation S
 | | |
 | --- | --- |
 | Upload deadline | Fri 20 November 2026, before midnight |
-| Format | Slides converted to PDF |
+| Format | Slides converted to PDF; no other format is accepted |
+| In class | Be in the room by 9:00, earlier if possible. The lecturer said late arrivals will not be accepted |
+| Presentation day | Mon 23 November 2026, in class |
 | Length | 5 minutes at most |
 | Topic | Any topic from this module |
 | References | At least 5 |
@@ -38,6 +40,7 @@ The notes are terse, so the wording after each dash is my reading of them.
 - [ ] Reference list with at least 5 entries, each cited on a slide
 - [ ] Fits in 5 minutes when read aloud
 - [ ] Exported to PDF and proofread
+- [ ] Alarm set to arrive before 9:00 on presentation day
 
 ## Final report
 
