@@ -12,12 +12,20 @@ Class notes taken in Week 10, tidied. The Brightspace dropbox is "Presentation S
 | Format | Slides converted to PDF; no other format is accepted |
 | In class | Be in the room by 9:00, earlier if possible. The lecturer said late arrivals will not be accepted |
 | Presentation day | Mon 23 November 2026, in class |
-| Length | 5 minutes at most |
+| Length | 5-minute slot: 3 minutes of presenting, then 2 minutes of feedback |
 | Topic | Any topic from this module |
 | References | At least 5 |
 | Citations | Every point on the slides needs a citation, with a matching entry in the reference list |
 
 You can upload more than once before the deadline. Nothing can be changed after it.
+
+### Chosen topic
+
+Picked 16 Nov 2026.
+
+- **Topic:** Company-backed open-source development.
+- **Research question:** How do company-backed open-source projects balance community contributions with paid product work?
+- **Why this one:** decades of published research, and first-hand experience from work on an open-core product (used only as a motivating example; every claim cites a published source, and no company internals go on the slides).
 
 ### Common mistakes to avoid
 
@@ -38,7 +46,7 @@ The notes are terse, so the wording after each dash is my reading of them.
 - [ ] Literature review slide(s), not a systematic review
 - [ ] Every point carries a citation
 - [ ] Reference list with at least 5 entries, each cited on a slide
-- [ ] Fits in 5 minutes when read aloud
+- [ ] Fits in 3 minutes when read aloud
 - [ ] Exported to PDF and proofread
 - [ ] Alarm set to arrive before 9:00 on presentation day
 
