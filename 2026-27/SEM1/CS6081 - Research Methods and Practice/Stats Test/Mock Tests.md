@@ -197,3 +197,41 @@ Cover the last two columns.
 | Hospital wards are counted by size (small, medium, large) and by whether they adopted the new system (yes, no). | Chi-square | A contingency table of counts. |
 | Six reviewers each score five grant proposals. Do the proposals differ? | Friedman | Each reviewer scores every proposal: same subjects, five conditions. |
 | Readers from three different schools rate one textbook. No school is predicted to rate it higher. | Kruskal-Wallis | Three unrelated groups, no predicted order. |
+| 20 students rate how clear a lecture was (1 to 7), once before the slides were redesigned and once after. | Wilcoxon | Two conditions, same students, ordinal ratings. |
+| Ten pairs of identical twins: one twin of each pair learns with flashcards, the other without. Memory scores are skewed. | Wilcoxon | Two conditions, matched pairs count as related, non-normal data. |
+| The same 18 testers review code with a checklist and without one. Defect counts are skewed. | Wilcoxon | Two conditions, same testers, non-normal counts. |
+| Each of 25 users rates two logo designs on a 1 to 5 scale. | Wilcoxon | Two conditions (the logos), same users, ordinal ratings. |
+| Anxiety ratings of 14 students are taken the week before an exam and again the week after. | Wilcoxon | Two conditions (before, after), same students, ordinal ratings. |
+| Ratings (1 to 5) of a new app from 15 iPhone users and a different 15 Android users. | Mann-Whitney | Two conditions (platform), different people, ordinal ratings. |
+| One group of developers works in pairs and a separate group works alone. Bug counts are skewed. | Mann-Whitney | Two conditions, different developers, non-normal data. |
+| Do students who sit at the front get different exam ranks from students who sit at the back? | Mann-Whitney | Two conditions (front, back), different students, ranks. |
+| Customer satisfaction scores (1 to 10) at two separate branches of a bank. | Mann-Whitney | Two conditions, different customers at each branch, ordinal scores. |
+| Experts and novices each estimate how long a task will take. Estimates are heavily skewed. | Mann-Whitney | Two conditions, expertise is fixed so different people, non-normal data. |
+| The same 12 participants rate four flavours of a drink on a 1 to 9 scale. | Friedman | Four conditions, same participants, ordinal ratings, no order predicted. |
+| Each of 9 students takes a quiz in the morning, afternoon and evening. Does time of day matter? | Friedman | Three conditions, same students, no order predicted. |
+| The same programmers write code in three languages. Bug counts are not normal, and nobody predicts which language is worst. | Friedman | Three conditions, same people, non-normal data, no order predicted. |
+| Ten judges each rank five designs from best to worst. | Friedman | Five conditions, same judges, ranks, no order predicted. |
+| The same students solve puzzles with 0, 10 and 20 minutes of practice. Scores are predicted to rise with practice. | Page's L | Three ordered conditions, same students, rise predicted in advance. |
+| The same users load pages on 3G, 4G and 5G. Satisfaction ratings are predicted to rise with the faster network. | Page's L | Three ordered conditions, same users, order predicted. |
+| The same drivers are tested after 0, 1 and 2 drinks. Reaction ratings are predicted to get worse with each drink. | Page's L | Three ordered conditions, same drivers, direction predicted. |
+| Each of 8 testers uses four versions of an app, each with more on-screen help than the last. Errors are predicted to fall with each version. | Page's L | Four ordered conditions, same testers, fall predicted. |
+| Four separate groups of users each try a different search engine and rate it (1 to 5). | Kruskal-Wallis | Four conditions, different people, ordinal ratings, no order predicted. |
+| Exam ranks of students from three different degree programmes. Groups have 10, 12 and 9 students. | Kruskal-Wallis | Three conditions, different students, unequal groups, no order predicted. |
+| Patients at three different hospitals rate their care. Nobody predicts which hospital is best. | Kruskal-Wallis | Three conditions, different patients, no order predicted. |
+| Three separate teams each use Scrum, Kanban or Waterfall. Defect counts are skewed. | Kruskal-Wallis | Three conditions, different teams, non-normal data, no order predicted. |
+| Separate groups of 10 children aged 6, 8 and 10 take a reading test. Scores are predicted to rise with age. | Jonckheere | Three ordered conditions, different children, equal groups, rise predicted. |
+| Three separate groups of 7 users get no, short or long onboarding. Errors are predicted to fall with more onboarding. | Jonckheere | Three ordered conditions, different users, equal groups, fall predicted. |
+| Separate groups of 5 servers run at low, medium and high load. Response times are predicted to rise with load. | Jonckheere | Three ordered conditions, different servers, equal groups, rise predicted. |
+| For 40 students: hours of sleep the night before, and exam rank. Do they go together? | Spearman's rho | Two measures on the same students, looking for an association. |
+| For 25 developers: lines of code written and number of bugs. Is more code linked with more bugs? | Spearman's rho | Two measures per developer, association, not cause. |
+| Two judges each rank the same 12 paintings. Do their rankings agree? | Spearman's rho | Two rankings of the same items, association between them. |
+| For 30 apps: download rank and star rating (1 to 5). Are they related? | Spearman's rho | Two measures per app, ordinal, association. |
+| For 50 employees: years at the company and job satisfaction (1 to 7). | Spearman's rho | Two measures per person, looking for a relationship. |
+| 200 voters are classified by age group (under 30, 30 to 60, over 60) and by preferred party. | Chi-square | People are put into categories and counted; no scores. |
+| Bug reports are counted by severity (low, medium, high) and by component (UI, server, database). | Chi-square | Each report falls into one category of each kind; counts only. |
+| Students are counted by whether they passed or failed and by whether they attended the revision class. | Chi-square | Counts in categories (pass/fail by attended/not); no scores. |
+| Do men and women differ in which of three phones they choose? 90 buyers are counted. | Chi-square | Each buyer gives only categories (gender, phone); count them. |
+| Apps are counted by store (Apple, Google) and by whether they crashed in testing (yes, no). | Chi-square | Counts in categories; each app sits in one cell. |
+| Students on a module are split into two separate groups: one gets weekly quizzes, the other does not. Final grades are ordinal. | Mann-Whitney | Two conditions, different students, ordinal grades. |
+| Each of 16 runners is timed on the same course in new shoes and in old shoes. Times are skewed. | Wilcoxon | Two conditions, same runners, non-normal data. |
+| Readers of three different newspapers rate their trust in the news (1 to 5). Groups have 20, 25 and 18 people. | Kruskal-Wallis | Three conditions, different people, unequal groups, ordinal ratings. |

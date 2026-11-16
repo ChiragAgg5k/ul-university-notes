@@ -1275,7 +1275,7 @@ function nextStudy() {
     position = 0;
   }
   const study = order[position];
-  document.getElementById('drill-count').textContent = `Study ${asked + 1}`;
+  document.getElementById('drill-count').textContent = `Study ${position + 1} of ${order.length}${asked >= order.length ? ' (seen them all, now reshuffled)' : ''}`;
   document.getElementById('drill-scenario').textContent = study.scenario;
   document.getElementById('drill-feedback').textContent = '';
   document.getElementById('drill-choices').replaceChildren(
