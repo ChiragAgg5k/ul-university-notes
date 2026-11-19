@@ -21,10 +21,10 @@ You can upload more than once before the deadline. Nothing can be changed after 
 
 ### Chosen topic
 
-Picked 16 Nov 2026.
+Picked 16 Nov 2026; question simplified 19 Nov 2026.
 
-- **Topic:** Company-backed open-source development.
-- **Research question:** How do company-backed open-source projects balance community contributions with paid product work?
+- **Topic:** Open-source business models.
+- **Research question:** How do open-source projects make money?
 - **Why this one:** decades of published research, and first-hand experience from work on an open-core product (used only as a motivating example; every claim cites a published source, and no company internals go on the slides).
 
 ### Common mistakes to avoid

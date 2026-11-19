@@ -18,8 +18,8 @@ Slot: Mon 23 Nov 2026, be in the room before 9:00. 3 minutes talking (about 400 
 ## 1. Title (20 s, about 45 words spoken)
 
 - Name: Chirag Aggarwal (26253925)
-- Topic: Company-backed open-source development
-- Research question: How do company-backed open-source projects balance community contributions with paid product work?
+- Topic: Open-source business models
+- Research question: How do open-source projects make money?
 - Why it matters, one line in your words:
 
 ## 2. Background: what makes open-source development different (30 s, about 65 words)
@@ -42,8 +42,8 @@ Slot: Mon 23 Nov 2026, be in the room before 9:00. 3 minutes talking (about 400 
 ## 5. Answer (40 s, about 90 words)
 
 - Answer to the question in one sentence: ______
-- Supporting point (full control vs. shared control, and what happens to inflow and retention): ______ (Zhou et al., 2016)
-- Supporting point (how neutral foundations make the split work): ______ (O'Mahony and Bechky, 2008)
+- Supporting point (the main ways the money comes in, and why the free version still pays off): ______ (Riehle, 2012)
+- Supporting point (the cost: tighter company control means fewer outside contributors join): ______ (Zhou et al., 2016)
 
 ## 6. References (10 s)
 

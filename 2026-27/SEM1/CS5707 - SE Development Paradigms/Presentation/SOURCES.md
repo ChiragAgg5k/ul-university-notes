@@ -2,7 +2,7 @@
 
 Research notes for the [slide scaffold](SLIDES.md). Every reference below was checked against its DOI record on Crossref on 19 November 2026. The "what the paper says" notes come from each paper's abstract, so they show what to look for when reading. They are not slide text: read the paper, then write each point in your own words and cite it.
 
-Topic: company-backed open-source development. Question: how do company-backed open-source projects balance community contributions with paid product work?
+Topic: open-source business models. Question: how do open-source projects make money?
 
 ## By slide
 
@@ -11,7 +11,7 @@ Topic: company-backed open-source development. Question: how do company-backed o
 | 2. Background: what makes open-source development different | Mockus, Fielding and Herbsleb (2002); Fitzgerald (2006) |
 | 3. Literature: how companies make money from open source | Riehle (2012); Dahlander and Magnusson (2005); Lerner and Tirole (2002) |
 | 4. Literature: why outsiders contribute, and what stops newcomers | von Krogh, Spaeth and Lakhani (2003); Steinmacher et al. (2015); Riehle et al. (2014) |
-| 5. Answer | Zhou et al. (2016); O'Mahony and Bechky (2008); Dahlander and Magnusson (2005) |
+| 5. Answer | Riehle (2012); Zhou et al. (2016); optional: O'Mahony and Bechky (2008) on foundations |
 
 ## What each paper says
 
@@ -22,7 +22,7 @@ Topic: company-backed open-source development. Question: how do company-backed o
 
 ### The business side
 
-- **Riehle (2012).** Sets out the core properties of the single-vendor commercial open source business model (one company owns the code and sells to the users of the free version) and explains how its benefits depend on an engaged, self-supporting user community. Look for: why the vendor keeps copyright, and what the community gives the vendor in return.
+- **Riehle (2012).** Sets out the core properties of the single-vendor commercial open source business model (one company owns the code and sells to the users of the free version) and explains how its benefits depend on an engaged, self-supporting user community. Look for: why the vendor keeps copyright, and what the community gives the vendor in return. This answers your question most directly, so build the answer slide on it.
 - **Dahlander and Magnusson (2005).** Studies Nordic firms and sorts how they relate to their communities into symbiotic, commensalistic and parasitic approaches. Firms that take the symbiotic approach have more scope to influence the community through subtle forms of control. Look for: the definitions of the three approaches.
 - **Lerner and Tirole (2002).** An economic reading of open source. Labour economics, especially "career concerns" (contributing to signal skill to future employers), and industrial organisation theory explain much of how individuals and companies behave in these projects. Look for: why companies take part, not only individuals.
 
@@ -34,7 +34,7 @@ Topic: company-backed open-source development. Question: how do company-backed o
 
 ### Towards the answer
 
-- **Zhou et al. (2016).** Looks at three company-backed Java EE application server projects using repository data, interviews, regression models and survival analysis. Full company control and heavy commercial involvement went with less inflow of outside contributors but better retention; shared control went with more outside inflow. Look for: the three models of community involvement and the trade-off between inflow and retention. This is the paper that answers your question most directly.
+- **Zhou et al. (2016).** Looks at three company-backed Java EE application server projects using repository data, interviews, regression models and survival analysis. Full company control and heavy commercial involvement went with less inflow of outside contributors but better retention; shared control went with more outside inflow. Look for: the three models of community involvement and the trade-off between inflow and retention. Use it to show the cost of the money side: the tighter a company controls the project to protect its revenue, the fewer outsiders join.
 - **O'Mahony and Bechky (2008).** Field study of four open source community projects that worked with firms holding proprietary positions. They collaborated through a "boundary organisation", usually a foundation, that settled governance, membership, ownership and control over production. Look for: the four domains and how each was settled.
 
 ## References (Harvard)
