@@ -60,7 +60,7 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 
 ## Other dates
 
-- **Tue 24 Nov**: gradireland "Engineer Your Career" in Dublin, free with travel reimbursed for accepted applicants. Optional; it is the day after the CS5707 talk.
+- **Tue 24 Nov, 10:30–17:00**: gradireland "Engineer Your Career" in Dublin, free with travel reimbursed for accepted applicants. Applied 19 Nov (application A01105), under consideration; wait for the events team to confirm a place before booking travel.
 - **GenAI**: the Provost reminded everyone on 16 Nov to check each module's rules before using it. CS5707 marks AI-written reports at zero, and the CSIS project bans it without the supervisor's written permission.
 - The Thu 12 Nov strike was called off; the Sat 14 Nov power outage has passed.
 - The final Autumn exam timetable is published on the UL Timetable site.
