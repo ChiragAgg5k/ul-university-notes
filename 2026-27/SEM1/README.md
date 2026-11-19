@@ -41,7 +41,7 @@ Three reports land on Fri 4 Dec, five days before two exams on consecutive days.
 | Week | Coursework | Revision |
 | --- | --- | --- |
 | Week 10, 9–15 Nov | Done: CS5709 Assessment 3 built and submitted; Chen paper read. | Done: statistics test prepared. |
-| Thu 19 – Sun 22 Nov | **Thu–Fri: write the CS5707 slides, export to PDF and upload by Fri 23:59.** Fri–Sat: read the CS5741 Assignment 2 brief and plan it against the Assignment 1 feedback in [LESSONS](LESSONS.md). Sun: rehearse the CS5707 talk to under 3 minutes; start the CS5709 Assessment 4 slides from the template. Collect the package. | CS5741 Quiz 1, one evening. |
+| Thu 19 – Sun 22 Nov | **Thu–Fri: write the CS5707 slides, export to PDF and upload by Fri 23:59.** Fri–Sat: read the CS5741 Assignment 2 brief and plan it against the Assignment 1 feedback in [LESSONS](LESSONS.md). Sun: rehearse the CS5707 talk to under 3 minutes; start the CS5709 Assessment 4 slides from the template. | CS5741 Quiz 1, one evening. |
 | Week 12, 23–29 Nov | **CS5707 presentation, Mon 23, before 9:00.** Submit CS5709 Assessment 4 (Wed 25). Build, measure and write up CS5741 Assignment 2 (Thu 26). Agree the CS6081 essay topic with the teammate. Start the CSIS MOOC (one module an evening once CS5741 is in). | CS5741 Quiz 2. CS5707: lecture notes pass. |
 | 30 Nov – 4 Dec | Finish and submit CS5709 Assessment 5 (Fri 12:00), the CS5707 report (Fri 23:59) and the CS6081 essay (Fri). Aim to have two of the three done by Wed 2 Dec. | CS6451: redo the midterm topic checklist. |
 | 5–8 Dec | Finish the CS6451 Part 2 report (due Thu 10 Dec, the day of the CS5741 exam). | CS5707 (Sat, Sun, Tue) and CS5741 (Mon, Tue): past papers under time. |
@@ -60,7 +60,6 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 
 ## Other dates
 
-- **Package waiting** at the village reception since Wed 18 Nov (CLS email). Bring your student ID.
 - **Tue 24 Nov**: gradireland "Engineer Your Career" in Dublin, free with travel reimbursed for accepted applicants. Optional; it is the day after the CS5707 talk.
 - **GenAI**: the Provost reminded everyone on 16 Nov to check each module's rules before using it. CS5707 marks AI-written reports at zero, and the CSIS project bans it without the supervisor's written permission.
 - The Thu 12 Nov strike was called off; the Sat 14 Nov power outage has passed.
