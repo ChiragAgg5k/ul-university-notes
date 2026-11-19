@@ -11,7 +11,7 @@ Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, anno
 | Wed 18 Nov | CS6451 | Group talk, 30 min: present one paper on porting a monolith to microservices, picked from the shared "CS6451" OneDrive folder | not stated | Group 1 picked paper 2: Chen, Li & Li (2017), "From Monolith to Microservices: A Dataflow-Driven Approach", APSEC 2017 (`MSA-Dataflow_Chen-2017.pdf`); [paper, notes and talk outline](CS6451%20-%20Advanced%20Software%20Design/Paper%20Talk/README.md); slides and speaker notes committed 18 Nov; mark done once confirmed the talk was given |
 | Mon 16 Nov, 13:10–13:45 (confirmed) | CS6081 | In-class statistics test, 5 questions; [sample paper and preparation guide](CS6081%20-%20Research%20Methods%20and%20Practice/Stats%20Test/README.md) | 10% | sat Mon 16 Nov; awaiting result |
 | Tue 17 Nov, 23:59 | CS5709 | [Assessment 3: Digital Portfolio, Phase 2](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/README.md) | 30% (the brief also says 35% once) | **done**: submitted 10 Nov, corrected version resubmitted the same evening (ID 1063641); awaiting marks |
-| Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF only; in class be there before 9:00, no late arrivals: 3 minutes talking plus 2 minutes feedback, any module topic, at least 5 references, every point cited; [requirements and checklist](CS5707%20-%20SE%20Development%20Paradigms/README.md) | not stated | **urgent**: topic set and [slide scaffold](CS5707%20-%20SE%20Development%20Paradigms/Presentation/SLIDES.md) ready (16 Nov); slides not written yet. Brightspace reminder arrived 19 Nov |
+| Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF only; in class be there before 9:00, no late arrivals: 3 minutes talking plus 2 minutes feedback, any module topic, at least 5 references, every point cited; [requirements and checklist](CS5707%20-%20SE%20Development%20Paradigms/README.md) | not stated | **done**: submitted Thu 19 Nov, 15:44 (ID 1079201) |
 | Mon 23 Nov, before 9:00 | CS5707 | Give the presentation in class (3 minutes talking, 2 minutes feedback); be in the room before 9:00, no late arrivals | not stated | slides due Fri 20 Nov |
 | Wed 25 Nov, 09:00–13:00 | CS5709 | Workshop instead of the lecture: inspect a system and give feedback using reverse-engineering concepts, paid at UL rates; attendance taken, tell Salim in advance if you cannot come. A report on the inspection follows (due date not given yet) | not stated | announced 19 Nov |
 | Wed 25 Nov, 23:59 | CS5709 | Assessment 4: 5-minute technical presentation, using the template attached to the dropbox. **Must be a recorded video**: PowerPoint, Record tab, From Beginning, then Export as MP4 and upload the MP4 | 20% | not submitted |
@@ -42,7 +42,7 @@ Three reports land on Fri 4 Dec, five days before two exams on consecutive days.
 | Week | Coursework | Revision |
 | --- | --- | --- |
 | Week 10, 9–15 Nov | Done: CS5709 Assessment 3 built and submitted; Chen paper read. | Done: statistics test prepared. |
-| Thu 19 – Sun 22 Nov | **Thu–Fri: write the CS5707 slides, export to PDF and upload by Fri 23:59.** Fri–Sat: read the CS5741 Assignment 2 brief and plan it against the Assignment 1 feedback in [LESSONS](LESSONS.md). Sun: rehearse the CS5707 talk to under 3 minutes; start the CS5709 Assessment 4 slides from the template. | CS5741 Quiz 1, one evening. |
+| Thu 19 – Sun 22 Nov | Done: CS5707 slides submitted Thu 19 (ID 1079201). Fri–Sat: read the CS5741 Assignment 2 brief and plan it against the Assignment 1 feedback in [LESSONS](LESSONS.md). Sun: rehearse the CS5707 talk to under 3 minutes; start the CS5709 Assessment 4 slides from the template. | CS5741 Quiz 1, one evening. |
 | Week 12, 23–29 Nov | **CS5707 presentation, Mon 23, before 9:00.** Record CS5709 Assessment 4 as an MP4 by Tue 24 (Wed 25 is taken by the 09:00–13:00 workshop), upload by Wed 25 23:59. Build, measure and write up CS5741 Assignment 2 (Thu 26). Agree the CS6081 essay topic with the teammate. Start the CSIS MOOC (one module an evening once CS5741 is in). | CS5741 Quiz 2. CS5707: lecture notes pass. |
 | 30 Nov – 4 Dec | Finish and submit CS5709 Assessment 5 (Fri 12:00), the CS5707 report (Fri 23:59) and the CS6081 essay (Fri). Aim to have two of the three done by Wed 2 Dec. | CS6451: redo the midterm topic checklist. |
 | 5–8 Dec | Finish the CS6451 Part 2 report (due Thu 10 Dec, the day of the CS5741 exam). | CS5707 (Sat, Sun, Tue) and CS5741 (Mon, Tue): past papers under time. |
@@ -75,6 +75,7 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 | CS5709 | Assessment 2: peer review | 1024621 |
 | CS5741 | Assignment 1 | 1025980 |
 | CS5709 | Assessment 3: portfolio Phase 2 | 1063641 |
+| CS5707 | Presentation slides | 1079201 |
 | CS6081 | Poster | 1043528 |
 | CS6451 | Part 1 report | 1052451 |
 | CS6451 | Part 1 code | 1052452 |
