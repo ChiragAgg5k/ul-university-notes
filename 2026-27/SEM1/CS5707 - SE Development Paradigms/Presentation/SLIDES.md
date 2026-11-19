@@ -1,5 +1,7 @@
 # Presentation slides: scaffold
 
+Sources, checked and mapped to slides: [SOURCES.md](SOURCES.md).
+
 Fill each slide in your own words, then build it in your slide tool and export to PDF. The structure and checks below come from the lecturer's brief; the wording on the slides has to be yours. Paste drafts back for review.
 
 Slot: Mon 23 Nov 2026, be in the room before 9:00. 3 minutes talking (about 400 words spoken), then 2 minutes of feedback. Upload the PDF by Fri 20 Nov, 23:59.
