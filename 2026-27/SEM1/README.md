@@ -2,23 +2,26 @@
 
 [Lessons from feedback](LESSONS.md): checks to run before every submission.
 
-Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, announcements and the UL student inbox. Brightspace is the source of truth; recheck it before relying on a date.
+Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, announcements and the UL student inbox; updated from the inbox on Thu 19 November 2026 (Week 11). Brightspace is the source of truth; recheck it before relying on a date.
 
 ## Deadlines
 
 | Due | Module | What | Weight | Status |
 | --- | --- | --- | --- | --- |
-| Wed 18 Nov | CS6451 | Group talk, 30 min: present one paper on porting a monolith to microservices, picked from the shared "CS6451" OneDrive folder | not stated | Group 1 picked paper 2: Chen, Li & Li (2017), "From Monolith to Microservices: A Dataflow-Driven Approach", APSEC 2017 (`MSA-Dataflow_Chen-2017.pdf`); [paper, notes and talk outline](CS6451%20-%20Advanced%20Software%20Design/Paper%20Talk/README.md); slides to prepare |
+| Wed 18 Nov | CS6451 | Group talk, 30 min: present one paper on porting a monolith to microservices, picked from the shared "CS6451" OneDrive folder | not stated | Group 1 picked paper 2: Chen, Li & Li (2017), "From Monolith to Microservices: A Dataflow-Driven Approach", APSEC 2017 (`MSA-Dataflow_Chen-2017.pdf`); [paper, notes and talk outline](CS6451%20-%20Advanced%20Software%20Design/Paper%20Talk/README.md); slides and speaker notes committed 18 Nov; mark done once confirmed the talk was given |
 | Mon 16 Nov, 13:10–13:45 (confirmed) | CS6081 | In-class statistics test, 5 questions; [sample paper and preparation guide](CS6081%20-%20Research%20Methods%20and%20Practice/Stats%20Test/README.md) | 10% | sat Mon 16 Nov; awaiting result |
-| Tue 17 Nov, 23:59 | CS5709 | [Assessment 3: Digital Portfolio, Phase 2](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/README.md) | 30% (the brief also says 35% once) | site, pipeline, innovation and evaluation done 10 Nov; submitted 10 Nov; corrected version resubmitted the same evening (ID 1063641) ([what is left](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/NOTES.md)) |
-| Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF only; in class be there before 9:00, no late arrivals: 3 minutes talking plus 2 minutes feedback, any module topic, at least 5 references, every point cited; [requirements and checklist](CS5707%20-%20SE%20Development%20Paradigms/README.md) | not stated | not submitted |
+| Tue 17 Nov, 23:59 | CS5709 | [Assessment 3: Digital Portfolio, Phase 2](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%203/README.md) | 30% (the brief also says 35% once) | **done**: submitted 10 Nov, corrected version resubmitted the same evening (ID 1063641); awaiting marks |
+| Fri 20 Nov, 23:59 | CS5707 | Presentation slides, uploaded as PDF only; in class be there before 9:00, no late arrivals: 3 minutes talking plus 2 minutes feedback, any module topic, at least 5 references, every point cited; [requirements and checklist](CS5707%20-%20SE%20Development%20Paradigms/README.md) | not stated | **urgent**: topic set and [slide scaffold](CS5707%20-%20SE%20Development%20Paradigms/Presentation/SLIDES.md) ready (16 Nov); slides not written yet. Brightspace reminder arrived 19 Nov |
 | Mon 23 Nov, before 9:00 | CS5707 | Give the presentation in class (3 minutes talking, 2 minutes feedback); be in the room before 9:00, no late arrivals | not stated | slides due Fri 20 Nov |
 | Wed 25 Nov, 23:59 | CS5709 | Assessment 4: 5-minute technical presentation, using the template attached to the dropbox | 20% | not submitted |
-| Thu 26 Nov, 23:59 | CS5741 | Assignment 2: Simulating Forest Fire Spread and Recovery | 30 marks | opens 12 Nov; brief not read |
+| Thu 26 Nov, 23:59 | CS5741 | Assignment 2: Simulating Forest Fire Spread and Recovery | 30 marks | open since 12 Nov; brief not read. This week's labs are free time for it (no new lab material) |
+| Weeks 11–12 | CS5741 | Practice quizzes that mimic the final exam: Quiz 1 released 16 Nov, Quiz 2 due out the week of 23 Nov | 0 (practice) | not attempted |
 | Fri 4 Dec, 12:00 | CS5709 | Assessment 5: technical report, APA references | 20% | not submitted |
 | Fri 4 Dec, 23:59 | CS5707 | Final report: 8 pages max plus references, Harvard style, `report_template.docx` | not stated | not submitted |
-| Fri 4 Dec, 12:00 | CS6081 | End-of-term essay; spec and video posted under Week 8 on 28 Oct | 70% | no dropbox yet |
+| Fri 4 Dec, 12:00 | CS6081 | End-of-term essay; spec and video posted under Week 8 on 28 Oct | 70% | final spec page posted 10 Nov; [essay notes](CS6081%20-%20Research%20Methods%20and%20Practice/Essay/README.md); team of 2; no dropbox yet. Jim suggests the dissertation area, so low-code/no-code (Wave) is a candidate topic |
 | Thu 10 Dec, 23:59 | CS6451 | [Assignment Part 2](CS6451%20-%20Advanced%20Software%20Design/Assignments/Part%202%20-%20Microservices%20Architecture/README.md): port the gym monolith to microservices with Chen's approach, evaluate with metrics (MicroValid) | 15% | brief read 11 Nov; not started |
+| Before about 7 Dec | CSIS Project | Supervisor's low-code/no-code MOOC on Edvance (about 6 hours, 5 modules, quizzes); [project notes](../CSIS%20Project/README.md) | n/a | enrolled 19 Nov; not started |
+| About 3 Dec | CSIS Project | If Prof. Margaria has not confirmed a meeting for the week of 7 Dec, send one short note | n/a | waiting on her reply |
 | Mon 8 Feb 2027, 15:00 | CSIS Project | Signed Project Details Form | n/a | needs supervisor sign-off |
 
 ## Exams
@@ -37,9 +40,9 @@ Three reports land on Fri 4 Dec, five days before two exams on consecutive days.
 
 | Week | Coursework | Revision |
 | --- | --- | --- |
-| Week 10, 9–15 Nov | CS5709 Assessment 3 main build and report. CS6451: read the Chen paper and draft the talk. | CS6081 statistics test: about three hours, ending with the sample paper closed-book on Sun 15. |
-| Week 11, 16–22 Nov | CS6081 statistics test (likely Mon 16). Submit CS5709 Assessment 3 (Tue 17). CS5707 slides as PDF (Fri 20). CS6451 talk if not given in Week 10. Start the CS5709 Assessment 4 slides from the template. Rehearse the CS5707 talk to under 3 minutes. | CS5741: re-read lectures 1–4, one evening. |
-| Week 12, 23–29 Nov | **CS5707 presentation, Mon 23, before 9:00.** Submit CS5709 Assessment 4 (Wed 25). First full drafts of the CS5707 report and the CS6081 essay. Outline CS5709 Assessment 5 from the existing Assessment 1–3 reports. | CS5707: lecture notes pass. CS5741: lectures 5–9. |
+| Week 10, 9–15 Nov | Done: CS5709 Assessment 3 built and submitted; Chen paper read. | Done: statistics test prepared. |
+| Thu 19 – Sun 22 Nov | **Thu–Fri: write the CS5707 slides, export to PDF and upload by Fri 23:59.** Fri–Sat: read the CS5741 Assignment 2 brief and plan it against the Assignment 1 feedback in [LESSONS](LESSONS.md). Sun: rehearse the CS5707 talk to under 3 minutes; start the CS5709 Assessment 4 slides from the template. Collect the package. | CS5741 Quiz 1, one evening. |
+| Week 12, 23–29 Nov | **CS5707 presentation, Mon 23, before 9:00.** Submit CS5709 Assessment 4 (Wed 25). Build, measure and write up CS5741 Assignment 2 (Thu 26). Agree the CS6081 essay topic with the teammate. Start the CSIS MOOC (one module an evening once CS5741 is in). | CS5741 Quiz 2. CS5707: lecture notes pass. |
 | 30 Nov – 4 Dec | Finish and submit CS5709 Assessment 5 (Fri 12:00), the CS5707 report (Fri 23:59) and the CS6081 essay (Fri). Aim to have two of the three done by Wed 2 Dec. | CS6451: redo the midterm topic checklist. |
 | 5–8 Dec | Finish the CS6451 Part 2 report (due Thu 10 Dec, the day of the CS5741 exam). | CS5707 (Sat, Sun, Tue) and CS5741 (Mon, Tue): past papers under time. |
 | Wed 9 Dec | **CS5707 exam, 16:00.** | Evening: CS5741 formulas and worked examples. |
@@ -57,8 +60,10 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 
 ## Other dates
 
-- **Thu 12 Nov**: national public sector strike. Teaching and labs will not run if it goes ahead; the Provost promised an update on Tue 10 Nov.
-- **Sat 14 Nov**: planned power outage on the north campus.
+- **Package waiting** at the village reception since Wed 18 Nov (CLS email). Bring your student ID.
+- **Tue 24 Nov**: gradireland "Engineer Your Career" in Dublin, free with travel reimbursed for accepted applicants. Optional; it is the day after the CS5707 talk.
+- **GenAI**: the Provost reminded everyone on 16 Nov to check each module's rules before using it. CS5707 marks AI-written reports at zero, and the CSIS project bans it without the supervisor's written permission.
+- The Thu 12 Nov strike was called off; the Sat 14 Nov power outage has passed.
 - The final Autumn exam timetable is published on the UL Timetable site.
 - Module selection on the Student Portal: checked on 10 Nov, correct (the deadline to raise problems was Fri 13 Nov).
 
@@ -69,6 +74,7 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 | CS5709 | Assessment 1 | 999286 |
 | CS5709 | Assessment 2: peer review | 1024621 |
 | CS5741 | Assignment 1 | 1025980 |
+| CS5709 | Assessment 3: portfolio Phase 2 | 1063641 |
 | CS6081 | Poster | 1043528 |
 | CS6451 | Part 1 report | 1052451 |
 | CS6451 | Part 1 code | 1052452 |
