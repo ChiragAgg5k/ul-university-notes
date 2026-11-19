@@ -53,12 +53,11 @@ Keep only the ones you cited on a slide (at least 5). Full entries are in [SOURC
 2. Fitzgerald (2006)
 3. Lerner and Tirole (2002)
 4. Mockus, Fielding and Herbsleb (2002)
-5. O'Mahony and Bechky (2008)
-6. Riehle (2012)
-7. Riehle et al. (2014)
-8. Steinmacher et al. (2015)
-9. von Krogh, Spaeth and Lakhani (2003)
-10. Zhou et al. (2016)
+5. Riehle (2012)
+6. Riehle et al. (2014)
+7. Steinmacher et al. (2015)
+8. von Krogh, Spaeth and Lakhani (2003)
+9. Zhou et al. (2016)
 
 ## Before uploading
 
