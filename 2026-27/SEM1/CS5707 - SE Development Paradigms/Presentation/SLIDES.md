@@ -15,46 +15,50 @@ Slot: Mon 23 Nov 2026, be in the room before 9:00. 3 minutes talking (about 400 
 | 5 | Answer to the question | 40 s | 1–2 |
 | 6 | References (Harvard) | 10 s | at least 5 entries |
 
-## 1. Title
+## 1. Title (20 s, about 45 words spoken)
 
-- Name:
-- Topic (a topic, not a hypothesis): Company-backed open-source development
-- Research question (ends with "?"): How do company-backed open-source projects balance community contributions with paid product work?
+- Name: Chirag Aggarwal (26253925)
+- Topic: Company-backed open-source development
+- Research question: How do company-backed open-source projects balance community contributions with paid product work?
+- Why it matters, one line in your words:
 
-## 2. Background
+## 2. Background: what makes open-source development different (30 s, about 65 words)
 
-- Point:
-- Citation:
+- Point (how open-source projects are organised; core team vs. wider contributors): ______ (Mockus, Fielding and Herbsleb, 2002)
+- Point (open source is no longer only volunteers; it is now commercial too): ______ (Fitzgerald, 2006)
 
-## 3. Literature: the business side
+## 3. Literature: the business side (40 s, about 90 words)
 
-- Point:
-- Citation:
-- Point:
-- Citation:
+- Point (how one company can own the code and still give it away): ______ (Riehle, 2012)
+- Point (the different ways firms relate to their community): ______ (Dahlander and Magnusson, 2005)
+- Optional point (why companies and developers take part at all): ______ (Lerner and Tirole, 2002)
 
-## 4. Literature: the community side
+## 4. Literature: the community side (40 s, about 90 words)
 
-- Point:
-- Citation:
-- Point:
-- Citation:
+- Point (how outsiders join and move into the project): ______ (von Krogh, Spaeth and Lakhani, 2003)
+- Point (what stops newcomers): ______ (Steinmacher et al., 2015)
+- Optional point (how much of the work is paid): ______ (Riehle et al., 2014)
 
-## 5. Answer
+## 5. Answer (40 s, about 90 words)
 
-- Answer in one sentence:
-- Supporting point and citation:
-- Supporting point and citation:
+- Answer to the question in one sentence: ______
+- Supporting point (full control vs. shared control, and what happens to inflow and retention): ______ (Zhou et al., 2016)
+- Supporting point (how neutral foundations make the split work): ______ (O'Mahony and Bechky, 2008)
 
-## 6. References
+## 6. References (10 s)
 
-Harvard style: Author, A. and Author, B. (Year) 'Title', *Journal*, volume(issue), pages. Every entry must be cited on a slide, and every slide point must have an entry.
+Keep only the ones you cited on a slide (at least 5). Full entries are in [SOURCES.md](SOURCES.md#references-harvard), in alphabetical order:
 
-1.
-2.
-3.
-4.
-5.
+1. Dahlander and Magnusson (2005)
+2. Fitzgerald (2006)
+3. Lerner and Tirole (2002)
+4. Mockus, Fielding and Herbsleb (2002)
+5. O'Mahony and Bechky (2008)
+6. Riehle (2012)
+7. Riehle et al. (2014)
+8. Steinmacher et al. (2015)
+9. von Krogh, Spaeth and Lakhani (2003)
+10. Zhou et al. (2016)
 
 ## Before uploading
 
