@@ -6,3 +6,4 @@
 !.env.example
 .playwright-mcp/
 .claude/
+*.class
