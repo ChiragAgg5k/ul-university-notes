@@ -1,0 +1,29 @@
+cores=12 java=27.0.1.0.3 repeats=5 warmup=2 steps=400 experiments=[overhead, strong, weak, variants, shared]
+overhead done
+strong size=500 run 1/5 done
+strong size=500 run 2/5 done
+strong size=500 run 3/5 done
+strong size=500 run 4/5 done
+strong size=500 run 5/5 done
+strong size=1000 run 1/5 done
+strong size=1000 run 2/5 done
+strong size=1000 run 3/5 done
+strong size=1000 run 4/5 done
+strong size=1000 run 5/5 done
+strong size=2000 run 1/5 done
+strong size=2000 run 2/5 done
+strong size=2000 run 3/5 done
+strong size=2000 run 4/5 done
+strong size=2000 run 5/5 done
+weak size=707 done
+weak size=1000 done
+weak size=1414 done
+weak size=2000 done
+variants run 1/5 done
+variants run 2/5 done
+variants run 3/5 done
+variants run 4/5 done
+variants run 5/5 done
+shared run 1 done
+shared run 2 done
+shared run 3 done
