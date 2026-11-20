@@ -23,7 +23,7 @@ Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, anno
 | Thu 10 Dec, 23:59 | CS6451 | [Assignment Part 2](CS6451%20-%20Advanced%20Software%20Design/Assignments/Part%202%20-%20Microservices%20Architecture/README.md): port the gym monolith to microservices with Chen's approach, evaluate with metrics (MicroValid) | 15% | brief read 11 Nov; not started |
 | Before about 7 Dec | CSIS Project | Supervisor's low-code/no-code MOOC on Edvance (about 6 hours, 5 modules, quizzes); [project notes](../CSIS%20Project/README.md) | n/a | enrolled 19 Nov; not started |
 | About 3 Dec | CSIS Project | If Prof. Margaria has not confirmed a meeting for the week of 7 Dec, send one short note | n/a | waiting on her reply |
-| Mon 8 Feb 2027, 15:00 | CSIS Project | Signed Project Details Form | n/a | needs supervisor sign-off |
+| Mon 8 Feb 2027, 15:00 | CSIS Project | Signed Project Details Form: confirm the supervisor, describe the project area in at most 500 words within a Software Engineering core area (Wave fits "Cloud and Distributed Systems" and "DevOps and Software Delivery"), and sign the three declarations (electronic signature is fine). Date confirmed on the Brightspace dropbox 20 Nov; the Software Engineering guidance sets no earlier deadline | n/a | needs supervisor sign-off |
 
 ## Exams
 
@@ -61,7 +61,7 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 
 ## Other dates
 
-- **Tue 24 Nov, 10:30–17:00**: gradireland "Engineer Your Career" in Dublin, free with travel reimbursed for accepted applicants. Applied 19 Nov (application A01105), under consideration; wait for the events team to confirm a place before booking travel.
+- **Tue 24 Nov**: gradireland "Engineer Your Career" in Dublin. Applied 19 Nov; not offered a place (email of 19 Nov), so the day is free.
 - **GenAI**: the Provost reminded everyone on 16 Nov to check each module's rules before using it. CS5707 marks AI-written reports at zero, and the CSIS project bans it without the supervisor's written permission.
 - The Thu 12 Nov strike was called off; the Sat 14 Nov power outage has passed.
 - The final Autumn exam timetable is published on the UL Timetable site.

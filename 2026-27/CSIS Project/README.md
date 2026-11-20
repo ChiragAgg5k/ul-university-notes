@@ -33,7 +33,7 @@ Read on 11 November 2026 from [the guidelines](CSIS%20Project%20Guidelines%20-%2
 
 | When | What | Consequence |
 | --- | --- | --- |
-| Friday, Week 2 of spring, 12:00 | [Project Details Form](CSIS%20Masters%20Project%20Details%20Form%20AY2627.docx), fully signed by supervisor and student, with all declarations. The earlier note in this repository says Mon 8 Feb 2027, 15:00; check which is right on the dropbox | Not submitted: No Grade for the module |
+| Friday, Week 2 of spring, 12:00 | [Project Details Form](CSIS%20Masters%20Project%20Details%20Form%20AY2627.docx), fully signed by supervisor and student, with all declarations. The Brightspace dropbox says **Mon 8 February 2027, 15:00** (checked 20 November 2026), and the Software Engineering guidance posted that day sets no earlier date, so that is the deadline. The form needs a project description of at most 500 words within a Software Engineering core area, and the three declarations signed (electronic is fine) | Not submitted: No Grade for the module |
 | Thursday, Week 7 of spring | Last realistic date for an ethics application, needed if the project involves human participants | Data collected without approval is not graded |
 | Friday, Week 10 of spring | Literature review report: introduction, background, methodology with timeline and risks, conclusions, appendices | Not graded; feedback within about three weeks; non-submission can affect the final grade |
 | Week 12 of spring | Last date to arrange hardware, software or reimbursed costs | Nothing can be processed in summer |
