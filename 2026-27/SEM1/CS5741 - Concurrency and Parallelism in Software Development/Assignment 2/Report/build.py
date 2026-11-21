@@ -62,11 +62,13 @@ def samples() -> dict[Key, list[float]]:
 
 def section(name: str) -> str:
     path = SECTIONS / f'{name}.md'
-    if not path.exists():
+    text = path.read_text() if path.exists() else ''
+    # A file holding only drafting notes in HTML comments still counts as unwritten.
+    if not re.sub(r'<!--.*?-->', '', text, flags=re.S).strip():
         items = ''.join(f'<li>{escape(item)}</li>' for item in TO_WRITE[name])
         return f'<div class="todo"><b>To write: Sections/{name}.md</b><ul>{items}</ul></div>'
     # texmath has no {\rm ...}; \mathrm{...} renders the same upright text.
-    source = re.sub(r'\{\\rm ([^}]*)\}', r'\\mathrm{\1}', path.read_text())
+    source = re.sub(r'\{\\rm ([^}]*)\}', r'\\mathrm{\1}', text)
     converted = subprocess.run(['pandoc', '-f', 'markdown+tex_math_single_backslash', '-t', 'html', '--mathml',
                                 '--shift-heading-level-by=1'],
                                input=source, capture_output=True, text=True, check=True).stdout
