@@ -42,8 +42,8 @@ Three reports land on Fri 4 Dec, five days before two exams on consecutive days.
 | Week | Coursework | Revision |
 | --- | --- | --- |
 | Week 10, 9–15 Nov | Done: CS5709 Assessment 3 built and submitted; Chen paper read. | Done: statistics test prepared. |
-| Thu 19 – Sun 22 Nov | Done: CS5707 slides submitted Thu 19 (ID 1079201). Fri–Sat: read the CS5741 Assignment 2 brief and plan it against the Assignment 1 feedback in [LESSONS](LESSONS.md). Sun: rehearse the CS5707 talk to under 3 minutes; start the CS5709 Assessment 4 slides from the template. | CS5741 Quiz 1, one evening. |
-| Week 12, 23–29 Nov | **CS5707 presentation, Mon 23, before 9:00.** Record CS5709 Assessment 4 as an MP4 by Tue 24 (Wed 25 is taken by the 09:00–13:00 workshop), upload by Wed 25 23:59. Build, measure and write up CS5741 Assignment 2 (Thu 26). Agree the CS6081 essay topic with the teammate. Start the CSIS MOOC (one module an evening once CS5741 is in). | CS5741 Quiz 2. CS5707: lecture notes pass. |
+| Thu 19 – Sun 22 Nov | Done: CS5707 slides submitted Thu 19 (ID 1079201); CS5741 Assignment 2 submitted Sat 21 (ID 1083049); CS5709 Assessment 4 draft deck built Sat 21. Sun: rehearse the CS5707 talk to under 3 minutes; read through the Assessment 4 deck. | CS5741 Quiz 1, one evening. |
+| Week 12, 23–29 Nov | **CS5707 presentation, Mon 23, before 9:00.** CS6081 lecture: bring the essay topic to the Q&A hour. Rehearse and record CS5709 Assessment 4 as an MP4 on Tue 24 (Wed 25 is taken by the 09:00–13:00 workshop), upload by Wed 25 23:59. Agree the CS6081 essay topic with the teammate and start it. Start the CSIS MOOC, one module an evening. | CS5741 Quiz 2. CS5707: lecture notes pass. |
 | 30 Nov – 4 Dec | Finish and submit CS5709 Assessment 5 (Fri 12:00), the CS5707 report (Fri 23:59) and the CS6081 essay (Fri). Aim to have two of the three done by Wed 2 Dec. | CS6451: redo the midterm topic checklist. |
 | 5–8 Dec | Finish the CS6451 Part 2 report (due Thu 10 Dec, the day of the CS5741 exam). | CS5707 (Sat, Sun, Tue) and CS5741 (Mon, Tue): past papers under time. |
 | Wed 9 Dec | **CS5707 exam, 16:00.** | Evening: CS5741 formulas and worked examples. |
