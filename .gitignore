@@ -7,3 +7,4 @@
 .playwright-mcp/
 .claude/
 *.class
+__pycache__/
