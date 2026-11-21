@@ -186,6 +186,7 @@ def html(found: dict[Key, list[float]]) -> str:
   figcaption::before {{ content: 'Figure ' counter(figure) ': '; }}
   pre {{ background: #f6f6f6; border: 1px solid #ddd; padding: 6pt 8pt; font-size: 8.5pt; line-height: 1.35; white-space: pre-wrap; break-inside: avoid; }}
   code {{ font-size: 9pt; }}
+  p code, li code {{ white-space: nowrap; }}
   .written td, .written th {{ text-align: left; vertical-align: top; }}
   .written table {{ font-size: 9.5pt; }}
   math {{ font-size: 1.1em; }}
