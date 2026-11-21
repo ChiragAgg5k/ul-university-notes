@@ -1,6 +1,6 @@
 <!-- Drafting notes for the author
 
-1. In-place update. Trace a burning cell that is visited before its neighbour. Explain why BURNING_OUT still ignites that neighbour and TREE_IGNITING cannot ignite a second ring. Compare boundary locks and checkerboard updates against this same-step requirement. ForestFire.java:20–25, 90–104, 109–125, 137–149.
+1. In-place update. Trace a burning cell that is visited before its neighbour. Explain why BURNING_OUT still ignites that neighbour and TREE_IGNITING cannot ignite a second ring. Compare boundary locks and checkerboard updates against this same-step requirement. ForestFire.java:17–25, 90–104, 109–125, 137–149.
 2. Partitioning. Draw the half-open intervals for ten rows and four workers. Compare contiguous row blocks with columns, cyclic rows and dynamic chunks. What does a worker gain by claiming another chunk? What does the atomic counter cost? ForestFireParallel.java:114–129, 141–148. Use the 4p and 16p chunk results from the same variant series.
 3. Synchronisation. Identify the cross-block dependency in each direction, decide to commit and commit to the next decide. Explain how the two barrier waits make prior writes visible. Compare the reusable barrier with starting and joining a group per phase. ForestFireParallel.java:168–176, 193–212.
 4. Recorder. Follow one worker's three counts from queue.put to the history row. Explain why their step travels with them. Compare that path with the two-semaphore scan, identifying precisely when the grid is stable and when workers may proceed. ForestFireParallel.java:87–110, 131–137.
@@ -8,7 +8,7 @@
 6. Wrapped boundaries. Work out the eight offsets for a corner of a rectangular grid. Compare modular lookup with precomputed neighbour indices on arithmetic cost, storage and clarity. Distinguish this design judgement from a timed comparison. ForestFire.java:109–125.
 -->
 
-**One grid and two phases.** A burning cell may be visited before a neighbouring tree. Clearing it immediately would hide the fire from that tree. During the decision phase, `BURNING_OUT` therefore still means burning to a neighbour. A newly marked `TREE_IGNITING` first becomes a source of fire at the next step. Boundary locks could order individual accesses, but would still need a way to preserve the old state. Updating alternating checkerboard colours also allows one colour to see changes from the other. The temporary states preserve synchronous steps with one writer per cell. (ForestFire.java, lines 20–25, 90–104, 109–125 and 137–149.)
+**One grid and two phases.** A burning cell may be visited before a neighbouring tree. Clearing it immediately would hide the fire from that tree. During the decision phase, `BURNING_OUT` therefore still means burning to a neighbour. A newly marked `TREE_IGNITING` first becomes a source of fire at the next step. Boundary locks could order individual accesses, but would still need a way to preserve the old state. Updating alternating checkerboard colours also allows one colour to see changes from the other. The temporary states preserve synchronous steps with one writer per cell. (ForestFire.java, lines 17–25, 90–104, 109–125 and 137–149.)
 
 **Row blocks and chunk size.** The default assigns one consecutive block of complete rows to each worker. Columns would split each row among workers, while cyclic rows would place many more neighbouring rows under different owners. Within a block, a worker traverses each row in array order and shares just its two edge rows with neighbouring blocks for reads. Static assignment requires no shared counter. Dynamic assignment lets a worker that finishes early claim another chunk, at the cost of an atomic operation per claim. Section 6.5 compares four and sixteen chunks per worker. (ForestFireParallel.java, lines 114–129 and 141–148.)
 
@@ -21,6 +21,8 @@
 **Wrapped neighbours.** For the top-left cell, the offset one row up and one column left leads to the bottom-right cell. Adding the dimension before taking the remainder implements this rule on either axis. Precomputed neighbour indices could remove remainder operations from the inner loop at the cost of extra tables. The implementation uses the direct formula; this decision was assessed by inspection. (ForestFire.java, lines 109–125.)
 
 ### Foster’s checklist applied to the forest
+
+Slide numbers refer to the printed numbers in the course deck `Lecture 3 W03_Parallel Algorithm.pdf`.
 
 **Partitioning (Lecture 3, slide 28).** At cell granularity, each phase has a million tasks on a 1000 × 1000 grid, well above ten per worker even at eight workers. Doubling the side length quadruples the task count. Every task updates one cell, but its cost varies: a tree can examine eight neighbours, while a burning cell takes a single transition. Rows, columns and tiles are alternative ways to group those primitive tasks (ForestFire.java, lines 92–103 and 109–125).
 

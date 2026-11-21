@@ -20,3 +20,33 @@ The parallel command accepts the serial arguments (size, steps, growth probabili
 | Aggregate by state | `totals[state] += counts.values()[state];` | ForestFireParallel.java, line 108 |
 | Select the random source | `random(seed, step, row, column)` | ForestFire.java, line 94 |
 | Wrap the column | `int neighbourColumn = (column + dc + columns) % columns;` | ForestFire.java, line 118 |
+
+**The default worker completes both phases in each iteration** (ForestFireParallel.java, lines 201–212).
+
+```java
+startAndJoin(workers, t -> {
+    for (int step = 0; step < steps; step++) {
+        phase(t, step, true);
+        // All neighbour reads finish here. Plain byte writes in decide are
+        // visible to every worker after it crosses the barrier into commit.
+        barrier.await();
+        phase(t, step, false);
+        // Each worker's committed byte writes happen-before reads after this
+        // barrier, including reads of a neighbour's edge row in the next step.
+        barrier.await();
+    }
+}, onFailure);
+```
+
+**The recorder combines one message per worker per step** (ForestFireParallel.java, lines 103–110).
+
+```java
+long messages = (long) threads * steps;
+for (long i = 0; i < messages; i++) {
+    Counts counts = queue.take();
+    long[] totals = history[counts.step()];
+    for (int state = 0; state < totals.length; state++) {
+        totals[state] += counts.values()[state];
+    }
+}
+```
