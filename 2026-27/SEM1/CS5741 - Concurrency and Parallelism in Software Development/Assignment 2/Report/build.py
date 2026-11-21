@@ -205,6 +205,7 @@ def html(found: dict[Key, list[float]]) -> str:
   <ol class="contents">{contents}</ol>
   <h3>Notation</h3>
   <p>N = grid side (N × N cells)<br>p = number of threads<br>f = serial fraction<br>Speedup S = T<sub>serial</sub> / T<sub>parallel</sub>, efficiency E = S / p<br>Amdahl: S = 1 / (f + (1 − f) / p)<br>Gustafson: S = p − f (p − 1)<br>Karp–Flatt: ε = (1/S − 1/p) / (1 − 1/p)</p>
+  <p>Sources: Amdahl (1967), Gustafson (1988), and Karp and Flatt (1990).</p>
 </section>
 <section class="page"><h2>1. Introduction</h2>{section('introduction')}</section>
 <section class="page"><h2>2. Design</h2>{section('design')}</section>
@@ -215,7 +216,7 @@ def html(found: dict[Key, list[float]]) -> str:
   <table>
     <tr><th>CPU</th><td style="text-align:left">Apple M2 Pro</td></tr>
     <tr><th>Cores</th><td style="text-align:left">12 (8 performance + 4 efficiency); each core runs one thread at a time</td></tr>
-    <tr><th>L2 cache</th><td style="text-align:left">16 MB (performance cluster), 4 MB (efficiency cluster)</td></tr>
+    <tr><th>L2 cache</th><td style="text-align:left">16 MiB (performance cluster), 4 MiB (efficiency cluster)</td></tr>
     <tr><th>Memory</th><td style="text-align:left">32 GB</td></tr>
     <tr><th>Java</th><td style="text-align:left">OpenJDK 27.0.1</td></tr>
   </table>
@@ -224,7 +225,7 @@ def html(found: dict[Key, list[float]]) -> str:
 <section class="page">
   <h2>6. Performance Analysis</h2>
   <h3>6.1 Method</h3>
-  <p>Each configuration ran 5 times in one JVM after 2 warm-up rounds, and the median is reported. Every run used growth probability 0.05, burn probability 0.3 and seed 42, on AC power. Before a time was recorded, the per-step counts of every deterministic run were checked against the serial run.</p>
+  <p>The harness ran two warm-up rounds in one JVM and reported median elapsed time. Scaling, variant and overhead experiments used five repeats of 400 steps. The random-generator comparison used three repeats of 100 steps. Runs used growth probability 0.05, burn probability 0.3 and seed 42 on AC power. For strong scaling, weak scaling and the deterministic design variants, the harness compared the printed counts with the serial output. Individual timings are in <code>Results/bench.csv</code> and the medians and derived metrics are in <code>Results/summary.txt</code>.</p>
   {results(found)}
   <h3>6.9 Amdahl, Gustafson and Karp–Flatt</h3>
   {section('analysis')}
