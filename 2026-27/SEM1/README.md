@@ -15,7 +15,7 @@ Snapshot taken on Mon 9 November 2026 (Week 10) from Brightspace dropboxes, anno
 | Mon 23 Nov, before 9:00 | CS5707 | Give the presentation in class (3 minutes talking, 2 minutes feedback); be in the room before 9:00, no late arrivals | not stated | slides due Fri 20 Nov |
 | Wed 25 Nov, 09:00–13:00 | CS5709 | Workshop instead of the lecture: inspect a system and give feedback using reverse-engineering concepts, paid at UL rates; attendance taken, tell Salim in advance if you cannot come. A report on the inspection follows (due date not given yet) | not stated | announced 19 Nov |
 | Wed 25 Nov, 23:59 | CS5709 | [Assessment 4](CS5709%20-%20Software%20Engineering%20Evolution/Assignment%204/README.md): technical presentation of 5 to 8 minutes (the dropbox says 5–8, not 5), using the template attached to the dropbox. **Must be a recorded video**: PowerPoint, Record tab, From Beginning, then Export as MP4 and upload the MP4 | 20% | draft deck built 21 Nov from the template, with speaker notes; still to do: read through, rehearse, record, export, upload |
-| Thu 26 Nov, 23:59 | CS5741 | [Assignment 2](CS5741%20-%20Concurrency%20and%20Parallelism%20in%20Software%20Development/Assignment%202/README.md): Simulating Forest Fire Spread and Recovery | 30 marks | **submitted 21 Nov** (report + `ForestFire.java` + `ForestFireParallel.java`); submission ID not recorded yet |
+| Thu 26 Nov, 23:59 | CS5741 | [Assignment 2](CS5741%20-%20Concurrency%20and%20Parallelism%20in%20Software%20Development/Assignment%202/README.md): Simulating Forest Fire Spread and Recovery | 30 marks | **submitted 21 Nov** (report + `ForestFire.java` + `ForestFireParallel.java`); submission ID 1083049 |
 | Weeks 11–12 | CS5741 | Practice quizzes that mimic the final exam: Quiz 1 released 16 Nov, Quiz 2 due out the week of 23 Nov | 0 (practice) | not attempted |
 | Fri 4 Dec, 12:00 | CS5709 | Assessment 5: technical report, APA references | 20% | not submitted |
 | Fri 4 Dec, 23:59 | CS5707 | Final report: 8 pages max plus references, Harvard style, `report_template.docx` | not stated | not submitted |
@@ -79,4 +79,4 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 | CS6081 | Poster | 1043528 |
 | CS6451 | Part 1 report | 1052451 |
 | CS6451 | Part 1 code | 1052452 |
-| CS5741 | Assignment 2 (forest fire), 21 Nov | not recorded yet |
+| CS5741 | Assignment 2 (forest fire) | 1083049 |
