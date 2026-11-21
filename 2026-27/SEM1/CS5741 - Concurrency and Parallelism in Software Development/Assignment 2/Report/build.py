@@ -69,7 +69,7 @@ def section(name: str) -> str:
         return f'<div class="todo"><b>To write: Sections/{name}.md</b><ul>{items}</ul></div>'
     # texmath has no {\rm ...}; \mathrm{...} renders the same upright text.
     source = re.sub(r'\{\\rm ([^}]*)\}', r'\\mathrm{\1}', text)
-    converted = subprocess.run(['pandoc', '-f', 'markdown+tex_math_single_backslash', '-t', 'html', '--mathml',
+    converted = subprocess.run(['pandoc', '-f', 'markdown+tex_math_single_backslash-smart', '-t', 'html', '--mathml',
                                 '--shift-heading-level-by=1'],
                                input=source, capture_output=True, text=True, check=True).stdout
     return f'<div class="written">{converted}</div>'
