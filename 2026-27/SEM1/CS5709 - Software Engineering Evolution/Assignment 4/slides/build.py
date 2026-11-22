@@ -5,6 +5,7 @@ Facts come from the Assessment 1 README, the Assessment 2 review notes and the A
 Rebuilding overwrites dist/, so record narration only once the slides are final.
 """
 
+import re
 from pathlib import Path
 
 from lxml import etree
@@ -17,6 +18,7 @@ from pptx.util import Inches, Pt
 HERE = Path(__file__).resolve().parent
 MODULE = HERE.parent.parent
 TEMPLATE = HERE.parent / 'brief' / 'Digital_Portfolio_Presentation_Template.pptx'
+NOTES = HERE / 'notes.md'
 OUTPUT = HERE / 'dist' / 'ID26253925_CS5709_Assessment4_Technical_Presentation.pptx'
 PHASE1 = MODULE / 'Assignment 1'
 PHASE2 = MODULE / 'Assignment 3'
@@ -46,8 +48,8 @@ def placeholder(slide, index: int):
     return None
 
 
-def frame(slide, title: str, notes: str) -> None:
-    """Set the title and date, drop the template's body placeholder and write the speaker notes."""
+def frame(slide, title: str) -> None:
+    """Set the title and date and drop the template's body placeholder."""
     heading = slide.shapes.title
     heading.text_frame.text = title
     run = heading.text_frame.paragraphs[0].runs[0]
@@ -58,7 +60,6 @@ def frame(slide, title: str, notes: str) -> None:
     date = placeholder(slide, 10)
     if date is not None:
         date.text_frame.paragraphs[0].runs[0].text = DATE
-    slide.notes_slide.notes_text_frame.text = notes
 
 
 def text(slide, x: float, y: float, w: float, h: float, paragraphs: list, size: int = 14, color=TEXT, anchor=MSO_ANCHOR.TOP):
@@ -177,21 +178,10 @@ def title_slide(slide) -> None:
     title = slide.shapes.title
     top = (title.top + title.height) / 914400 + 0.1
     text(slide, title.left / 914400, top, 8.3, 0.9, ['From a static site to a live React application:', 'two phases, two reviews, one pipeline'], size=18, color=WHITE)
-    slide.notes_slide.notes_text_frame.text = (
-        'About 20 seconds.\n'
-        '- Name, student number, module.\n'
-        '- One sentence on what the talk covers: how my portfolio evolved across Assessments 1 to 3.'
-    )
 
 
 def introduction(slide) -> None:
-    frame(slide, 'Introduction', (
-        'About 40 seconds. Rubric 1: objectives, scope, technologies, context.\n'
-        '- Objective: show my engineering work with evidence a reader can check.\n'
-        '- Scope: one portfolio, built in Phase 1, reviewed, then evolved in Phase 2.\n'
-        '- Name the two stacks and why the stack changed (the Phase 2 brief asked for typed components, state, an API, GSAP).\n'
-        '- Walk the timeline left to right; the rest of the talk follows it.'
-    ))
+    frame(slide, 'Introduction')
     text(slide, LEFT, TOP, 6.2, 2.9, [
         [('Objective  ', True), ('A portfolio that proves my engineering work with evidence a visitor can check, not a list of claims.', False)],
         [('Scope  ', True), ('Home, About, Education, Professional knowledge, Pictures, Videos, Blog, live messaging, Readme.', False)],
@@ -213,13 +203,7 @@ def introduction(slide) -> None:
 
 
 def phase1_overview(slide) -> None:
-    frame(slide, 'Phase 1 Development Process', (
-        'About 40 seconds. What Phase 1 delivered.\n'
-        '- A static site: a Node script renders every page from one shared layout; plain links route, so it works without JavaScript.\n'
-        '- Real two-way messaging through Tawk.to, loaded only after the visitor clicks (privacy).\n'
-        '- 26 automated tests on the build output, including contrast and link checks.\n'
-        '- Deployed to Appwrite Sites; still live for comparison.'
-    ))
+    frame(slide, 'Phase 1 Development Process')
     picture(slide, PHASE1 / 'evidence' / 'home-desktop.png', LEFT, TOP, 6.6, 4.1, 'Phase 1 home page, chirag-cs5709.appwrite.network')
     x = 7.75
     stat(slide, x, TOP, 2.3, '11', 'pages generated from one layout')
@@ -230,13 +214,7 @@ def phase1_overview(slide) -> None:
 
 
 def phase1_process(slide) -> None:
-    frame(slide, 'Phase 1 Development Process', (
-        'About 50 seconds. Rubric 2: Discovery, Design, two iterations, Evaluation.\n'
-        '- Walk the five cards; mention the mark each step got, because the dropped marks set the Phase 2 agenda.\n'
-        '- Discovery lost a mark: requirements came from me, not from personas and scenarios.\n'
-        '- Iterations lost a mark each: code comments did not explain the structure.\n'
-        '- Point at the three design diagrams underneath.'
-    ))
+    frame(slide, 'Phase 1 Development Process')
     steps = [
         ('Discovery', '2/3', 'Features split into Phase 1 and 2; sitemap; Tawk.to chosen for real messaging'),
         ('Design', '3/3', 'Block, component and control-flow diagrams in Mermaid'),
@@ -256,13 +234,7 @@ def phase1_process(slide) -> None:
 
 
 def peer_review(slide) -> None:
-    frame(slide, 'Peer Review and Software Evolution Analysis', (
-        'About 60 seconds. Rubric 3: reverse engineering, architecture recovery, code inspection, feedback, recommendations.\n'
-        '- Middle column: the methods I applied when reviewing a classmate (Assessment 2).\n'
-        '- Right column: what came back on my own portfolio, from the classmate and the lecturer.\n'
-        '- Key moment: the reviewer tried to understand my code from the live site and failed at step one, because there was no Readme page.\n'
-        '- Do not name the classmate on the recording.'
-    ))
+    frame(slide, 'Peer Review and Software Evolution Analysis')
     table(slide, LEFT, TOP, WIDTH, [
         ['Activity', 'Applied to a classmate (Assessment 2)', 'Received on my portfolio'],
         ['Reverse engineering', 'Chikofsky and Cross taxonomy: build, strict type check, every file and the 20-commit history', 'Walkthrough failed at step 1: no Readme page on the live site'],
@@ -274,13 +246,7 @@ def peer_review(slide) -> None:
 
 
 def phase2(slide) -> None:
-    frame(slide, 'Phase 2 Improvements', (
-        'About 60 seconds. Rubric 4: feedback incorporated, modularisation, documentation, CI/CD, deployment.\n'
-        '- Read the table as before and after; every row answers a review comment.\n'
-        '- Comments went from 2% to 12% of lines, and every file has an @file header explaining why it exists.\n'
-        '- Pipeline: checks first, deploy only after they pass, read-only permissions except the deploy job.\n'
-        '- About one minute from push to live.'
-    ))
+    frame(slide, 'Phase 2 Improvements')
     table(slide, LEFT, TOP, 7.0, [
         ['', 'Phase 1', 'Phase 2'],
         ['Architecture', 'Static HTML from a Node script', 'React single-page app, strict TypeScript'],
@@ -300,14 +266,7 @@ def phase2(slide) -> None:
 
 
 def innovation(slide) -> None:
-    frame(slide, 'Innovation and Technical Achievement', (
-        'About 50 seconds. Rubric 5: creativity, modern technology, sophistication.\n'
-        '- Problem: GitHub Pages is static, with no server and no database, but a reader wants to react to an article.\n'
-        '- Walk the diagram: the browser writes straight to Appwrite; table permissions allow create and read, never update or delete.\n'
-        '- The row id is visitor, article hash and kind, so the database itself rejects a second reaction.\n'
-        '- Realtime pushes the new count to every open copy without a reload.\n'
-        '- One line on the supporting ideas: self-documenting Readme, executable walkthrough.'
-    ))
+    frame(slide, 'Innovation and Technical Achievement')
     picture(slide, PHASE2 / 'evidence' / 'reactions-live.png', LEFT, TOP, 5.4, 3.4, 'Reactions under an article on the live site')
     x = 6.6
     boxes = [(x, 'Reader A'), (x + 2.15, 'Appwrite database'), (x + 4.3, 'Reader B')]
@@ -327,13 +286,7 @@ def innovation(slide) -> None:
 
 
 def evaluation(slide) -> None:
-    frame(slide, 'Evaluation and Reflection', (
-        'About 50 seconds. Rubric 6: lessons, challenges, strengths, limitations, future work.\n'
-        '- Numbers first: inspection, walkthrough, tests, pipeline.\n'
-        '- Lesson in my own words: reading the code missed defect I3 (a race between the click and the websocket); the two-browser scenario caught it.\n'
-        '- Limitations from my critique: proto-personas, no real users, self-inspection, SPA costs.\n'
-        '- Future: pre-render routes, think-aloud test with three people, bigger galleries.'
-    ))
+    frame(slide, 'Evaluation and Reflection')
     stats = [
         ('12', 'defects in a Fagan-style inspection: 6 fixed, 3 accepted, 3 open'),
         ('8/8', 'persona scenarios pass on the live site, desktop and phone'),
@@ -359,11 +312,7 @@ def evaluation(slide) -> None:
 
 
 def documentation(slide) -> None:
-    frame(slide, 'Technical Documentation Plan', (
-        'About 30 seconds. Rubric 7: requirements, design, code, testing, deployment, maintenance.\n'
-        '- Each row says what exists already and where; Assessment 5 assembles them into one report.\n'
-        '- Stress traceability: requirements R1 to R11 point at source files, and scenarios S1 to S8 test them.'
-    ))
+    frame(slide, 'Technical Documentation Plan')
     table(slide, LEFT, TOP, WIDTH, [
         ['Document', 'Contents', 'Lives in'],
         ['Requirements', 'Personas, 8 scenarios, requirements R1 to R11 (functional and non-functional), each traced to a file', 'Assessment 3 report §2.4'],
@@ -376,12 +325,7 @@ def documentation(slide) -> None:
 
 
 def conclusion(slide) -> None:
-    frame(slide, 'Conclusion', (
-        'About 20 seconds.\n'
-        '- Three takeaways, one sentence each.\n'
-        '- Point to the live site and the repository.\n'
-        '- Thank the viewer.'
-    ))
+    frame(slide, 'Conclusion')
     takeaways = [
         ('Reviews drove evolution', 'Lecturer and peer feedback set the Phase 2 agenda, and each item is traceable to a change.'),
         ('Automation as a gate', 'Lint, format, tests and types run on every push; only passing commits go live.'),
@@ -409,6 +353,11 @@ def main() -> None:
     identifiers = list(order)
     order.remove(identifiers[9])
     order.insert(8, identifiers[9])
+    sections = re.split(r'^## .*$', NOTES.read_text(), flags=re.M)[1:]
+    if len(sections) != len(deck.slides):
+        raise SystemExit(f'notes.md has {len(sections)} sections for {len(deck.slides)} slides')
+    for slide, section in zip(deck.slides, sections):
+        slide.notes_slide.notes_text_frame.text = section.strip()
     OUTPUT.parent.mkdir(exist_ok=True)
     deck.save(str(OUTPUT))
     print(OUTPUT)

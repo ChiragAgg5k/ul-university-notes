@@ -1,6 +1,6 @@
 # Assessment 4: Technical presentation
 
-CS5709 Software Engineering Evolution · 20% · due **Wed 25 November 2026, 23:59** on Brightspace ("Assignment-4- Technical Presentation"). Learning outcome: assess architectural conformance.
+CS5709 Software Engineering Evolution · 20% · due **Wed 25 November 2026, 23:59**. **Submitted Sun 22 November 2026, 14:22, submission ID 1084012** (7 min 13 s MP4, 141.87 MB) on Brightspace ("Assignment-4- Technical Presentation"). Learning outcome: assess architectural conformance.
 
 A recorded presentation of **5 to 8 minutes** on the technical side of the portfolio: development process and architecture, technology integration, code review and testing, broken down by the assessments already submitted. It must use the lecturer's template ([brief/Digital_Portfolio_Presentation_Template.pptx](brief/Digital_Portfolio_Presentation_Template.pptx), downloaded from the dropbox on 21 November). Submit an MP4 made in PowerPoint: Record tab, From Beginning, then Export as MP4.
 
@@ -26,7 +26,7 @@ cd slides
 uv run --with python-pptx python build.py
 ```
 
-The template's slide order is kept, except that the documentation plan comes before the conclusion to follow the rubric. Each slide has speaker notes with talking points and a time target (about 7 minutes in total). The notes are prompts, not a script: say it in your own words. The classmate from Assessment 2 is not named anywhere in the deck; don't name them on the recording either.
+The template's slide order is kept, except that the documentation plan comes before the conclusion to follow the rubric. Speaker notes come from `slides/notes.md`, one section per slide (about 7 minutes in total); they are a draft to say in your own words. The classmate from Assessment 2 is not named anywhere in the deck; don't name them on the recording either.
 
 Rebuilding overwrites `dist/`. Once you start recording, change slides in PowerPoint, not by rebuilding.
 
@@ -34,9 +34,9 @@ Rebuilding overwrites `dist/`. Once you start recording, change slides in PowerP
 
 - [x] Brief, rubric and template downloaded (21 Nov)
 - [x] Draft deck built from the template, 10 slides, with speaker notes
-- [ ] Read the deck through; change any wording that doesn't sound like you
-- [ ] Rehearse once with a timer: aim for 6 to 7 minutes, never over 8
-- [ ] Record in PowerPoint (Record, From Beginning), camera optional
-- [ ] Export as MP4 and watch it end to end: audio on every slide, total under 8 minutes
-- [ ] Walk the checks in [LESSONS.md](../../LESSONS.md)
-- [ ] Upload the MP4 to the dropbox by Wed 25 Nov, 23:59 (aim for Tue 24, because the workshop takes Wed 09:00–13:00)
+- [x] Read the deck through; change any wording that doesn't sound like you
+- [x] Rehearse once with a timer: aim for 6 to 7 minutes, never over 8
+- [x] Record in PowerPoint (Record, From Beginning), camera optional
+- [x] Export as MP4 and watch it end to end: audio on every slide, total under 8 minutes
+- [x] Walk the checks in [LESSONS.md](../../LESSONS.md)
+- [x] Upload the MP4 to the dropbox by Wed 25 Nov, 23:59 (aim for Tue 24, because the workshop takes Wed 09:00–13:00)
