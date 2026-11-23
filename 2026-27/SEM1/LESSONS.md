@@ -55,6 +55,7 @@ Presentation, "How do open-source projects make money?": verbal feedback in clas
 | Only two ways of making money covered (licensing, subscription); there are many more | Survey the full range of open-source revenue models from the literature and classify them, then answer the question across all of them |
 | Don't just list papers and what each said; end with a conclusion, my own opinion and findings | After the literature, add a synthesis: what the sources agree and disagree on, what I conclude from them, and my position on the question, argued from that evidence |
 | Organise the conclusion in three themes | Group the findings into three themes, each a short paragraph that states the theme, the evidence behind it and what I conclude, then answer the research question across them |
+| Use 15–20 references | Aim for 15–20 published sources in the final report (the slides had 7, three of them web pages); prefer peer-reviewed papers over company pages |
 | Use named citations, not numbered ones like "[5]" | Cite author and year in the text, Harvard style: (Riehle, 2012), or "Riehle (2012) argues…". Never a bare number |
 
 ### Pattern across both modules
