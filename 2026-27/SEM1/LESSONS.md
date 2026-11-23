@@ -10,6 +10,7 @@ What markers and reviewers have said about my work this semester, turned into ch
 - [ ] **Explain structure in the code.** A header comment on every file saying why it exists, and comments that divide long files into sections.
 - [ ] **Check the brief line by line.** Every deliverable named in the brief exists and can be found in one step (the Phase 1 portfolio had no Readme page).
 - [ ] **Claim only what was checked.** No "none of them do X" from a quick read; a test that sets focus from script does not prove keyboard access; "fixed" means the failing input was tried again.
+- [ ] **Title the work with its topic.** A paper-style title that names the topic; no module code, module name or assignment name.
 - [ ] **Cite every assertion, fact and claim.** Read each paragraph and mark any sentence that states something without a source.
 - [ ] **Cite by name, not by number.** Author and year in the text, (Riehle, 2012), never "[5]", unless the module asks for a numbered style (SE Evolution uses APA, Dev Paradigms uses Harvard; both are named).
 - [ ] **Synthesise, don't summarise.** A literature section is not a list of "X said, Y said". Compare the sources, then state a conclusion and my own view, backed by them.
@@ -59,6 +60,14 @@ Presentation, "How do open-source projects make money?": verbal feedback in clas
 | Use 15–20 references | Aim for 15–20 published sources in the final report (the slides had 7, three of them web pages); prefer peer-reviewed papers over company pages |
 | Cite every assertion, fact and claim | Every sentence that states a fact or makes a claim carries a citation; only the abstract and my own clearly marked opinions in the conclusion go without one. Before submitting, read each paragraph and mark any uncited claim |
 | Use named citations, not numbered ones like "[5]" | Cite author and year in the text, Harvard style: (Riehle, 2012), or "Riehle (2012) argues…". Never a bare number |
+
+### CS6081 Research Methods and Practice
+
+End-of-term essay: guidance from Jim Buckley's lecture, Mon 23 November 2026.
+
+| Comment | What to do in the essay (Fri 4 Dec) |
+| --- | --- |
+| The essay title should be the topic | Title the essay with its topic only, like a paper title. No module code, module name, "End-of-Term Essay" or assignment name in it; those belong in the filename and the submission |
 
 ### Pattern across both modules
 
