@@ -41,6 +41,16 @@ Peer review of Phase 1, and the review of the first Assessment 3 submission, add
 - The report described the intended design, not one recovered from the code. Describe what the code is.
 - Several claims in the first Assessment 3 report went beyond the evidence. Read each claim and ask what was actually run or read to support it.
 
+### CS5707 SE Development Paradigms
+
+Presentation, "How do open-source projects make money?": verbal feedback in class, Mon 23 November 2026, John Noll.
+
+| Comment | What to do in the final report (Fri 4 Dec) |
+| --- | --- |
+| Only one example (Appwrite) | Use several projects and companies as cases, each from a published source, not from my own work |
+| Needs more research | Build the answer from the literature; personal experience can motivate the question but is not evidence |
+| Only two ways of making money covered (licensing, subscription); there are many more | Survey the full range of open-source revenue models from the literature and classify them, then answer the question across all of them |
+
 ### Pattern across both modules
 
 Both lost marks in the same place: the work was sound, but the report did not show the reasoning or connect it to the artefact. Markers reward the visible chain from method to decision to code to result.
