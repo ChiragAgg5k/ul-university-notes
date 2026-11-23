@@ -10,6 +10,7 @@ What markers and reviewers have said about my work this semester, turned into ch
 - [ ] **Explain structure in the code.** A header comment on every file saying why it exists, and comments that divide long files into sections.
 - [ ] **Check the brief line by line.** Every deliverable named in the brief exists and can be found in one step (the Phase 1 portfolio had no Readme page).
 - [ ] **Claim only what was checked.** No "none of them do X" from a quick read; a test that sets focus from script does not prove keyboard access; "fixed" means the failing input was tried again.
+- [ ] **Cite every assertion, fact and claim.** Read each paragraph and mark any sentence that states something without a source.
 - [ ] **Cite by name, not by number.** Author and year in the text, (Riehle, 2012), never "[5]", unless the module asks for a numbered style (SE Evolution uses APA, Dev Paradigms uses Harvard; both are named).
 - [ ] **Synthesise, don't summarise.** A literature section is not a list of "X said, Y said". Compare the sources, then state a conclusion and my own view, backed by them.
 - [ ] **Conclusion in three themes.** Group the findings into three named themes, each with its evidence and my view, then answer the question.
@@ -56,6 +57,7 @@ Presentation, "How do open-source projects make money?": verbal feedback in clas
 | Don't just list papers and what each said; end with a conclusion, my own opinion and findings | After the literature, add a synthesis: what the sources agree and disagree on, what I conclude from them, and my position on the question, argued from that evidence |
 | Organise the conclusion in three themes | Group the findings into three themes, each a short paragraph that states the theme, the evidence behind it and what I conclude, then answer the research question across them |
 | Use 15–20 references | Aim for 15–20 published sources in the final report (the slides had 7, three of them web pages); prefer peer-reviewed papers over company pages |
+| Cite every assertion, fact and claim | Every sentence that states a fact or makes a claim carries a citation; only the abstract and my own clearly marked opinions in the conclusion go without one. Before submitting, read each paragraph and mark any uncited claim |
 | Use named citations, not numbered ones like "[5]" | Cite author and year in the text, Harvard style: (Riehle, 2012), or "Riehle (2012) argues…". Never a bare number |
 
 ### Pattern across both modules
