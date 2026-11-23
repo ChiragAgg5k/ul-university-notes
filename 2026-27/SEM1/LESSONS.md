@@ -10,6 +10,7 @@ What markers and reviewers have said about my work this semester, turned into ch
 - [ ] **Explain structure in the code.** A header comment on every file saying why it exists, and comments that divide long files into sections.
 - [ ] **Check the brief line by line.** Every deliverable named in the brief exists and can be found in one step (the Phase 1 portfolio had no Readme page).
 - [ ] **Claim only what was checked.** No "none of them do X" from a quick read; a test that sets focus from script does not prove keyboard access; "fixed" means the failing input was tried again.
+- [ ] **Cite by name, not by number.** Author and year in the text, (Riehle, 2012), never "[5]", unless the module asks for a numbered style (SE Evolution uses APA, Dev Paradigms uses Harvard; both are named).
 - [ ] **Write the evaluation academically.** Named method, entry and exit criteria, a log of findings, and stated limits.
 
 ## By module
@@ -50,6 +51,7 @@ Presentation, "How do open-source projects make money?": verbal feedback in clas
 | Only one example (Appwrite) | Use several projects and companies as cases, each from a published source, not from my own work |
 | Needs more research | Build the answer from the literature; personal experience can motivate the question but is not evidence |
 | Only two ways of making money covered (licensing, subscription); there are many more | Survey the full range of open-source revenue models from the literature and classify them, then answer the question across all of them |
+| Use named citations, not numbered ones like "[5]" | Cite author and year in the text, Harvard style: (Riehle, 2012), or "Riehle (2012) argues…". Never a bare number |
 
 ### Pattern across both modules
 
