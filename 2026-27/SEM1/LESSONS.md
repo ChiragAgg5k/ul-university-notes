@@ -12,6 +12,7 @@ What markers and reviewers have said about my work this semester, turned into ch
 - [ ] **Claim only what was checked.** No "none of them do X" from a quick read; a test that sets focus from script does not prove keyboard access; "fixed" means the failing input was tried again.
 - [ ] **Cite by name, not by number.** Author and year in the text, (Riehle, 2012), never "[5]", unless the module asks for a numbered style (SE Evolution uses APA, Dev Paradigms uses Harvard; both are named).
 - [ ] **Synthesise, don't summarise.** A literature section is not a list of "X said, Y said". Compare the sources, then state a conclusion and my own view, backed by them.
+- [ ] **Conclusion in three themes.** Group the findings into three named themes, each with its evidence and my view, then answer the question.
 - [ ] **Write the evaluation academically.** Named method, entry and exit criteria, a log of findings, and stated limits.
 
 ## By module
@@ -53,6 +54,7 @@ Presentation, "How do open-source projects make money?": verbal feedback in clas
 | Needs more research | Build the answer from the literature; personal experience can motivate the question but is not evidence |
 | Only two ways of making money covered (licensing, subscription); there are many more | Survey the full range of open-source revenue models from the literature and classify them, then answer the question across all of them |
 | Don't just list papers and what each said; end with a conclusion, my own opinion and findings | After the literature, add a synthesis: what the sources agree and disagree on, what I conclude from them, and my position on the question, argued from that evidence |
+| Organise the conclusion in three themes | Group the findings into three themes, each a short paragraph that states the theme, the evidence behind it and what I conclude, then answer the research question across them |
 | Use named citations, not numbered ones like "[5]" | Cite author and year in the text, Harvard style: (Riehle, 2012), or "Riehle (2012) argues…". Never a bare number |
 
 ### Pattern across both modules
