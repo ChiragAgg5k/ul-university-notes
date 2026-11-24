@@ -9,6 +9,7 @@ Spec: [End-Of-Term Essay 2026.doc](End-Of-Term%20Essay%202026.doc), plus a video
 | Team | 2 people |
 | Length | 3,000 words, ±10%. With a pilot study the spec says 2,500, which reads like a typo. Ask Jim |
 | Due | **Friday 4 December 2026, 12:00 midday**, on Brightspace |
+| Topic | Candidate: operating self-hosted low-code platforms (ideas A + B), the gap behind the Wave dissertation. [Sources and scored ideas](SOURCES.md), researched 23 Nov 2026; agree with the teammate |
 | Filename | `RMESSAY<ID1> <NAME1><ID2> <NAME2>`. The essay title is the topic only, with no module code or assignment name (Jim, lecture of 23 Nov) |
 
 ## Brief
