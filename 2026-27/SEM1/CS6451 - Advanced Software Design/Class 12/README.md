@@ -26,6 +26,7 @@ CS6451 Advanced Software Design | 2026/7 SEM1 | J.J. Collins | 25 Nov 2026. Slid
 - Q1 is worth 12 marks; Q2–Q5 are 14 each; total out of 40.
 - **One question is likely to be on the Interceptor architectural pattern.**
 - Work through past papers in groups.
+- A **paper dictionary** is allowed (said in class, 25 Nov).
 
 ## Module summary (slides 26–28)
 

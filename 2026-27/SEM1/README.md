@@ -36,7 +36,7 @@ From the final Autumn 2026/27 timetable on [timetable.ul.ie](https://www.timetab
 | Thu 10 Dec | 12:30 | CS5741 Concurrency and Parallelism | Main Building, EGO10 |
 | Tue 15 Dec | 09:00 | CS6451 Advanced Software Design | PE building, PG053 |
 
-Software Design exam format (Lecture M, 25 Nov): 2 hours, pen and paper; answer Q1 (12 marks) and any two of Q2–Q5 (14 each), out of 40; one question is likely on the Interceptor pattern.
+Software Design exam format (Lecture M, 25 Nov): 2 hours, pen and paper; answer Q1 (12 marks) and any two of Q2–Q5 (14 each), out of 40; one question is likely on the Interceptor pattern. A paper dictionary is allowed.
 
 ## Rough preparation plan
 
