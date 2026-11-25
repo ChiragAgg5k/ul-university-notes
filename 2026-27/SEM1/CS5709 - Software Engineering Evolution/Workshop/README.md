@@ -56,3 +56,20 @@ A Final Year Project (2026–27) supervised by Salim: a workspace for journalist
 | Language | Switcher lists 7 languages (including Farsi and Arabic, right-to-left), but no translation code was found |
 | Testing | No automated tests (no Java `src/test`, no PHPUnit) |
 | Maintainability | 1,600+ line `docs/backend/content.php`; PHP site lives in `docs/` because of GitHub Pages |
+
+## Live app (hands-on, 25 Nov)
+
+The working app is linked from the topic: a Cloudflare quick tunnel to Salim's machine (`https://breeding-generally-cradle-tattoo.trycloudflare.com/Pages/home.php`), so it will change or disappear. Test account: student email, category Researcher / Investigator; password in 1Password, item "DiSSENT (CS5709 workshop)".
+
+| What I tried | What happened |
+| --- | --- |
+| Register | Worked; strong password generated. Success message shows, but the page stays on an empty form instead of going to login |
+| Welcome email | None arrived in the student inbox (email goes to Mailpit, a local test inbox) |
+| Dashboard, admin, reports while logged out | Redirected to login |
+| Admin page as an ordinary user | 403 "You do not have permission" |
+| Login | Lands on the dashboard: platform totals (6 reports, 2 published, 17 members) and own activity |
+| Messaging | Any new account sees the full contact list: every member's real name, including classmates. For refugee reporters this is a privacy risk (people can be identified and listed) |
+| Reports form | Title, category, optional location with a warning not to identify confidential sources, evidence link, one PDF up to 5 MB, private to the reporter and admins. Thoughtful privacy design |
+| Verification | Search by report ID, title or journalist; shows recorded hashes and "Chain Integrity: Check passed"; explains that a hash proves integrity, not accuracy |
+| Language (Settings and the globe menu) | Offers en, fa, fr, es, ar, de, nl. Choosing French changed nothing: page text and `html lang` stay English. Language is cosmetic only |
+| Page load times | 1.4–2.0 s per page through the tunnel |
