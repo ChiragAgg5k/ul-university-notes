@@ -2,7 +2,7 @@
 
 Replaces the lecture, 09:00–13:00, SG16 (the usual lecture room; the announcement names no room). Attendance taken; paid at UL rates. A report on the inspection follows (due date not given yet).
 
-Posted on Brightspace at 09:06 on 25 Nov as a discussion topic, **Learning Pathway / Week / Topic 12 → "DiSSENT quality evaluation"** (forum "DiSSENT quality test"). No posts yet when checked.
+Posted on Brightspace at 09:06 on 25 Nov as a discussion topic, **Learning Pathway / Week / Topic 12 → "DiSSENT quality evaluation"** (forum "DiSSENT quality test"). **Posted my evaluation 25 Nov, 10:48** (1,146 words, 4 attachments: Lighthouse summary PDF, blurred contact list, language setting, register page). Next: the inspection report, due date not given yet.
 
 ## The system
 
