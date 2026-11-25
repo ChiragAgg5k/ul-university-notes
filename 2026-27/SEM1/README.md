@@ -47,11 +47,12 @@ Three reports land on Fri 4 Dec, five days before two exams on consecutive days.
 | Week 10, 9–15 Nov | Done: CS5709 Assessment 3 built and submitted; Chen paper read. | Done: statistics test prepared. |
 | Thu 19 – Sun 22 Nov | Done: CS5707 slides submitted Thu 19 (ID 1079201); CS5741 Assignment 2 submitted Sat 21 (ID 1083049); CS5709 Assessment 4 video submitted Sun 22 (ID 1084012). Sun: rehearse the CS5707 talk to under 3 minutes. | CS5741 Quiz 1, one evening. |
 | Week 12, 23–29 Nov | **CS5707 presentation, Mon 23, before 9:00.** CS6081 lecture: bring the essay topic to the Q&A hour. CS5709 workshop Wed 25, 09:00–13:00. Agree the CS6081 essay topic with the teammate and start it. CSIS MOOC, one module an evening from Tue 24. Start the CS5709 Assessment 5 report. | CS5741 Quizzes 1 and 2. CS5707: lecture notes pass. |
-| 30 Nov – 4 Dec | Finish and submit CS5709 Assessment 5 (Fri 12:00), the CS5707 report (Fri 23:59) and the CS6081 essay (Fri). Aim to have two of the three done by Wed 2 Dec. | CS6451: redo the midterm topic checklist. |
-| 5–8 Dec | Finish the CS6451 Part 2 report (due Thu 10 Dec, the day of the CS5741 exam). | CS5707 (Sat, Sun, Tue) and CS5741 (Mon, Tue): past papers under time. |
-| Wed 9 Dec | **CS5707 exam, 16:00.** | Evening: CS5741 formulas and worked examples. |
-| Thu 10 Dec | **CS5741 exam, 12:30.** | Rest of the day off. |
-| 11–14 Dec | — | CS6451: patterns, SOLID and metrics, statecharts, architecture (interceptor, microservices), then past papers. |
+| 30 Nov – 4 Dec | Finish and submit SE Evolution Assessment 5 (Fri 12:00), the Dev Paradigms report (Fri 23:59) and the Research Methods essay (Fri). Aim to have two of the three done by Wed 2 Dec. Software Design Part 2: keep the microservices port moving with the team. | Software Design: redo the midterm topic checklist. |
+| 5–8 Dec | **Sun 6:** Software Design Part 2 code finished; each version (monolith and microservices) starts with one command, tested on the laptop going to the interview. **Mon 7 or Tue 8:** team dry run of the interview: start both from cold, show the services talking, have the MicroValid results ready, agree who presents what. Finish the Part 2 report (due Thu 10 Dec, 23:59). | Dev Paradigms (Sat, Sun, Tue) and Concurrency (Mon, Tue): past papers under time. |
+| Wed 9 Dec | **Dev Paradigms exam, 16:00.** | Evening: Concurrency formulas and worked examples. |
+| Thu 10 Dec | **Concurrency exam, 12:30.** Software Design Part 2 due 23:59 (should already be in). Evening: charge the laptop, start both versions once more. | Rest of the day off. |
+| Fri 11 Dec | **Software Design project interview, Group 1, 09:30** (provisional): run the monolith and the microservices version at the start. | Afternoon: Software Design revision starts. |
+| 12–14 Dec | — | Software Design: Interceptor first (likely exam question), then patterns, SOLID and metrics, UML (use case, sequence, activity, state, component, deployment), MVC and Broker, then past papers. A paper dictionary is allowed. |
 | Tue 15 Dec | **CS6451 exam, 09:00.** | — |
 
 Open questions that change this plan: the CS6451 talk slot and Assignment 2 due date, and the weight of each exam.
