@@ -32,6 +32,8 @@ Marks total 15. All members must contribute equally to both the implementation a
 
 MicroValid: Cojocaru, Uta & Oprescu (2019), "MicroValid: A Validation Framework for Automatically Decomposed Microservices", CloudCom 2019, doi:10.1109/CloudCom.2019.00023. Other approaches and metrics can be proposed by email.
 
+**Decision (25 Nov 2026): we use MicroValid** to evaluate the gym microservices for the "Evaluation of the quality of the result, including software metrics" section (3 marks). Martin's metrics from Class 10 (Ca, Ce, I, A, D per service) can sit alongside it as a second view; see [Martin Metrics](../../Class%2010/Notes/Martin%20Metrics.md).
+
 ## Rules that affect how we work
 
 - Generative AI may be used to bootstrap artefacts such as diagrams and code. It must not be used to improve the quality of the writing: "student voice must be clearly audible at all times". Every prompt goes in the report.
