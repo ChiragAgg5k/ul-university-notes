@@ -49,7 +49,7 @@ So the report needs research in it, not only a description of the system: each s
 
 ### Inconsistencies to settle
 
-- **Weight**: the brief says 30%, its table totals 20, and the module overview (tracker) says 20%. Ask Salim, or plan for 30%.
+- **Weight**: the brief says 30%, its table totals 20, and the module overview (tracker) says 20%. Not asking; treat it as the larger share and write to both schemes.
 - **Which portfolio**: the brief doesn't say, but "Technical documentation" of "the digital portfolio project" (rubric) means the Phase 2 site as it stands, with Phase 1 as its history.
 - **Reviewer name field**: carried over from the peer-review template. Keep the Assessment 2 classmate out of the repository as before (`private.json` tokens).
 
@@ -89,10 +89,9 @@ Walk the report against the checklist in [LESSONS.md](../../LESSONS.md). For thi
 
 ## Next steps
 
-1. Settle the weight question (email Salim if wanted).
-2. Read the sources in the References list; find the Lecture 12 documentation-quality paper and two or three studies on documentation in software evolution; fill the method table in §1.4.
-3. Re-run the walkthrough on the live site (`SITE=… npm run walkthrough` in `Assignment 3/site/`; S5 writes a real reaction) and point §5.3 at the fresh results.
-4. Decide on defects I5–I7: fix them in `Assignment 3/site/` or keep them open.
-5. Check design decisions D1–D7 and objectives O1–O4.
-6. Write the boxed sections: abstract, background, method, lessons learned, innovation paragraph, conclusion.
-7. Walk the PDF against LESSONS.md; target a full draft by Wed 2 December.
+1. Read the sources in the References list; find the Lecture 12 documentation-quality paper and two or three studies on documentation in software evolution; fill the method table in §1.4.
+2. Re-run the walkthrough on the live site (`SITE=… npm run walkthrough` in `Assignment 3/site/`; S5 writes a real reaction) and point §5.3 at the fresh results.
+3. Decide on defects I5–I7: fix them in `Assignment 3/site/` or keep them open.
+4. Check design decisions D1–D7 and objectives O1–O4.
+5. Write the boxed sections: abstract, background, method, lessons learned, innovation paragraph, conclusion.
+6. Walk the PDF against LESSONS.md; target a full draft by Wed 2 December.
