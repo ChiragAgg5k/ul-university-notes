@@ -30,3 +30,29 @@ DiSSENT: Cross-Border Journalism and Collaboration, Salim's own project.
 15. Your recommendation for evolving the application
 
 Reverse-engineering and inspection material from the module: Lec 5 (Reverse Engineering), Lec 6 (Software Inspection). Lec 12 (Software documentation, uploaded 24 Nov) is in [Lectures](../Lectures/).
+
+## What DiSSENT is (checked 25 Nov, commit ad344e3)
+
+A Final Year Project (2026–27) supervised by Salim: a workspace for journalists, including refugee and displaced reporters, to submit stories, message media teams and follow editorial review. Three contributors (Salim, a UL student, Shakeeba Hamdam).
+
+- **Website**: PHP 8.2 on Apache, MySQL 8, plain JS; PHPMailer with Mailpit for email. Run with Docker Compose.
+- **Back end**: two Spring Boot 3.5 services (`securecomm`, `securecomm2`) that exchange messages over Apache Kafka, share one MongoDB, and record report fingerprints on Hyperledger Fabric (Go chaincode).
+- **Live site**: GitHub Pages serves a static HTML preview only; the PHP pages return 503 there, so login, messaging and reports can't be tried online.
+
+## Starting points per criterion (verify each yourself)
+
+| Criterion | What the code and site show |
+| --- | --- |
+| Usability, accessibility | `lang="en"` set; aria attributes in the header; responsive with a hamburger menu. Run Lighthouse or WAVE on the preview |
+| Content, services | Register, login, reset, dashboard, profile, messaging, reports, media centre, verification, FAQ, admin |
+| Information architecture | 10 nav items; check that names match what each page does |
+| Graphic design | 14 CSS files, one per page; check consistency between pages |
+| Interactivity | Live password rules, FAQ search, polling for new messages (`get_new_messages.php`) |
+| Performance | Static preview only; nothing to measure for the dynamic pages online |
+| Security, privacy | Good: prepared statements, `password_hash`, CSRF tokens, session ID regenerated at login, image uploads checked by MIME and dimensions, uploads kept outside the web root, local ports bound to 127.0.0.1, API key filter on both Java services. Gaps: Kafka (9092) and ZooKeeper (2181) bound to all interfaces with no auth or TLS; no Spring Security; both services share one Mongo |
+| Legal | Journalists' identities and reports are sensitive personal data under GDPR: no privacy policy, consent, retention or data-deletion page beyond "delete account" |
+| Assistance, support | FAQ and contact form; README has troubleshooting |
+| Interoperability, integration | Kafka between services, Fabric for integrity, REST with API key between PHP and Java |
+| Language | Switcher lists 7 languages (including Farsi and Arabic, right-to-left), but no translation code was found |
+| Testing | No automated tests (no Java `src/test`, no PHPUnit) |
+| Maintainability | 1,600+ line `docs/backend/content.php`; PHP site lives in `docs/` because of GitHub Pages |
