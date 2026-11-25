@@ -87,11 +87,8 @@ Walk the report against the checklist in [LESSONS.md](../../LESSONS.md). For thi
 
 `report/report.md` is the source; `node report/pdf.mjs` renders the PlantUML diagrams in `report/diagrams/` and writes `report/dist/ID26253925_CS5709_Assessment5_Technical_Report.pdf` (gitignored, with `private.json`). Sections Chirag writes are `<div class="todo">` boxes; the script prints how many remain and the abstract word count.
 
-## Next steps
+## Draft status, 25 November
 
-1. Read the sources in the References list; find the Lecture 12 documentation-quality paper and two or three studies on documentation in software evolution; fill the method table in §1.4.
-2. Re-run the walkthrough on the live site (`SITE=… npm run walkthrough` in `Assignment 3/site/`; S5 writes a real reaction) and point §5.3 at the fresh results.
-3. Decide on defects I5–I7: fix them in `Assignment 3/site/` or keep them open.
-4. Check design decisions D1–D7 and objectives O1–O4.
-5. Write the boxed sections: abstract, background, method, lessons learned, innovation paragraph, conclusion.
-6. Walk the PDF against LESSONS.md; target a full draft by Wed 2 December.
+The report now links its findings to the literature in §1.4 and includes the fresh [live walkthrough results](evidence/walkthrough-2026-11-25/results.md). All eight scenarios passed. Assessment 3 and 4 feedback had not arrived. The report retains the three open minor defects in the assessed deployment.
+
+The final build on 25 November produced a 35-page PDF with a 250-word abstract and zero sections still to write. Brightspace submission is pending.

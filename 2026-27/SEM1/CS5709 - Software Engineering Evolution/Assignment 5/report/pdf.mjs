@@ -125,11 +125,11 @@ if (JSON.stringify(locate(first.headings, pages)) !== JSON.stringify(numbers)) {
   throw new Error('Contents numbering moved a section; run again.');
 }
 
-const text = pages.slice(2).join('\n');
-const abstract = text
-  .slice(text.indexOf('Abstract') + 'Abstract'.length, text.indexOf('1. Introduction'))
-  .split(/\s+/)
-  .filter(Boolean).length;
+// Count authored abstract text only. Drafting prompts can span several lines.
+const source = await readFile('report.md', 'utf8');
+const abstractText = source.split(/^## Abstract\s*$/m)[1].split(/^## /m)[0]
+  .replace(/<div class="todo">[\s\S]*?<\/div>/g, '');
+const abstract = abstractText.trim().split(/\s+/).filter(Boolean).length;
 console.log(`Wrote ${pdf}: ${pages.length} pages.`);
 console.log(`Abstract words: ${abstract} (target ${abstractTarget}).`);
 console.log(`Sections still to write: ${todos}.`);
