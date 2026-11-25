@@ -65,7 +65,7 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 
 ## Other dates
 
-- **Sat 28 Nov, 11:00–16:00, Teen-Turn mentoring (paid, about €20/hour), CSIS labs: unconfirmed.** Applied to J.J. Collins on 25 Nov, 12:38, with a [tailored CV](../../../../Documents/CV/) (in `~/Documents/CV/`). Not going until J.J. confirms by email; check the inbox for his reply.
+- **Sat 28 Nov, 11:00–16:00, Teen-Turn mentoring (paid, about €20/hour), CSIS labs: unconfirmed.** Applied to J.J. Collins on 25 Nov, 12:38, with a tailored CV (`~/Documents/CV/`). Not going until J.J. confirms by email; check the inbox for his reply.
 - **Tue 24 Nov**: gradireland "Engineer Your Career" in Dublin. Applied 19 Nov; not offered a place (email of 19 Nov), so the day is free.
 - **GenAI**: the Provost reminded everyone on 16 Nov to check each module's rules before using it. CS5707 marks AI-written reports at zero, and the CSIS project bans it without the supervisor's written permission.
 - The Thu 12 Nov strike was called off; the Sat 14 Nov power outage has passed.
