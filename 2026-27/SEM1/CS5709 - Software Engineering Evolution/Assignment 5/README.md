@@ -92,3 +92,17 @@ Walk the report against the checklist in [LESSONS.md](../../LESSONS.md). For thi
 The report now links its findings to the literature in §1.4 and includes the fresh [live walkthrough results](evidence/walkthrough-2026-11-25/results.md). All eight scenarios passed. Assessment 3 and 4 feedback had not arrived. The report retains the three open minor defects in the assessed deployment.
 
 The final build on 25 November produced a 35-page PDF with a 250-word abstract and zero sections still to write. Brightspace submission is pending.
+
+## Submission
+
+Submitted on Brightspace on Wed 25 November 2026, 22:51 (submission ID 1091973): the PDF built with `REPORT_DATE='25 November 2026'`. The dropbox offers "Upload More Files", so a better version can replace it until Fri 4 December, 12:00.
+
+## Before the deadline: recheck and resubmit if improved
+
+Aim to finish this by Wed 2 December.
+
+1. Rewrite in my own words the passages §1.5 says Codex drafted: the abstract additions, the §1.1 background and the §8 traceability paragraph. Then update the §1.5 declaration. The module's AI policy expects the summary, critique and reflection to be my own.
+2. Replace the reused Assessment 3 reflection in §6.4 with new reflection on this phase.
+3. Add the Assessment 3 and 4 marks and feedback to §6.1 and §6.2 if they have been released.
+4. Optionally fix defects I5–I7 in `Assignment 3/site/` and update §5.5.
+5. Rebuild with `REPORT_DATE` set, walk the PDF against LESSONS.md, resubmit, and record the new submission ID here and in the tracker.
