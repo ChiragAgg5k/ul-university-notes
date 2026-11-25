@@ -1,0 +1,34 @@
+@startuml deployment
+' How a commit reaches readers (.github/workflows/cs5709-portfolio.yml) and which services the browser calls.
+skinparam shadowing false
+skinparam defaultFontName Times New Roman
+node "Developer laptop" {
+  artifact "site/ (Vite project)" as Source
+}
+node "GitHub" {
+  artifact "ul-university-notes\nrepository" as Repo
+  node "GitHub Actions runner\n(ubuntu-latest, Node 22)" {
+    component "check job\nnpm ci, oxlint, Prettier,\nnode --test, tsc + vite build" as Check
+    component "deploy job\nactions/deploy-pages" as Deploy
+  }
+  node "GitHub Pages" {
+    artifact "dist/: index.html, 404.html,\nJS chunks, assets" as Dist
+  }
+  component "REST API\n/users/:user/repos" as Rest
+}
+node "Appwrite Cloud, Singapore" {
+  database "cs5709-portfolio /\nreactions" as Table
+  component "Realtime\n(websocket)" as Realtime
+}
+node "Tawk.to" as Tawk
+node "Reader's browser" as Browser
+Source --> Repo : git push (main)
+Repo --> Check : push / pull request\n(path filter)
+Check --> Deploy : needs: check\n(main only)
+Deploy --> Dist : Pages artifact
+Browser --> Dist : HTTPS
+Browser --> Rest : fetch
+Browser --> Table : create / list rows
+Browser --> Realtime : subscribe
+Browser ..> Tawk : after consent
+@enduml

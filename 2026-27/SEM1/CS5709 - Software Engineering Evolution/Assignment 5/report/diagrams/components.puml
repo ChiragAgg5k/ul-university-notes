@@ -1,0 +1,64 @@
+@startuml components
+' Component view recovered from the import statements of site/src. Dashed arrows are dynamic imports.
+skinparam shadowing false
+skinparam defaultFontName Times New Roman
+skinparam componentStyle rectangle
+package "Browser: React single-page application" {
+  [main.tsx / App.tsx\nroutes] as App
+  package "pages/" {
+    [Home, About, Education,\nKnowledge, Pictures, Videos,\nBlog, Contact, Missing] as Pages
+    [Article] as Article
+    [Repositories] as Repositories
+    [Readme] as Readme
+  }
+  package "components/" {
+    [Layout] as Layout
+    [CollectionFilter] as Filter
+    [Reactions] as Reactions
+    [Chat] as Chat
+  }
+  package "hooks/" {
+    [useFilter] as useFilter
+    [useReactions] as useReactions
+    [useChat] as useChat
+    [useReveal] as useReveal
+  }
+  package "state/" {
+    [PortfolioContext\n(reducer)] as Context
+    [matches\n(pure rules)] as Matches
+  }
+  package "api/" {
+    [github] as GithubApi
+    [reactions] as ReactionsApi
+    [reactionIdentity] as Identity
+  }
+  [chat/loader] as Loader
+  database "data/*.json\narticles/*.html" as Data
+}
+cloud "GitHub REST API" as GitHub
+cloud "Appwrite Cloud (sgp)\nTablesDB + Realtime" as Appwrite
+cloud "Tawk.to" as Tawk
+App --> Layout
+App ..> Pages
+App ..> Article
+App ..> Repositories
+App ..> Readme
+Layout --> Chat
+Chat --> useChat
+useChat --> Loader
+Loader ..> Tawk
+Pages --> Filter
+Pages --> useReveal
+Filter --> useFilter
+useFilter --> Context
+Pages --> Matches
+Pages --> Data
+Article ..> Data
+Article --> Reactions
+Reactions --> useReactions
+useReactions ..> ReactionsApi
+ReactionsApi --> Identity
+ReactionsApi --> Appwrite
+Repositories --> GithubApi
+GithubApi --> GitHub
+@enduml

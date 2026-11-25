@@ -1,0 +1,33 @@
+@startuml reaction-sequence
+' One reader reacts to an article while a second reader has it open (api/reactions.ts, hooks/useReactions.ts).
+skinparam shadowing false
+skinparam defaultFontName Times New Roman
+actor "Reader A" as A
+participant "Reactions /\nuseReactions (A)" as UA
+participant "api/reactions" as API
+participant "Appwrite TablesDB" as DB
+participant "Appwrite Realtime" as RT
+participant "useReactions (B)" as UB
+A -> UA : open /blog/:slug
+UA -> API : import() (separate chunk)
+API -> RT : subscribe("row created", reactions)
+note right of API : subscribe first, so a reaction made\nwhile counting is not missed (defect I12)
+API -> DB : listRows(article, kind, limit 1) per kind
+DB --> API : totals
+UA --> A : buttons enabled, counts shown
+A -> UA : click "Useful"
+UA -> UA : mark pressed, remember in localStorage
+UA -> API : addReaction(article, kind, visitor)
+API -> DB : createRow(id = visitor-digest-kind)
+alt row is new
+  DB --> API : 201 created
+  UA --> A : count + 1
+  DB -> RT : row created
+  RT -> UA : event for a row this tab wrote: ignored
+  RT -> UB : event
+  UB -> UB : count + 1
+else row already exists (same reaction sent from another tab)
+  DB --> API : 409 conflict, addReaction returns false
+  UA --> A : count unchanged
+end
+@enduml

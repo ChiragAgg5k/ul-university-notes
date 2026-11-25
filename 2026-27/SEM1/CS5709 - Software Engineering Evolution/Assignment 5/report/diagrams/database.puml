@@ -1,0 +1,21 @@
+@startuml database
+' The only table the site writes to: Appwrite project chirag-project-prod, database cs5709-portfolio.
+skinparam shadowing false
+skinparam defaultFontName Times New Roman
+hide circle
+entity "reactions" as Reactions {
+  * $id : string <<PK>>  = visitor-digest-kind
+  --
+  * article : string  (article slug)
+  * kind : enum { useful, clear, more }
+  $createdAt : datetime  (set by Appwrite)
+  --
+  permissions: create(any), read(any)
+  no update, no delete
+}
+note right of Reactions
+  The primary key enforces one reaction
+  per visitor, article and kind:
+  a repeat create returns 409.
+end note
+@enduml

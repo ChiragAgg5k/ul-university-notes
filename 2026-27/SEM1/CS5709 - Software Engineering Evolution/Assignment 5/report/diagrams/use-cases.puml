@@ -1,0 +1,34 @@
+@startuml use-cases
+' Use cases of the Phase 2 portfolio, from the personas and scenarios of Assessment 3, section 2.4.
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Times New Roman
+actor "P1 Module assessor" as P1
+actor "P2 Hiring manager" as P2
+actor "P3 Fellow developer" as P3
+actor "GitHub REST API" as GitHub <<system>>
+actor "Appwrite Cloud" as Appwrite <<system>>
+actor "Tawk.to" as Tawk <<system>>
+rectangle "Digital portfolio, Phase 2" {
+  usecase "Read the Readme page (R1)" as UC1
+  usecase "Chat after consent (R2)" as UC2
+  usecase "Filter projects by skill (R3)" as UC3
+  usecase "Search writing, keep filter (R4)" as UC4
+  usecase "Read an article from a link (R5)" as UC5
+  usecase "React to an article (R6)" as UC6
+  usecase "See latest repositories (R8)" as UC8
+  usecase "Browse and enlarge photos (R9)" as UC9
+}
+P1 --> UC1
+P1 --> UC2
+P2 --> UC3
+P2 --> UC4
+P2 --> UC9
+P3 --> UC5
+P3 --> UC6
+P3 --> UC8
+UC2 --> Tawk
+UC6 --> Appwrite
+UC8 --> GitHub
+UC5 <.. UC6 : <<extend>>
+@enduml
