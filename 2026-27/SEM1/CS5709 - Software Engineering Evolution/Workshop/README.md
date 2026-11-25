@@ -73,3 +73,11 @@ The working app is linked from the topic: a Cloudflare quick tunnel to Salim's m
 | Verification | Search by report ID, title or journalist; shows recorded hashes and "Chain Integrity: Check passed"; explains that a hash proves integrity, not accuracy |
 | Language (Settings and the globe menu) | Offers en, fa, fr, es, ar, de, nl. Choosing French changed nothing: page text and `html lang` stay English. Language is cosmetic only |
 | Page load times | 1.4–2.0 s per page through the tunnel |
+
+## Lighthouse (CLI 13.6.0, 25 Nov)
+
+Reports (JSON and HTML) are in the session scratchpad, not the repo.
+
+- **Static preview, 16 pages × mobile and desktop (32 runs)**: Performance 99–100, Accessibility 100, Best Practices 96, SEO 90 on every page (about: 100). Mobile largest paint 0.8–1.2 s; slowest Speed Index verification on mobile, 3.4 s. Every page logs a 404 for a missing resource to the console (the Best Practices loss); 14 of 16 pages have no meta description; the home page has a non-descriptive link ("Learn more").
+- **Live app, 7 public pages on mobile**: Performance 100, Accessibility 100, Best Practices 100, SEO 54–63 because the tunnel marks pages as not indexable, plus missing meta descriptions. Largest paint 1.2–1.5 s.
+- **Limits**: automated checks catch only part of accessibility (Lighthouse lists 10 manual checks); logged-in pages weren't scored; the earlier desktop run also flagged no CSP, HSTS, COOP or clickjacking protection.
