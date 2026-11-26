@@ -1,5 +1,7 @@
 # Essay plan: operating self-hosted low-code platforms
 
+**Superseded on 26 November 2026:** the essay topic is now requirements engineering for AI-driven esports coaching tools (see [README.md](README.md)). Kept as a starting point for the Masters Project literature review.
+
 Ideas A + B from [SOURCES.md](SOURCES.md), expanded 25 November 2026. This is an outline to agree with the teammate, not essay text: write every section in your own words, and log any AI prompts for the AI declaration.
 
 ## The argument in one line
