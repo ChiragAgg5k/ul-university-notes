@@ -9,7 +9,7 @@ Spec: [End-Of-Term Essay 2026.doc](End-Of-Term%20Essay%202026.doc), plus a video
 | Team | 2 people |
 | Length | 3,000 words, ±10%. With a pilot study the spec says 2,500, which reads like a typo. Ask Jim |
 | Due | **Friday 4 December 2026, 12:00 midday**, on Brightspace |
-| Topic | **Agreed 26 Nov 2026:** "Real-Time or Post-Match? A Critical Review of Requirements Engineering for AI-Driven Esports Coaching Tools". Sources not yet gathered. The earlier low-code candidate ([PLAN.md](PLAN.md), [SOURCES.md](SOURCES.md)) is dropped for the essay; keep its sources for the Masters Project literature review |
+| Topic | **Agreed 26 Nov 2026:** "Real-Time or Post-Match? A Critical Review of Requirements Engineering for AI-Driven Esports Coaching Tools". [Sources](SOURCES.md) and [plan](PLAN.md) researched 26 Nov; full notes in [research/](research/). The earlier low-code candidate is in [lowcode-candidate/](lowcode-candidate/), kept for the Masters Project literature review |
 | Filename | `RMESSAY<ID1> <NAME1><ID2> <NAME2>`. The essay title is the topic only, with no module code or assignment name (Jim, lecture of 23 Nov) |
 
 ## Brief

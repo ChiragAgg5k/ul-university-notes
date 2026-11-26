@@ -1,51 +1,67 @@
-# Essay plan: operating self-hosted low-code platforms
+# Essay plan: real-time or post-match AI coaching in esports
 
-**Superseded on 26 November 2026:** the essay topic is now requirements engineering for AI-driven esports coaching tools (see [README.md](README.md)). Kept as a starting point for the Masters Project literature review.
+Outline to agree with the teammate, 26 November 2026. This is not essay text: write every section in your own words, and log AI prompts for the AI declaration. Sources are in [SOURCES.md](SOURCES.md).
 
-Ideas A + B from [SOURCES.md](SOURCES.md), expanded 25 November 2026. This is an outline to agree with the teammate, not essay text: write every section in your own words, and log any AI prompts for the AI declaration.
+## How the plan meets Jim's brief
 
-## The argument in one line
+| Brief | How |
+| --- | --- |
+| At least 10 references, 8 peer-reviewed, at most 3 per institution or researcher | 15 to 20 peer-reviewed sources across five themes; publisher policies are extra grey literature; watch the Kleinman/Yonsei and Ahmad/Deakin clusters |
+| Start from a journal review article | Białecki et al. 2024 (esports training and software) and Habiba et al. 2024 (requirements engineering for AI) as twin anchors; the gap sits between them |
+| Summarise as a cohesive whole | five themes, each synthesising several papers; no paper-by-paper paragraphs |
+| Find a gap, flaw or link between themes | the link between themes 2, 3 and 4: nobody connects feedback timing to requirements for AI coaching tools |
+| Research plan, 5 paragraphs or fewer | below |
+| Pilot study (top grade) | policy-to-feature tracing, public documents only |
+| AI declaration | research agents found and checked sources; prompts logged |
 
-Low-code research treats the platform as something that already exists and studies the people building apps on it, while operations research studies generic containerised software. Self-hosted low-code platforms sit between the two and are studied by neither, even though teams such as Prof. Margaria's run one (Wave on Cinco Cloud) for many communities.
+## The argument
+
+1. Esports coaching tools now use AI, and they deliver advice at two moments: during play (overlays) and after it (reports, replay review).
+2. Esports research shows professional coaching is built around post-match review (Watson 2022; Lee 2025), and that tools fail to be adopted for reasons that are requirements problems (Kleinman 2026). Only Rijnders 2022 treats live tools as having different requirements.
+3. Motor-learning research gives a reason the timing matters: feedback during practice can raise performance but create dependence and harm retention (Salmoni 1984; Sigrist 2013b; Walsh 2009), though complex skills may be an exception (Wulf & Shea 2002) and faded feedback may avoid the problem (Park 2000).
+4. Requirements engineering for AI has mature reviews (Habiba 2024; Ahmad 2023), but they draw on safety-critical domains and treat timing as latency. Explainability work assumes spare attention (Chazette & Schneider 2020). Only HCI guidance names timing (Amershi 2019).
+5. Meanwhile publishers already decide the question by rule: Riot bans "go here now" and allows learning "upon reflection … game over game"; tournaments restrict even human coaches to pauses (theme 5).
+6. **Gap:** the requirements that separate real-time from post-match AI coaching are set by platform rules and vendor features, not by evidence on learning, and requirements engineering has not studied them.
 
 ## Research questions
 
-- **RQ1:** What deployment and operations problems do people self-hosting open-source low-code platforms report?
-- **RQ2:** Which of those problems fit existing taxonomies (Gang of Eight for infrastructure as code; Haque et al. for Docker), and which are specific to low-code (for example, the platform running apps that users built, per-tenant workspaces, or upgrades that break saved models)?
-- **RQ3 (from idea B):** How are these platforms packaged for self-hosting (Compose, Helm, single image, operator), and how does the packaging relate to the problems found in RQ1?
+- **RQ1:** Which coaching functions do platform rules and current tools place in real time, and which after the match, and on what grounds (information, decision, timing)?
+- **RQ2:** What functional and non-functional requirements (learning retention, cognitive load, explainability, fairness) should decide whether an AI coaching function runs live or post-match?
+- **RQ3 (full study only):** Does real-time AI feedback improve retained skill in an esport, or only in-session performance?
 
-RQ1 and RQ2 are the core. RQ3 can shrink to a paragraph if the word count is tight.
+RQ1 is what the pilot answers. RQ2 and RQ3 need people, so they belong in the full study.
 
-## Literature, grouped by theme (synthesise across papers, not one per paragraph)
+## Literature, by theme
 
-| Theme | What it establishes | Sources |
+| Theme | Claim to make | Core sources |
 | --- | --- | --- |
-| 1. What low-code is | definitions; low-code as a form of model-driven engineering; "low-code is often high-code" | Bock & Frank 2021; Di Ruscio et al. 2022; Sahay et al. 2020; Lethbridge 2021 |
-| 2. Challenges from the users' side | developer and adopter problems; deployment appears only as the app builder's concern | **Ajimati et al. 2025 (journal SLR, start here)**; Alamin et al. 2021; Luo et al. 2021; Käss et al. 2023; Rafi et al. 2022 |
-| 3. Building and hosting the platform | the few papers on platform architecture: multi-tenancy, multi-cloud, moving to the cloud | Costa et al. 2025; Ul Haq et al. 2024; Alfonso et al. 2024; Bainczyk et al. 2022; Brandon et al. 2025; Margaria et al. 2026 (max 3 from the Margaria group) |
-| 4. What operations research already knows | defect and misconfiguration taxonomies, Helm and Compose practice, installation problems | Rahman et al. 2020 and 2023; Haque et al. 2020; Zerouali et al. 2023; Eng et al. 2024; Gao et al. 2025; Chen et al. 2021 |
-| 5. Bridge: DevOps for model-driven engineering | MDE meets DevOps, but for the models, not for running the modelling platform | Combemale et al. 2023; Berardinelli et al. 2026 |
+| 1. Esports training and coaching | coaching is review-based; the field has metrics but no training theory | Białecki 2024; Reitman 2020; Pedraza-Ramirez 2020; Watson 2022; Lee 2025; Kleinman 2026; Nagorsky 2020 |
+| 2. Live and post-match tools | stakeholders want both, for different purposes; live AI exists only for spectators | Rijnders 2022; Jumisko-Pyykkö 2025; Xenopoulos 2022; Hodge 2021; Wu 2021 |
+| 3. Feedback timing | performance during feedback is not learning; timing is an open question for complex skills | Salmoni 1984; Sigrist 2013a and b; Wulf & Shea 2002; Walsh 2009; Park 2000 |
+| 4. Requirements engineering for AI | mature, but timing is missing and leisure domains are absent | Habiba 2024; Ahmad 2023; Habibullah 2023; Chazette & Schneider 2020; Amershi 2019 |
+| 5. Fairness and platform rules | the split is already imposed by rules; fairness is negotiated, not technical | Riedl & Verschuuren 2025; Irwin & Naweed 2020; Yan & Randell 2009; Riot, Overwolf, Valve, ESL policies |
 
-The gap comes out of themes 3 to 5: theme 2 shows deployment pain exists, theme 4 has the tools to classify it, and theme 3 shows that almost nobody has applied them to the platform itself.
+## Preliminary research plan (5 paragraphs)
 
-## Preliminary research plan (5 paragraphs or fewer)
-
-1. **Design:** a mixed-methods repository-mining study, the same approach as Alamin et al. and Haque et al.
-2. **Data:** issues and discussions from 6 to 8 open-source low-code platforms (Budibase, Appsmith, ToolJet, NocoDB, Joget, n8n or Node-RED as a contrast), selected by stars and self-hosting docs; the packaging files for RQ3.
-3. **Analysis:** coding against the Gang of Eight and Haque categories first, then new codes for problems that don't fit; two coders, with agreement measured by Cohen's kappa.
-4. **Validation:** short interviews with platform operators, starting with the Wave/Cinco Cloud team. This needs ethics approval, so it belongs in the full study, not the pilot.
-5. **Threats:** issue trackers over-represent failures; platforms label issues differently; it is unclear whether the findings carry over to closed platforms (Power Apps, OutSystems).
+1. **Design:** a multi-phase mixed-methods study. Phase 1 analyses documents (rules and tools), phase 2 elicits requirements from people, phase 3 tests the key timing question by experiment.
+2. **Phase 1, rules and tools:** extract every normative statement from publisher, platform and tournament rules using Breaux & Antón's (2008) method for regulatory requirements, then trace each one to the advertised features of 12 to 20 tools across three genres (MOBA, tactical shooter, other). This scales up the pilot.
+3. **Phase 2, stakeholders:** survey ranked players and interview coaches and tournament organisers about which functions they would accept live, which post-match, and why. Mine Steam and store reviews as a secondary source (Dąbrowski 2022; Lin 2019). Needs ethics approval.
+4. **Phase 3, timing experiment:** players practise one skill in an aim trainer or custom game with real-time, post-match or faded feedback, then a retention test without the tool a few days later. This directly tests the guidance hypothesis in an esport. Needs ethics approval.
+5. **Threats:** advertised features differ from what tools actually do; policies change fast (Riot's memory-access change is two months old); most evidence is League of Legends; lab tasks may not transfer to full matches.
 
 ## Pilot (for the 5 pilot marks)
 
 | | |
 | --- | --- |
-| Sample | 4 platforms × 50 closed issues = 200, matched by keywords and labels: `self-host`, `docker`, `helm`, `kubernetes`, `deploy`, `upgrade`, `migration` |
-| Inclusion | about operating the platform, not about building an app on it |
-| Coding | each teammate codes 100; both code the same 40 to compute kappa |
-| Report | the coding scheme, category counts per platform, kappa, 3 to 4 example issues, and what to change for the full study |
-| Effort | about 6 to 8 hours each; GitHub API or `gh issue list --search` for collection |
-| Ethics | public data, no people contacted. **Confirm with Jim before starting** |
+| Question | RQ1: where do rules and tools draw the line between live and post-match? |
+| Data | about 10 policy documents (Riot stance, League and VALORANT API policies, memory-access notice, Overwolf general and Riot pages, Steam Trusted Mode, FACEIT, ESL/IEM, Blizzard) and the feature pages of 12 tools (Mobalytics, Blitz, Porofessor, U.GG, iTero, MetaBot, Omnic.AI, Insights.gg, Leetify, Aimlabs, KovaaK's, SCOPE.GG) |
+| Step 1 | extract each normative statement as a requirement (about 60 to 100); code it by boundary (information, decision, timing, technical) and phase |
+| Step 2 | list each advertised feature (about 100 to 180 rows); code phase (pre, live, post, training), kind (display, recommendation, decision prompt, review, training), data source, and whether it claims AI |
+| Step 3 | trace features to rules: permitted, forbidden, or unclear |
+| Agreement | both code all rows independently; report Cohen's kappa, then reconcile |
+| Report | counts by phase and boundary, kappa, 2 to 3 cases (Blitz's teammate-only ultimate timers; the Mobalytics listing advertising power-spike alerts that Overwolf prohibits; CS2 tools being post-match only because of Trusted Mode), and what to change for the full study |
+| Effort | about 8 hours each (4 on rules, 4 on features); manual collection, save a dated PDF of every page |
+| Ethics | public documents, no people. Overwolf forbids scraping, so read its pages by hand. **Confirm with Jim** |
 
 ## Word budget (3,000 ±10%)
 
@@ -58,20 +74,29 @@ The gap comes out of themes 3 to 5: theme 2 shows deployment pain exists, theme 
 | Pilot study | 450 |
 | AI use declaration | 150 |
 
-If Jim confirms 2,500 with a pilot, cut the literature review to about 1,000 and the research plan to about 350.
+If Jim confirms 2,500 with a pilot, cut the literature review to about 1,000 and the plan to about 350.
+
+## Suggested split with the teammate
+
+| Person | Themes | Pilot |
+| --- | --- | --- |
+| A | 1 and 2 (esports) | feature list for the 12 tools |
+| B | 3, 4 and 5 (timing, requirements, rules) | rule extraction from the policies |
+| Both | gap, research questions, plan | code everything twice for kappa, then the trace |
 
 ## Timeline to Fri 4 Dec, 12:00
 
 | When | What |
 | --- | --- |
-| Thu 26 – Fri 27 Nov | agree the topic with the teammate; email Jim the two questions; split the reading by theme |
-| Sat 28 – Sun 29 Nov | read; collect and code the pilot issues |
-| Mon 30 Nov – Wed 2 Dec | write; each writes their themes, then join them up |
-| Thu 3 Dec | check references, word count, filename and the LESSONS.md checklist |
-| Fri 4 Dec, by 10:00 | submit (leave a margin before 12:00) |
+| Thu 26 – Fri 27 Nov | agree the split; email Jim (word count; pilot on public documents needs no ethics) |
+| Sat 28 – Sun 29 Nov | read the core papers; collect and save the policy and feature pages; code |
+| Mon 30 Nov | reconcile codes, compute kappa, trace |
+| Mon 30 Nov – Wed 2 Dec | write own themes, then join |
+| Thu 3 Dec | references, word count, filename, LESSONS.md checklist |
+| Fri 4 Dec, by 10:00 | submit |
 
 ## Check before writing
 
-- Read each paper; the notes in SOURCES.md come only from abstracts.
-- At least 10 references, 8 of them peer-reviewed; at most 3 from one institution or researcher (Rahman appears twice, the Margaria group three times).
-- Ask the teammate if they want an LLM angle; if so, Hagel et al. 2024 can go in theme 1.
+- Read the full texts of the anchor reviews; the gap claim about timing rests on abstracts so far.
+- Re-open every policy page on the day you quote it; these change.
+- The AI declaration must say that AI agents searched for and checked sources, and list the prompts.

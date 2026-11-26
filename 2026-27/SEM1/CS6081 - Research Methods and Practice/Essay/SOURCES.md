@@ -1,90 +1,95 @@
-# Essay sources and topic ideas
+# Essay sources: AI-driven esports coaching tools
 
-Researched 23 November 2026 with Crossref, OpenAlex, publisher pages, wave-flow.ie and the Cinco Cloud GitLab repo. Every DOI below resolved on Crossref that day. The notes come from titles, metadata and abstracts, not full reads: read each paper before citing it and write every point in your own words. Brainstorm page with scored ideas: <https://claude.ai/artifact/BtBNnizxKo4idZ5D7J8ZuJ> (private; share it from the page).
+Topic: "Real-Time or Post-Match? A Critical Review of Requirements Engineering for AI-Driven Esports Coaching Tools".
 
-## The gap
+Researched 26 November 2026 with Crossref, OpenAlex, publisher pages and official policy pages. Every DOI below resolved on Crossref that day. The notes come from abstracts and metadata, not full reads: read each paper before citing it, and write every point in your own words. Full notes, with institutions and relevance, are in [research/](research/):
 
-Low-code research is about building apps: modelling, adoption, developer challenges. Almost nothing studies how to install, operate, isolate tenants of or scale the platform itself (Costa 2025 is the only direct paper). Prof. Margaria's group runs Wave on Cinco Cloud on Kubernetes (one Theia workspace per project, idle ones garbage-collected, per the repo docs) but has published nothing on operating it.
+- [esports-literature.md](research/esports-literature.md): 29 sources on esports training and coaching, feedback timing, and fairness
+- [requirements-literature.md](research/requirements-literature.md): 31 sources on requirements engineering for AI, explainability, app-review mining, and RE for games
+- [tools-and-policies.md](research/tools-and-policies.md): 12 real tools by phase, publisher and tournament rules with quotes, and three pilot designs
 
-| Theme | State |
-| --- | --- |
-| Definitions, low-code vs model-driven engineering | crowded; background only |
-| Literature reviews | crowded; 8+ since 2021 |
-| Developer challenges mined from forums | crowded; deployment appears only from the app builder's side |
-| Organisational adoption, citizen developers | crowded; mostly interviews |
-| Testing, evolution, lock-in | thin |
-| LLMs and low-code | thin, growing |
-| Operating the platform: install, multi-tenancy, scaling | near empty |
+Generating these notes used AI (Claude Code research agents). Record that in the AI declaration.
 
-## Candidate research questions
+## The gap in one paragraph
 
-Scores 1–5: novelty, sources available, pilot in a week without ethics approval, fit with the Wave dissertation.
+AI coaching tools for esports split into live overlays and post-match analysis. Three bodies of work each see part of the problem. HCI and esports studies elicit what players and coaches want, but never write it down as requirements, and only one paper (Rijnders et al. 2022) says live tools "pose different requirements" from post-play ones. Motor-learning research says real-time feedback can raise performance while harming retained learning (the guidance hypothesis), but nobody has tested this in an esport. Requirements engineering for AI has mature journal reviews, but they cover safety-critical domains and treat timing only as system latency, not as when a person can take in advice. Meanwhile publishers already write the real-time versus post-match split into their rules (Riot: "go here now" is banned, learning "upon reflection … game over game" is allowed). No peer-reviewed paper applies requirements engineering to esports coaching or game-analytics tools.
 
-| | Question | Pilot | Scores |
-| --- | --- | --- | --- |
-| **A** (recommended) | What deployment and operations problems do people self-hosting open-source low-code platforms report? | Code about 200 GitHub issues (deploy, self-host, helm, k8s) from Budibase, Appsmith, ToolJet, NocoDB against the Gang-of-Eight and Haque categories | 5/5/5/5 |
-| **B** (recommended, pairs with A) | How are open-source low-code platforms packaged for self-hosting, and what does that imply for Wave? | Analyse Compose files, Helm charts and install docs of 4–5 platforms plus Cinco Cloud | 5/4/5/5 |
-| C | What does it cost one operator to get from a clean VM or k3s to a first working app? | Self-study installing four platforms, logging steps, failures, time | 4/3/5/4 |
-| D | Does tenant isolation (shared vs per community) change resource use and latency under load? | k6 load tests on k3s; keep for the dissertation | 5/2/2/4 |
-| E | Has model-driven DevOps research addressed operating the modelling platform itself? | Structured screen of 2020–26 MODELS, SoSyM, ICSA-C | 3/5/5/3 |
-| F | How do practitioners weigh lock-in and maintainability in low-code vs LLM-assisted development? | Survey or interviews; needs consent, possibly ULREC | 4/4/2/2 |
-| G | Do LLM assistants remove the reasons to choose low-code for CRUD work? | Build one feature both ways | 4/3/3/2 |
+## Core reading list (pick 15 to 20 for the essay)
 
-## References
+At most 3 per institution or researcher. Watch two clusters: Kleinman, Lee and Yonsei appear on 5 candidate papers (use at most 3), and Ahmad, Grundy and the Deakin/Monash group on 3 (use 1).
 
-### Margaria's group: Wave and Cinco Cloud
+### Theme 1: esports training and coaching practice
 
-Teumert, Mitwalli and Krumrey are on most of these, so cite at most 3 (one-institution rule).
+| Source | Type | Why |
+| --- | --- | --- |
+| **Białecki, Michalak & Gajewski 2024**, *Applied Sciences* 14(22) 10354, doi:10.3390/app142210354 | journal **review** (scoping) | **Start here.** The only review covering training software, analytics and feedback systems. Metrics everywhere, no theory of training |
+| Reitman et al. 2020, *Games and Culture* 15(1) 32–50, doi:10.1177/1555412019840892 | journal review | map of esports research; tool work is a small slice |
+| Pedraza-Ramirez et al. 2020, *Int. Review of Sport and Exercise Psychology* 13(1) 319–352, doi:10.1080/1750984X.2020.1723122 | journal review (PRISMA) | cognition and attention constructs a live tool competes with |
+| Watson et al. 2022, *Sports Coaching Review* 14(2) 263–282, doi:10.1080/21640629.2022.2123960 | journal | 14 pro League of Legends coaches: practice runs on a review-plan-do cycle, i.e. post-match |
+| Lee, Kleinman et al. 2025, CHI '25, doi:10.1145/3706598.3713141 | conference | 112 hours of observed coaching at an academy: the as-is process |
+| Kleinman et al. 2026, CHI '26, doi:10.1145/3772318.3791065 | conference | 3-month deployment of a post-hoc tool at a pro academy; adoption problems are requirements problems (check the "negative reception" detail in the full text) |
+| Nagorsky & Wiemeyer 2020, *PLOS ONE* 15(8) e0237584, doi:10.1371/journal.pone.0237584 | journal | 1,835 players: competence is game-specific, so requirements are too |
 
-- Margaria, T., O'Brien, S., Krumrey, M., Mitwalli, D.S., Saay, S. and Teumert, S. (2026) 'The Wave platform: a LCNC platform for communities of research', COMPSAC 2026, pp. 1689–1692. doi:10.1109/compsac69091.2026.00224.
-- Teumert, S. and Mitwalli, D.S. (2026) 'Unifying executable (process-) models inside the WAVE platform', 2nd Workshop on Low-Code Development and Software Architecture. doi:10.1145/3786179.3788322.
-- Brandon, C., Mitwalli, D.S., Krumrey, M. and Teumert, S. (2025) 'Bringing Cinco de Bio to the cloud', ICSA-C 2025, pp. 340–349. doi:10.1109/icsa-c65153.2025.00055.
-- Mitwalli, D.S., Krumrey, M. and Teumert, S. (2025) 'Streamlining the engineering and distribution of graphical DSLs based on recurring patterns', ICSA-C 2025. doi:10.1109/icsa-c65153.2025.00056.
-- Bainczyk, A. et al. (2022) 'Cinco Cloud: a holistic approach for web-based language-driven engineering', ISoLA 2022, LNCS. doi:10.1007/978-3-031-19756-7_23. (Steffen's group; Margaria not an author.)
-- Steffen, B., Gossen, F., Naujokat, S. and Margaria, T. (2019) 'Language-driven engineering: from general-purpose to purpose-specific languages', LNCS 10000. doi:10.1007/978-3-319-91908-9_17.
-- Brandon, C. et al. (2024) 'Cinco de Bio: a low-code platform for domain-specific workflows for biomedical imaging research', *BioMedInformatics*, 4(3). doi:10.3390/biomedinformatics4030102.
+### Theme 2: what live and post-match tools are asked to do
 
-### Low-code: background and challenges
+| Source | Type | Why |
+| --- | --- | --- |
+| **Rijnders, Wallner & Bernhaupt 2022**, PACM HCI 6(CHI PLAY), doi:10.1145/3549506 | journal/conference | **The closest paper to the topic.** Live companions "pose different requirements which have been little explored"; survey of 175, evaluation with 13; no retention outcome |
+| Jumisko-Pyykkö et al. 2025, OzCHI '25, pp. 469–482, doi:10.1145/3764687.3764702 | conference | coaches want both: reflection after, team monitoring during |
+| Xenopoulos, Rulff & Silva 2022, PACM HCI 6(CHI PLAY), doi:10.1145/3549501 | journal/conference | "video-based game review is still the primary mode of game analysis" |
+| Hodge et al. 2021, *IEEE Transactions on Games* 13(4) 368–379, doi:10.1109/TG.2019.2948469 | journal | live AI (win prediction) exists, but for spectators, not players |
+| Wu, Lee & Steinkuehler 2021, CHI '21, doi:10.1145/3411764.3445143 | conference | tilt: in-game negative feedback is a risk, a tone requirement |
 
-- Sahay, A., Indamutsa, A., Di Ruscio, D. and Pierantonio, A. (2020) 'Supporting the understanding and comparison of low-code development platforms', SEAA 2020. doi:10.1109/seaa51224.2020.00036.
-- Di Ruscio, D. et al. (2022) 'Low-code development and model-driven engineering: two sides of the same coin?', *Software and Systems Modeling*, 21(2). doi:10.1007/s10270-021-00970-2.
-- Bock, A.C. and Frank, U. (2021) 'Low-code platform', *Business & Information Systems Engineering*, 63(6). doi:10.1007/s12599-021-00726-8.
-- Lethbridge, T.C. (2021) 'Low-code is often high-code, so we must design low-code platforms to enable proper software engineering', ISoLA 2021, LNCS. doi:10.1007/978-3-030-89159-6_14. (Lethbridge alone, not Margaria.)
-- Alamin, M.A.A. et al. (2021) 'An empirical study of developer discussions on low-code software development challenges', MSR 2021. doi:10.1109/msr52588.2021.00018.
-- Luo, Y., Liang, P., Wang, C., Shahin, M. and Zhan, J. (2021) 'Characteristics and challenges of low-code development: the practitioners' perspective', ESEM 2021. doi:10.1145/3475716.3475782.
-- Ajimati, M.O., Carroll, N. and Maher, M. (2025) 'Adoption of low-code and no-code development: a systematic literature review and future research agenda', *Journal of Systems and Software*, 222. doi:10.1016/j.jss.2024.112300.
-- Käss, S., Strahringer, S. and Westner, M. (2023) 'Practitioners' perceptions on the adoption of low code development platforms', *IEEE Access*, 11. doi:10.1109/access.2023.3258539.
-- Khorram, F., Mottu, J.-M. and Sunyé, G. (2020) 'Challenges & opportunities in low-code testing', MODELS-C 2020. doi:10.1145/3417990.3420204.
-- Hagel, N., Hili, N. and Schwab, D. (2024) 'Turning low-code development platforms into true no-code with LLMs', MODELS 2024 companion. doi:10.1145/3652620.3688334.
+### Theme 3: when feedback should arrive (motor learning)
 
-### Operating low-code and DevOps for model-driven engineering
+| Source | Type | Why |
+| --- | --- | --- |
+| **Salmoni, Schmidt & Walter 1984**, *Psychological Bulletin* 95(3) 355–386, doi:10.1037/0033-2909.95.3.355 | journal review | the guidance hypothesis: feedback during practice can create dependence; measure learning separately from performance |
+| **Sigrist et al. 2013a**, *Psychonomic Bulletin & Review* 20(1) 21–53, doi:10.3758/s13423-012-0333-8 | journal review | design criteria for visual, audio and haptic feedback |
+| Sigrist et al. 2013b, *Journal of Motor Behavior* 45(6) 455–472, doi:10.1080/00222895.2013.826169 | journal | complex task: terminal beat concurrent; concurrent helped only while switched on |
+| Wulf & Shea 2002, *Psychonomic Bulletin & Review* 9(2) 185–211, doi:10.3758/BF03196276 | journal review | counterweight: complex skills may benefit from concurrent guidance, so the question is open |
+| Walsh et al. 2009, *Academic Medicine* 84(10 Suppl.) S54–S57, doi:10.1097/ACM.0b013e3181b38daf | journal | simulator task closest to a game: terminal feedback transferred better |
+| Park, Shea & Wright 2000, *Journal of Motor Behavior* 32(3) 287–296, doi:10.1080/00222890009601379 | journal | faded or intermittent concurrent feedback reduces dependence: a design pattern, not a binary choice |
 
-- Costa, Gonçalves and Xavier-de-Souza (2025) 'Multitenancy in single instance of data persistence service for supporting low-code platforms', *IEEE Access*. doi:10.1109/access.2025.3525639.
-- Ul Haq, Alfonso, Sulejmani and Cabot (2024) 'Extending a low-code tool with multi-cloud deployment capabilities', LNCS. doi:10.1007/978-3-031-71246-3_5.
-- Alfonso, I. et al. (2024) 'Building BESSER: an open-source low-code platform', LNBIP. doi:10.1007/978-3-031-61007-3_16.
-- Rafi, S., Akbar, M.A., Sánchez-Gordón, M. and Colomo-Palacios, R. (2022) 'DevOps practitioners' perceptions of the low-code trend', ESEM 2022. doi:10.1145/3544902.3546635.
-- Combemale, B., Jézéquel, J.-M., Perez, Q. and Vojtisek, D. (2023) 'Model-based DevOps: foundations and challenges', MODELS-C 2023. doi:10.1109/models-c59198.2023.00076.
-- Berardinelli, L. et al. (2026) 'MDE, AI and DevOps: a systematic mapping', *ACM TOSEM*. doi:10.1145/3759454.
+### Theme 4: requirements engineering for AI
 
-### Methods to borrow: containers, infrastructure as code, installation
+| Source | Type | Why |
+| --- | --- | --- |
+| **Habiba, Haug, Bogner & Wagner 2024**, *Requirements Engineering* 29(4) 567–600, doi:10.1007/s00766-024-00432-3 | journal **review** (mapping, 126 studies) | **The second anchor.** Top challenges: specification, explainability, gap between ML engineers and end users. Check the full text for any treatment of timing |
+| Ahmad et al. 2023, *Information and Software Technology* 158 107176, doi:10.1016/j.infsof.2023.107176 | journal review (mapping, 43 studies) | evidence base skewed to autonomous vehicles; trust and explainability need research |
+| Habibullah, Gay & Horkoff 2023, *Requirements Engineering* 28(2) 283–316, doi:10.1007/s00766-022-00395-3 | journal | non-functional requirements for ML; latency appears only as a system property |
+| Chazette & Schneider 2020, *Requirements Engineering* 25(4) 493–514, doi:10.1007/s00766-020-00333-1 | journal | explainability as a requirement; assumes the user has attention to spare |
+| Amershi et al. 2019, CHI '19, doi:10.1145/3290605.3300233 | conference (HCI) | guideline "time services based on context": the only widely cited source naming timing of AI output as a requirement |
+| Martínez-Fernández et al. 2022, *ACM TOSEM* 31(2) 1–59, doi:10.1145/3487043 | journal review (248 studies) | optional: data requirements are the top SE4AI challenge (same Stuttgart group as Habiba) |
 
-- Rahman, A., Farhana, E., Parnin, C. and Williams, L. (2020) 'Gang of eight: a defect taxonomy for infrastructure as code scripts', ICSE 2020. doi:10.1145/3377811.3380409.
-- Rahman, A. et al. (2023) 'Security misconfigurations in open source Kubernetes manifests', *ACM TOSEM*. doi:10.1145/3579639.
-- Zerouali, A., Opdebeeck, R. and De Roover, C. (2023) 'Helm charts for Kubernetes applications: evolution, outdatedness and security risks', MSR 2023. doi:10.1109/msr59073.2023.00078.
-- Haque, M.U., Iwaya, L.H. and Babar, M.A. (2020) 'Challenges in Docker development: a large-scale study using Stack Overflow', ESEM 2020. doi:10.1145/3382494.3410693.
-- Eng, K., Hindle, A. and Stroulia, E. (2024) 'Patterns of multi-container composition for service orchestration with Docker Compose', *Empirical Software Engineering*. doi:10.1007/s10664-024-10462-8.
-- Gao, H., Treude, C. and Zahedi, M. (2025) 'Adapting installation instructions in rapidly evolving software ecosystems', *IEEE TSE*. doi:10.1109/tse.2025.3552614.
-- Chen, Z. et al. (2021) 'An empirical study on deployment faults of deep learning based mobile applications', ICSE 2021. doi:10.1109/icse43902.2021.00068.
+### Theme 5: fairness, integrity and platform rules
 
-Author initials marked "et al." or missing were not checked; take them from the paper when writing the reference list.
+| Source | Type | Why |
+| --- | --- | --- |
+| **Riedl & Verschuuren 2025**, *International Sports Law Journal* 25(2) 99–118, doi:10.1007/s40318-025-00295-y | journal review (PRISMA, 57 sources) | integrity research covers match-fixing and hacks, not legitimate-looking AI help |
+| Irwin & Naweed 2020, *Games and Culture* 15(4) 411–433, doi:10.1177/1555412018804952 | journal | the line of acceptable play is socially negotiated, so requirements need community input |
+| Yan & Randell 2009, *IEEE Security & Privacy* 7(3) 37–44, doi:10.1109/MSP.2009.60 | journal (magazine) | cheating taxonomy to classify AI assistance |
+| Riot Games policies (stance Feb 2025; League and VALORANT API policies Mar 2025; memory-access notice 29 Sep 2026), Overwolf compliance pages, Steam CS2 Trusted Mode FAQ, ESL/IEM rulebook | grey literature (primary sources) | the real-time split written as rules; quotes and URLs in [tools-and-policies.md](research/tools-and-policies.md). Counts as a source but not toward the 8 peer-reviewed |
 
-## Avoid
+### Method sources for the plan and pilot
 
-- "Scalability of low-code" papers in IJETCSIT, IJSR, IJRASET, IJFMR: they look predatory.
-- arXiv preprints (low-code DevOps paradox, model-driven DevOps SLR): they don't count toward the 8 peer-reviewed sources.
-- Budibase, Appsmith, ToolJet, NocoDB: no peer-reviewed study found. Cite their docs and repos as data, not literature.
+| Source | Type | Why |
+| --- | --- | --- |
+| Breaux & Antón 2008, *IEEE Transactions on Software Engineering* 34(1) 5–20, doi:10.1109/TSE.2007.70746 | journal | the established method for extracting requirements from regulatory rules: the pilot's method |
+| Dąbrowski et al. 2022, *Empirical Software Engineering* 27(2) 43, doi:10.1007/s10664-021-10065-7 | journal review | app-review mining, for the full study's user-feedback strand |
+| Lin et al. 2019, *Empirical Software Engineering* 24(1) 170–207, doi:10.1007/s10664-018-9627-4 | journal | game reviews differ from app reviews |
 
-## To confirm
+## Key primary-source quotes (check each page before quoting; accessed 26 Nov 2026)
 
-- Jim: is mining public GitHub issues an acceptable pilot with no ethics form? Is the limit 2,500 or 3,000 words with a pilot?
-- Margaria (week of 7 Dec): can the essay's findings feed the Project Details Form?
+- Riot, "Riot's Stance" (10 Feb 2025): bans tools "Drawing conclusions for you during gameplay (ie we want to see you play the game first, then analyze and reflect later!)".
+- Riot, VALORANT API policy (7 Mar 2025): bans real-time data "that would improve a player's performance immediately by altering player behavior (i.e. 'go here now'), vs altering it upon reflection, learning and coaching the player game over game".
+- Riot, League API policy (11 Mar 2025): "Apps that dictate player decisions" are not approved; "Products should not remove game decisions, but may highlight decisions that are important".
+- Riot, memory access notice (29 Sep 2026): from 6 Oct 2026 unknown tools are blocked; approved tools move to the official API by April 2027.
+- Overwolf, Riot compliance: power-spike notifications, enemy cooldown tracking and ultimate timers are "strictly prohibited".
+- ESL/IEM Rio 2022: offline, the coach may talk to players only "during tactical pauses and half times". Check the current ESL rulebook.
+
+## Still to check by hand
+
+- Full texts of Habiba 2024 and Ahmad 2023: confirm neither treats the timing of AI output as a requirement before claiming it.
+- Kleinman 2026 full text (reception of the tool); Sabtan et al. 2022 (abstract not available).
+- SCOPE.GG official site, Valve Game State Integration page, current ESL rulebook, whether Mobalytics' spell timer tracks enemy spells.
