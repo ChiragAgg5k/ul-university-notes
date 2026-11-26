@@ -61,20 +61,20 @@ RQ1 is what the pilot answers. RQ2 and RQ3 need people, so they belong in the fu
 | Agreement | both code all rows independently; report Cohen's kappa, then reconcile |
 | Report | counts by phase and boundary, kappa, 2 to 3 cases (Blitz's teammate-only ultimate timers; the Mobalytics listing advertising power-spike alerts that Overwolf prohibits; CS2 tools being post-match only because of Trusted Mode), and what to change for the full study |
 | Effort | about 8 hours each (4 on rules, 4 on features); manual collection, save a dated PDF of every page |
-| Ethics | public documents, no people. Overwolf forbids scraping, so read its pages by hand. **Confirm with Jim** |
+| Ethics | public documents, no people. Overwolf forbids scraping, so read its pages by hand |
 
-## Word budget (3,000 ±10%)
+## Word budget (3,500 ±10%, so 3,150 to 3,850)
+
+Decided 26 Nov: assume 3,500 with the pilot (the spec's "2,500 with a pilot" note reads like a typo for 3,500).
 
 | Part | Words |
 | --- | --- |
 | Introduction and motivation | 300 |
-| Literature review (themes 1–5) | 1,300 |
-| Gap and research questions | 350 |
-| Research plan | 450 |
-| Pilot study | 450 |
-| AI use declaration | 150 |
-
-If Jim confirms 2,500 with a pilot, cut the literature review to about 1,000 and the plan to about 350.
+| Literature review (themes 1–5) | 1,500 |
+| Gap and research questions | 400 |
+| Research plan | 500 |
+| Pilot study | 600 |
+| AI use declaration | 200 |
 
 ## Suggested split with the teammate
 
@@ -88,7 +88,7 @@ If Jim confirms 2,500 with a pilot, cut the literature review to about 1,000 and
 
 | When | What |
 | --- | --- |
-| Thu 26 – Fri 27 Nov | agree the split; email Jim (word count; pilot on public documents needs no ethics) |
+| Thu 26 – Fri 27 Nov | agree the split with Dhruv; start reading |
 | Sat 28 – Sun 29 Nov | read the core papers; collect and save the policy and feature pages; code |
 | Mon 30 Nov | reconcile codes, compute kappa, trace |
 | Mon 30 Nov – Wed 2 Dec | write own themes, then join |
