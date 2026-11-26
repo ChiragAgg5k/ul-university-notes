@@ -2,7 +2,7 @@
 
 Outline, 26 November 2026. This is not report text. Reports written by generative AI are marked zero, so write every sentence yourself; this file only fixes the structure, the argument to test and the sources for each part. Sources: [SOURCES.md](SOURCES.md).
 
-Due **Fri 4 December 2026, 23:59**, PDF, "Final Report" dropbox, in `report_template.docx` (download it from Brightspace; it is not in this folder yet).
+Due **Fri 4 December 2026, 23:59**, PDF, "Final Report" dropbox, in the official [report_template.docx](Brief/report_template.docx), downloaded from the "writing" lecture topic on 26 Nov 2026 with its [lecture notes](Brief/writing-lecture-slides-notes.pdf). Set the heading (title, name as on Brightspace, date) and the file's Author property, which still says "group member names". The template calls the section "Method" where the dropbox says "Approach", and asks for three to five Discussion themes; three meets both.
 
 ## What Prof. Noll asked for
 
