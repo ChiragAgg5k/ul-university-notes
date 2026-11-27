@@ -65,6 +65,7 @@ Open questions that change this plan: the CS6451 talk slot and Assignment 2 due 
 
 ## Other dates
 
+- **Sat 28 Nov, 10:45: Teen-Turn mentoring (paid, about €20/hour).** Selected by J.J. Collins (email of 27 Nov). Meet him in the Atrium of the Computer Science Building at 10:45; session 11:00–16:00 with about 50 second-level students in CS1-044 and CS2-044, swapping labs after lunch (13:00–14:00). Help with React, Python data analytics and Thunkable; show the benefits and risks of generative AI for code. Before then, spend an hour on Thunkable. The CSIS Systems Admin will email next week about payment. Optional afterwards: 30 minutes a week of unpaid support through Teen-Turn staff only (child protection: never contact students directly), which counts toward a President's Volunteer Award.
 - **Wed 2 Dec: email Prof. Margaria (Masters Project).** Reply in the "Wave backend" thread, cc Gabriel: MOOC finished on 25 Nov (97%), and ask to meet in the week of 7 Dec. She is back at the beginning of December.
 - **Sat 28 Nov, 11:00–16:00, Teen-Turn mentoring (paid, about €20/hour), CSIS labs: unconfirmed.** Applied to J.J. Collins on 25 Nov, 12:38, with a tailored CV (`~/Documents/CV/`). Not going until J.J. confirms by email; check the inbox for his reply.
 - **Tue 24 Nov**: gradireland "Engineer Your Career" in Dublin. Applied 19 Nov; not offered a place (email of 19 Nov), so the day is free.
